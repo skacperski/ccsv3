@@ -1,0 +1,20 @@
+---
+description: Zawsze humanizuj copy marketingowe i treści LP przed publikacją
+globs:
+  - "**/*.html"
+  - "**/wireframes/**"
+  - "**/landing-pages/**"
+alwaysApply: true
+---
+
+# Humanizer (obowiązkowy)
+
+Przy pisaniu lub edycji tekstów marketingowych, landing page’ów, nagłówków i CTA:
+
+1. **Użyj skilla** `.cursor/skills/humanizer/SKILL.md` (źródło: https://github.com/blader/humanizer).
+2. **Przepisz** wykryte wzorce AI: puste wzmocnienia, „nie tylko X, ale Y”, nadmiar myślników, rule of three na siłę, słownictwo typu „kompleksowy / kluczowy / znaczący / umożliwia”.
+3. **Zachowaj fakty** (ceny, terminy 24h/72h, progi 50+/10 mln EUR, daty KSC) — nie wymyślaj liczb.
+4. **Ton:** polski B2B, zwięźle, jak do zarządu i IT — bez chatbotowych zwrotów i bez hype’u.
+5. Po pierwszej wersji zrób **krótki audyt** pod kątem oczywistych AI-izmów i popraw drugą passą, jeśli trzeba.
+
+Kod i komentarze w plikach technicznych pozostają po angielsku; humanizer dotyczy **treści widocznych dla użytkownika**.
