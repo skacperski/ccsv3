@@ -1,18 +1,33 @@
 ---
 name: landing-pages
 description: >-
-  Builds high-converting standalone marketing landing pages with a single CTA,
-  message match, and campaign focus. Use when creating or planning landing pages,
-  squeeze pages, lead capture pages, clickthrough pages, campaign destination URLs,
-  PPC/social/email landing destinations, or when the user asks how to structure a
-  landing page, what to include, or homepage vs landing page differences. For
-  optimizing existing pages, see page-cro. For ad copy, see ad-creative. For
-  marketing copy polish, see copywriting.
+  Plans and builds high-converting standalone landing pages using proven structures,
+  swipe-file patterns from 40+ real examples, and industry templates. Use when creating
+  landing pages, squeeze pages, lead capture, clickthrough pages, campaign URLs, or
+  when the user wants Netflix/SEMrush-style conversion-focused layouts. Covers message
+  match, USP anatomy, section order, forms, proof placement, and mobile/speed QA. For
+  post-launch optimization see page-cro; for ads see ad-creative; for copy polish see
+  copywriting.
 ---
 
 # Landing Pages
 
-Build **standalone, campaign-specific pages** with **one primary call to action** and **no site navigation** that leaks visitors away from conversion. Source principles: [Unbounce — What is a landing page?](https://unbounce.com/landing-page-articles/what-is-a-landing-page/).
+Build **standalone, campaign-specific pages** with **one primary CTA** and **no leaking navigation**. Synthesized from Unbounce (fundamentals, anatomy, [40 examples](https://unbounce.com/landing-page-examples/best-landing-page-examples/)), Copyhackers, CXL, HubSpot, and conversion research.
+
+## Quick start (agent workflow)
+
+When the user asks to create a landing page:
+
+1. **Brief** — campaign, traffic source, single goal, audience, offer (see §1 below)
+2. **Pick type** — lead gen (form) vs clickthrough (button)
+3. **Pick structure** — [structures.md](structures.md): 5-element (default) or 7-block (long B2B/story)
+4. **Pick patterns** — [patterns.md](patterns.md): 1 hero + 2–3 proof/layout patterns from swipe file
+5. **Pick industry outline** — [industry-templates.md](industry-templates.md) if vertical is known
+6. **Draft copy** — use templates below; PAS if pain-aware traffic
+7. **Implement** — no nav; proof at friction; mobile CTA; 1–2s load target
+8. **QA** — [checklist.md](checklist.md)
+
+Output: planning doc + section copy + implementation notes (or code/Webflow components per project).
 
 ## When to use a landing page (not a homepage)
 
@@ -22,171 +37,155 @@ Build **standalone, campaign-specific pages** with **one primary call to action*
 | Single offer, signup, or purchase | Jobs, press, terms, community |
 | Message match from one ad or email | General “learn about us” |
 
-**Rule:** Fewer links → higher conversion. Remove global nav, footer link farms, and secondary journeys unless they support the one goal.
+**Rule:** Fewer links → higher conversion. Remove global nav, footer link farms, and secondary journeys.
 
-## Page types — pick one first
+## Page types
 
 | Type | CTA | Best for |
 |------|-----|----------|
-| **Lead gen** (squeeze / lead capture) | Short form (name, email, …) | B2B, high-ticket, list-building; ebook, webinar, event registration |
-| **Clickthrough** | Button → checkout, app store, or next step | Ecommerce product focus, SaaS free trial signup, direct sale |
+| **Lead gen** | Short form | B2B, ebooks, webinars, events, quotes |
+| **Clickthrough** | Button → checkout / app / next step | Ecommerce, SaaS trial start |
 
-Do not mix multiple primary goals on one page.
+One primary goal per page.
 
-## Required anatomy (every section earns its place)
+## Core anatomy (Unbounce 5 elements)
 
-1. **Headline** — Matches ad/email intent; states core value in one line; above the fold.
-2. **Supporting copy** — Bullets or short paragraphs; benefits over features; no history-of-company filler.
-3. **Primary CTA** — Action language (“Get started”, “Download now”); visible without scroll; repeat after key proof blocks.
-4. **Form** (lead gen only) — Minimum fields; clear labels; one column on mobile.
-5. **Visuals** — Product screenshots, hero image, or short video that reinforces the offer; no decorative clutter.
-6. **Social proof** — Testimonials, logos, ratings, trust badges near hesitation points.
-7. **Mobile** — Responsive layout; tap-friendly buttons and inputs; test thumb reach for CTA.
+Map every section to one element — details in [structures.md](structures.md):
 
-Optional: secondary CTA only if it does not compete (e.g. “Watch demo” vs “Start trial” — pick one primary).
+1. **USP** — Headline + subhead (+ reinforcing mid-page + closing before final CTA on long pages)
+2. **Hero shot** — Product in context; real people; avoid fake stock
+3. **Benefits** — Outcome-first; features support mechanism
+4. **Social proof** — At form, price, and bold claims
+5. **Single CTA** — Conversational button copy; minimal form
+
+**3-second test:** What is this? Who is it for? What do I do next?
 
 ## Message match (non-negotiable)
 
-Traffic source promise = landing page promise.
+Traffic promise = headline + above-fold offer. Echo ad keyword, discount, or audience (e.g. job seekers only). No bait-and-switch.
 
-- Headline echoes the ad/email keyword and offer.
-- Visual style and tone align with the campaign.
-- No bait-and-switch (different product, price, or audience).
+## Default section order
 
-Ask: *“If someone only read the ad and the headline, would they know they’re in the right place?”*
+**Short (Netflix / Calm):** Hero (headline + subhead + CTA/form) → 3 benefits → optional collapsible FAQ → final CTA
 
-## Build workflow
+**Standard:** Hero → problem (2–3 bullets) → solution/benefits → how it works (3 steps) → proof → offer/FAQ → final CTA
 
-Copy this checklist and track progress:
+**Long (LinkedIn / B2B):** Hero + jump links → segments of benefits → proof blocks → FAQ → repeated CTAs
+
+**Story (Grass Roots):** Hero video → narrative problem → why us → proof → offer CTA
+
+Choose length by commitment level — see length table in [structures.md](structures.md).
+
+## Pattern library (40 examples)
+
+Do not use every pattern on one page. Select from [patterns.md](patterns.md):
+
+| Need | Pattern |
+|------|---------|
+| Minimal signup | One-field form, &lt;350 words, FAQ collapsed |
+| SaaS trial | People + product hero; stat near CTA; jump links |
+| Ecommerce sale | Sale headline; grid; strikethrough prices |
+| DTC product | Annotated product; vs alternatives; specs |
+| Pain-aware | Problem headline + solution subhead above fold |
+| B2B wholesale | Short page; process diagram; light form |
+| Local booking | Literal offer; 3-step how-it-works; testimonials |
+
+Full index: goal → examples (Netflix, SEMrush, Coco Village, etc.) in [patterns.md](patterns.md).
+
+## Build workflow checklist
 
 ```
-Landing page build:
 - [ ] 1. Brief
 - [ ] 2. Type & goal
-- [ ] 3. Outline
-- [ ] 4. Copy
-- [ ] 5. UI / implementation
-- [ ] 6. Pre-launch QA
+- [ ] 3. Structure (5-element vs 7-block)
+- [ ] 4. Patterns (hero + proof)
+- [ ] 5. Industry template (if applicable)
+- [ ] 6. Copy + wireframe order
+- [ ] 7. UI / implementation
+- [ ] 8. Pre-launch QA
 ```
 
-### 1. Brief (ask or infer)
+### 1. Brief
 
-- **Campaign:** What ad, email, or channel sends traffic?
-- **Single conversion goal:** Lead, trial signup, purchase, registration, download?
-- **Audience segment:** Role, pain, awareness level?
-- **Offer:** What do they get and why now?
-- **Success metric:** Conversion rate, CPA, leads per week?
+- Campaign + traffic source (PPC keyword, email subject, social creative)
+- Single conversion goal + metric
+- Audience segment + awareness
+- Offer + urgency (only if true)
 
-Read `.agents/product-marketing-context.md` if present before asking redundant questions.
+Read `.agents/product-marketing-context.md` when present.
 
-### 2. Type & goal
+### 2–5. Structure & patterns
 
-Choose lead gen **or** clickthrough. Write one sentence: “When the visitor lands, they will ___.”
+Document choices in planning output:
 
-### 3. Outline (section order)
+```markdown
+## Structure: 5-element | 7-block
+## Patterns: [hero pattern], [proof pattern], …
+## Industry: SaaS trial | Ecommerce DTC | …
+```
 
-Default long-form flow:
+### 6. Copy rules
 
-1. Hero: headline + subhead + primary CTA (+ form or button)
-2. Problem / agitation (optional, 2–3 bullets)
-3. Solution / benefits (3–5 bullets)
-4. How it works (3 steps max) or product visual
-5. Social proof
-6. Offer recap + FAQ (only objections that block conversion)
-7. Final CTA block
+- Headline: useful, specific, message-matched (not vague cleverness)
+- Subhead: who + what they get
+- CTA: value + action (“Start my free trial”, “Get the 2026 guide”)
+- Forms: minimum fields; labels above inputs; 3 fields common starting point for cold traffic
+- FAQ: collapsible for pricing/objections (Netflix pattern)
+- Video: only if it states pain → solution; don’t hide CTA
 
-**Length:** Include only content needed for the desired action. Short pages for simple offers; longer when the product needs explanation (still no off-topic “about us”).
+**Copy frameworks:** Problem → Solution → Outcome (HubSpot); PAS for pain-aware ads (Copyhackers).
 
-### 4. Copy rules
+### 7. UI / implementation
 
-- Headline: outcome or specific value, not clever vagueness.
-- Subhead: who it’s for + what they get.
-- CTA button: value + action (“Start my free trial”, not “Submit”).
-- Forms: ask only what sales/nurture truly needs; every extra field costs conversions.
-- Urgency/scarcity: only if true.
+**Exclude:** Global nav, blog sidebars, competing primary CTAs, unrelated links
 
-### 5. UI / implementation
+**Include:** One CTA color; contrast; semantic forms; analytics on conversion; lazy-load below fold
 
-**Must not include on campaign landing pages:**
+**Long pages:** Repeat CTA 2–3×; anchor/jump links optional; same destination OK with varied CTA labels (Branch pattern)
 
-- Global header nav with 5+ links
-- Blog sidebar, unrelated promos, “latest news”
-- Multiple competing primary buttons
+Match project stack (Webflow, Next.js, etc.).
 
-**Must include:**
+### 8. Pre-launch QA
 
-- One primary CTA color; sufficient contrast
-- Fast load: target **1–2s**; every extra second can materially hurt conversions
-- Semantic HTML + accessible labels on forms
-- `noindex` only when intentional (tests, time-boxed campaigns); otherwise allow index if SEO is a channel
+Full list: [checklist.md](checklist.md)
 
-Match project stack (Webflow, Next.js, etc.) and existing design tokens when building in code.
+## A/B testing order
 
-### 6. Pre-launch QA
+1. Headline / USP → 2. Value prop → 3. CTA copy & placement → 4. Proof type & placement → 5. Form length → 6. Hero media → 7. Section order
 
-Run before shipping:
+One structural change per test.
 
-- [ ] Message match: ad/email ↔ headline ↔ offer
-- [ ] Single primary CTA; no navigation leaks
-- [ ] Mobile: CTA and form usable one-handed
-- [ ] Form submits; thank-you or next step works
-- [ ] Analytics/events on conversion action
-- [ ] Page speed acceptable on 4G (Lighthouse or WebPageTest)
-- [ ] Legal: privacy link if collecting PII; cookie consent if required
+## Traffic sources
 
-## Traffic source notes
-
-| Source | Landing page implication |
-|--------|---------------------------|
-| **Paid search** | Keyword + ad copy match; one offer per ad group |
-| **Paid social** | Visual-first; audience-specific pain; cold vs warm creative |
-| **Email** | Continue thread from subject line; one CTA per email |
-| **Organic** | Useful content + clear CTA; SEO is investment, not “free” day one |
-
-Prefer **one dedicated landing page per campaign** (and per major audience segment or product when offers differ).
-
-## A/B testing priorities
-
-Test in this order when optimizing:
-
-1. Headline / value proposition
-2. Primary CTA copy and placement
-3. Form length (lead gen)
-4. Hero visual or video vs static
-5. Social proof placement and type
-
-After launch, hand off deep CRO audits to **page-cro**.
+| Source | LP focus |
+|--------|----------|
+| Paid search | Keyword + ad = headline; one offer per ad group |
+| Paid social | Visual match; cold = shorter form |
+| Email | Subject line = hero promise |
+| Organic | Balance SEO + single CTA if one URL serves both |
 
 ## Output templates
 
-### Planning doc (markdown)
+### Planning doc
 
 ```markdown
-# Landing page: [Campaign name]
+# Landing page: [Campaign]
 
-## Goal
-- Conversion: [e.g. demo request]
-- Traffic: [e.g. LinkedIn ads — IT managers]
-
-## Message match
-- Ad promise: "..."
+## Goal & metric
+## Traffic & message match
+- Ad/email: "..."
 - Headline: "..."
 
-## Type
-Lead gen | Clickthrough
-
-## Sections
-1. Hero — ...
-2. ...
-
-## Form fields (if any)
-- ...
-
-## Metrics
-- Primary: ...
+## Type: Lead gen | Clickthrough
+## Structure: 5-element | 7-block
+## Patterns: ...
+## Sections (ordered)
+1. ...
+## Form fields
+## Proof assets needed
 ```
 
-### Section copy stub (for implementation)
+### Section copy stub
 
 ```markdown
 ## Hero
@@ -194,28 +193,35 @@ Lead gen | Clickthrough
 **Subhead:**
 **CTA:**
 
-## Benefits
-- 
-- 
+## Benefits (outcome-led)
 - 
 
-## Social proof
-**Quote / logos:**
+## Proof (place near form)
+**Quote / logos / stat:**
+
+## FAQ (collapsible items)
+- 
 
 ## Final CTA
 **Headline:**
 **Button:**
 ```
 
+## Reference files
+
+| File | Use |
+|------|-----|
+| [structures.md](structures.md) | Frameworks, length, CTA/form, test order |
+| [patterns.md](patterns.md) | Swipe-file from 40 Unbounce examples |
+| [industry-templates.md](industry-templates.md) | Section outlines by vertical |
+| [checklist.md](checklist.md) | Pre-launch & FAQ |
+| [sources.md](sources.md) | Full article bibliography |
+
 ## Related skills
 
-- **page-cro** — Improve conversion on an existing page
-- **copywriting** / **copy-editing** — Headlines and body copy
-- **ad-creative** / **paid-ads** — Ads that feed the page
-- **form-cro** — Non-signup forms
-- **signup-flow-cro** — Post-click registration flows
+- **page-cro** — Optimize existing pages
+- **copywriting** / **copy-editing** — Headlines and body
+- **ad-creative** / **paid-ads** — Campaigns feeding the LP
+- **form-cro** — Complex forms
+- **signup-flow-cro** — Post-click flows
 - **analytics-tracking** — Events and attribution
-
-## Reference
-
-Detailed checklist and FAQ patterns: [checklist.md](checklist.md)
