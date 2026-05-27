@@ -99,6 +99,50 @@
       line-height: 1.5;
     }
 
+    .sim-toolbar {
+      padding: 8px 12px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sim-toggle,
+    .sim-copy-link {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 11px;
+      cursor: pointer;
+      border: 1px solid #555;
+      background: #222;
+      color: #eee;
+      text-align: left;
+    }
+
+    .sim-toggle:hover,
+    .sim-copy-link:hover { background: #333; }
+
+    .sim-toggle[aria-pressed="true"] {
+      background: #444;
+      border-color: #888;
+    }
+
+    /* Dev-only chrome: hidden by default */
+    body.dev-meta-hidden .wf-dev-only { display: none !important; }
+
+    .wf-block.wf-is-dynamic {
+      outline: 3px solid #111;
+      outline-offset: 2px;
+    }
+
+    .wf-cta-secondary.is-hidden { display: none !important; }
+
+    .wf-section-optional.is-collapsed { display: none !important; }
+
+    .wf-cta-ghost {
+      display: none;
+    }
+
     /* —— Page wireframe —— */
     .page {
       max-width: 960px;
@@ -394,9 +438,17 @@
     }
   </style>
 </head>
-<body>
+<body class="dev-meta-hidden">
 
   <aside class="sim-panel" aria-label="Symulator źródła ruchu">
+    <div class="sim-toolbar">
+      <button type="button" class="sim-toggle" id="toggle-dev-meta" aria-pressed="false">
+        Pokaż metadane (UTM, etykiety sekcji)
+      </button>
+      <button type="button" class="sim-copy-link" id="copy-preview-link">
+        Kopiuj link podglądu wariantu
+      </button>
+    </div>
     <h2>Symulator reklamy</h2>
     <div class="sim-meta" id="sim-meta">
       <strong>Wybierz wariant</strong>
@@ -404,23 +456,24 @@
     </div>
 
     <h2>Google Ads</h2>
-    <button type="button" class="sim-btn" data-variant="gads-kary">Kary / KSC 2026<small>grupa: nis2-kary · intencja regulacyjna</small></button>
-    <button type="button" class="sim-btn" data-variant="gads-podlegam">Czy podlegam?<small>grupa: nis2-test · ankieta</small></button>
-    <button type="button" class="sim-btn" data-variant="gads-audyt">Audyt / wdrożenie<small>grupa: nis2-audyt · oferta od 9 900 zł</small></button>
-    <button type="button" class="sim-btn" data-variant="gads-aas">NIS2 as a Service<small>grupa: nis2-managed · od 15 900 zł/mc</small></button>
+    <button type="button" class="sim-btn" data-variant="gads-kary">Kary / KSC 2026<small class="wf-dev-only">grupa: nis2-kary · intencja regulacyjna</small></button>
+    <button type="button" class="sim-btn" data-variant="gads-podlegam">Czy podlegam?<small class="wf-dev-only">grupa: nis2-test · ankieta</small></button>
+    <button type="button" class="sim-btn" data-variant="gads-audyt">Audyt gotowości<small class="wf-dev-only">grupa: nis2-audyt · od 9 900 zł</small></button>
+    <button type="button" class="sim-btn" data-variant="gads-wdrozenie">Implementacja NIS2<small class="wf-dev-only">grupa: nis2-wdrozenie · od 24 900 zł</small></button>
+    <button type="button" class="sim-btn" data-variant="gads-aas">NIS2 as a Service<small class="wf-dev-only">grupa: nis2-managed · od 15 900 zł/mc</small></button>
 
     <h2>LinkedIn Ads</h2>
-    <button type="button" class="sim-btn" data-variant="li-ceo">CEO / Zarząd<small>odpowiedzialność osobista</small></button>
-    <button type="button" class="sim-btn" data-variant="li-ciso">CISO / Dyrektor IT<small>regulacja + pentesty + SOC</small></button>
-    <button type="button" class="sim-btn" data-variant="li-coo">COO / Operacje<small>incydenty 24h · łańcuch dostaw</small></button>
+    <button type="button" class="sim-btn" data-variant="li-ceo">CEO / Zarząd<small class="wf-dev-only">nis2-li-ceo</small></button>
+    <button type="button" class="sim-btn" data-variant="li-ciso">CISO / Dyrektor IT<small class="wf-dev-only">nis2-li-ciso</small></button>
+    <button type="button" class="sim-btn" data-variant="li-coo">COO / Operacje<small class="wf-dev-only">nis2-li-ops</small></button>
 
     <h2>Inne</h2>
-    <button type="button" class="sim-btn" data-variant="default">Domyślny (bez UTM)<small>generyczny NIS2</small></button>
+    <button type="button" class="sim-btn" data-variant="default">Domyślny (bez UTM)<small class="wf-dev-only">fallback</small></button>
 
-    <p class="sim-note">W produkcji: mapowanie utm_campaign / utm_content → variantId. Sekcje oznaczone DYNAMIC zmieniają copy; reszta wspólna.</p>
+    <p class="sim-note wf-dev-only">W produkcji: mapowanie utm_campaign / utm_content → variantId. Sekcje oznaczone DYNAMIC zmieniają copy; reszta wspólna.</p>
   </aside>
 
-  <div class="wf-sticky-note">
+  <div class="wf-sticky-note wf-dev-only">
     <strong>Wireframe</strong> — czarno-biały, bez finalnego UI. URL docelowy: /nis2/start (paid, bez MENU).
   </div>
 
@@ -431,14 +484,14 @@
       <div class="wf-logo">CyCommSec</div>
       <div class="wf-phone">[ tel. opcjonalnie ]</div>
     </header>
-    <p class="wf-label">Sekcja 0 — header (statyczny, brak menu usług 01–12)</p>
+    <p class="wf-label wf-dev-only">Sekcja 0 — header (statyczny, brak menu usług 01–12)</p>
 
     <!-- HERO (dynamic) -->
-    <section class="wf-block wf-block--hero" id="sec-hero">
-      <p class="wf-label">Sekcja 1 — hero · DYNAMIC</p>
-      <span class="wf-dynamic-badge" id="hero-badge">VARIANT</span>
-      <span class="wf-tag" id="hero-tag">UTM</span>
-      <div class="wf-img">[ opcjonalnie: zdjęcie / ilustracja — bez stock „hacker” ]</div>
+    <section class="wf-block wf-block--hero wf-is-dynamic" id="sec-hero" data-dynamic>
+      <p class="wf-label wf-dev-only">Sekcja 1 — hero · DYNAMIC</p>
+      <span class="wf-dynamic-badge wf-dev-only" id="hero-badge">VARIANT</span>
+      <span class="wf-tag wf-dev-only" id="hero-tag">UTM</span>
+      <div class="wf-img wf-dev-only">[ opcjonalnie: zdjęcie / ilustracja — bez stock „hacker” ]</div>
       <h1 class="wf-h1" id="hero-h1">—</h1>
       <p class="wf-subhead" id="hero-sub">—</p>
       <div class="wf-stats" id="hero-stats"></div>
@@ -449,33 +502,32 @@
       <p class="wf-micro" id="hero-micro">—</p>
     </section>
 
-    <!-- SCOPE (mostly static, CTA dynamic label) -->
+    <!-- SCOPE -->
     <section class="wf-block" id="sec-scope">
-      <p class="wf-label">Sekcja 2 — czy mnie dotyczy? (statyczna treść)</p>
-      <h2 class="wf-h2">Czy NIS2 dotyczy Twojej organizacji?</h2>
-      <ul class="wf-list">
+      <p class="wf-label wf-dev-only">Sekcja 2 — kwalifikacja · DYNAMIC (tryb compact/full)</p>
+      <h2 class="wf-h2" id="scope-h2">Czy NIS2 dotyczy Twojej organizacji?</h2>
+      <ul class="wf-list" id="scope-list">
         <li>Działasz w jednym z <strong>18 sektorów</strong> objętych dyrektywą NIS2 i ustawą KSC.</li>
         <li>Masz <strong>co najmniej 50 pracowników</strong> lub roczny obrót <strong>powyżej 10 mln EUR</strong> (lub jesteś podmiotem specjalnym, np. DNS, rejestr domen).</li>
         <li>Po <strong>nowelizacji KSC (luty 2026)</strong> nie masz pewności, czy spełniasz wymogi i terminy.</li>
       </ul>
-      <span class="wf-cta-primary" id="scope-cta">—</span>
-      <p class="wf-micro">Link pomocniczy: „Pełna lista sektorów” → accordion w FAQ (nie na paid above fold).</p>
+      <p class="wf-subhead" id="scope-compact" style="display:none"></p>
+      <p class="wf-micro wf-dev-only">Pełna lista sektorów → FAQ (accordion).</p>
     </section>
 
-    <!-- RISK (dynamic headline + optional lead) -->
-    <section class="wf-block wf-block--muted" id="sec-risk">
-      <p class="wf-label">Sekcja 3 — ryzyko (PAS) · częściowo DYNAMIC</p>
+    <!-- RISK (dynamic) -->
+    <section class="wf-block wf-block--muted wf-is-dynamic" id="sec-risk" data-dynamic>
+      <p class="wf-label wf-dev-only">Sekcja 3 — ryzyko (PAS) · DYNAMIC</p>
       <h2 class="wf-h2" id="risk-h2">—</h2>
       <p class="wf-subhead" id="risk-lead" style="margin-bottom:12px">—</p>
       <ul class="wf-list" id="risk-bullets"></ul>
-      <span class="wf-cta-primary" id="risk-cta">—</span>
     </section>
 
-    <!-- SERVICE (static pillars) -->
-    <section class="wf-block" id="sec-service">
-      <p class="wf-label">Sekcja 4 — NIS2 as a Service (statyczna)</p>
-      <h2 class="wf-h2">NIS2 as a Service — regulacja i technologia w jednym miejscu</h2>
-      <p class="wf-subhead">Jako jedna z nielicznych firm w Europie łączymy ekspertyzę regulacyjną z wdrożeniem technicznym (OneStopShop) — nie tylko „papierowa” zgodność.</p>
+    <!-- SERVICE (dynamic lead) -->
+    <section class="wf-block wf-is-dynamic" id="sec-service" data-dynamic>
+      <p class="wf-label wf-dev-only">Sekcja 4 — oferta · częściowo DYNAMIC</p>
+      <h2 class="wf-h2" id="service-h2">NIS2 as a Service — regulacja i technologia w jednym miejscu</h2>
+      <p class="wf-subhead" id="service-sub">Łączymy ekspertyzę regulacyjną z wdrożeniem technicznym (OneStopShop) — nie tylko „papierowa” zgodność.</p>
       <div class="wf-grid-3">
         <div class="wf-card">
           <h3 class="wf-h3">01 · Regulacja</h3>
@@ -494,7 +546,7 @@
 
     <!-- HOW (static) -->
     <section class="wf-block" id="sec-how">
-      <p class="wf-label">Sekcja 5 — jak to działa (statyczna)</p>
+      <p class="wf-label wf-dev-only">Sekcja 5 — jak to działa (statyczna)</p>
       <h2 class="wf-h2">Jak wygląda współpraca</h2>
       <div class="wf-steps">
         <div class="wf-step"><span class="num">KROK 1</span><br><strong>Ankieta (2 min)</strong><br>Wstępna ocena zakresu NIS2 i luk.</div>
@@ -503,9 +555,9 @@
       </div>
     </section>
 
-    <!-- PROOF (static) -->
-    <section class="wf-block wf-block--muted" id="sec-proof">
-      <p class="wf-label">Sekcja 6 — proof (statyczna)</p>
+    <!-- PROOF — przed pricing (feedback CRO) -->
+    <section class="wf-block wf-block--muted wf-is-dynamic" id="sec-proof" data-dynamic>
+      <p class="wf-label wf-dev-only">Sekcja 6 — proof · DYNAMIC (cytat per persona)</p>
       <h2 class="wf-h2">Zaufali nam</h2>
       <div class="wf-proof-row">
         <div class="wf-logo-placeholder">LOGO</div>
@@ -513,14 +565,14 @@
         <div class="wf-logo-placeholder">LOGO</div>
         <div class="wf-logo-placeholder">LOGO</div>
       </div>
-      <blockquote class="wf-quote">„[ Cytat klienta — stanowisko, firma, sektor. Umieścić obok pakietów / formularza w produkcji. ]”</blockquote>
+      <blockquote class="wf-quote" id="proof-quote">„[ Cytat klienta — stanowisko, firma, sektor ]”</blockquote>
     </section>
 
-    <!-- PRICING (static structure, featured card may highlight per variant in prod) -->
-    <section class="wf-block" id="sec-pricing">
-      <p class="wf-label">Sekcja 7 — pakiety (statyczna · wszystkie CTA → ankieta)</p>
+    <!-- PRICING -->
+    <section class="wf-block wf-is-dynamic" id="sec-pricing" data-dynamic>
+      <p class="wf-label wf-dev-only">Sekcja 7 — pakiety · DYNAMIC (wyróżniona karta + lead)</p>
       <h2 class="wf-h2">Wybierz punkt startu</h2>
-      <p class="wf-subhead">Wszystkie ścieżki zaczynają się od ankiety — kwalifikujemy dopasowanie pakietu.</p>
+      <p class="wf-subhead" id="pricing-lead">Wszystkie ścieżki zaczynają się od ankiety — kwalifikujemy dopasowanie pakietu.</p>
       <div class="wf-grid-3">
         <div class="wf-card" id="card-audit">
           <h3 class="wf-h3">Ocena gotowości NIS2</h3>
@@ -530,7 +582,7 @@
             <li style="border:none;padding:4px 0;font-size:12px">Raport dla zarządu</li>
             <li style="border:none;padding:4px 0;font-size:12px">Wytyczne działań</li>
           </ul>
-          <span class="wf-cta-primary card-cta">Zacznij od ankiety</span>
+          <span class="wf-cta-primary card-cta" data-card="audit">Zacznij od ankiety</span>
         </div>
         <div class="wf-card" id="card-impl">
           <h3 class="wf-h3">Implementacja NIS2</h3>
@@ -540,7 +592,7 @@
             <li style="border:none;padding:4px 0;font-size:12px">Wdrożenie środków</li>
             <li style="border:none;padding:4px 0;font-size:12px">Szkolenia</li>
           </ul>
-          <span class="wf-cta-primary card-cta">Zacznij od ankiety</span>
+          <span class="wf-cta-primary card-cta" data-card="impl">Zacznij od ankiety</span>
         </div>
         <div class="wf-card wf-card--featured" id="card-aas">
           <h3 class="wf-h3">NIS2 as a Service ★</h3>
@@ -550,14 +602,15 @@
             <li style="border:none;padding:4px 0;font-size:12px">Pentesty w cenie</li>
             <li style="border:none;padding:4px 0;font-size:12px">Ciągła zgodność</li>
           </ul>
-          <span class="wf-cta-primary card-cta">Sprawdź dopasowanie w ankiecie</span>
+          <span class="wf-cta-primary card-cta" data-card="aas">Sprawdź dopasowanie w ankiecie</span>
         </div>
       </div>
+      <p class="wf-micro" style="margin-top:12px">Jeden główny krok konwersji: <strong id="pricing-cta-hint">ankieta 2 min</strong> — pozostałe pakiety porównawcze.</p>
     </section>
 
-    <!-- COMPARE (static) -->
-    <section class="wf-block" id="sec-compare">
-      <p class="wf-label">Sekcja 8 — in-house vs aaS (statyczna, skrócona)</p>
+    <!-- COMPARE -->
+    <section class="wf-block wf-section-optional" id="sec-compare">
+      <p class="wf-label wf-dev-only">Sekcja 8 — in-house vs aaS (ukryte dla wariantów top-funnel)</p>
       <h2 class="wf-h2">Zespół wewnętrzny vs NIS2 as a Service</h2>
       <div class="wf-grid-3" style="grid-template-columns:1fr 1fr">
         <div class="wf-card">
@@ -574,7 +627,7 @@
 
     <!-- FAQ (static) -->
     <section class="wf-block wf-block--muted" id="sec-faq">
-      <p class="wf-label">Sekcja 9 — FAQ accordion (statyczna · 10 wymogów NIS2 w osobnym accordion)</p>
+      <p class="wf-label wf-dev-only">Sekcja 9 — FAQ accordion</p>
       <h2 class="wf-h2">Najczęstsze pytania</h2>
       <div class="wf-accordion">Czym jest NIS2 i dlaczego jest ważna po 2026?</div>
       <div class="wf-accordion">Czy NIS2 dotyczy mojej firmy (50+ osób, 10 mln EUR)?</div>
@@ -585,8 +638,8 @@
     </section>
 
     <!-- FINAL CTA (dynamic) -->
-    <section class="wf-block wf-block--hero" id="sec-final">
-      <p class="wf-label">Sekcja 10 — final CTA · DYNAMIC</p>
+    <section class="wf-block wf-block--hero wf-is-dynamic" id="sec-final" data-dynamic>
+      <p class="wf-label wf-dev-only">Sekcja 10 — final CTA · DYNAMIC</p>
       <h2 class="wf-h2" id="final-h2">—</h2>
       <p class="wf-subhead" id="final-sub">—</p>
       <span class="wf-cta-primary" id="final-cta">—</span>
@@ -596,11 +649,22 @@
     <footer class="wf-header" style="margin-top:0">
       <span style="font-size:11px;color:var(--muted)">Polityka prywatności · RODO · © CyCommSec</span>
     </footer>
-    <p class="wf-label">Stopka — bez mapy serwisu / cross-sell Cyber 360</p>
+    <p class="wf-label wf-dev-only">Stopka — bez mapy serwisu / cross-sell Cyber 360</p>
 
   </main>
 
   <script>
+    const UTM_CAMPAIGN_MAP = {
+      "nis2-kary": "gads-kary",
+      "nis2-test": "gads-podlegam",
+      "nis2-audyt": "gads-audyt",
+      "nis2-wdrozenie": "gads-wdrozenie",
+      "nis2-managed": "gads-aas",
+      "nis2-li-ceo": "li-ceo",
+      "nis2-li-ciso": "li-ciso",
+      "nis2-li-ops": "li-coo"
+    };
+
     const VARIANTS = {
       "gads-kary": {
         channel: "Google Ads",
@@ -608,8 +672,19 @@
         utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-kary&utm_content=kary-ksc",
         simTitle: "Google Ads — Kary / KSC 2026",
         simDesc: "Intencja: regulacja, ustawa, kary. Message match na strach prawny + termin KSC.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: null,
+        scopeMode: "full",
+        hideCompare: true,
+        service: {
+          h2: "Zgodność z KSC — od diagnozy do dowodów dla organu",
+          sub: "Audyt luk, procedury incydentów i środki techniczne wymagane po wejściu ustawy — nie tylko dokumenty bez wdrożenia."
+        },
+        proofQuote: "„Po ankiecie mieliśmy jasny obraz luk wobec KSC — zarząd dostał raport bez żargonu technicznego.” — [stanowisko], [branża]",
+        pricingLead: "Zacznij od oceny ryzyka kar — ankieta wskaże, czy wystarczy audyt, czy pełne wdrożenie.",
+        cardCtas: { audit: "Oceń ryzyko kar — ankieta", impl: "Porównaj pakiety w ankiecie", aas: "Porównaj pakiety w ankiecie" },
         hero: {
-          h1: "NIS2 w Polsce od lutego 2026 — sprawdź ryzyko kar zanim wejdzie kontrola KSC",
+          h1: "KSC 2026: sprawdź ryzyko kar NIS2, zanim przyjdzie kontrola",
           sub: "Prezydent podpisał nowelizację ustawy KSC (19 lutego 2026). Podmioty objęte NIS2 muszą wdrożyć cyberbezpieczeństwo i raportowanie incydentów — grożą kary do 10 mln EUR lub 2% obrotu oraz odpowiedzialność osobista zarządu.",
           stats: [
             { v: "do 10 mln EUR", l: "kara (podmiot kluczowy)" },
@@ -642,7 +717,18 @@
         campaign: "nis2-test",
         utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-test&utm_content=czy-podlegam",
         simTitle: "Google Ads — Czy podlegam?",
-        simDesc: "Intencja: test, kwalifikacja, „czy mnie dotyczy”. Hero = ankieta jako główna obietnica.",
+        simDesc: "Intencja: test, kwalifikacja. Sekcja scope w trybie compact (bez duplikatu listy).",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: null,
+        scopeMode: "compact",
+        hideCompare: true,
+        service: {
+          h2: "Co dalej po kwalifikacji?",
+          sub: "Jeśli podlegasz pod NIS2 — pomożemy dobrać audyt, wdrożenie lub model ciągły (aaS)."
+        },
+        proofQuote: "„W 2 minuty wiedzieliśmy, czy wchodzimy w zakres NIS2 — bez tygodnia konsultacji.” — [stanowisko], [firma]",
+        pricingLead: "Ankieta wskaże następny krok: ocena gotowości, implementacja lub NIS2 as a Service.",
+        cardCtas: { audit: "Sprawdź zakres — ankieta", impl: "Porównaj w ankiecie", aas: "Porównaj w ankiecie" },
         hero: {
           h1: "Czy Twoja firma podlega pod NIS2? Sprawdź w 2 minuty",
           sub: "Odpowiedz na kilka pytań o sektor, wielkość organizacji i obecną dojrzałość cyberbezpieczeństwa. Otrzymasz wstępną ocenę zakresu — bez zobowiązań do zakupu usługi.",
@@ -675,18 +761,29 @@
         channel: "Google Ads",
         campaign: "nis2-audyt",
         utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-audyt&utm_content=audyt-9900",
-        simTitle: "Google Ads — Audyt / wdrożenie",
-        simDesc: "Intencja: audyt zgodności, wdrożenie. Message match na cenę i raport dla zarządu.",
+        simTitle: "Google Ads — Audyt gotowości",
+        simDesc: "Intencja: audyt od 9 900 zł. Wyróżniona karta audytu.",
+        ctaUnified: "Wypełnij ankietę — wstępna kwalifikacja do audytu (2 min)",
+        secondaryCta: "Wolisz rozmowę? Zostaw kontakt po ankiecie →",
+        scopeMode: "full",
+        hideCompare: false,
+        service: {
+          h2: "Audyt NIS2 z dowodami technicznymi",
+          sub: "Raport dla zarządu plus weryfikacja środowiska (pentesty, podatności) — zgodnie z wymogami KSC i art. 21 NIS2."
+        },
+        proofQuote: "„Raport po audycie poszedł prosto na board — wreszcie jeden dokument zamiast pięciu od różnych dostawców.” — CISO, [sektor]",
+        pricingLead: "Rekomendowany start: Ocena gotowości NIS2 (od 9 900 zł). Ankieta dopasuje zakres.",
+        cardCtas: { audit: "Kwalifikacja do audytu — ankieta", impl: "Pełna implementacja — przez ankietę", aas: "Model ciągły — przez ankietę" },
         hero: {
           h1: "Audyt gotowości NIS2 — raport dla zarządu od 9 900 zł",
           sub: "Kompleksowa ocena luk regulacyjnych i technicznych po wejściu KSC w życie. Plan remediacji, który łączy wymogi prawne z pentestami i realnym utwardzeniem środowiska — nie tylko checklistę.",
           stats: [
             { v: "od 9 900 zł", l: "ocena gotowości" },
             { v: "od 24 900 zł", l: "pełna implementacja" },
-            { v: "6–12 mies.", l: "typowy timeline wdrożenia" }
+            { v: "6–18 mies.", l: "typowy czas wdrożenia" }
           ],
-          ctaPrimary: "Zamów wstępną kwalifikację — ankieta (2 min)",
-          micro: "Po ankiecie: dopasowanie zakresu audytu · Termin rozmowy w 48h"
+          ctaPrimary: "Wypełnij ankietę — wstępna kwalifikacja do audytu (2 min)",
+          micro: "Po ankiecie: propozycja zakresu audytu · Możliwość rozmowy w 48h"
         },
         risk: {
           h2: "Audyt to punkt startowy — bez niego wdrożenie jest zgadywaniem",
@@ -701,9 +798,54 @@
         final: {
           h2: "Gotowy raport zamiast chaosu w Excelu",
           sub: "Najpierw ankieta (2 min), potem propozycja zakresu audytu lub implementacji.",
-          cta: "Kwalifikuję się do audytu — wypełniam ankietę"
+          cta: "Wypełnij ankietę — wstępna kwalifikacja do audytu (2 min)"
         },
         featuredCard: "card-audit"
+      },
+      "gads-wdrozenie": {
+        channel: "Google Ads",
+        campaign: "nis2-wdrozenie",
+        utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-wdrozenie&utm_content=impl-24900",
+        simTitle: "Google Ads — Implementacja NIS2",
+        simDesc: "Intencja: wdrożenie od 24 900 zł. Wyróżniona karta implementacji.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: "Wolisz rozmowę? Zostaw kontakt po ankiecie →",
+        scopeMode: "full",
+        hideCompare: false,
+        service: {
+          h2: "Implementacja NIS2 — polityki, technologia, szkolenia",
+          sub: "Od analizy ryzyka po wdrożenie środków, dokumentacji i szkoleń — z dowodami dla audytu i organu nadzorczego."
+        },
+        proofQuote: "„Wdrożenie zamknęło luki z audytu w uporządkowanym harmonogramie — bez przestojów operacji.” — COO, [sektor]",
+        pricingLead: "Rekomendowany start po ankiecie: pakiet Implementacja NIS2 (od 24 900 zł).",
+        cardCtas: { audit: "Najpierw audyt — ankieta", impl: "Kwalifikacja do wdrożenia — ankieta", aas: "Model ciągły — ankieta" },
+        hero: {
+          h1: "Wdrożenie NIS2 w organizacji — od 24 900 zł",
+          sub: "Polityki i procedury, środki techniczne, szkolenia personelu i zarządu oraz raport końcowy — kompleksowa ścieżka zgodności z KSC, nie tylko dokumenty.",
+          stats: [
+            { v: "od 24 900 zł", l: "implementacja" },
+            { v: "6–18 mies.", l: "typowy czas" },
+            { v: "Fast track", l: "ok. 6 mies. (średnia dojrzałość)" }
+          ],
+          ctaPrimary: "Sprawdź dopasowanie do wdrożenia — ankieta (2 min)",
+          micro: "Po ankiecie: harmonogram i wycena · Bez zobowiązań"
+        },
+        risk: {
+          h2: "Wdrożenie bez mapy luk to strata budżetu",
+          lead: "Najpierw warto znać stan wyjściowy — ale jeśli audyt macie, czas na domknięcie wymogów KSC.",
+          bullets: [
+            "Polityki, BCP/DRP, procedury incydentów.",
+            "Utwardzenie techniczne i testy.",
+            "Szkolenia i dowody dla kontroli."
+          ],
+          cta: "Wypełnij ankietę NIS2 (2 min)"
+        },
+        final: {
+          h2: "Od planu do zgodności operacyjnej",
+          sub: "Ankieta pomoże ocenić zakres wdrożenia i timeline.",
+          cta: "Wypełnij ankietę NIS2 (2 min)"
+        },
+        featuredCard: "card-impl"
       },
       "gads-aas": {
         channel: "Google Ads",
@@ -711,8 +853,19 @@
         utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-managed&utm_content=aas-15900",
         simTitle: "Google Ads — NIS2 as a Service",
         simDesc: "Intencja: outsourcing zgodności, managed. Wyróżniony pakiet aaS.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: "Wolisz rozmowę? Zostaw kontakt po ankiecie →",
+        scopeMode: "full",
+        hideCompare: false,
+        service: {
+          h2: "NIS2 as a Service — ciągła zgodność zamiast zespołu in-house",
+          sub: "Monitoring, incydenty, pentesty, polityki i przeglądy — jeden partner, przewidywalny koszt miesięczny."
+        },
+        proofQuote: "„Model aaS zastąpił nam planowanie trzech etatów — koszt przewidywalny, a SOC reaguje 24/7.” — Dyrektor IT, [sektor]",
+        pricingLead: "Rekomendowany model: NIS2 as a Service (od 15 900 zł/mc). Porównanie z in-house poniżej.",
+        cardCtas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź NIS2 aaS — ankieta" },
         hero: {
-          h1: "NIS2 as a Service — zgodność, pentesty i SOC od 15 900 zł/mc",
+          h1: "NIS2 as a Service: zgodność, pentesty i SOC od 15 900 zł/mc",
           sub: "Ciągła usługa zamiast kosztownego zespołu in-house: wdrożenie, monitoring 24/7, zarządzanie incydentami, testy penetracyjne i aktualizacja polityk — regulacja plus technologia w jednym kontrakcie.",
           stats: [
             { v: "od 15 900 zł/mc", l: "przewidywalny koszt" },
@@ -720,7 +873,7 @@
             { v: "61,4%", l: "redukcja vs in-house*" }
           ],
           ctaPrimary: "Sprawdź, czy NIS2 aaS pasuje — ankieta (2 min)",
-          micro: "* wg porównania na stronie · Fuse AI · pentesty w cenie"
+          micro: "Pentesty w cenie · Porównanie kosztów z modelem in-house na stronie · RODO"
         },
         risk: {
           h2: "Budowa zespołu compliance in-house zajmuje miesiące — KSC już obowiązuje",
@@ -744,7 +897,18 @@
         campaign: "nis2-li-ceo",
         utm: "?utm_source=linkedin&utm_medium=paid&utm_campaign=nis2-li-ceo&utm_content=zarzad",
         simTitle: "LinkedIn — CEO / Zarząd",
-        simDesc: "Kąt: odpowiedzialność osobista, szkolenia zarządu, ryzyko reputacyjne.",
+        simDesc: "Kąt: odpowiedzialność osobista, szkolenia zarządu. Cytat pod zarząd.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: null,
+        scopeMode: "full",
+        hideCompare: true,
+        service: {
+          h2: "Dla zarządu: zgodność bez przerzucania na IT",
+          sub: "Szkolenia boardu, raport zrozumiały dla zarządu, nadzór nad ryzykiem cyber — w języku decyzji biznesowych."
+        },
+        proofQuote: "„Prezes dostał jednostronicowe podsumowanie ryzyk — bez technicznego żargonu. To przyspieszyło decyzję o budżecie.” — CISO, [sektor]",
+        pricingLead: "Zacznij od ankiety — dowiesz się, czy firma podlega pod NIS2 i jakie są priorytety dla zarządu.",
+        cardCtas: { audit: "Ankieta dla zarządu", impl: "Porównaj w ankiecie", aas: "Porównaj w ankiecie" },
         hero: {
           h1: "NIS2: zarząd odpowiada osobiście. Czy Twoja firma jest gotowa?",
           sub: "Dyrektywa NIS2 i polska ustawa KSC (luty 2026) wprowadzają obowiązki, za które odpowiadają członkowie zarządu — nie tylko dział IT. Sprawdź zakres i luki w 2 minuty, zanim pojawi się incydent lub kontrola.",
@@ -764,12 +928,12 @@
             "Osobista odpowiedzialność przy braku środków bezpieczeństwa.",
             "Możliwe zawieszenie certyfikatów (podmioty kluczowe)."
           ],
-          cta: "Pobierz wstępną ocenę — ankieta 2 min"
+          cta: "Wypełnij ankietę — wstępna ocena dla zarządu (2 min)"
         },
         final: {
           h2: "Decyzja zarządu: kwalifikacja, potem plan",
           sub: "Pierwszy krok to wiedza, czy organizacja w ogóle podlega pod NIS2 i jakie są priorytety.",
-          cta: "Rozpocznij ankietę dla zarządu"
+          cta: "Wypełnij ankietę NIS2 (2 min)"
         },
         featuredCard: "card-audit"
       },
@@ -778,7 +942,18 @@
         campaign: "nis2-li-ciso",
         utm: "?utm_source=linkedin&utm_medium=paid&utm_campaign=nis2-li-ciso&utm_content=ciso-it",
         simTitle: "LinkedIn — CISO / IT",
-        simDesc: "Kąt: pentesty, SOC, dokumentacja, art. 21 — OneStopShop techniczny.",
+        simDesc: "Kąt: pentesty, SOC, art. 21 — OneStopShop techniczny.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: null,
+        scopeMode: "full",
+        hideCompare: false,
+        service: {
+          h2: "Dla CISO: regulacja + pentesty + SOC w jednej umowie",
+          sub: "Zarządzanie podatnościami, testy penetracyjne, procedury incydentów 24h/72h — zgodnie z art. 21 NIS2."
+        },
+        proofQuote: "„Wreszcie jeden SLA na compliance i testy — mniej koordynacji między pięcioma dostawcami.” — CISO, [sektor]",
+        pricingLead: "Ankieta oceni luki techniczne i regulacyjne — rekomendujemy audyt lub NIS2 as a Service.",
+        cardCtas: { audit: "Ankieta — ocena luk", impl: "Wdrożenie — przez ankietę", aas: "NIS2 aaS — ankieta" },
         hero: {
           h1: "NIS2 bez „papierowej” zgodności: audyt, pentesty i SOC w jednym modelu",
           sub: "CyCommSec łączy wymogi regulacyjne KSC z testami penetracyjnymi, zarządzaniem podatnościami i monitoringiem 24/7. Jedna umowa zamiast rozproszonego konsultingu i agencji.",
@@ -812,9 +987,20 @@
         campaign: "nis2-li-ops",
         utm: "?utm_source=linkedin&utm_medium=paid&utm_campaign=nis2-li-ops&utm_content=coo-operacje",
         simTitle: "LinkedIn — COO / Operacje",
-        simDesc: "Kąt: ciągłość działania, łańcuch dostaw, incydenty operacyjne.",
+        simDesc: "Kąt: BCP, łańcuch dostaw, incydenty 24h/72h.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: null,
+        scopeMode: "full",
+        hideCompare: false,
+        service: {
+          h2: "Dla operacji: ciągłość działania i łańcuch dostaw",
+          sub: "BCP/DRP, audyt dostawców ICT, SOC i procedury incydentów — spójny model odporności operacyjnej."
+        },
+        proofQuote: "„Test scenariusza incydentu + raportowanie w 24h — w jednym programie z dostawcą.” — COO, [sektor]",
+        pricingLead: "Sprawdź gotowość operacyjną w ankiecie — potem dobór audytu lub NIS2 aaS.",
+        cardCtas: { audit: "Ankieta operacyjna", impl: "Wdrożenie — ankieta", aas: "SOC + ciągłość — ankieta" },
         hero: {
-          h1: "Incydent w 24h do zgłoszenia — czy macie procedury i SOC?",
+          h1: "NIS2: BCP, dostawcy ICT i SOC — czy macie 24h/72h pod kontrolą?",
           sub: "NIS2 wymaga ciągłości działania (BCP/DRP), bezpieczeństwa dostawców ICT i sprawnej obsługi incydentów. Sprawdź gotowość operacyjną organizacji w krótkiej ankiecie.",
           stats: [
             { v: "24h / 72h", l: "raportowanie" },
@@ -826,7 +1012,7 @@
         },
         risk: {
           h2: "Przerwa w działaniu + brak raportu = podwójne ryzyko",
-          lead: "Pow serious incydent organizacja musi działać według planu i jednocześnie spełnić obowiązki sprawozdawcze.",
+          lead: "Przy poważnym incydencie organizacja musi działać według planu i jednocześnie spełnić obowiązki sprawozdawcze.",
           bullets: [
             "Plany ciągłości i testy scenariuszowe.",
             "Ocena cyberryzyka dostawców i umowy SLA.",
@@ -847,6 +1033,17 @@
         utm: "(brak UTM)",
         simTitle: "Domyślny",
         simDesc: "Fallback gdy brak dopasowania UTM — generyczny message NIS2.",
+        ctaUnified: "Wypełnij ankietę NIS2 (2 min)",
+        secondaryCta: "Porozmawiaj o wdrożeniu →",
+        scopeMode: "full",
+        hideCompare: false,
+        service: {
+          h2: "NIS2 as a Service — regulacja i technologia w jednym miejscu",
+          sub: "Łączymy ekspertyzę regulacyjną z wdrożeniem technicznym (OneStopShop)."
+        },
+        proofQuote: "„[ Cytat klienta — do uzupełnienia w produkcji ]”",
+        pricingLead: "Wszystkie ścieżki zaczynają się od ankiety — kwalifikujemy dopasowanie pakietu.",
+        cardCtas: { audit: "Zacznij od ankiety", impl: "Zacznij od ankiety", aas: "Sprawdź dopasowanie w ankiecie" },
         hero: {
           h1: "Wdrożenie NIS2 w Polsce — audyt, zgodność i bezpieczeństwo techniczne",
           sub: "Po wejściu ustawy KSC (luty 2026) tysiące organizacji musi spełnić wymogi cyberbezpieczeństwa. CyCommSec łączy audyt regulacyjny z pentestami, SOC i modelem NIS2 as a Service.",
@@ -895,9 +1092,42 @@
       if (el) el.classList.add("wf-card--featured");
     }
 
+    function updateCardCtas(v) {
+      const ctas = v.cardCtas || {};
+      const unified = v.ctaUnified || v.hero.ctaPrimary;
+      document.querySelectorAll(".card-cta").forEach(btn => {
+        const card = btn.dataset.card;
+        const label = ctas[card] || unified;
+        btn.textContent = label;
+        const featuredId = v.featuredCard.replace("card-", "");
+        const isFeatured = card === featuredId;
+        btn.style.display = isFeatured ? "inline-block" : "none";
+      });
+      document.getElementById("pricing-cta-hint").textContent = unified;
+    }
+
+    function applyScopeMode(mode) {
+      const list = document.getElementById("scope-list");
+      const compact = document.getElementById("scope-compact");
+      if (mode === "compact") {
+        list.style.display = "none";
+        compact.style.display = "block";
+        compact.textContent =
+          "Jeśli działasz w jednym z 18 sektorów i spełniasz progi wielkości (50+ osób lub 10 mln EUR obrotu), prawdopodobnie podlegasz pod NIS2 po KSC 2026. Szczegóły w ankiecie.";
+      } else {
+        list.style.display = "block";
+        compact.style.display = "none";
+      }
+    }
+
+    let currentVariantKey = "gads-kary";
+
     function applyVariant(key) {
       const v = VARIANTS[key];
       if (!v) return;
+      currentVariantKey = key;
+
+      const unified = v.ctaUnified || v.hero.ctaPrimary;
 
       document.getElementById("hero-badge").textContent =
         `${v.channel} · ${v.campaign}`;
@@ -909,36 +1139,94 @@
       document.getElementById("hero-cta-primary").textContent = v.hero.ctaPrimary;
       document.getElementById("hero-micro").textContent = v.hero.micro;
 
-      document.getElementById("scope-cta").textContent = v.hero.ctaPrimary;
+      const secCta = document.getElementById("hero-cta-secondary");
+      if (v.secondaryCta) {
+        secCta.textContent = v.secondaryCta;
+        secCta.classList.remove("is-hidden");
+      } else {
+        secCta.classList.add("is-hidden");
+      }
+
+      applyScopeMode(v.scopeMode || "full");
 
       document.getElementById("risk-h2").textContent = v.risk.h2;
       document.getElementById("risk-lead").textContent = v.risk.lead;
       renderBullets(document.getElementById("risk-bullets"), v.risk.bullets);
-      document.getElementById("risk-cta").textContent = v.risk.cta;
+
+      if (v.service) {
+        document.getElementById("service-h2").textContent = v.service.h2;
+        document.getElementById("service-sub").textContent = v.service.sub;
+      }
+
+      document.getElementById("proof-quote").textContent = v.proofQuote || "";
+      document.getElementById("pricing-lead").textContent = v.pricingLead || "";
 
       document.getElementById("final-h2").textContent = v.final.h2;
       document.getElementById("final-sub").textContent = v.final.sub;
-      document.getElementById("final-cta").textContent = v.final.cta;
+      document.getElementById("final-cta").textContent = v.final.cta || unified;
 
       setFeaturedCard(v.featuredCard);
+      updateCardCtas(v);
+
+      document.getElementById("sec-compare").classList.toggle(
+        "is-collapsed",
+        !!v.hideCompare
+      );
 
       document.getElementById("sim-meta").innerHTML =
-        `<strong>${v.simTitle}</strong>${v.simDesc}`;
+        `<strong>${v.simTitle}</strong><span>${v.simDesc}</span>`;
 
       document.querySelectorAll(".sim-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.variant === key);
+        btn.setAttribute("aria-pressed", btn.dataset.variant === key ? "true" : "false");
       });
 
       document.title = `NIS2 LP — ${v.simTitle}`;
+    }
+
+    function resolveVariantFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const explicit = params.get("variant");
+      if (explicit && VARIANTS[explicit]) return explicit;
+      const campaign = params.get("utm_campaign");
+      if (campaign && UTM_CAMPAIGN_MAP[campaign]) {
+        return UTM_CAMPAIGN_MAP[campaign];
+      }
+      return "gads-kary";
+    }
+
+    function buildPreviewUrl(key) {
+      const v = VARIANTS[key];
+      const base = window.location.href.split("?")[0];
+      const q = v.utm && v.utm.startsWith("?") ? v.utm.slice(1) : `variant=${key}`;
+      return `${base}?${q}`;
     }
 
     document.querySelectorAll(".sim-btn").forEach(btn => {
       btn.addEventListener("click", () => applyVariant(btn.dataset.variant));
     });
 
-    const params = new URLSearchParams(window.location.search);
-    const fromUrl = params.get("variant");
-    applyVariant(fromUrl && VARIANTS[fromUrl] ? fromUrl : "gads-kary");
+    const toggleMeta = document.getElementById("toggle-dev-meta");
+    toggleMeta.addEventListener("click", () => {
+      const hidden = document.body.classList.toggle("dev-meta-hidden");
+      const show = !hidden;
+      toggleMeta.setAttribute("aria-pressed", show ? "true" : "false");
+      toggleMeta.textContent = show
+        ? "Ukryj metadane (UTM, etykiety)"
+        : "Pokaż metadane (UTM, etykiety sekcji)";
+    });
+
+    document.getElementById("copy-preview-link").addEventListener("click", () => {
+      const url = buildPreviewUrl(currentVariantKey);
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById("copy-preview-link");
+        const prev = btn.textContent;
+        btn.textContent = "Skopiowano link ✓";
+        setTimeout(() => { btn.textContent = prev; }, 1500);
+      });
+    });
+
+    applyVariant(resolveVariantFromUrl());
   </script>
 </body>
 </html>
