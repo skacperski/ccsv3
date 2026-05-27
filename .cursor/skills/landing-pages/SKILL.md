@@ -30,6 +30,8 @@ When the user asks to create a landing page:
 
 Output: planning doc + section copy + implementation notes (or code/Webflow components per project).
 
+For **CyCommSec NIS2 paid LP**, canonical copy lives in [`wireframes/nis2-landing-copy.md`](../../wireframes/nis2-landing-copy.md) — update that file before HTML/Webflow.
+
 ## When to use a landing page (not a homepage)
 
 | Use landing page | Use homepage / site |
