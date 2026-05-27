@@ -24,8 +24,9 @@ When the user asks to create a landing page:
 4. **Pick patterns** — [patterns.md](patterns.md): 1 hero + 2–3 proof/layout patterns from swipe file
 5. **Pick industry outline** — [industry-templates.md](industry-templates.md) if vertical is known
 6. **Draft copy** — use templates below; PAS if pain-aware traffic
-7. **Implement** — no nav; proof at friction; mobile CTA; 1–2s load target
-8. **QA** — [checklist.md](checklist.md)
+7. **Humanize copy** — run all user-facing text through [.cursor/skills/humanizer/SKILL.md](../humanizer/SKILL.md) ([blader/humanizer](https://github.com/blader/humanizer)); remove AI patterns before implement
+8. **Implement** — no nav; proof at friction; mobile CTA; 1–2s load target
+9. **QA** — [checklist.md](checklist.md)
 
 Output: planning doc + section copy + implementation notes (or code/Webflow components per project).
 
