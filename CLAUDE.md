@@ -90,6 +90,15 @@ Full list: [copy/_shared.md](copy/_shared.md) → Facts & constraints.
 - **`/humanize`** ([.claude/commands/humanize.md](.claude/commands/humanize.md)) — mandatory pass on every user-facing string (HTML, copy). Strip em dashes, AI vocabulary ("kompleksowy", "kluczowy", "umożliwia"), forced rule-of-three, anglicisms ("OneStopShop", "as a Service", "fast track", "board", "security lead"). Also available for Cursor: [.cursor/skills/humanizer/SKILL.md](.cursor/skills/humanizer/SKILL.md).
 - **`/landing-pages`** ([.claude/commands/landing-pages.md](.claude/commands/landing-pages.md)) — Unbounce/Copyhackers/CXL playbook for new LP planning. Also available for Cursor: [.cursor/skills/landing-pages/SKILL.md](.cursor/skills/landing-pages/SKILL.md).
 
+## Vercel deployment
+
+- **Production URL:** https://ccsv3.vercel.app
+- **Auto-deploy:** push to `main` → Vercel builds automatically (no CI step needed)
+- **Hub page:** `index.html` w root — lista wszystkich wireframe'ów i designów; każdy nowy design dodaj tu jako link
+- **Config:** `vercel.json` — `cleanUrls: true`, no trailing slash; brak rewrites (pliki serwowane statycznie)
+
+Żeby sprawdzić deploy: po pushu otwórz https://ccsv3.vercel.app i przejdź do nowego pliku przez hub.
+
 ## How to "run" / validate
 
 No dev server, no `npm install`. Validation is manual:
