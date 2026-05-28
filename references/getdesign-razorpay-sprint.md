@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Razorpay-Sprint-26
-source: 26.html (https://razorpay.com/sprint/26)
+source: https://razorpay.com/sprint/26
 description: "An editorial-tech canvas inspired by Razorpay /Sprint'26. Brutalist monospace navigation, oversized display type set in TASA Orbiter, body text in Inter Tight, metadata/UI in Geist Mono. The page reads like a sprint changelog — chapters numbered 01/–06/, sub-sections lettered A/B/C/D — with each section establishing its own background mood (white, black, electric blue) so the scroll behaves like turning chapters in a book. Cards are flat, sharp-cornered tiles with monochrome blueprint-style product imagery. The single confident accent is Razorpay Blue #0039FF, used as section ground or pill CTAs, never as filigree."
 ---
 

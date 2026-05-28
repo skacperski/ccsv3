@@ -161,7 +161,7 @@ Override do podglądu lokalnego: `?variant=<id>` (np. `?variant=gads-audyt`).
 
 ## Open questions (decyzje biznesowe)
 
-Pełna lista w [references/getdesign-ibm-carbon.md](../references/) i poprzednich notatkach. Najważniejsze otwarte:
+Wymagają decyzji klienta, nie ruszane automatycznie. Najważniejsze otwarte:
 
 - **Stopka:** brak KRS/NIP/adresu = sygnał „spółka krzak" w PL B2B.
 - **Domena `.com` vs `.pl`:** klient pod KSC oczekuje `.pl`.
