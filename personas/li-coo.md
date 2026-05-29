@@ -41,7 +41,14 @@ Nie odpowiada bezpośrednio za cyber, ale **odpowiada za ciągłość operacji**
 
 - **Ton:** operacyjny, zwięzły, „24h/72h ogarnięte?". Bez sloganów.
 - **Format:** featured card `card-aas` (model abonamentowy najlepiej rozwiązuje ich ból ciągłości). Compare widoczny.
-- **Risk** mówi o awarii + raporcie razem („dwa problemy naraz"), bo to dokładnie ich operacyjna obawa.
+- **Risk:**
+    - **H2:** Awaria bez zgłoszenia to dwa problemy naraz
+    - **Lead:** Pierwszy: incydent nie obsłużony. Drugi: termin 24h minął, więc dochodzi sprawa regulacyjna. Drugi problem często kosztuje więcej.
+    - **Bullets:**
+      - Plany ciągłości działania i testy scenariuszy bez angażowania całego IT.
+      - Zarządzanie ryzykiem dostawców jako wymóg regulacyjny, nie opcja.
+      - Zgłoszenie incydentu w 24h bez gotowego wzoru raportu.
+      - SOC i reakcja przez całą dobę.
 
 ## Trust signals krytyczne
 
