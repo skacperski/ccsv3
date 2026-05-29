@@ -17,8 +17,8 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** NIS2: zarząd odpowiada osobiście. Firma jest gotowa?
-- **Sub:** KSC od lutego 2026 nakłada obowiązki na zarząd, nie tylko na IT. Ankieta w 2 minuty pokaże zakres i największe luki, zanim przyjdzie kontrola albo incydent.
+- **H1:** NIS2: zarząd odpowiada osobiście. Czy firma jest gotowa?
+- **Sub:** KSC od lutego 2026 nakłada obowiązki na zarząd, nie tylko na IT. Ankieta w kilka minut pokaże zakres i największe luki, zanim pojawi się kontrola albo incydent.
 - **Stats:** osobista odpowiedzialność zarządu · 10 mln EUR (max. kara) · obowiązek od 02/2026
 - **CTA primary:** Zobacz raport dla zarządu
 - **Micro:** Wynik dla zarządu · 1 strona · bez żargonu IT.
@@ -26,7 +26,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Risk
 
 - **H2:** „To sprawa IT” już nie zdejmuje odpowiedzialności
-- **Lead:** Nowy KSC zapisuje odpowiedzialność zarządu wprost. Kara idzie na firmę, ale podpis pod brakiem zabezpieczeń ma prezes i osoba odpowiedzialna za cyber.
+- **Lead:** Aktualizacja KSC zapisuje odpowiedzialność zarządu wprost. Kara idzie na firmę, ale podpis pod brakiem zabezpieczeń ma prezes i osoba odpowiedzialna za cyber.
 - **Bullets:**
   - Szkolenia cyber także dla zarządu.
   - Osobista odpowiedzialność, gdy brakuje środków bezpieczeństwa.
@@ -39,7 +39,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Proof
 
-> „Prezes dostał jedną stronę z ryzykami. Bez skrótów. Budżet zapadł na najbliższym zarządzie.”
+> „Prezes dostał kompletny audyt z ryzykami, bez technicznego żargonu oraz jasnym budżetem”
 > — CISO, [sektor]
 
 ## Pricing
