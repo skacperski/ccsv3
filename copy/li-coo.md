@@ -28,9 +28,10 @@ Statyczne sekcje: [_shared.md](_shared.md).
 - **H2:** Awaria bez zgłoszenia to dwa problemy naraz
 - **Lead:** Pierwszy: incydent nie obsłużony. Drugi: termin 24h minął, więc dochodzi sprawa regulacyjna. Drugi problem często kosztuje więcej.
 - **Bullets:**
-  - Plany ciągłości i testy scenariuszy.
-  - Ryzyko u dostawców i SLA w umowach.
-  - SOC i reakcja 24/7.
+  - Plany ciągłości działania i testy scenariuszy bez angażowania całego IT.
+  - Audyt dostawców IT jako wymóg regulacyjny. Art. 21 KSC nie daje wyboru.
+  - Zgłoszenie incydentu w 24h bez gotowego wzoru raportu.
+  - SOC i reakcja przez całą dobę.
 
 ## Service override
 
