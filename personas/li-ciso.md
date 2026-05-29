@@ -20,12 +20,16 @@ Już operacyjnie odpowiada za zgodność. **Porównuje dostawców**, ma swoje pr
 - „Mam ISO 27001 — większość vendorów chce mi sprzedać od zera, nie patrzy na to, co już mam."
 - „Polityki są spisane, ale nie wiem, czy kontrola uzna je za wdrożone bez dowodów (logów, raportów)."
 - „Boję się tańszych ofert — wiem, że często to junior z PowerPointa."
+- „Mamy środowisko IT i OT. Jeden vendor zna jedną stronę. Nikt nie ogarnia całości jednym SLA."
+- „Raportowanie incydentu w 24h to teraz walka z czasem, bo procesy klasyfikacji zdarzeń nie są zautomatyzowane."
 
 ## Czego potrzebuje, żeby skonwertować
 
-- Dowody, że **vendor rozumie techniczną stronę** (art. 21, MITRE, MFA, SDLC).
+- Dowody, że **vendor rozumie techniczną stronę** (art. 21 KSC, MITRE, MFA, SDLC).
 - **Jedna umowa, jedno SLA** — to ich realny ból operacyjny.
 - Sygnał, że istniejąca dojrzałość (ISO 27001) zostanie uznana, nie wymyślana od zera.
+- Dla firm produkcyjnych: podejście **obejmujące IT i OT** (analiza luk pod IEC 62443, integracja systemów monitoringu).
+- Raportowanie incydentów jako **zautomatyzowany proces**, nie ręczna walka z zegarem.
 - **Compare** widoczny + szeroko (pomaga uzasadnić budżet przed CFO).
 
 ## Obiekcje, które muszą się rozejść
