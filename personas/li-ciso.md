@@ -25,7 +25,7 @@ Już operacyjnie odpowiada za zgodność. **Porównuje dostawców**, ma swoje pr
 
 ## Czego potrzebuje, żeby skonwertować
 
-- Dowody, że **vendor rozumie techniczną stronę** (art. 21 KSC, MITRE, MFA, SDLC).
+- Dowody, że **vendor rozumie techniczną stronę** (art. 8 KSC, MITRE, MFA, SDLC).
 - **Jedna umowa, jedno SLA** — to ich realny ból operacyjny.
 - Sygnał, że istniejąca dojrzałość (ISO 27001) zostanie uznana, nie wymyślana od zera.
 - Dla firm produkcyjnych: podejście **obejmujące IT i OT** (analiza luk pod IEC 62443, integracja systemów monitoringu).
@@ -40,10 +40,10 @@ Już operacyjnie odpowiada za zgodność. **Porównuje dostawców**, ma swoje pr
 
 ## Ton i format
 
-- **Ton:** techniczny, precyzyjny. Używaj `art. 21 NIS2`, `BCP/DRP`, `SOC`, `SIEM`, `pentest`, `MFA`. Nie tłumacz tych skrótów.
+- **Ton:** techniczny, precyzyjny. Używaj `art. 8 KSC`, `BCP/DRP`, `SOC`, `SIEM`, `pentest`, `MFA`. Nie tłumacz tych skrótów.
 - **Format:** hero stat z trzema technicznymi pillarami (pentesty / art. 21 / jedno SLA). Featured card to `card-aas` — bo CISO myśli abonamentem dla SOC.
 - **Risk:**
-    - **H2:** Regulator chce dowodów,a sam folder polityk to za mało.
+    - **H2:** Regulator chce dowodów, a sam folder polityk to za mało.
     - **Lead:** Kontrola pyta o logi, raporty z pentestów i czas reakcji na incydent. Polityki bez dowodów wdrożenia liczą się jak ich brak.
     - **Bullets:**
       - Analiza luk w środowiskach IT i OT pod art. 21 KSC.
@@ -53,7 +53,7 @@ Już operacyjnie odpowiada za zgodność. **Porównuje dostawców**, ma swoje pr
 
 ## Trust signals krytyczne
 
-- Terminologia techniczna używana poprawnie (art. 21, podatności, SDLC).
+- Terminologia techniczna używana poprawnie (art. 21, art. 8, podatności, SDLC).
 - Brak anglicyzmów marketingowych („OneStopShop", „as a Service" jako termin).
 - Cytat z CISO o realnym bólu („koniec ganiania pięciu firm").
 - Brak ceny w hero — to nie ich pierwsze pytanie; cena pojawia się w pricing section.
