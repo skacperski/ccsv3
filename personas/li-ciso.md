@@ -42,7 +42,14 @@ Już operacyjnie odpowiada za zgodność. **Porównuje dostawców**, ma swoje pr
 
 - **Ton:** techniczny, precyzyjny. Używaj `art. 21 NIS2`, `BCP/DRP`, `SOC`, `SIEM`, `pentest`, `MFA`. Nie tłumacz tych skrótów.
 - **Format:** hero stat z trzema technicznymi pillarami (pentesty / art. 21 / jedno SLA). Featured card to `card-aas` — bo CISO myśli abonamentem dla SOC.
-- **Risk** mówi o dowodach, nie o karach (CISO już wie o karach).
+- **Risk:**
+    - **H2:** Regulator chce dowodów,a sam folder polityk to za mało.
+    - **Lead:** Kontrola pyta o logi, raporty z pentestów i czas reakcji na incydent. Polityki bez dowodów wdrożenia liczą się jak ich brak.
+    - **Bullets:**
+      - Analiza luk w środowiskach IT i OT pod art. 21 KSC.
+      - Raportowanie incydentów jako zautomatyzowany proces, nie walka z zegarem.
+      - Pentesty i naprawa podatności w cyklu.
+      - Dostawcy ICT w audycie ryzyka łańcucha dostaw.
 
 ## Trust signals krytyczne
 
