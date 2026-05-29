@@ -20,12 +20,15 @@ Nie odpowiada bezpośrednio za cyber, ale **odpowiada za ciągłość operacji**
 - „Połowa naszych systemów to dostawcy zewnętrzni — co jak oni padną?"
 - „Jak ktoś z IT zadzwoni o 3 w nocy, nie wiem, czy mam wzór raportu do CSIRT."
 - „Boję się incydentu, który zatrzyma produkcję na 24h."
+- „Mam wymogi do wdrożenia, ale nie mam ludzi ani czasu, żeby to zrobić bez przerywania bieżącej działalności."
+- „Zarządzanie ryzykiem w łańcuchu dostaw IT to teraz wymóg regulacyjny. Nie wiem, od czego zacząć audyt dostawców."
 
 ## Czego potrzebuje, żeby skonwertować
 
 - Konkrety operacyjne: **MTTD, MTTR, RTO, RPO** (skróty COO zna).
 - **Harmonogram reakcji na incydent** — kto, kiedy, co.
-- **Audyt dostawców IT** jako wyraźna usługa.
+- **Audyt dostawców IT** jako wyraźna usługa, adresująca wymóg łańcucha dostaw.
+- Sygnał, że wdrożenie może iść **bez angażowania całego własnego IT** i bez przestojów operacyjnych.
 - Cytat operacyjny (COO mówiący o ćwiczeniu incydentu).
 
 ## Obiekcje, które muszą się rozejść
