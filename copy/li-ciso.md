@@ -19,7 +19,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 - **H1:** NIS2 bez polityk do szuflady: audyt, pentesty, SOC
 - **Sub:** KSC, art. 21, pentesty, monitoring 24/7 u jednego dostawcy. Jedna umowa zamiast czterech faktur od kancelarii, konsultingu, agencji testowej i SOC.
-- **Stats:** pentesty w cenie · art. 21 NIS2 · jeden dostawca, jedno SLA
+- **Stats:** pentesty w cenie · art. 21 KSC · jeden dostawca, jedno SLA
 - **CTA primary:** Sprawdź luki techniczne i prawne
 - **Micro:** Dla CISO, dyrektora IT, kierownika bezpieczeństwa.
 
@@ -28,9 +28,10 @@ Statyczne sekcje: [_shared.md](_shared.md).
 - **H2:** Regulator chce dowodów. Sam folder polityk to za mało.
 - **Lead:** Kontrola pyta o logi, raporty z pentestów i czas reakcji na incydent. Polityki bez dowodów wdrożenia liczą się jak ich brak.
 - **Bullets:**
-  - Pentesty i naprawa podatności.
-  - Incydenty w terminach 24h i 72h.
-  - Dostawcy ICT w audycie ryzyka.
+  - Analiza luk w środowiskach IT i OT pod art. 8 KSC.
+  - Raportowanie incydentów jako zautomatyzowany proces, nie walka z zegarem.
+  - Pentesty i naprawa podatności w cyklu.
+  - Dostawcy ICT w audycie ryzyka łańcucha dostaw.
 
 ## Service override
 
@@ -39,7 +40,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Proof
 
-> „Jeden SLA na compliance i testy. Skończyło się ganianie pięciu firm, kiedy coś się dzieje.”
+> „Jeden SLA na zgodność i testy. Skończyło się poleganie na pięciu firmach, kiedy coś się dzieje."
 > — CISO, [sektor]
 
 ## Pricing
@@ -50,5 +51,5 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Final
 
 - **H2:** Jeden dostawca zamiast pięciu
-- **Sub:** Compliance, pentesty, monitoring. Jeden numer, jedno SLA, jedna faktura.
+- **Sub:** Zgodność, pentesty, monitoring w jednym kontrakcie. Jeden numer do dzwonienia, jedna faktura.
 - **CTA:** Sprawdź luki techniczne i prawne
