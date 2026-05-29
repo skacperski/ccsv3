@@ -39,6 +39,13 @@ Już rozumie zakres. Chce harmonogram i wycenę.
 - **Ton:** operacyjny, harmonogramowy. „Wdrożenie, które działa w firmie."
 - **Format:** featured card to `card-impl`. Compare widoczny. Hero stats: cena + czas + wersja przyspieszona.
 - **CTA:** „Sprawdź, czy wdrożenie pasuje" — nie „kup", tylko sprawdzenie dopasowania.
+- - **Risk:**
+    - **H2:** Wdrożenie bez mapy luk przepala budżet
+    - **Lead:** Wdrożenie pod regulację bez wcześniejszego audytu często zamyka nie te ryzyka, które kontrola sprawdza pierwsze.
+    - **Bullets:**
+      - Polityki, BCP/DRP, procedury incydentów.
+      - Utwardzenie środowiska i testy pod art. 21 KSC.
+      - Szkolenia zarządu i materiały na kontrolę.
 
 ## Trust signals krytyczne
 
