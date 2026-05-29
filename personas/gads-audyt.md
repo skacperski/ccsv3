@@ -43,13 +43,20 @@ Reklama z konkretną ceną („od 9 900 zł") — sygnał, że to nie konsulting
 - **Ton:** konkretny, kompetencyjny. Bez strachu, bez sloganów. „Audyt z testami, nie tylko ze skoroszytem."
 - **Format:** hero z ceną w H1. Stats z trzema cenami (audyt 9 900, wdrożenie 24 900, czas 6–18 mies.). Secondary CTA „Wolisz rozmowę? Kontakt po ankiecie" — jeden klik dla zwolenników rozmowy.
 - **Compare:** widoczny — klient porównuje koszty, chce zobaczyć aaS jako alternatywę.
+- - **Risk:**
+    - **H2:** Wdrożenie bez audytu to wydawanie po omacku
+    - **Lead:** Kontrola pyta o dowody na konkretne luki. Bez mapy wdrożenie zamyka nie te ryzyka.
+    - **Bullets:**
+      - Luki wobec art. 21 KSC (prawne i techniczne).
+      - Raport, który zarząd czyta bez tłumacza z IT.
+      - Plan: polityki, BCP/DRP, pentesty, szkolenia, SOC.
 
 ## Trust signals krytyczne
 
 - Konkretna cena (9 900 zł).
 - Format raportu: „dla zarządu, bez tłumacza z IT".
 - Cytat z CISO o porównaniu „pięciu plików od pięciu firm".
-- Czas reakcji: rozmowa w 48h.
+- Dwie ścieżki po ankiecie: wynik online od razu i rozmowa z dedykowaną osobą w 48h (secondary CTA).
 
 ## Mapowanie do copy
 
