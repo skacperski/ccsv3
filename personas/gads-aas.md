@@ -12,7 +12,7 @@ copy_file: copy/gads-aas.md
 
 CFO, dyrektor zarządzający, CIO w średniej firmie (250–1500 osób), który **już porównał koszty in-house vs outsourcing** albo zaczął rekrutację cyber i utknął. Wpisał: „NIS2 outsourcing", „SOC dla firm", „compliance NIS2 abonament", „NIS2 managed service".
 
-Już wie, że własny zespół to lata i miliony. Szuka alternatywy.
+Szuka alternatywy na to by nie tworzyć od zera nowego zespołu, który pochłonie znacznie większy budżet oraz chce zespołu, który pracuje dla niego non stop.
 
 ## Co go boli
 
@@ -39,6 +39,13 @@ Już wie, że własny zespół to lata i miliony. Szuka alternatywy.
 - **Ton:** finansowy, pragmatyczny. „Płacicie co miesiąc, nie martwicie się urlopami specjalisty."
 - **Format:** featured card to `card-aas` (deep-green / dark-green w designie). Compare widoczny + szeroko opisany. Hero stat z 61,4%* gwiazdką wskazującą metodologię.
 - **Risk** mówi o kosztach budowy zespołu, nie o karach.
+- - **Risk:**
+    - **H2:** Zespół in-house buduje się 9 miesięcy. KSC obowiązuje teraz.
+    - **Lead:** Rekrutacja specjalistów cyber w Polsce to dziś miesiące i ok. 38 644 zł/mc po stronie pracodawcy. Plus narzędzia, plus rotacja.
+    - **Bullets:**
+      - Jedna umowa: audyt, wdrożenie, utrzymanie, raporty.
+      - Pentesty i skany w abonamencie.
+      - Zgłoszenia incydentów w terminach 24h i 72h.
 
 ## Trust signals krytyczne
 
