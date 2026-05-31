@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **single-product wireframe lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). No build system, no dependencies, no tests — every page is one self-contained HTML file with inline `<style>` and `<script>`, opened directly in a browser.
+A **content + reference lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). **No npm, no Next.js, no build step** — wireframes and design skins are self-contained HTML files. **Production UI will be rebuilt in Relume.io** (export to Webflow); this repo holds copy, personas, and HTML prototypes until then.
 
 The repo is split by **artifact type**, not by feature:
 
@@ -93,11 +93,14 @@ Full list: [copy/_shared.md](copy/_shared.md) → Facts & constraints.
 ## Vercel deployment
 
 - **Production URL:** https://ccsv3.vercel.app
-- **Auto-deploy:** push to `main` → Vercel builds automatically (no CI step needed)
-- **Hub page:** `index.html` w root — lista wszystkich wireframe'ów i designów; każdy nowy design dodaj tu jako link
-- **Config:** `vercel.json` — `cleanUrls: true`, no trailing slash; brak rewrites (pliki serwowane statycznie)
+- **Auto-deploy:** push to `main` → static files from repo root (no framework build)
+- **Hub page:** `index.html` — links to wireframes + design explorations
+- **Config:** `vercel.json` — `cleanUrls: true`, no trailing slash
+- **Important:** Vercel project **Root Directory** must be `.` (repo root), **not** `microsite/` (removed). Framework preset: **Other** / static.
 
-Żeby sprawdzić deploy: po pushu otwórz https://ccsv3.vercel.app i przejdź do nowego pliku przez hub.
+## Relume (planned production stack)
+
+Do not add Next.js or a custom app build unless explicitly requested. New pages ship from **Relume.io** → Webflow. Keep [copy/](copy/) and [personas/](personas/) as source of truth; wireframes/designs are disposable reference HTML.
 
 ## How to "run" / validate
 
