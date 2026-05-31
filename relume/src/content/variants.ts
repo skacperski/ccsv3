@@ -269,7 +269,7 @@ const SPECS: VariantSpec[] = [
     },
     pricing: {
       lead: "Zaczynamy od ankiety. Pokaże, czy starczy audyt, czy potrzebujecie wdrożenia albo usługi miesięcznej.",
-      ctas: { audit: "Zacznij od audytu", impl: "Zobacz zakres wdrożenia", aas: "Sprawdź, czy aaS pasuje" },
+      ctas: { audit: "Zacznij od audytu", impl: "Zobacz zakres wdrożenia", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
       h2: "Sprawdźcie, gdzie jesteście wobec NIS2",
@@ -391,7 +391,7 @@ const SPECS: VariantSpec[] = [
     },
     pricing: {
       lead: "Start od oceny gotowości (9 900 zł). Ankieta dopasuje zakres do wielkości firmy i sektora, potem widzicie wycenę.",
-      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Sprawdź zakres w 2 min", aas: "Sprawdź, czy aaS pasuje" },
+      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Sprawdź zakres w 2 min", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
       h2: "Jeden raport zamiast pięciu arkuszy",
@@ -446,7 +446,7 @@ const SPECS: VariantSpec[] = [
     scopeMode: "full",
     hideCompare: false,
     featuredCard: "card-aas",
-    ctaUnified: "Sprawdź, czy aaS pasuje",
+    ctaUnified: "Sprawdź usługę miesięczną",
     hero: {
       h1: "NIS2 jako usługa od 15 900 zł/mc. Stała cena, wszystko w środku.",
       sub: "Płacicie jedną stawkę co miesiąc. W cenie wdrożenie, monitoring całą dobę, obsługa incydentów, pentesty i polityki. Bez rekrutacji, bez budowy zespołu od zera.",
@@ -471,11 +471,11 @@ const SPECS: VariantSpec[] = [
     },
     pricing: {
       lead: "NIS2 jako usługa kosztuje od 15 900 zł/mc, stała stawka. Niżej porównujemy to z kosztem własnego zespołu. Ankieta podpowie, czy ten model pasuje do waszej skali.",
-      ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź, czy aaS pasuje" },
+      ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
       h2: "Stała stawka miesięczna, zero rekrutacji",
-      sub: "Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy aaS wam się liczy.",
+      sub: "Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy usługa miesięczna wam się liczy.",
     },
   },
   {
@@ -593,7 +593,7 @@ const SPECS: VariantSpec[] = [
     },
     pricing: {
       lead: "Ankieta wskaże, czy zaczynacie od audytu ciągłości i dostawców, czy od usługi miesięcznej z SOC.",
-      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Wdróż procedury", aas: "Sprawdź, czy aaS pasuje" },
+      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Wdróż procedury", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
       h2: "Najpierw diagnoza, potem procedury",

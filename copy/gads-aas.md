@@ -6,7 +6,7 @@ utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-managed&utm_content=aa
 scopeMode: full
 hideCompare: false
 featuredCard: card-aas
-ctaUnified: Sprawdź, czy aaS pasuje
+ctaUnified: Sprawdź usługę miesięczną
 secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/gads-aas.md
 ---
@@ -20,7 +20,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 - **H1:** NIS2 jako usługa od 15 900 zł/mc. Stała cena, wszystko w środku.
 - **Sub:** Płacicie jedną stawkę co miesiąc. W cenie wdrożenie, monitoring całą dobę, obsługa incydentów, pentesty i polityki. Bez rekrutacji, bez budowy zespołu od zera.
 - **Stats:** od 15 900 zł/mc · 61,4%* taniej · SOC 24/7
-- **CTA primary:** Sprawdź, czy aaS pasuje
+- **CTA primary:** Sprawdź usługę miesięczną
 - **Micro:** Pentesty w cenie. *Metodologia TCO na życzenie.
 
 ## Risk
@@ -45,10 +45,10 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Pricing
 
 - **Lead:** NIS2 jako usługa kosztuje od 15 900 zł/mc, stała stawka. Niżej porównujemy to z kosztem własnego zespołu. Ankieta podpowie, czy ten model pasuje do waszej skali.
-- **Card CTAs:** audit: `Porównaj w ankiecie` · impl: `Porównaj w ankiecie` · aas: `Sprawdź, czy aaS pasuje`
+- **Card CTAs:** audit: `Porównaj w ankiecie` · impl: `Porównaj w ankiecie` · aas: `Sprawdź usługę miesięczną`
 
 ## Final
 
 - **H2:** Stała stawka miesięczna, zero rekrutacji
-- **Sub:** Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy aaS wam się liczy.
-- **CTA:** Sprawdź, czy aaS pasuje
+- **Sub:** Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy usługa miesięczna wam się liczy.
+- **CTA:** Sprawdź usługę miesięczną
