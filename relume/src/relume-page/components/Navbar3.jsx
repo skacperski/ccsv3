@@ -6,7 +6,7 @@ import React from "react";
 export function Navbar3({ nav }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border-primary bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-[5%] md:h-18">
+      <div className="flex h-16 w-full items-center justify-between px-[5%] md:h-18 lg:px-[5vw]">
         <a href="#" className="text-xl font-bold text-black">
           {nav.brand}
         </a>
