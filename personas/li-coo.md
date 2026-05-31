@@ -20,12 +20,15 @@ Nie odpowiada bezpośrednio za cyber, ale **odpowiada za ciągłość operacji**
 - „Połowa naszych systemów to dostawcy zewnętrzni — co jak oni padną?"
 - „Jak ktoś z IT zadzwoni o 3 w nocy, nie wiem, czy mam wzór raportu do CSIRT."
 - „Boję się incydentu, który zatrzyma produkcję na 24h."
+- „Mam wymogi do wdrożenia, ale nie mam ludzi ani czasu, żeby to zrobić bez przerywania bieżącej działalności."
+- „Audyt dostawców IT jako wymóg regulacyjny. Art. 8 KSC nie daje wyboru. Nie wiem, od czego zacząć audyt dostawców."
 
 ## Czego potrzebuje, żeby skonwertować
 
 - Konkrety operacyjne: **MTTD, MTTR, RTO, RPO** (skróty COO zna).
 - **Harmonogram reakcji na incydent** — kto, kiedy, co.
-- **Audyt dostawców IT** jako wyraźna usługa.
+- **Audyt dostawców IT** jako wyraźna usługa, adresująca wymóg łańcucha dostaw.
+- Sygnał, że wdrożenie może iść **bez angażowania całego własnego IT** i bez przestojów operacyjnych.
 - Cytat operacyjny (COO mówiący o ćwiczeniu incydentu).
 
 ## Obiekcje, które muszą się rozejść
@@ -38,7 +41,14 @@ Nie odpowiada bezpośrednio za cyber, ale **odpowiada za ciągłość operacji**
 
 - **Ton:** operacyjny, zwięzły, „24h/72h ogarnięte?". Bez sloganów.
 - **Format:** featured card `card-aas` (model abonamentowy najlepiej rozwiązuje ich ból ciągłości). Compare widoczny.
-- **Risk** mówi o awarii + raporcie razem („dwa problemy naraz"), bo to dokładnie ich operacyjna obawa.
+- **Risk:**
+    - **H2:** Awaria bez zgłoszenia to dwa problemy naraz
+    - **Lead:** Pierwszy: incydent nie obsłużony. Drugi: termin 24h minął, więc dochodzi sprawa regulacyjna. Drugi problem często kosztuje więcej.
+    - **Bullets:**
+      - Plany ciągłości działania i testy scenariuszy bez angażowania całego IT.
+      - Zarządzanie ryzykiem dostawców jako wymóg regulacyjny, nie opcja.
+      - Zgłoszenie incydentu w 24h bez gotowego wzoru raportu.
+      - SOC i reakcja przez całą dobę.
 
 ## Trust signals krytyczne
 

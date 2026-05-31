@@ -43,6 +43,14 @@ Strach przed konkretnym ryzykiem finansowym i osobistym. Reklama mówiła o **ka
 - **Ton:** poważny, regulacyjny, nie tabloidowy. „Kara idzie na firmę. Często też na członków zarządu." — bez wykrzykników.
 - **Format:** krótki H1 z konkretną kwotą + sub z faktami + bullety z liczbami + CTA „Sprawdź ryzyko w 2 min".
 - **Mode page'a:** scope full (3 bullety kwalifikacji), compare ukryty (top-funnel — za wcześnie na porównanie kosztów).
+- - **Risk:**
+    - **H2:** Kara idzie na firmę. Często też na członków zarządu.
+    - **Lead:** NIS2 wprowadza w UE naprawdę dotkliwe kary. Tłumaczenie „zajmiemy się tym później" przy kontroli już nie zadziała.
+    - **Bullets:**
+      - Do 10 mln EUR albo 2% obrotu (podmiot kluczowy).
+      - Do 7 mln EUR albo 1,4% obrotu (podmiot ważny).
+      - Osobista odpowiedzialność prezesa, CTO, CISO.
+      - Kontrole organów już ruszają.
 
 ## Trust signals krytyczne
 

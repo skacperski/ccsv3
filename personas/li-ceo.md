@@ -44,6 +44,13 @@ Reklama o **osobistej odpowiedzialności członków zarządu**. To pierwszy raz,
 - **Format:** krótkie sub. Stats nie liczbowo-techniczne (chip „osobista odpowiedzialność zarządu" zamiast „24h/72h").
 - **Page mode:** scope full (CEO chce wiedzieć kryteria), compare ukryty.
 - **CTA hero + final spójne:** „Zobacz raport dla zarządu".
+- - **Risk:**
+    - **H2:** Zarząd podpisuje odpowiedzialność, której nie zna
+    - **Lead:** KSC z lutego 2026 nie zostawia wyjścia: jeśli firma nie ma zabezpieczeń, odpowiedzialność spada wprost na prezesa i osobę odpowiedzialną za cyber. To nie sprawa IT.
+    - **Bullets:**
+      - Szkolenia cyber wymagane dla zarządu, nie tylko dla IT.
+      - Osobista odpowiedzialność, gdy brakuje środków bezpieczeństwa.
+      - U podmiotów kluczowych możliwe zawieszenie certyfikatów.
 
 ## Trust signals krytyczne
 
@@ -54,7 +61,7 @@ Reklama o **osobistej odpowiedzialności członków zarządu**. To pierwszy raz,
 
 ## Otwarte pytania (split-test)
 
-- Czy dodać secondary CTA „Umów 20 min rozmowy"? CEO często woli dialog z partnerem niż formularz. Warto testować.
+- Czy dodać secondary CTA „Umów 20 min rozmowy"? CEO często woli dialog z partnerem niż formularz. Warto testować. <-- dodatkowy CTA do dodania.
 
 ## Mapowanie do copy
 

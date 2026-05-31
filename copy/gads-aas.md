@@ -17,7 +17,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** NIS2 jako usługa. Zgodność, pentesty i SOC od 15 900 zł/mc.
+- **H1:** Outsourcing NIS2 od 15 900 zł/mc. SOC, pentesty i polityki w jednej fakturze.
 - **Sub:** Zamiast budowy własnego zespołu: wdrożenie, monitoring 24/7, obsługa incydentów, pentesty i polityki. Wszystko w jednej fakturze.
 - **Stats:** od 15 900 zł/mc · SOC 24/7 · ok. 61,4% taniej niż własny zespół*
 - **CTA primary:** Sprawdź, czy aaS pasuje
