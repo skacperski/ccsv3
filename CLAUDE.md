@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **content + reference lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). **No npm, no Next.js, no build step** — wireframes and design skins are self-contained HTML files. **Production UI will be rebuilt in Relume.io** (export to Webflow); this repo holds copy, personas, and HTML prototypes until then.
+A **content + build lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). [copy/](copy/) and [personas/](personas/) are the source of truth. [wireframes/](wireframes/) and [designs/](designs/) are self-contained HTML prototypes (reference only, no build step). The production page is built as a **React app in [relume/](relume/)** (Vite + Tailwind v3 + Relume components) and deployed **directly to Vercel. No Webflow.**
 
 The repo is split by **artifact type**, not by feature:
 
@@ -92,15 +92,15 @@ Full list: [copy/_shared.md](copy/_shared.md) → Facts & constraints.
 
 ## Vercel deployment
 
-- **Production URL:** https://ccsv3.vercel.app
-- **Auto-deploy:** push to `main` → static files from repo root (no framework build)
-- **Hub page:** `index.html` — links to wireframes + design explorations
-- **Config:** `vercel.json` — `cleanUrls: true`, no trailing slash
-- **Important:** Vercel project **Root Directory** must be `.` (repo root), **not** `microsite/` (removed). Framework preset: **Other** / static.
+- **Current hub URL:** https://ccsv3.vercel.app — static files from repo root (`index.html` + reference HTML). Framework preset **Other** / static, Root Directory `.`.
+- **Production landing page (target):** built from [relume/](relume/) (Vite → `dist/`) and deployed **directly to Vercel** — no Webflow. When that goes live, point a Vercel project at Root Directory `relume/` (framework **Vite**, build `npm run build`, output `dist`).
+- **Config:** `vercel.json` — `cleanUrls: true`, no trailing slash.
 
-## Relume (planned production stack)
+## Relume (production stack)
 
-Do not add Next.js or a custom app build unless explicitly requested. New pages ship from **Relume.io** → Webflow. Keep [copy/](copy/) and [personas/](personas/) as source of truth; wireframes/designs are disposable reference HTML.
+The production page lives in [relume/](relume/) — a **Vite + React 18 + TypeScript + Tailwind v3** app using **Relume components** (`@relume_io/relume-ui` + `@relume_io/relume-tailwind` preset). Section components are copy-pasted from relume.io (the npm package ships only primitives, not sections) into `relume/src/`. It deploys **directly to Vercel. No Webflow, no Next.js.**
+
+Keep [copy/](copy/) and [personas/](personas/) as source of truth for content; wireframes/designs are disposable reference HTML. See [relume/README.md](relume/README.md) for the dev/build workflow.
 
 ## How to "run" / validate
 

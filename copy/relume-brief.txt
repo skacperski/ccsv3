@@ -1,0 +1,43 @@
+CYCOMMSEC — LANDING PAGE NIS2/KSC 2026 (PL, B2B)
+
+Cel: paid LP (Google + LinkedIn). Konwersja: ankieta NIS2 (~2 min), wynik mailem. URL: /nis2/start. Bez menu usług 01–12. Header: logo + tel. opcjonalnie. Stopka: Polityka prywatności · RODO · © CyCommSec.
+
+KOLEJNOŚĆ SEKCJI (11 bloków + stopka)
+
+0) HEADER — logo, telefon (opcjonalnie).
+
+1) HERO [dynamiczny per kampania] — H1, podtytuł, 3 statystyki, CTA główne, microcopy (bez zobowiązań), opcjonalnie CTA drugorzędne: „Wolisz rozmowę? Kontakt po ankiecie →”. Domyślny H1: „NIS2 w Polsce: audyt, wdrożenie i bezpieczeństwo techniczne”; sub o KSC 02/2026 i ofercie CyCommSec (audyt, pentesty, SOC, usługa miesięczna); CTA: „Zacznij od ankiety (2 min)”.
+
+2) SCOPE [statyczny; wariant compact tylko dla kampanii „czy podlegam”] — H2: „Czy NIS2 dotyczy waszej firmy?” + 3 punkty: 18 sektorów; próg 50 osób lub 10 mln EUR obrotu; po nowelizacji KSC (luty 2026) wiele firm nie wie, co i do kiedy. Wariant compact: jeden akapit zamiast listy.
+
+3) RISK [dynamiczny, PAS] — H2 + lead + 3–4 bullets o karach (do 10 mln EUR / 2% obrotu, 7 mln / 1,4%), odpowiedzialności zarządu, raportowaniu 24h/72h, łańcuchu dostaw. Przykład default: „Brak NIS2 to ryzyko prawne i operacyjne naraz”.
+
+4) USŁUGA [H2+sub dynamiczne; 3 filary statyczne] — Domyślnie H2: „Audyt, polityki, pentesty i SOC. U jednego dostawcy.” Sub: jedna umowa zamiast czterech. Filary: (01) Regulacja — audyt luk, polityki, procedury incydentów, BCP, szkolenia zarządu; (02) Technologia — pentesty, skany, utwardzenie, remediacja art. 21 NIS2; (03) Ciągłość — SOC 24/7, zgłoszenia 24h/72h, przeglądy, dostawcy IT.
+
+5) JAK TO DZIAŁA [statyczny] — H2: „Jak to wygląda krok po kroku”. Krok 1: Ankieta 2 min — czy wchodzicie w NIS2 i gdzie luki. Krok 2: Audyt i plan dla zarządu od 9 900 zł, raport PL. Krok 3: Wdrożenie projektowe albo NIS2 jako usługa od 15 900 zł/mc.
+
+6) PROOF [H2 statyczny; cytat dynamiczny] — H2: „Zaufali nam”. Rząd logo (4). Cytat klienta per kampania (placeholder w produkcji).
+
+7) CENNIK [lead + wyróżniona karta dynamiczne; treść pakietów statyczna] — H2: „Od czego zacząć”. Lead domyślny: zaczynamy od ankiety, potem audyt/wdrożenie/usługa. Mikro: pierwszy krok ankieta 2 min. Trzy karty: (A) Ocena gotowości NIS2 od 9 900 zł — analiza luk, raport dla zarządu, plan 90 dni; (B) Wdrożenie NIS2 od 24 900 zł — polityki, środki techniczne, szkolenia; (C) NIS2 jako usługa ★ od 15 900 zł/mc — SOC 24/7, pentesty w cenie, utrzymanie zgodności. CTA na kartach dopasowane do kampanii.
+
+8) PORÓWNANIE [statyczny; ukryte dla niektórych wariantów Google] — H2: „Własny zespół vs NIS2 jako usługa”. In-house ~38 644 zł/mc (2–3 etaty, rekrutacja, rotacja, licencje osobno). aaS od 15 900 zł/mc — zgodność, pentesty, SOC w jednej fakturze. Przypis: ok. 61,4% taniej vs model własny (materiały CyCommSec).
+
+9) FAQ [statyczny — tytuły; treść w CMS] — (1) Co zmienia KSC od lutego 2026? (2) ISO 27001/SZBI a NIS2? (3) Próg 50 osób — etaty czy współpracownicy? (4) Kary dla zarządu? (5) Czas wdrożenia (6 mies. vs 6–18 mies.)? (6) Lista 18 sektorów. (7) Art. 21 NIS2 — 10 wymogów po polsku.
+
+10) FINAL CTA [dynamiczny] — H2, sub, przycisk jak w hero. Domyślnie: „Zacznijcie od ankiety” / „2 minuty…” / CTA ankieta.
+
+9 WARIANTÓW TREŚCI (message match z reklamą; w Webflow/Relume: osobne strony lub CMS + UTM)
+
+Google: (1) gads-kary — kary KSC; H1 „Kontrola po KSC może kosztować 10 mln EUR…”; ukryj porównanie. (2) gads-podlegam — czy podlegam; H1 „Czy wasza firma wchodzi w NIS2?”; scope compact. (3) gads-audyt — audyt 9 900 zł; wyróżniona karta audyt. (4) gads-wdrozenie — wdrożenie 24 900 zł; wyróżnione wdrożenie. (5) gads-aas — outsourcing 15 900 zł/mc; wyróżniona usługa; pokazuj porównanie.
+
+LinkedIn: (6) li-ceo — zarząd; „NIS2: zarząd odpowiada osobiście…”; CTA „Zobacz raport dla zarządu”. (7) li-ciso — CISO/IT; pentesty, art. 21, jeden SLA. (8) li-coo — operacje; 24h/72h, BCP, dostawcy.
+
+(9) default — organiczny fallback.
+
+FAKTY (nie zmieniać bez legal): KSC 19.02.2026; kary jak wyżej; progi 50 FTE / 10 mln EUR; 18 sektorów; audyt od 9 900 zł; wdrożenie od 24 900 zł; aaS od 15 900 zł/mc; incydenty 24h/72h.
+
+PRODUKCJA DO UZUPEŁNIENIA: URL ankiety, logo klientów, cytaty z imieniem/stanowiskiem, telefon, body FAQ, linki RODO, zdjęcie hero (bez stockowego hakera), ewent. twarze ekspertów (LinkedIn).
+
+Ton: PL B2B, konkret, bez AI-izmów. Zgodność prawna pozostaje po stronie podmiotu (FAQ przy aaS).
+
+PY
