@@ -18,9 +18,7 @@ export default function App() {
 
   return (
     <>
-      {import.meta.env.DEV && (
-        <VariantSwitcher current={variantId} onChange={handleChange} />
-      )}
+      <VariantSwitcher current={variantId} onChange={handleChange} />
       <Page content={VARIANTS[variantId]} />
     </>
   );
