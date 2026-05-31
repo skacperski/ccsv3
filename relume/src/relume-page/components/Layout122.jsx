@@ -1,10 +1,12 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+import { CalendarCtaButton } from "./CalendarCtaButton";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Layout122({ scope }) {
+  const calendarLabel = scope.ctaSecondary ?? "Wolisz rozmowę? Pokaż kalendarz";
+
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -16,14 +18,12 @@ export function Layout122({ scope }) {
             </h3>
             <p className="mt-5 md:mt-6">{scope.col1.body}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button variant="secondary">{scope.col1.cta}</Button>
-              <Button
-                variant="link"
-                size="link"
-                iconRight={<RxChevronRight />}
-              >
-                {scope.ctaSecondary}
-              </Button>
+              <SurveyCtaButton variant="secondary" title={scope.col1.cta}>
+                {scope.col1.cta}
+              </SurveyCtaButton>
+              <CalendarCtaButton variant="link" size="link" title={calendarLabel}>
+                {calendarLabel}
+              </CalendarCtaButton>
             </div>
           </div>
           <div>
@@ -33,14 +33,12 @@ export function Layout122({ scope }) {
             </h3>
             <p className="mt-5 md:mt-6">{scope.col2.body}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button variant="secondary">{scope.col2.cta}</Button>
-              <Button
-                variant="link"
-                size="link"
-                iconRight={<RxChevronRight />}
-              >
-                {scope.ctaSecondary}
-              </Button>
+              <SurveyCtaButton variant="secondary" title={scope.col2.cta}>
+                {scope.col2.cta}
+              </SurveyCtaButton>
+              <CalendarCtaButton variant="link" size="link" title={calendarLabel}>
+                {calendarLabel}
+              </CalendarCtaButton>
             </div>
           </div>
         </div>

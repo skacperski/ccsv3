@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Faq7({ faq }) {
   return (
@@ -29,9 +29,9 @@ export function Faq7({ faq }) {
           </h4>
           <p className="md:text-md">{faq.tail.sub}</p>
           <div className="mt-6 md:mt-8">
-            <Button title={faq.tail.cta} variant="secondary">
+            <SurveyCtaButton title={faq.tail.cta} variant="secondary">
               {faq.tail.cta}
-            </Button>
+            </SurveyCtaButton>
           </div>
         </div>
       </div>

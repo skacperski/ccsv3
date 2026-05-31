@@ -1,6 +1,8 @@
-import { Button } from "@relume_io/relume-ui";
+"use client";
+
 import { BiCheck } from "react-icons/bi";
 import React from "react";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function ScopeSection({ scope }) {
   return (
@@ -36,7 +38,9 @@ export function ScopeSection({ scope }) {
           )}
 
           <div className="mt-8">
-            <Button variant="secondary">{scope.cta}</Button>
+            <SurveyCtaButton variant="secondary" title={scope.cta}>
+              {scope.cta}
+            </SurveyCtaButton>
           </div>
         </div>
       </div>

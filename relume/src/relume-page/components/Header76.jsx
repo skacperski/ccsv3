@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import { CalendarModal } from "./CalendarModal";
+import { CalendarCtaButton } from "./CalendarCtaButton";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Header76({ hero }) {
   return (
@@ -28,20 +28,11 @@ export function Header76({ hero }) {
           </div>
         )}
         <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-          <Button
-            title={hero.ctaPrimary}
-            onClick={() => {
-              document.getElementById("ankieta")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            {hero.ctaPrimary}
-          </Button>
+          <SurveyCtaButton title={hero.ctaPrimary}>{hero.ctaPrimary}</SurveyCtaButton>
           {hero.ctaSecondary && (
-            <CalendarModal>
-              <Button variant="secondary" title={hero.ctaSecondary} type="button">
-                {hero.ctaSecondary}
-              </Button>
-            </CalendarModal>
+            <CalendarCtaButton variant="secondary" title={hero.ctaSecondary}>
+              {hero.ctaSecondary}
+            </CalendarCtaButton>
           )}
         </div>
       </div>

@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { CalendarCtaButton } from "./CalendarCtaButton";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Cta9({ final }) {
   return (
@@ -19,11 +20,11 @@ export function Cta9({ final }) {
             </div>
           </div>
           <div className="flex items-start justify-start gap-4">
-            <Button title={final.ctaPrimary}>{final.ctaPrimary}</Button>
+            <SurveyCtaButton title={final.ctaPrimary}>{final.ctaPrimary}</SurveyCtaButton>
             {final.ctaSecondary && (
-              <Button title={final.ctaSecondary} variant="secondary-alt">
+              <CalendarCtaButton title={final.ctaSecondary} variant="secondary-alt">
                 {final.ctaSecondary}
-              </Button>
+              </CalendarCtaButton>
             )}
           </div>
         </div>

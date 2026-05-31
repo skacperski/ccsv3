@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@relume_io/relume-ui";
 import React from "react";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Faq1({ faq }) {
   return (
@@ -30,6 +31,17 @@ export function Faq1({ faq }) {
             </AccordionItem>
           ))}
         </Accordion>
+        <div className="mx-auto mt-12 max-w-md text-center md:mt-18 lg:mt-20">
+          <h4 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
+            {faq.tail.h}
+          </h4>
+          <p className="md:text-md">{faq.tail.sub}</p>
+          <div className="mt-6 md:mt-8">
+            <SurveyCtaButton title={faq.tail.cta} variant="secondary">
+              {faq.tail.cta}
+            </SurveyCtaButton>
+          </div>
+        </div>
       </div>
     </section>
   );

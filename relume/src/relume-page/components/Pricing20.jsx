@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import clsx from "clsx";
 import React from "react";
 import { BiCheck } from "react-icons/bi";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 const MAX_FEATURES = 5;
 
@@ -65,13 +65,13 @@ export function Pricing20({ pricing }) {
                     </p>
                   </div>
                   <div className="mt-6 md:mt-8">
-                    <Button
+                    <SurveyCtaButton
                       title={card.cta}
                       className="w-full"
                       variant={featured ? "secondary-alt" : "primary"}
                     >
                       {card.cta}
-                    </Button>
+                    </SurveyCtaButton>
                   </div>
                   <div
                     className={clsx(

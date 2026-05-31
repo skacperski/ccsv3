@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Navbar3({ nav }) {
   return (
@@ -13,16 +13,13 @@ export function Navbar3({ nav }) {
         >
           {nav.brand}
         </a>
-        <Button
+        <SurveyCtaButton
           title={nav.cta}
           size="sm"
-          className="ml-auto shrink-0 px-4 py-1 md:px-6 md:py-2 mr-4 md:mr-6 lg:mr-8"
-          onClick={() => {
-            document.getElementById("ankieta")?.scrollIntoView({ behavior: "smooth" });
-          }}
+          className="ml-auto mr-4 shrink-0 px-4 py-1 md:mr-6 md:px-6 md:py-2 lg:mr-8"
         >
           {nav.cta}
-        </Button>
+        </SurveyCtaButton>
       </nav>
     </header>
   );

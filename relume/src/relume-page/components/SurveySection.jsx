@@ -2,7 +2,7 @@
 
 import { Button, Input } from "@relume_io/relume-ui";
 import React, { useState } from "react";
-import { CalendarModal } from "./CalendarModal";
+import { CalendarCtaButton } from "./CalendarCtaButton";
 
 const SECTORS = [
   "Energetyka",
@@ -294,11 +294,9 @@ export function SurveySection({ final }) {
                   </Button>
                 )}
                 {step === 0 && final.ctaSecondary && (
-                  <CalendarModal>
-                    <Button variant="secondary" type="button" title={final.ctaSecondary}>
-                      {final.ctaSecondary}
-                    </Button>
-                  </CalendarModal>
+                  <CalendarCtaButton variant="secondary" title={final.ctaSecondary}>
+                    {final.ctaSecondary}
+                  </CalendarCtaButton>
                 )}
               </div>
             </>

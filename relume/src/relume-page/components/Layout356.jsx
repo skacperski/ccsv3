@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Fragment } from "react";
+import { scrollToSurvey } from "../utils/cta";
 
 const PANEL_CLASSES = [
   "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 top-0 lg:mb-32",
@@ -29,12 +30,16 @@ export function Layout356({ service }) {
             <div className={PANEL_CLASSES[i] ?? PANEL_CLASSES[2]}>
               <div className="px-[5%]">
                 <div className="container">
-                  <a href="#" className="flex h-16 w-full items-center">
+                  <button
+                    type="button"
+                    onClick={scrollToSurvey}
+                    className="flex h-16 w-full cursor-pointer items-center text-left"
+                  >
                     <span className="mr-5 font-semibold md:mr-6 md:text-md">
                       {pillar.num}
                     </span>
                     <h3 className="font-semibold md:text-md">{pillar.label}</h3>
-                  </a>
+                  </button>
                   <div className="py-8 md:py-10 lg:py-12">
                     <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                       <div>

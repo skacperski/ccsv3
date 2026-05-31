@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { SurveyCtaButton } from "./SurveyCtaButton";
 
-export function Layout373({ how }) {
+export function Layout373({ how, surveyCta }) {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -30,9 +30,9 @@ export function Layout373({ how }) {
                   <p className="text-white/80">{how.steps[0].body}</p>
                 </div>
                 <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                  <Button title="Zacznij" variant="secondary-alt">
-                    Zacznij
-                  </Button>
+                  <SurveyCtaButton title={surveyCta} variant="secondary-alt">
+                    {surveyCta}
+                  </SurveyCtaButton>
                 </div>
               </div>
             </div>
