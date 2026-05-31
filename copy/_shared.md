@@ -24,7 +24,7 @@ Mapowanie wariantów: [personas/](../personas/) (jeden plik na kampanię).
 
 ## Hero — secondary CTA (when shown)
 
-- **Default / niektóre warianty:** `Wolisz rozmowę? Kontakt po ankiecie →`
+- **Wszystkie warianty (obok głównego CTA):** `Wolisz rozmowę? Pokaż kalendarz`
 
 ## Scope — full mode
 

@@ -2,53 +2,53 @@
 variant: gads-aas
 channel: Google Ads
 campaign: nis2-managed
-utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-managed&utm_content=aas-15900"
+utm: "?utm_source=google&utm_medium=cpc&utm_campaign=nis2-managed&utm_content=aas-soc"
 scopeMode: full
 hideCompare: false
 featuredCard: card-aas
 ctaUnified: Sprawdź, czy aaS pasuje
-secondaryCta: "Wolisz rozmowę? Kontakt po ankiecie →"
+secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/gads-aas.md
 ---
 
-# Copy — `gads-aas` (Google Ads · intencja: outsourcing zgodności NIS2)
+# Copy — `gads-aas` (Google Ads · intencja: NIS2 jako usługa, model abonamentowy)
 
 Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** Outsourcing NIS2 od 15 900 zł/mc. SOC, pentesty i polityki w jednej fakturze.
-- **Sub:** Zamiast budowy własnego zespołu: wdrożenie, monitoring 24/7, obsługa incydentów, pentesty i polityki. Wszystko w jednej fakturze.
-- **Stats:** od 15 900 zł/mc · SOC 24/7 · ok. 61,4% taniej niż własny zespół*
+- **H1:** NIS2 jako usługa od 15 900 zł/mc. Stała cena, wszystko w środku.
+- **Sub:** Płacicie jedną stawkę co miesiąc. W cenie wdrożenie, monitoring całą dobę, obsługa incydentów, pentesty i polityki. Bez rekrutacji, bez budowy zespołu od zera.
+- **Stats:** od 15 900 zł/mc · 61,4%* taniej · SOC 24/7
 - **CTA primary:** Sprawdź, czy aaS pasuje
-- **Micro:** Pentesty w cenie. Porównanie z własnym zespołem masz niżej na stronie.
+- **Micro:** Pentesty w cenie. *Metodologia TCO na życzenie.
 
 ## Risk
 
-- **H2:** Zespół in-house buduje się 9 miesięcy. KSC obowiązuje teraz.
-- **Lead:** Rekrutacja specjalistów cyber w Polsce to dziś miesiące i ok. 38 644 zł/mc po stronie pracodawcy. Plus narzędzia, plus rotacja.
+- **H2:** Własny zespół buduje się 9 miesięcy. KSC obowiązuje teraz.
+- **Lead:** Rekrutacja specjalistów cyber w Polsce to dziś miesiące szukania i około 38 644 zł/mc po stronie pracodawcy. Do tego dochodzą narzędzia i rotacja, bo dobry analityk po roku dostaje lepszą ofertę.
 - **Bullets:**
-  - Jedna umowa: audyt, wdrożenie, utrzymanie, raporty.
-  - Pentesty i skany w abonamencie.
-  - Zgłoszenia incydentów w terminach 24h i 72h.
+  - Jedna umowa zamiast czterech: audyt, wdrożenie, utrzymanie, raporty.
+  - Pentesty i skany podatności w abonamencie, bez dopłat.
+  - Zgłoszenia incydentów w terminach 24h i 72h, my pilnujemy zegara.
 
 ## Service override
 
-- **H2:** Cała zgodność na zewnątrz, IT zostaje wasze
-- **Sub:** Jedna faktura miesięczna, jeden numer do dzwonienia po godzinach.
+- **H2:** Zgodność bierzemy my, IT zostaje wasze
+- **Sub:** Wasz dział IT dalej zna swoje systemy i nimi zarządza. My odpowiadamy za regulację, monitoring i incydenty. Jedna faktura, jeden numer po godzinach.
 
 ## Proof
 
-> „Zamknęliśmy plan na trzy etaty cyber. Płacimy co miesiąc, SOC działa całą dobę, nie martwię się urlopami.”
-> — Dyrektor IT, [sektor]
+> „Policzyłem trzy etaty w cyber i odpuściłem. Płacimy stałą stawkę co miesiąc, SOC działa całą dobę, a ja nie układam grafiku urlopów dla analityków.”
+> — [stanowisko], [firma] ([sektor])
 
 ## Pricing
 
-- **Lead:** Wariant usługi od 15 900 zł/mc. Porównanie z własnym zespołem znajdziecie poniżej.
+- **Lead:** NIS2 jako usługa kosztuje od 15 900 zł/mc, stała stawka. Niżej porównujemy to z kosztem własnego zespołu. Ankieta podpowie, czy ten model pasuje do waszej skali.
 - **Card CTAs:** audit: `Porównaj w ankiecie` · impl: `Porównaj w ankiecie` · aas: `Sprawdź, czy aaS pasuje`
 
 ## Final
 
-- **H2:** Zgodność na outsourcing, IT bez zwolnień
-- **Sub:** Wasz dział IT robi swoje. My bierzemy regulację, monitoring i incydenty.
+- **H2:** Stała stawka miesięczna, zero rekrutacji
+- **Sub:** Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy aaS wam się liczy.
 - **CTA:** Sprawdź, czy aaS pasuje

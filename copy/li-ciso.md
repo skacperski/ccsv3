@@ -7,7 +7,7 @@ scopeMode: full
 hideCompare: false
 featuredCard: card-aas
 ctaUnified: Sprawdź luki techniczne i prawne
-secondaryCta: null
+secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/li-ciso.md
 ---
 
@@ -18,7 +18,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Hero
 
 - **H1:** NIS2 bez polityk do szuflady: audyt, pentesty, SOC
-- **Sub:** KSC, art. 21, pentesty, monitoring 24/7 u jednego dostawcy. Jedna umowa zamiast czterech faktur od kancelarii, konsultingu, agencji testowej i SOC.
+- **Sub:** Audyt luk, pentesty, monitoring 24/7 i zgłoszenia w 24h/72h. Jedna umowa i jedno SLA zamiast kancelarii, konsultanta, agencji testowej i osobnego MSSP. Macie ISO 27001? Zaczynamy od tego, co już działa.
 - **Stats:** pentesty w cenie · art. 21 KSC · jeden dostawca, jedno SLA
 - **CTA primary:** Sprawdź luki techniczne i prawne
 - **Micro:** Dla CISO, dyrektora IT, kierownika bezpieczeństwa.
@@ -28,28 +28,28 @@ Statyczne sekcje: [_shared.md](_shared.md).
 - **H2:** Regulator chce dowodów. Sam folder polityk to za mało.
 - **Lead:** Kontrola pyta o logi, raporty z pentestów i czas reakcji na incydent. Polityki bez dowodów wdrożenia liczą się jak ich brak.
 - **Bullets:**
-  - Analiza luk w środowiskach IT i OT pod art. 8 KSC.
-  - Raportowanie incydentów jako zautomatyzowany proces, nie walka z zegarem.
-  - Pentesty i naprawa podatności w cyklu.
+  - Analiza luk w środowiskach IT i OT pod art. 21 KSC, dla produkcji także pod IEC 62443.
+  - Raportowanie incydentów jako zautomatyzowany proces, nie ręczna walka z zegarem przy 24h/72h.
+  - Pentesty i naprawa podatności w stałym cyklu, zamiast jednego testu raz na audyt.
   - Dostawcy ICT w audycie ryzyka łańcucha dostaw.
 
 ## Service override
 
 - **H2:** Dla CISO: zgodność, pentesty i SOC w jednym SLA
-- **Sub:** Bez żonglowania pięcioma dostawcami i pięcioma kontraktami.
+- **Sub:** Jedna umowa i jeden zespół zamiast pięciu kontraktów. Istniejącą dojrzałość, w tym ISO 27001, uznajemy, a nie wymyślamy od zera.
 
 ## Proof
 
-> „Jeden SLA na zgodność i testy. Skończyło się poleganie na pięciu firmach, kiedy coś się dzieje."
+> „Skończyło się ganianie pięciu firm, kiedy coś się dzieje. Jeden SLA na zgodność, pentesty i SOC, jeden numer telefonu."
 > — CISO, [sektor]
 
 ## Pricing
 
-- **Lead:** Ankieta wskaże, czy potrzebujecie audytu, wdrożenia, czy usługi z SOC.
+- **Lead:** Ankieta pokaże, gdzie macie luki i czy starczy audyt techniczny, czy potrzebujecie wdrożenia albo usługi z SOC.
 - **Card CTAs:** audit: `Audyt techniczny` · impl: `Wdrożenie` · aas: `Sprawdź NIS2 jako usługę`
 
 ## Final
 
 - **H2:** Jeden dostawca zamiast pięciu
-- **Sub:** Zgodność, pentesty, monitoring w jednym kontrakcie. Jeden numer do dzwonienia, jedna faktura.
+- **Sub:** Zgodność, pentesty i monitoring 24/7 w jednym kontrakcie. Jeden numer telefonu, jedna faktura, jedno SLA.
 - **CTA:** Sprawdź luki techniczne i prawne
