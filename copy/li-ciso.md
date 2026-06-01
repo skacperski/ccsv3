@@ -17,39 +17,38 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** NIS2 bez polityk do szuflady: audyt, pentesty, SOC
-- **Sub:** Audyt luk, pentesty, monitoring 24/7 i zgłoszenia w 24h/72h. Jedna umowa i jedno SLA zamiast kancelarii, konsultanta, agencji testowej i osobnego MSSP. Macie ISO 27001? Zaczynamy od tego, co już działa.
+- **H1:** NIS2 bez zbędnej dokumentacji. Audyt, pentesty i SOC w jednym miejscu
+- **Sub:** Audyt luk, pentesty, monitoring 24/7 oraz wsparcie w raportowaniu incydentów w terminach 24h i 72h. Zamiast koordynować kilku dostawców, współpracujesz z jednym zespołem. Jeśli Twoja organizacja korzysta już z ISO 27001, uwzględniamy istniejące procesy i zabezpieczenia.
 - **Stats:** pentesty w cenie · art. 21 KSC · jeden dostawca, jedno SLA
 - **CTA primary:** Sprawdź luki techniczne i prawne
-- **Micro:** Dla CISO, dyrektora IT, kierownika bezpieczeństwa.
+- **Micro:** Dla CISO, dyrektora IT i osób odpowiedzialnych za bezpieczeństwo.
 
 ## Risk
 
-- **H2:** Regulator chce dowodów. Sam folder polityk to za mało.
-- **Lead:** Kontrola pyta o logi, raporty z pentestów i czas reakcji na incydent. Polityki bez dowodów wdrożenia liczą się jak ich brak.
+- **H2:** Podczas kontroli liczą się dowody, nie deklaracje
+- **Lead:** Sam zestaw polityk i procedur nie wystarczy. Kontrola może wymagać raportów z testów, logów, dokumentacji incydentów oraz potwierdzenia, że przyjęte procedury działają w praktyce.
 - **Bullets:**
-  - Analiza luk w środowiskach IT i OT pod art. 21 KSC, dla produkcji także pod IEC 62443.
-  - Raportowanie incydentów jako zautomatyzowany proces, nie ręczna walka z zegarem przy 24h/72h.
-  - Pentesty i naprawa podatności w stałym cyklu, zamiast jednego testu raz na audyt.
-  - Dostawcy ICT w audycie ryzyka łańcucha dostaw.
+  - Analiza luk w środowiskach IT i OT pod kątem art. 21 KSC, a w sektorze produkcyjnym również IEC 62443.
+  - Raportowanie incydentów jako uporządkowany proces wspierający terminy 24h i 72h.
+  - Regularne pentesty i zarządzanie podatnościami zamiast jednorazowych działań przed audytem.
+  - Ocena dostawców ICT w ramach analizy ryzyka łańcucha dostaw.
 
 ## Service override
 
-- **H2:** Dla CISO: zgodność, pentesty i SOC w jednym SLA
-- **Sub:** Jedna umowa i jeden zespół zamiast pięciu kontraktów. Istniejącą dojrzałość, w tym ISO 27001, uznajemy, a nie wymyślamy od zera.
-
+- **H2:** Zgodność, pentesty i SOC w ramach jednej współpracy
+- **Sub:** Jeden zespół odpowiada za audyt, monitoring i wsparcie w obszarze zgodności. Wykorzystujemy istniejące procesy, procedury i certyfikacje, zamiast budować wszystko od początku.
 ## Proof
 
-> „Skończyło się ganianie pięciu firm, kiedy coś się dzieje. Jeden SLA na zgodność, pentesty i SOC, jeden numer telefonu."
+> „Zamiast koordynować kilka firm i kilka zakresów odpowiedzialności, mieliśmy jeden punkt kontaktu. Znacznie łatwiej było zarządzać zarówno zgodnością, jak i bieżącymi działaniami bezpieczeństwa."
 > — CISO, [sektor]
 
 ## Pricing
 
-- **Lead:** Ankieta pokaże, gdzie macie luki i czy starczy audyt techniczny, czy potrzebujecie wdrożenia albo usługi z SOC.
+- **Lead:** Krótka ankieta pomoże określić poziom gotowości organizacji i wskazać, czy wystarczy audyt techniczny, czy potrzebne będzie wdrożenie lub model z monitoringiem SOC.
 - **Card CTAs:** audit: `Audyt techniczny` · impl: `Wdrożenie` · aas: `Sprawdź NIS2 jako usługę`
 
 ## Final
 
-- **H2:** Jeden dostawca zamiast pięciu
-- **Sub:** Zgodność, pentesty i monitoring 24/7 w jednym kontrakcie. Jeden numer telefonu, jedna faktura, jedno SLA.
+- **H2:** Jeden partner do zgodności i cyberbezpieczeństwa
+- **Sub:** Audyt, pentesty i monitoring 24/7 realizowane w ramach jednej współpracy. Jeden punkt kontaktu, jeden SLA i pełniejszy obraz bezpieczeństwa organizacji.
 - **CTA:** Sprawdź luki techniczne i prawne
