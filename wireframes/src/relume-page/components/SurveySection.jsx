@@ -3,6 +3,7 @@
 import { Button, Input } from "@relume_io/relume-ui";
 import React, { useState } from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
+import { darkSurfaceButtonClassName } from "../utils/darkSurfaceButton";
 
 const SECTORS = [
   "Energetyka",
@@ -276,20 +277,30 @@ export function SurveySection({ final }) {
 
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 {step > 0 && (
-                  <Button variant="secondary-alt" onClick={() => setStep((s) => s - 1)}>
+                  <Button
+                    variant="secondary-alt"
+                    className={darkSurfaceButtonClassName}
+                    onClick={() => setStep((s) => s - 1)}
+                  >
                     Wstecz
                   </Button>
                 )}
                 {step < STEP_COUNT - 1 ? (
                   <Button
                     variant="secondary-alt"
+                    className={darkSurfaceButtonClassName}
                     disabled={!canNext}
                     onClick={() => setStep((s) => s + 1)}
                   >
                     Dalej
                   </Button>
                 ) : (
-                  <Button variant="secondary-alt" disabled={!canNext} onClick={handleSubmit}>
+                  <Button
+                    variant="secondary-alt"
+                    className={darkSurfaceButtonClassName}
+                    disabled={!canNext}
+                    onClick={handleSubmit}
+                  >
                     {final.ctaPrimary}
                   </Button>
                 )}
