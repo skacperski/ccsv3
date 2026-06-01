@@ -17,38 +17,38 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** NIS2 jako usługa od 15 900 zł/mc. Stała cena, wszystko w środku.
-- **Sub:** Płacicie jedną stawkę co miesiąc. W cenie wdrożenie, monitoring całą dobę, obsługa incydentów, pentesty i polityki. Bez rekrutacji, bez budowy zespołu od zera.
+- **H1:** NIS2 w abonamencie od 15 900 zł miesięcznie
+- **Sub:** Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. W cenie są wdrożenie wymagań NIS2, monitoring 24/7, obsługa incydentów, pentesty i dokumentacja. Bez rekrutacji i dodatkowych narzędzi.
 - **Stats:** od 15 900 zł/mc · 61,4%* taniej · SOC 24/7
 - **CTA primary:** Sprawdź usługę miesięczną
 - **Micro:** Pentesty w cenie. *Metodologia TCO na życzenie.
 
 ## Risk
 
-- **H2:** Własny zespół buduje się 9 miesięcy. KSC obowiązuje teraz.
-- **Lead:** Rekrutacja specjalistów cyber w Polsce to dziś miesiące szukania i około 38 644 zł/mc po stronie pracodawcy. Do tego dochodzą narzędzia i rotacja, bo dobry analityk po roku dostaje lepszą ofertę.
+- **H2:** Własny zespół cyber buduje się miesiącami, a nowelizacja KSC obowiązuje już dziś.
+- **Lead:** Znalezienie i zatrudnienie specjalistów ds. cyberbezpieczeństwa zajmuje dziś wiele miesięcy. Koszt własnego zespołu to około 38 644 zł/mc po stronie pracodawcy. Do tego dochodzą narzędzia, szkolenia i ryzyko rotacji pracowników.
 - **Bullets:**
-  - Jedna umowa zamiast czterech: audyt, wdrożenie, utrzymanie, raporty.
-  - Pentesty i skany podatności w abonamencie, bez dopłat.
-  - Zgłoszenia incydentów w terminach 24h i 72h, my pilnujemy zegara.
+  -Jedna umowa zamiast osobnych projektów na audyt, wdrożenie i utrzymanie.
+  - Pentesty oraz skany podatności są wliczone w miesięczną opłatę.
+  - Terminy zgłoszeń incydentów 24h i 72h pozostają pod kontrolą naszego zespołu.
 
 ## Service override
 
-- **H2:** Zgodność bierzemy my, IT zostaje wasze
-- **Sub:** Wasz dział IT dalej zna swoje systemy i nimi zarządza. My odpowiadamy za regulację, monitoring i incydenty. Jedna faktura, jeden numer po godzinach.
+- **H2:** My odpowiadamy za NIS2, a wasz dział IT robi swoje
+- **Sub:** Twój zespół nadal zarządza systemami i infrastrukturą. My zajmujemy się wymaganiami regulacyjnymi, monitoringiem oraz obsługą incydentów. Masz jeden punkt kontaktu i jedną miesięczną fakturę.
 
 ## Proof
 
-> „Policzyłem trzy etaty w cyber i odpuściłem. Płacimy stałą stawkę co miesiąc, SOC działa całą dobę, a ja nie układam grafiku urlopów dla analityków.”
-> — [stanowisko], [firma] ([sektor])
+> „Policzyłem koszt stworzenia własnego zespołu cyberbezpieczeństwa i szybko okazało się, że to nie ma uzasadnienia biznesowego. Dziś płacimy stałą miesięczną kwotę, SOC działa 24/7, a my nie zajmujemy się rekrutacją ani utrzymaniem specjalistów.”
+> [stanowisko], [firma] ([sektor])
 
 ## Pricing
 
-- **Lead:** NIS2 jako usługa kosztuje od 15 900 zł/mc, stała stawka. Niżej porównujemy to z kosztem własnego zespołu. Ankieta podpowie, czy ten model pasuje do waszej skali.
+- **Lead:** NIS2 jako usługa kosztuje od 15 900 zł/mc w modelu abonamentowym. Poniżej możesz porównać ten wariant z kosztem budowy własnego zespołu. Krótka ankieta pomoże ocenić, które rozwiązanie lepiej pasuje do Twojej organizacji.
 - **Card CTAs:** audit: `Porównaj w ankiecie` · impl: `Porównaj w ankiecie` · aas: `Sprawdź usługę miesięczną`
 
 ## Final
 
-- **H2:** Stała stawka miesięczna, zero rekrutacji
-- **Sub:** Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy usługa miesięczna wam się liczy.
+- **H2:** Stały miesięczny koszt zamiast rekrutacji specjalistów
+- **Sub:** Nie musisz budować własnego zespołu cyberbezpieczeństwa. My przejmujemy wymagania regulacyjne, monitoring i obsługę incydentów w ramach jednej usługi. Wypełnij krótką ankietę i sprawdź, czy ten model będzie opłacalny dla Twojej firmy.
 - **CTA:** Sprawdź usługę miesięczną
