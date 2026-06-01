@@ -9,7 +9,7 @@ interface Props {
 export function VariantSwitcher({ current, onChange }: Props) {
   return (
     <div
-      className="sticky top-0 z-[60] w-full border-b border-[#c4c7c5] bg-[#dee1e6] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,sans-serif] text-[12px] leading-none text-[#3c4043] antialiased"
+      className="fixed inset-x-0 bottom-0 z-[60] w-full border-t border-[#c4c7c5] bg-[#dee1e6] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,sans-serif] text-[12px] leading-none text-[#3c4043] antialiased"
       role="toolbar"
       aria-label="Podgląd wariantów treści"
     >
@@ -32,7 +32,7 @@ export function VariantSwitcher({ current, onChange }: Props) {
         </div>
 
         <div className="flex min-w-0 flex-1 overflow-x-auto overscroll-x-contain">
-          <div className="flex min-w-max items-end gap-px px-1 pt-1">
+          <div className="flex min-w-max items-end gap-px px-1 pb-0">
             {VARIANT_LIST.map((v) => {
               const active = v.id === current;
               return (
@@ -43,9 +43,9 @@ export function VariantSwitcher({ current, onChange }: Props) {
                   title={`${v.label} — ${v.channel}`}
                   aria-pressed={active}
                   className={[
-                    "group relative flex max-w-[14rem] shrink-0 flex-col items-start rounded-t-md border px-3 py-1.5 text-left transition-colors",
+                    "group relative flex max-w-[14rem] shrink-0 flex-col items-start rounded-b-md border px-3 py-1.5 text-left transition-colors",
                     active
-                      ? "z-10 -mb-px border-[#c4c7c5] border-b-white bg-white text-[#202124] shadow-[0_-1px_0_#fff]"
+                      ? "z-10 -mt-px border-[#c4c7c5] border-b-0 bg-white text-[#202124] shadow-[0_1px_0_#fff]"
                       : "border-transparent bg-transparent text-[#5f6368] hover:bg-[#e8eaed]",
                   ].join(" ")}
                 >

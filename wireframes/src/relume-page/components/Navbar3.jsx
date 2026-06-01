@@ -5,7 +5,7 @@ import { SurveyCtaButton } from "./SurveyCtaButton";
 
 export function Navbar3({ nav }) {
   return (
-    <header className="sticky top-9 z-50 w-full border-b border-border-primary bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border-primary bg-white/95 backdrop-blur-sm">
       <nav className="flex h-16 w-full items-center md:h-18">
         <a
           href="#"
