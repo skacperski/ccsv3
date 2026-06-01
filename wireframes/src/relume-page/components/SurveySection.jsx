@@ -142,24 +142,20 @@ export function SurveySection({ final }) {
 
           {/* ---- SURVEY ---- */}
           {phase === "survey" && (
-            <div>
-              <h3 className="mb-3 max-w-prose text-2xl font-bold leading-snug md:text-3xl">
-                {q.question}
-              </h3>
+            <div className="mx-auto max-w-lg text-center">
+              <h3 className="mb-3 text-2xl font-bold leading-snug md:text-3xl">{q.question}</h3>
               {q.help && (
-                <p className="mb-8 max-w-prose text-base leading-relaxed text-white/60">
-                  {q.help}
-                </p>
+                <p className="mb-8 text-base leading-relaxed text-white/60">{q.help}</p>
               )}
               {!q.help && <div className="mb-8" />}
 
               <div
-                className={`grid gap-2 ${
+                className={`mx-auto grid gap-2 ${
                   q.type === "yesno"
                     ? "max-w-xs grid-cols-2 gap-3 sm:max-w-sm"
                     : isSectorGrid
-                      ? "grid-cols-1 sm:grid-cols-2"
-                      : "max-w-lg grid-cols-1"
+                      ? "max-w-md grid-cols-1 sm:max-w-lg sm:grid-cols-2"
+                      : "max-w-md grid-cols-1"
                 }`}
               >
                 {q.options.map((o) => (
