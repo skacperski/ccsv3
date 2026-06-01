@@ -88,8 +88,8 @@ Sektor z listy NIS2, 50 osób albo 10 mln EUR obrotu? Po lutowej nowelizacji KSC
 3. Czy 50 osób to ma być etat, czy razem ze współpracownikami?
 4. Jakie kary realnie grożą zarządowi, nie tylko firmie?
 5. Ile naprawdę trwa wdrożenie (i kiedy 6 miesięcy starczy)?
-6. ▸ Lista 18 sektorów objętych NIS2
-7. ▸ Co mówi art. 21 NIS2: 10 wymogów po polsku
+6. Lista 18 sektorów objętych NIS2
+7. Co mówi art. 21 NIS2: 10 wymogów po polsku
 
 ## Footer
 
