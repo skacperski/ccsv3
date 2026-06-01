@@ -18,7 +18,7 @@ export default function App() {
 
   return (
     <>
-      <div className="pb-9">
+      <div className="pb-10">
         <Page content={VARIANTS[variantId]} />
       </div>
       <VariantSwitcher current={variantId} onChange={handleChange} />
