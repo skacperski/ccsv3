@@ -7,6 +7,9 @@ import { darkSurfaceButtonClassName } from "../utils/darkSurfaceButton";
 import { QUESTIONS, RESULTS, START_ID } from "../survey/nis2Survey";
 import { track } from "../../tracking/tracking";
 
+const secondaryLinkClassName =
+  "px-0 text-base font-normal normal-case tracking-normal text-white/60 underline-offset-4 hover:text-white hover:underline";
+
 function ProgressBar({ percent, label }) {
   return (
     <div className="mb-8">
@@ -104,11 +107,14 @@ export function SurveySection({ final }) {
 
   const submitContact = () => {
     if (!canSubmitContact) return;
+    track("survey_submit", { result: resultId });
+    track("survey_result", { result: resultId });
     console.log("Survey submit:", { answers, contact, result: resultId });
     setPhase("result");
   };
 
   const restart = () => {
+    track("survey_restart");
     setPhase("survey");
     setCurrentId(START_ID);
     setHistory([]);
@@ -245,26 +251,33 @@ export function SurveySection({ final }) {
 
           {/* ---- RESULT ---- */}
           {phase === "result" && resultId && (
-            <ResultCard result={RESULTS[resultId]} onRestart={restart} />
+            <ResultCard
+              result={RESULTS[resultId]}
+              calendarLabel={final.ctaSecondary}
+              onRestart={restart}
+            />
           )}
 
-          {/* Always-visible escape hatch — talk to a human instead. */}
-          <div className="mt-12 border-t border-white/15 pt-6 text-center">
-            <CalendarCtaButton
-              variant="link-alt"
-              size="link"
-              className="px-0 text-base font-normal normal-case tracking-normal text-white/60 underline-offset-4 hover:text-white hover:underline"
-            >
-              Wolisz porozmawiać?
-            </CalendarCtaButton>
-          </div>
+          {phase !== "result" && (
+            <div className="mt-12 border-t border-white/15 pt-6 text-center">
+              <CalendarCtaButton
+                variant="link-alt"
+                size="link"
+                trackId="talk_link"
+                location="ankieta"
+                className={secondaryLinkClassName}
+              >
+                {final.ctaSecondary}
+              </CalendarCtaButton>
+            </div>
+          )}
         </div>
       </div>
     </section>
   );
 }
 
-function ResultCard({ result, onRestart }) {
+function ResultCard({ result, calendarLabel, onRestart }) {
   return (
     <div className="mx-auto max-w-lg text-center">
       <div className={`mx-auto mb-6 h-1 w-full max-w-md ${result.accentBar}`} />
@@ -274,7 +287,25 @@ function ResultCard({ result, onRestart }) {
       >
         {result.badge}
       </span>
-      <h3 className="mb-10 text-2xl font-bold leading-snug md:text-3xl">{result.heading}</h3>
+      <h3 className="mb-8 text-2xl font-bold leading-snug md:text-3xl">{result.heading}</h3>
+
+      <div className="mb-10 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
+        <Button
+          variant="secondary-alt"
+          data-track="result_pdf"
+          className={`${darkSurfaceButtonClassName} !rounded-none`}
+          onClick={() => track("result_pdf", { result: result.badge })}
+        >
+          Pobierz raport PDF
+        </Button>
+        <CalendarCtaButton
+          variant="secondary-alt"
+          location="wynik"
+          className="!rounded-none !border-white/40 !bg-transparent !text-white hover:!bg-white/10"
+        >
+          Umów konsultację
+        </CalendarCtaButton>
+      </div>
 
       <div className="mx-auto grid max-w-md grid-cols-1 gap-10 text-left md:max-w-none md:grid-cols-2">
         <div>
@@ -303,21 +334,17 @@ function ResultCard({ result, onRestart }) {
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
-        <Button variant="secondary-alt" className={`${darkSurfaceButtonClassName} !rounded-none`}>
-          Pobierz raport PDF
-        </Button>
+      <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/15 pt-6">
         <CalendarCtaButton
-          variant="secondary-alt"
-          className="!rounded-none !border-white/40 !bg-transparent !text-white hover:!bg-white/10"
+          variant="link-alt"
+          size="link"
+          trackId="talk_link"
+          location="wynik"
+          className={secondaryLinkClassName}
         >
-          Umów konsultację
+          {calendarLabel}
         </CalendarCtaButton>
-        <button
-          type="button"
-          onClick={onRestart}
-          className="text-sm text-white/45 underline-offset-4 hover:text-white/80 hover:underline"
-        >
+        <button type="button" onClick={onRestart} className={secondaryLinkClassName}>
           Wypełnij ponownie
         </button>
       </div>
