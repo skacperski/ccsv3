@@ -5,6 +5,7 @@ import React, { useMemo, useState } from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { darkSurfaceButtonClassName } from "../utils/darkSurfaceButton";
 import { QUESTIONS, RESULTS, START_ID } from "../survey/nis2Survey";
+import { track } from "../../tracking/tracking";
 
 function ProgressBar({ percent, label }) {
   return (
@@ -72,6 +73,8 @@ export function SurveySection({ final }) {
     if (advancing) return;
     setSelected(value);
     setAdvancing(true);
+    if (history.length === 0) track("survey_start");
+    track("survey_answer", { step: currentId, value });
     window.setTimeout(() => {
       const nextAnswers = { ...answers, [currentId]: value };
       setAnswers(nextAnswers);
@@ -80,6 +83,7 @@ export function SurveySection({ final }) {
       if (nx && typeof nx === "object" && nx.result) {
         setResultId(nx.result);
         setPhase("contact");
+        track("survey_contact_view", { result: nx.result });
       } else {
         setCurrentId(nx);
         setSelected(nextAnswers[nx] ?? "");
@@ -172,14 +176,14 @@ export function SurveySection({ final }) {
 
           {/* ---- CONTACT ---- */}
           {phase === "contact" && (
-            <div>
-              <h3 className="mb-3 max-w-prose text-2xl font-bold leading-snug md:text-3xl">
+            <div className="mx-auto max-w-lg text-center">
+              <h3 className="mb-3 text-2xl font-bold leading-snug md:text-3xl">
                 Gdzie wysłać Twój wynik?
               </h3>
-              <p className="mb-8 max-w-prose text-base leading-relaxed text-white/60">
+              <p className="mb-8 text-base leading-relaxed text-white/60">
                 Przygotujemy klasyfikację i raport z obowiązkami dla Twojej organizacji.
               </p>
-              <div className="grid max-w-lg grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="mx-auto grid max-w-md grid-cols-1 gap-4 text-left sm:grid-cols-2">
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-white">Imię</label>
                   <Input
@@ -219,7 +223,7 @@ export function SurveySection({ final }) {
                 </div>
               </div>
 
-              <div className="mt-10 flex items-center gap-6">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
                 <Button
                   variant="secondary-alt"
                   className={`${darkSurfaceButtonClassName} !rounded-none`}
@@ -262,8 +266,8 @@ export function SurveySection({ final }) {
 
 function ResultCard({ result, onRestart }) {
   return (
-    <div>
-      <div className={`mb-6 h-1 w-full ${result.accentBar}`} />
+    <div className="mx-auto max-w-lg text-center">
+      <div className={`mx-auto mb-6 h-1 w-full max-w-md ${result.accentBar}`} />
       <p className="mb-3 font-semibold text-white/50">Wynik oceny</p>
       <span
         className={`mb-6 inline-block px-4 py-1.5 text-sm font-bold ${result.badgeClass}`}
@@ -272,7 +276,7 @@ function ResultCard({ result, onRestart }) {
       </span>
       <h3 className="mb-10 text-2xl font-bold leading-snug md:text-3xl">{result.heading}</h3>
 
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div className="mx-auto grid max-w-md grid-cols-1 gap-10 text-left md:max-w-none md:grid-cols-2">
         <div>
           <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-white/50">
             Obowiązki
@@ -299,7 +303,7 @@ function ResultCard({ result, onRestart }) {
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+      <div className="mt-12 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
         <Button variant="secondary-alt" className={`${darkSurfaceButtonClassName} !rounded-none`}>
           Pobierz raport PDF
         </Button>
@@ -312,7 +316,7 @@ function ResultCard({ result, onRestart }) {
         <button
           type="button"
           onClick={onRestart}
-          className="text-sm text-white/45 underline-offset-4 hover:text-white/80 hover:underline sm:ml-auto"
+          className="text-sm text-white/45 underline-offset-4 hover:text-white/80 hover:underline"
         >
           Wypełnij ponownie
         </button>
