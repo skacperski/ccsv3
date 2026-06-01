@@ -8,6 +8,7 @@ import type {
   CompareRow,
   PricingCard,
   CardId,
+  SeoMeta,
 } from "./types";
 
 /* ------------------------------------------------------------------ */
@@ -153,6 +154,7 @@ interface VariantSpec {
   proof: { quote: string; attribution: string };
   pricing: { lead: string; ctas: { audit: string; impl: string; aas: string } };
   final: { h2: string; sub: string };
+  seo: SeoMeta;
 }
 
 function build(spec: VariantSpec): Content {
@@ -164,6 +166,7 @@ function build(spec: VariantSpec): Content {
     scopeMode: spec.scopeMode,
     hideCompare: spec.hideCompare,
     featuredCard: spec.featuredCard,
+    seo: spec.seo,
     nav: { brand: "CyCommSec", cta: spec.ctaUnified },
     hero: {
       h1: spec.hero.h1,
@@ -277,6 +280,11 @@ const SPECS: VariantSpec[] = [
       h2: "Sprawdź, jak NIS2 wpływa na Twoją firmę",
       sub: "Wypełnienie ankiety zajmuje około 2 minut. Otrzymasz informację, czy nowe obowiązki dotyczą Twojej organizacji i od czego warto zacząć przygotowania.",
     },
+    seo: {
+      title: "CyCommSec | NIS2 i KSC 2026 — obowiązki Twojej firmy",
+      description:
+        "Audyt, wdrożenie i utrzymanie zgodności z NIS2 w jednym miejscu. Krótka ankieta pokaże, czy KSC dotyczy Twojej organizacji i od czego zacząć.",
+    },
   },
   {
     id: "gads-kary",
@@ -318,6 +326,11 @@ const SPECS: VariantSpec[] = [
     final: {
       h2: "Sprawdź ryzyko, zanim pojawi się kontrola",
       sub: "W ciągu 2 minut dowiesz się, czy Twoja firma podlega pod NIS2 oraz jakie obowiązki wymagają uwagi w pierwszej kolejności. Lepiej mieć plan działania przed kontrolą niż szukać go pod presją czasu.",
+    },
+    seo: {
+      title: "CyCommSec | Kary NIS2 do 10 mln EUR — sprawdź ryzyko",
+      description:
+        "KSC obowiązuje od 19 lutego 2026. Sprawdź w 2 minuty, czy Twoja firma podlega pod NIS2 i jakie kary grożą za brak zgodności.",
     },
   },
   {
@@ -361,6 +374,11 @@ const SPECS: VariantSpec[] = [
       h2: "Najpierw sprawdź, czy NIS2 dotyczy Twojej firmy",
       sub: "Otrzymasz jasną odpowiedź. Jeśli Twoja firma podlega pod nowe przepisy, pokażemy Ci, od czego zacząć i jakie działania warto zaplanować w pierwszej kolejności.",
     },
+    seo: {
+      title: "CyCommSec | Czy NIS2 dotyczy Twojej firmy? Test 2 min",
+      description:
+        "Odpowiedz na kilka pytań o branżę i wielkość firmy. Wynik od razu — bez rozmowy sprzedażowej. 18 sektorów, próg 50 osób lub 10 mln EUR.",
+    },
   },
   {
     id: "gads-audyt",
@@ -401,6 +419,11 @@ const SPECS: VariantSpec[] = [
     final: {
       h2: "Zobacz, od czego naprawdę zacząć",
       sub: "Otrzymujesz ocenę gotowości, listę najważniejszych luk i plan działań, który możesz przedstawić zarządowi lub wykorzystać podczas kontroli. Po ankiecie wybierasz wynik online albo rozmowę w ciągu 48h.",
+    },
+    seo: {
+      title: "CyCommSec | Audyt NIS2 od 9 900 zł — ocena gotowości",
+      description:
+        "Analiza luk względem KSC, raport dla zarządu i plan na 90 dni. Pentesty, polityki i zabezpieczenia — bez ogólnych checklist.",
     },
   },
   {
@@ -443,6 +466,11 @@ const SPECS: VariantSpec[] = [
       h2: "Wiesz, co trzeba zrobić i masz plan działania",
       sub: "Wdrożenie kończy się działającymi procedurami, dokumentacją oraz materiałami przygotowanymi na potrzeby kontroli. Harmonogram obejmuje od 6 do 18 miesięcy, a w wybranych przypadkach możliwa jest realizacja przyspieszona w około 6 miesięcy.",
     },
+    seo: {
+      title: "CyCommSec | Wdrożenie NIS2 od 24 900 zł",
+      description:
+        "Polityki, procedury, zabezpieczenia techniczne i szkolenia zarządu zgodnie z KSC. Plan oparty o audyt, nie gotowy cennik.",
+    },
   },
   {
     id: "gads-aas",
@@ -484,6 +512,11 @@ const SPECS: VariantSpec[] = [
       h2: "Stały miesięczny koszt zamiast rekrutacji specjalistów",
       sub: "Nie musisz budować własnego zespołu cyberbezpieczeństwa. My przejmujemy wymagania regulacyjne, monitoring i obsługę incydentów w ramach jednej usługi. Wypełnij krótką ankietę i sprawdź, czy ten model będzie opłacalny dla Twojej firmy.",
     },
+    seo: {
+      title: "CyCommSec | NIS2 w abonamencie od 15 900 zł/mc",
+      description:
+        "Wdrożenie NIS2, monitoring 24/7, pentesty i dokumentacja w jednej miesięcznej opłacie. Bez rekrutacji własnego zespołu cyber.",
+    },
   },
   {
     id: "li-ceo",
@@ -524,6 +557,11 @@ const SPECS: VariantSpec[] = [
     final: {
       h2: "Zacznij od oceny ryzyka i poznaj możliwe scenariusze",
       sub: "W kilka minut sprawdzisz, jak wymagania KSC wpływają na Twoją organizację. Na tej podstawie łatwiej podjąć decyzję o kolejnych działaniach i budżecie.",
+    },
+    seo: {
+      title: "CyCommSec | KSC 2026 — odpowiedzialność zarządu",
+      description:
+        "Od 19 lutego 2026 obowiązki KSC dotyczą całej organizacji, a odpowiedzialność spoczywa też na zarządzie. Raport na jednej stronie.",
     },
   },
   {
@@ -567,6 +605,11 @@ const SPECS: VariantSpec[] = [
       h2: "Jeden partner do zgodności i cyberbezpieczeństwa",
       sub: "Audyt, pentesty i monitoring 24/7 realizowane w ramach jednej współpracy. Jeden punkt kontaktu, jeden SLA i pełniejszy obraz bezpieczeństwa organizacji.",
     },
+    seo: {
+      title: "CyCommSec | NIS2 — audyt, pentesty i SOC",
+      description:
+        "Audyt luk, pentesty, monitoring 24/7 i raportowanie incydentów 24h/72h. Jeden dostawca zamiast koordynacji kilku firm.",
+    },
   },
   {
     id: "li-coo",
@@ -608,6 +651,11 @@ const SPECS: VariantSpec[] = [
     final: {
       h2: "Sprawdź, gdzie operacje są najbardziej narażone",
       sub: "W kilka minut ocenisz gotowość organizacji do spełnienia wymagań NIS2 i zobaczysz, które obszary wymagają uwagi w pierwszej kolejności.",
+    },
+    seo: {
+      title: "CyCommSec | Gotowość operacyjna na incydent NIS2",
+      description:
+        "Ciągłość działania, dostawcy IT i zgłoszenia 24h/72h. Sprawdź w 2 minuty, jak przygotowana jest Twoja organizacja na incydent.",
     },
   },
 ];

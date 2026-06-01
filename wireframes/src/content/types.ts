@@ -48,6 +48,11 @@ export interface FaqItem {
   a: string;
 }
 
+export interface SeoMeta {
+  title: string;
+  description: string;
+}
+
 export interface Content {
   id: VariantId;
   label: string;
@@ -57,6 +62,7 @@ export interface Content {
   hideCompare: boolean;
   featuredCard: CardId;
 
+  seo: SeoMeta;
   nav: { brand: string; cta: string };
   hero: {
     h1: string;
