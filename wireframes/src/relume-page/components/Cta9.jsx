@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { LuShield } from "react-icons/lu";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { SurveyCtaButton } from "./SurveyCtaButton";
 
@@ -29,12 +30,10 @@ export function Cta9({ final }) {
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-          className="size-full object-cover"
-          alt="Relume placeholder image"
-        />
+      <div className="absolute inset-0 z-0 bg-neutral-900" aria-hidden>
+        <div className="flex size-full items-center justify-center opacity-20">
+          <LuShield className="size-[min(40vw,20rem)] text-white" strokeWidth={0.75} />
+        </div>
         <div className="absolute inset-0 bg-black/50" />
       </div>
     </section>

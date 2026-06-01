@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { pickIcon, SCOPE_HOVER_ICONS } from "../icons/sectionIcons";
 
 const imageVariants = {
   initial: { x: 0, y: 0 },
@@ -142,13 +143,19 @@ export function Cta38({ scope }) {
               <motion.div
                 className={hoverState.getOverlayClassNames(i)}
                 style={hoverState.style}
+                variants={imageVariants}
               >
-                <motion.img
-                  className="size-full max-w-md"
-                  variants={imageVariants}
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-1.svg"
-                  alt=""
-                />
+                {(() => {
+                  const Icon = pickIcon(SCOPE_HOVER_ICONS, i);
+                  return (
+                    <div className="flex size-full max-w-md items-center justify-center border border-border-primary bg-neutral-50 p-16">
+                      <Icon
+                        className="size-32 text-black md:size-40"
+                        strokeWidth={1}
+                      />
+                    </div>
+                  );
+                })()}
               </motion.div>
             </a>
           ))}

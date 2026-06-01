@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-
-const ICON = "https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg";
+import { SectionIcon } from "./SectionIcon";
+import { RISK_ICONS } from "../icons/sectionIcons";
 
 function splitRiskCards(cards, lead) {
   if (cards.length >= 4) {
@@ -39,9 +39,7 @@ export function Layout312({ risk }) {
             <div className="grid grid-cols-1 border border-border-primary sm:col-span-2 sm:row-span-1">
               <div className="flex flex-1 flex-col justify-center p-6 md:p-8 lg:p-12">
                 <div>
-                  <div className="mb-5 md:mb-6">
-                    <img src={ICON} className="size-12" alt="" />
-                  </div>
+                  <SectionIcon icon={RISK_ICONS[0]} />
                   <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
                     {featuredTitle}
                   </h3>
@@ -57,9 +55,7 @@ export function Layout312({ risk }) {
                 className="flex h-full flex-col border border-border-primary"
               >
                 <div className="flex flex-1 flex-col p-6 md:p-8 lg:p-6">
-                  <div className="mb-3 md:mb-4">
-                    <img src={ICON} className="size-12" alt="" />
-                  </div>
+                  <SectionIcon icon={RISK_ICONS[i + 1] ?? RISK_ICONS[2]} />
                   <h3 className="text-xl font-bold md:text-2xl">{title}</h3>
                 </div>
               </div>

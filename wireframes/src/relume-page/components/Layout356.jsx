@@ -2,6 +2,8 @@
 
 import React, { Fragment } from "react";
 import { scrollToSurvey } from "../utils/cta";
+import { SectionIcon } from "./SectionIcon";
+import { PILLAR_ICONS } from "../icons/sectionIcons";
 
 const PANEL_CLASSES = [
   "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 top-0 lg:mb-32",
@@ -48,13 +50,10 @@ export function Layout356({ service }) {
                         </h2>
                         <p className="md:text-md">{pillar.body}</p>
                       </div>
-                      <div className="relative">
-                        <img
-                          src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-1.svg"
-                          className="h-[25rem] w-full object-cover sm:h-[30rem] lg:h-[60vh]"
-                          alt={`Ilustracja: ${pillar.label}`}
-                        />
-                      </div>
+                      <SectionIcon
+                        icon={PILLAR_ICONS[i] ?? PILLAR_ICONS[0]}
+                        size="lg"
+                      />
                     </div>
                   </div>
                 </div>

@@ -3,6 +3,18 @@
 import React from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { SurveyCtaButton } from "./SurveyCtaButton";
+import { HERO_DECOR_ICONS, pickIcon } from "../icons/sectionIcons";
+
+function HeroDecorTile({ index }) {
+  const Icon = pickIcon(HERO_DECOR_ICONS, index);
+  return (
+    <div className="relative w-full pt-[120%]">
+      <div className="absolute inset-0 flex items-center justify-center border border-border-primary bg-neutral-100">
+        <Icon className="size-10 text-neutral-400 md:size-12" strokeWidth={1.25} />
+      </div>
+    </div>
+  );
+}
 
 export function Header76({ hero }) {
   return (
@@ -35,32 +47,23 @@ export function Header76({ hero }) {
             </CalendarCtaButton>
           )}
         </div>
+        {hero.micro && (
+          <p className="mt-4 text-sm text-neutral-500">{hero.micro}</p>
+        )}
       </div>
       <div className="h-[30rem] overflow-hidden pl-[5vw] pr-[5vw] md:h-[40rem] lg:h-screen lg:pl-0">
         <div className="grid w-full grid-cols-2 gap-x-4">
           <div className="-mt-[120%] grid size-full animate-loop-vertically columns-2 grid-cols-1 gap-4 self-center">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
+            {[0, 1, 2, 3, 4, 5].map((n) => (
               <div key={n} className="grid size-full grid-cols-1 gap-4">
-                <div className="relative w-full pt-[120%]">
-                  <img
-                    className="absolute inset-0 size-full object-cover"
-                    src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt=""
-                  />
-                </div>
+                <HeroDecorTile index={n} />
               </div>
             ))}
           </div>
           <div className="grid size-full animate-loop-vertically grid-cols-1 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
+            {[6, 7, 8, 9, 10, 11].map((n) => (
               <div key={n} className="grid size-full grid-cols-1 gap-4">
-                <div className="relative w-full pt-[120%]">
-                  <img
-                    className="absolute inset-0 size-full object-cover"
-                    src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                    alt=""
-                  />
-                </div>
+                <HeroDecorTile index={n} />
               </div>
             ))}
           </div>

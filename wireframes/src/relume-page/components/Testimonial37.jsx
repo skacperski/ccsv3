@@ -2,6 +2,19 @@
 
 import React from "react";
 import { BiSolidStar } from "react-icons/bi";
+import { LOGO_PLACEHOLDER_ICON } from "../icons/sectionIcons";
+
+function ClientLogoPlaceholder() {
+  const Icon = LOGO_PLACEHOLDER_ICON;
+  return (
+    <div
+      className="flex items-center justify-center border border-border-primary p-6 md:p-8 lg:p-6"
+      aria-hidden
+    >
+      <Icon className="size-10 text-neutral-300" strokeWidth={1.25} />
+    </div>
+  );
+}
 
 export function Testimonial37({ proof }) {
   return (
@@ -16,12 +29,8 @@ export function Testimonial37({ proof }) {
           </div>
         </div>
         <div className="gid-cols-1 grid gap-6 sm:grid-rows-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:grid-rows-2">
-          <div className="flex items-center justify-center border border-border-primary p-6 md:p-8 lg:p-6">
-            <span className="text-sm text-neutral-400">[ logo klienta ]</span>
-          </div>
-          <div className="flex items-center justify-center border border-border-primary p-6 md:p-8 lg:p-6">
-            <span className="text-sm text-neutral-400">[ logo klienta ]</span>
-          </div>
+          <ClientLogoPlaceholder />
+          <ClientLogoPlaceholder />
           <div className="flex flex-col items-start justify-between border border-border-primary p-6 sm:col-span-2 md:p-8 order-last lg:order-none">
             <div className="mb-5 flex md:mb-6">
               <BiSolidStar className="size-6" />
@@ -52,12 +61,8 @@ export function Testimonial37({ proof }) {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center border border-border-primary p-6 md:p-8 lg:p-6">
-            <span className="text-sm text-neutral-400">[ logo klienta ]</span>
-          </div>
-          <div className="flex items-center justify-center border border-border-primary p-6 md:p-8 lg:p-6">
-            <span className="text-sm text-neutral-400">[ logo klienta ]</span>
-          </div>
+          <ClientLogoPlaceholder />
+          <ClientLogoPlaceholder />
         </div>
       </div>
     </section>
