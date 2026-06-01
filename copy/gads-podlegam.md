@@ -17,39 +17,39 @@ Statyczne sekcje: [_shared.md](_shared.md). Uwaga: `scopeMode: compact` — sekc
 
 ## Hero
 
-- **H1:** Czy wasza firma podlega pod NIS2? Sprawdźcie w 2 minuty
-- **Sub:** Kilka pytań o sektor, wielkość zespołu i to, co już macie. Odpowiedź dostajecie od razu, bez wciskania usługi.
+- **H1:** Czy Twoja firma podlega pod NIS2? Sprawdź w 2 minuty
+- **Sub:** Odpowiedz na kilka pytań dotyczących branży, wielkości firmy i obecnych zabezpieczeń. Wynik otrzymasz od razu, bez zobowiązań i bez rozmowy sprzedażowej.
 - **Stats:** 2 min · 18 sektorów · 50 osób / 10 mln EUR
-- **CTA primary:** Sprawdźcie w 2 minuty
-- **Micro:** Wynik od ręki, w formie do pokazania zarządowi i IT.
+- **CTA primary:** Sprawdź w 2 minuty
+- **Micro:** Wynik otrzymasz od razu w formie, którą możesz pokazać zarządowi lub działowi IT.
 
 ## Risk
 
-- **H2:** Najgroźniejsze założenie: „nas to chyba nie dotyczy”
-- **Lead:** Większość firm w 18 sektorach mieści się w progach NIS2 i nie wie tego. Między podmiotem kluczowym a ważnym jest 3 mln EUR różnicy w karze.
+- **H2:** Najwięcej kosztuje błędne założenie, że NIS2 Cię nie dotyczy
+- **Lead:** Wiele firm z 18 sektorów objętych NIS2 nie zdaje sobie sprawy, że nowe obowiązki dotyczą również ich. Różnica między podmiotem kluczowym a ważnym to nawet 3 mln EUR potencjalnej kary.
 - **Bullets:**
-  - Sektor z listy NIS2.
-  - 50 osób albo 10 mln EUR obrotu.
-  - Brak procedur 24h/72h to już naruszenie.
-  - KSC obowiązuje od 19 lutego 2026.
+  -Działasz w jednym z sektorów objętych NIS2.
+  - Zatrudniasz co najmniej 50 osób lub osiągasz 10 mln EUR obrotu.
+  - Brak procedur zgłaszania incydentów w terminach 24h i 72h może oznaczać naruszenie obowiązków.
+  - KSC obowiązuje od 19 lutego 2026 roku.
 
 ## Service override
 
-- **H2:** Wchodzicie w NIS2? Pokażemy, co dalej.
-- **Sub:** Po ankiecie podpowiemy, czy starczy audyt, czy potrzebujecie wdrożenia albo wariantu z usługą miesięczną.
+- **H2:** Jeśli podlegasz pod NIS2, pokażemy Ci kolejne kroki
+- **Sub:** Po wypełnieniu ankiety dowiesz się, czy warto zacząć od audytu, przejść do wdrożenia czy rozważyć model usługi miesięcznej.
 
 ## Proof
 
-> „W dwie minuty wiedzieliśmy, czy w ogóle nas to dotyczy. Bez tygodnia rozmów z kancelarią.”
+> „W ciągu dwóch minut otrzymaliśmy jasną odpowiedź, czy NIS2 dotyczy naszej organizacji. Bez długich konsultacji i analiz na starcie.”
 > — [stanowisko], [firma] ([sektor])
 
 ## Pricing
 
-- **Lead:** Zaczynacie od ankiety. Pokaże, czy wystarczy audyt, czy w grę wchodzi wdrożenie albo usługa miesięczna.
+- **Lead:** Zacznij od krótkiej ankiety. Na podstawie odpowiedzi podpowiemy, czy wystarczy audyt, czy potrzebne będzie wdrożenie lub usługa miesięczna.
 - **Card CTAs:** audit: `Sprawdźcie w 2 minuty` · impl: `Sprawdźcie w 2 minuty` · aas: `Sprawdźcie, czy pasuje`
 
 ## Final
 
-- **H2:** Najpierw odpowiedź. Potem decyzja.
-- **Sub:** Tak albo nie. A jeśli tak, podpowiemy, od czego zacząć.
-- **CTA:** Sprawdźcie w 2 minuty
+- **H2:** Najpierw sprawdź, czy NIS2 dotyczy Twojej firmy
+- **Sub:** Otrzymasz jasną odpowiedź. Jeśli Twoja firma podlega pod nowe przepisy, pokażemy Ci, od czego zacząć i jakie działania warto zaplanować w pierwszej kolejności.
+- **CTA:** Sprawdź w 2 minuty
