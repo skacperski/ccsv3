@@ -17,39 +17,39 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** Incydent zatrzyma produkcję na 24h. Macie kogo wezwać?
-- **Sub:** Plany ciągłości, audyt dostawców IT i zgłoszenie do organów na czas. Ankieta pokaże, gdzie operacje pękną najszybciej.
+- **H1:** Czy Twoja firma jest gotowa na incydent, który zatrzyma operacje?
+- **Sub:** NIS2 to nie tylko kwestia cyberbezpieczeństwa. To również ciągłość działania, współpraca z dostawcami IT i zdolność do zgłoszenia incydentu w wymaganym terminie. Sprawdź, jak przygotowana jest Twoja organizacja.
 - **Stats:** 24h/72h na zgłoszenie incydentu · SOC całą dobę · audyt dostawców IT
 - **CTA primary:** Sprawdź gotowość operacyjną
-- **Micro:** Raport po polsku, do pokazania zarządowi i kontroli.
+- **Micro:** Otrzymasz raport przygotowany z myślą o zarządzie i osobach odpowiedzialnych za operacje.
 
 ## Risk
 
-- **H2:** Awaria bez zgłoszenia to dwa problemy naraz
-- **Lead:** Pierwszy: incydent, którego nikt nie obsłużył. Drugi: minął termin 24h, więc dochodzi sprawa regulacyjna. Ten drugi zwykle kosztuje więcej.
+- **H2:** Incydent to problem. Brak przygotowania zwykle tworzy kolejne.
+- **Lead:** Sama awaria lub atak to dopiero początek. Jeśli organizacja nie ma gotowych procedur, planów ciągłości działania i procesu raportowania, szybko pojawiają się dodatkowe konsekwencje operacyjne oraz regulacyjne.
 - **Bullets:**
-  - Plany ciągłości działania i testy scenariuszy, bez angażowania całego IT.
-  - Audyt dostawców IT jako wymóg regulacyjny, nie opcja. Art. 21 i art. 8 KSC nie dają wyboru.
-  - Zgłoszenie incydentu w 24h, kiedy nie macie gotowego wzoru raportu.
-  - SOC i reakcja przez całą dobę, także o 3 w nocy.
+  - Plany ciągłości działania oraz testy scenariuszy awaryjnych bez angażowania całej organizacji.
+  - Audyt dostawców IT zgodny z wymaganiami art. 21 i art. 8 KSC.
+  - Gotowe procedury zgłaszania incydentów w terminach 24h i 72h.
+  - Monitoring i wsparcie operacyjne dostępne przez całą dobę.
 
 ## Service override
 
-- **H2:** Ciągłość, dostawcy i SOC w jednym miejscu
-- **Sub:** Plany BCP/DRP, które przećwiczyliście, audyt dostawców IT i monitoring całą dobę. Procedury działające o 3 w nocy, nie tylko w prezentacji.
+- **H2:** Ciągłość działania, dostawcy i monitoring w jednym planie
+- **Sub:** Pomagamy przygotować i przetestować plany BCP/DRP, ocenić ryzyko związane z dostawcami IT oraz zbudować procesy, które działają również poza standardowymi godzinami pracy.
 
 ## Proof
 
-> „Przećwiczyliśmy incydent i wysłaliśmy raport w 24h, z jednej platformy. Zarząd wiedział, co się dzieje, zanim zdążył zapytać.”
+> „Przećwiczenie scenariusza incydentu pozwoliło nam uporządkować role, procedury i sposób raportowania. Kiedy pojawiła się realna sytuacja, wiedzieliśmy dokładnie, co robić.”
 > — [stanowisko], [firma] ([sektor])
 
 ## Pricing
 
-- **Lead:** Ankieta wskaże, czy zaczynacie od audytu ciągłości i dostawców, czy od usługi miesięcznej z SOC.
+- **Lead:** Krótka ankieta pomoże określić, czy warto zacząć od audytu ciągłości działania i dostawców, czy od modelu usługi miesięcznej z monitoringiem SOC.
 - **Card CTAs:** audit: `Sprawdź gotowość w 2 min` · impl: `Wdróż procedury` · aas: `Sprawdź, czy aaS pasuje`
 
 ## Final
 
-- **H2:** Najpierw diagnoza, potem procedury
-- **Sub:** 2 minuty ankiety i wiecie, gdzie operacje pękają wobec NIS2 oraz od czego zacząć.
+- **H2:** Sprawdź, gdzie operacje są najbardziej narażone
+- **Sub:** W kilka minut ocenisz gotowość organizacji do spełnienia wymagań NIS2 i zobaczysz, które obszary wymagają uwagi w pierwszej kolejności.
 - **CTA:** Sprawdź gotowość operacyjną
