@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { VARIANT_LIST } from "../content/variants";
 import type { VariantId } from "../content/types";
 
@@ -8,49 +7,66 @@ interface Props {
 }
 
 export function VariantSwitcher({ current, onChange }: Props) {
-  const [open, setOpen] = useState(true);
-
   return (
-    <div className="fixed right-4 top-24 z-[100] text-sm">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 rounded-full bg-black px-4 py-2 font-semibold text-white shadow-lg"
-      >
-        Warianty
-        <span className="text-white/70">{open ? "✕" : "▾"}</span>
-      </button>
+    <div
+      className="sticky top-0 z-[60] w-full border-b border-[#c4c7c5] bg-[#dee1e6] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Roboto,sans-serif] text-[12px] leading-none text-[#3c4043] antialiased"
+      role="toolbar"
+      aria-label="Podgląd wariantów treści"
+    >
+      <div className="flex h-9 w-full min-w-0 items-stretch">
+        <div
+          className="flex shrink-0 items-center gap-2 border-r border-[#c4c7c5] bg-[#cfd3d7] px-3"
+          aria-hidden
+        >
+          <span className="flex gap-[3px]" title="Podgląd deweloperski">
+            <span className="size-[9px] rounded-full bg-[#ff5f57]" />
+            <span className="size-[9px] rounded-full bg-[#febc2e]" />
+            <span className="size-[9px] rounded-full bg-[#28c840]" />
+          </span>
+          <span className="hidden whitespace-nowrap font-medium text-[#5f6368] sm:inline">
+            Podgląd wariantu
+          </span>
+          <span className="whitespace-nowrap font-medium text-[#5f6368] sm:hidden">
+            Wariant
+          </span>
+        </div>
 
-      {open && (
-        <div className="mt-2 w-72 rounded-xl border border-black/10 bg-white p-2 shadow-2xl">
-          <p className="px-2 pb-1 pt-2 text-xs uppercase tracking-wide text-neutral-400">
-            Podgląd treści wariantu
-          </p>
-          <ul className="max-h-[75vh] overflow-auto">
+        <div className="flex min-w-0 flex-1 overflow-x-auto overscroll-x-contain">
+          <div className="flex min-w-max items-end gap-px px-1 pt-1">
             {VARIANT_LIST.map((v) => {
               const active = v.id === current;
               return (
-                <li key={v.id}>
-                  <button
-                    type="button"
-                    onClick={() => onChange(v.id)}
-                    className={`flex w-full flex-col items-start rounded-lg px-3 py-2 text-left transition-colors ${
-                      active ? "bg-black text-white" : "hover:bg-neutral-100"
+                <button
+                  key={v.id}
+                  type="button"
+                  onClick={() => onChange(v.id)}
+                  title={`${v.label} — ${v.channel}`}
+                  aria-pressed={active}
+                  className={[
+                    "group relative flex max-w-[14rem] shrink-0 flex-col items-start rounded-t-md border px-3 py-1.5 text-left transition-colors",
+                    active
+                      ? "z-10 -mb-px border-[#c4c7c5] border-b-white bg-white text-[#202124] shadow-[0_-1px_0_#fff]"
+                      : "border-transparent bg-transparent text-[#5f6368] hover:bg-[#e8eaed]",
+                  ].join(" ")}
+                >
+                  <span
+                    className={`truncate font-medium ${active ? "text-[#202124]" : "text-[#3c4043]"}`}
+                  >
+                    {v.label}
+                  </span>
+                  <span
+                    className={`mt-0.5 hidden truncate text-[10px] lg:block ${
+                      active ? "text-[#80868b]" : "text-[#80868b]/90"
                     }`}
                   >
-                    <span className="font-semibold">{v.label}</span>
-                    <span
-                      className={`text-xs ${active ? "text-white/70" : "text-neutral-500"}`}
-                    >
-                      {v.channel}
-                    </span>
-                  </button>
-                </li>
+                    {v.channel}
+                  </span>
+                </button>
               );
             })}
-          </ul>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
