@@ -1,136 +1,125 @@
 "use client";
 
 import { Button, Input } from "@relume_io/relume-ui";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { darkSurfaceButtonClassName } from "../utils/darkSurfaceButton";
+import { QUESTIONS, RESULTS, START_ID } from "../survey/nis2Survey";
 
-const SECTORS = [
-  "Energetyka",
-  "Transport",
-  "Bankowość i finanse",
-  "Infrastruktura rynków finansowych",
-  "Ochrona zdrowia",
-  "Woda pitna",
-  "Ścieki",
-  "Infrastruktura cyfrowa",
-  "Zarządzanie usługami ICT",
-  "Administracja publiczna",
-  "Przestrzeń kosmiczna",
-  "Usługi pocztowe i kurierskie",
-  "Gospodarka odpadami",
-  "Produkcja (chemikalia, żywność, wyroby medyczne)",
-  "Dostawcy cyfrowi",
-  "Badania naukowe",
-  "Inny z listy 18 sektorów",
-  "Nie jestem pewien/pewna",
-];
-
-const SIZES = [
-  { label: "Poniżej 50 pracowników i poniżej 10 mln EUR obrotu", value: "micro" },
-  { label: "50–249 pracowników lub 10–50 mln EUR obrotu", value: "medium" },
-  { label: "250+ pracowników lub powyżej 50 mln EUR obrotu", value: "large" },
-  { label: "Nie wiem dokładnie", value: "unknown" },
-];
-
-const STATUSES = [
-  { label: "Nie zaczęliśmy jeszcze nic", value: "not-started" },
-  { label: "Rozmawiamy wewnętrznie, ale bez konkretnych kroków", value: "discussing" },
-  { label: "Mamy ISO 27001 lub podobny standard", value: "has-iso" },
-  { label: "Przeprowadziliśmy wstępny audyt luk", value: "gap-done" },
-  { label: "Jesteśmy w trakcie wdrożenia", value: "in-progress" },
-];
-
-const STEP_COUNT = 4;
-
-function StepIndicator({ current }) {
+function ProgressBar({ percent, label }) {
   return (
-    <div className="mb-8 flex items-center gap-0">
-      {Array.from({ length: STEP_COUNT }).map((_, i) => {
-        const done = i < current;
-        const active = i === current;
-        return (
-          <React.Fragment key={i}>
-            <div
-              className={`flex size-8 items-center justify-center rounded-full border-2 text-sm font-bold transition-colors duration-200 ${
-                done || active
-                  ? "border-white bg-white text-black"
-                  : "border-white/30 bg-transparent text-white/40"
-              }`}
-            >
-              {done ? (
-                <svg className="size-4" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M3 8l3.5 3.5L13 5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ) : (
-                i + 1
-              )}
-            </div>
-            {i < STEP_COUNT - 1 && (
-              <div
-                className={`h-0.5 flex-1 transition-colors duration-300 ${
-                  i < current ? "bg-white" : "bg-white/20"
-                }`}
-              />
-            )}
-          </React.Fragment>
-        );
-      })}
+    <div className="mb-8">
+      <div className="mb-2 flex items-center justify-between text-sm font-semibold text-white/50">
+        <span>{label}</span>
+        <span>{percent}%</span>
+      </div>
+      <div className="h-1.5 w-full overflow-hidden bg-white/15">
+        <div
+          className="h-full bg-white transition-all duration-300 ease-out"
+          style={{ width: `${percent}%` }}
+        />
+      </div>
     </div>
   );
 }
 
-function RadioOption({ label, value, selected, onChange }) {
+function OptionButton({ label, selected, onClick }) {
   return (
-    <label
-      className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 transition-colors duration-150 ${
+    <button
+      type="button"
+      onClick={onClick}
+      className={`flex w-full cursor-pointer items-center gap-3 border p-4 text-left transition-colors duration-150 ${
         selected
           ? "border-white bg-white text-black"
           : "border-white/25 bg-transparent text-white hover:border-white/50"
       }`}
     >
-      <input
-        type="radio"
-        value={value}
-        checked={selected}
-        onChange={() => onChange(value)}
-        className="sr-only"
-      />
-      <span className="text-sm font-medium">{label}</span>
-    </label>
+      <span
+        className={`flex size-5 shrink-0 items-center justify-center border ${
+          selected ? "border-black bg-black" : "border-white/40"
+        }`}
+      >
+        {selected && <span className="size-2 bg-white" />}
+      </span>
+      <span className="text-sm font-medium md:text-base">{label}</span>
+    </button>
   );
 }
 
 export function SurveySection({ final }) {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    sector: "",
-    size: "",
-    status: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
+  const [phase, setPhase] = useState("survey"); // survey | contact | result
+  const [currentId, setCurrentId] = useState(START_ID);
+  const [history, setHistory] = useState([]);
+  const [answers, setAnswers] = useState({});
+  const [selected, setSelected] = useState("");
+  const [advancing, setAdvancing] = useState(false);
+  const [resultId, setResultId] = useState(null);
+  const [contact, setContact] = useState({ name: "", surname: "", company: "", email: "" });
 
-  const set = (field) => (val) => setForm((f) => ({ ...f, [field]: val }));
+  const q = QUESTIONS[currentId];
+  const setContactField = (field) => (e) =>
+    setContact((c) => ({ ...c, [field]: e.target.value }));
 
-  const canNext = [
-    form.name.trim().length > 1 && form.email.includes("@"),
-    form.sector !== "",
-    form.size !== "",
-    form.status !== "",
-  ][step];
+  const percent = useMemo(() => {
+    if (phase === "result") return 100;
+    if (phase === "contact") return 95;
+    const answered = history.length;
+    return Math.min(90, Math.round((answered / (answered + 4)) * 100));
+  }, [phase, history.length]);
 
-  const handleSubmit = () => {
-    console.log("Survey submit:", form);
-    setSubmitted(true);
+  // Selecting an answer commits it and advances to the next step automatically.
+  const handleSelect = (value) => {
+    if (advancing) return;
+    setSelected(value);
+    setAdvancing(true);
+    window.setTimeout(() => {
+      const nextAnswers = { ...answers, [currentId]: value };
+      setAnswers(nextAnswers);
+      const nx = q.next(value, nextAnswers);
+      setHistory((h) => [...h, currentId]);
+      if (nx && typeof nx === "object" && nx.result) {
+        setResultId(nx.result);
+        setPhase("contact");
+      } else {
+        setCurrentId(nx);
+        setSelected(nextAnswers[nx] ?? "");
+      }
+      setAdvancing(false);
+    }, 160);
   };
+
+  const backToQuestions = () => {
+    // From the contact screen, return to the question that produced the result.
+    const prev = history[history.length - 1];
+    setHistory((h) => h.slice(0, -1));
+    setPhase("survey");
+    setCurrentId(prev);
+    setSelected(answers[prev] ?? "");
+    setResultId(null);
+  };
+
+  const submitContact = () => {
+    if (!canSubmitContact) return;
+    console.log("Survey submit:", { answers, contact, result: resultId });
+    setPhase("result");
+  };
+
+  const restart = () => {
+    setPhase("survey");
+    setCurrentId(START_ID);
+    setHistory([]);
+    setAnswers({});
+    setSelected("");
+    setResultId(null);
+  };
+
+  const canSubmitContact =
+    contact.name.trim().length > 1 &&
+    contact.surname.trim().length > 1 &&
+    contact.company.trim().length > 1 &&
+    contact.email.includes("@");
+
+  const isSectorGrid = currentId === "sector1" || currentId === "sector2";
 
   return (
     <section
@@ -138,189 +127,200 @@ export function SurveySection({ final }) {
       className="scroll-mt-20 bg-black px-[5%] py-16 text-white md:py-24 lg:py-28"
     >
       <div className="container">
-        <div className="mx-auto max-w-2xl">
-          {submitted ? (
-            <div className="py-16 text-center">
-              <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-white">
-                <svg className="size-8 text-black" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12l4.5 4.5L19 7"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <h2 className="mb-4 text-4xl font-bold">Dziękujemy!</h2>
-              <p className="text-white/70">
-                Wynik ankiety wyślemy na <strong className="text-white">{form.email}</strong>.
-                Zazwyczaj zajmuje to kilka minut.
-              </p>
-            </div>
-          ) : (
-            <>
-              <StepIndicator current={step} />
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <p className="mb-2 font-semibold text-white/50">Ankieta NIS2</p>
+          <h2 className="text-4xl font-bold leading-tight md:text-5xl">{final.h2}</h2>
+        </div>
 
-              {step === 0 && (
-                <div>
-                  <p className="mb-2 font-semibold text-white/50">
-                    Krok 1 z {STEP_COUNT}
-                  </p>
-                  <h2 className="mb-2 text-4xl font-bold leading-tight md:text-5xl">
-                    {final.h2}
-                  </h2>
-                  <p className="mb-8 text-white/70">{final.sub}</p>
-                  <div className="flex flex-col gap-4">
-                    <div>
-                      <label className="mb-1.5 block text-sm font-medium text-white">
-                        Imię i nazwisko
-                      </label>
-                      <Input
-                        className="border-white/30 bg-white text-black"
-                        placeholder="Jan Kowalski"
-                        value={form.name}
-                        onChange={(e) => set("name")(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label className="mb-1.5 block text-sm font-medium text-white">
-                        Adres email
-                      </label>
-                      <Input
-                        className="border-white/30 bg-white text-black"
-                        type="email"
-                        placeholder="nazwa@firma.pl"
-                        value={form.email}
-                        onChange={(e) => set("email")(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {step === 1 && (
-                <div>
-                  <p className="mb-2 font-semibold text-white/50">
-                    Krok 2 z {STEP_COUNT}
-                  </p>
-                  <h2 className="mb-2 text-4xl font-bold leading-tight md:text-5xl">
-                    Która branża was dotyczy?
-                  </h2>
-                  <p className="mb-8 text-white/70">
-                    Wybierz sektor, w którym działa wasza firma.
-                  </p>
-                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {SECTORS.map((s) => (
-                      <RadioOption
-                        key={s}
-                        label={s}
-                        value={s}
-                        selected={form.sector === s}
-                        onChange={set("sector")}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {step === 2 && (
-                <div>
-                  <p className="mb-2 font-semibold text-white/50">
-                    Krok 3 z {STEP_COUNT}
-                  </p>
-                  <h2 className="mb-2 text-4xl font-bold leading-tight md:text-5xl">
-                    Jak duża jest wasza firma?
-                  </h2>
-                  <p className="mb-8 text-white/70">
-                    Chodzi o liczbę pracowników lub roczny obrót, w zależności co
-                    przekraczacie pierwsze.
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    {SIZES.map((s) => (
-                      <RadioOption
-                        key={s.value}
-                        label={s.label}
-                        value={s.value}
-                        selected={form.size === s.value}
-                        onChange={set("size")}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {step === 3 && (
-                <div>
-                  <p className="mb-2 font-semibold text-white/50">
-                    Krok 4 z {STEP_COUNT}
-                  </p>
-                  <h2 className="mb-2 text-4xl font-bold leading-tight md:text-5xl">
-                    Gdzie jesteście w procesie?
-                  </h2>
-                  <p className="mb-8 text-white/70">
-                    Powiedzcie, co już zrobiliście w kierunku NIS2/KSC.
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    {STATUSES.map((s) => (
-                      <RadioOption
-                        key={s.value}
-                        label={s.label}
-                        value={s.value}
-                        selected={form.status === s.value}
-                        onChange={set("status")}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
-                <div className="flex flex-wrap items-center gap-3">
-                  {step > 0 && (
-                    <Button
-                      variant="secondary-alt"
-                      className={darkSurfaceButtonClassName}
-                      onClick={() => setStep((s) => s - 1)}
-                    >
-                      Wstecz
-                    </Button>
-                  )}
-                  {step < STEP_COUNT - 1 ? (
-                    <Button
-                      variant="secondary-alt"
-                      className={darkSurfaceButtonClassName}
-                      disabled={!canNext}
-                      onClick={() => setStep((s) => s + 1)}
-                    >
-                      Dalej
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="secondary-alt"
-                      className={darkSurfaceButtonClassName}
-                      disabled={!canNext}
-                      onClick={handleSubmit}
-                    >
-                      {final.ctaPrimary}
-                    </Button>
-                  )}
-                </div>
-                {final.ctaSecondary && (
-                  <CalendarCtaButton
-                    variant="link-alt"
-                    size="link"
-                    title={final.ctaSecondary}
-                    className="ml-auto shrink-0 px-0 text-sm font-normal normal-case tracking-normal text-white/45 underline-offset-4 hover:text-white/80 hover:underline"
-                  >
-                    {final.ctaSecondary}
-                  </CalendarCtaButton>
-                )}
-              </div>
-            </>
+        <div className="mx-auto max-w-xl">
+          {phase !== "result" && (
+            <ProgressBar
+              percent={percent}
+              label={phase === "contact" ? "Dane kontaktowe" : `Pytanie ${history.length + 1}`}
+            />
           )}
+
+          {/* ---- SURVEY ---- */}
+          {phase === "survey" && (
+            <div>
+              <h3 className="mb-3 max-w-prose text-2xl font-bold leading-snug md:text-3xl">
+                {q.question}
+              </h3>
+              {q.help && (
+                <p className="mb-8 max-w-prose text-base leading-relaxed text-white/60">
+                  {q.help}
+                </p>
+              )}
+              {!q.help && <div className="mb-8" />}
+
+              <div
+                className={`grid gap-2 ${
+                  q.type === "yesno"
+                    ? "max-w-xs grid-cols-2 gap-3 sm:max-w-sm"
+                    : isSectorGrid
+                      ? "grid-cols-1 sm:grid-cols-2"
+                      : "max-w-lg grid-cols-1"
+                }`}
+              >
+                {q.options.map((o) => (
+                  <OptionButton
+                    key={o.value}
+                    label={o.label}
+                    selected={selected === o.value}
+                    onClick={() => handleSelect(o.value)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ---- CONTACT ---- */}
+          {phase === "contact" && (
+            <div>
+              <h3 className="mb-3 max-w-prose text-2xl font-bold leading-snug md:text-3xl">
+                Gdzie wysłać Twój wynik?
+              </h3>
+              <p className="mb-8 max-w-prose text-base leading-relaxed text-white/60">
+                Przygotujemy klasyfikację i raport z obowiązkami dla Twojej organizacji.
+              </p>
+              <div className="grid max-w-lg grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-white">Imię</label>
+                  <Input
+                    className="rounded-none border-white/30 bg-white text-black"
+                    placeholder="Jan"
+                    value={contact.name}
+                    onChange={setContactField("name")}
+                  />
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-sm font-medium text-white">Nazwisko</label>
+                  <Input
+                    className="rounded-none border-white/30 bg-white text-black"
+                    placeholder="Kowalski"
+                    value={contact.surname}
+                    onChange={setContactField("surname")}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="mb-1.5 block text-sm font-medium text-white">Firma</label>
+                  <Input
+                    className="rounded-none border-white/30 bg-white text-black"
+                    placeholder="Nazwa organizacji"
+                    value={contact.company}
+                    onChange={setContactField("company")}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="mb-1.5 block text-sm font-medium text-white">Adres email</label>
+                  <Input
+                    className="rounded-none border-white/30 bg-white text-black"
+                    type="email"
+                    placeholder="nazwa@firma.pl"
+                    value={contact.email}
+                    onChange={setContactField("email")}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-10 flex items-center gap-6">
+                <Button
+                  variant="secondary-alt"
+                  className={`${darkSurfaceButtonClassName} !rounded-none`}
+                  disabled={!canSubmitContact}
+                  onClick={submitContact}
+                >
+                  Zobacz wynik
+                </Button>
+                <button
+                  type="button"
+                  onClick={backToQuestions}
+                  className="text-sm text-white/45 underline-offset-4 hover:text-white/80 hover:underline"
+                >
+                  ← Wróć do pytań
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ---- RESULT ---- */}
+          {phase === "result" && resultId && (
+            <ResultCard result={RESULTS[resultId]} onRestart={restart} />
+          )}
+
+          {/* Always-visible escape hatch — talk to a human instead. */}
+          <div className="mt-12 border-t border-white/15 pt-6 text-center">
+            <CalendarCtaButton
+              variant="link-alt"
+              size="link"
+              className="px-0 text-base font-normal normal-case tracking-normal text-white/60 underline-offset-4 hover:text-white hover:underline"
+            >
+              Wolisz porozmawiać?
+            </CalendarCtaButton>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function ResultCard({ result, onRestart }) {
+  return (
+    <div>
+      <div className={`mb-6 h-1 w-full ${result.accentBar}`} />
+      <p className="mb-3 font-semibold text-white/50">Wynik oceny</p>
+      <span
+        className={`mb-6 inline-block px-4 py-1.5 text-sm font-bold ${result.badgeClass}`}
+      >
+        {result.badge}
+      </span>
+      <h3 className="mb-10 text-2xl font-bold leading-snug md:text-3xl">{result.heading}</h3>
+
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div>
+          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-white/50">
+            Obowiązki
+          </h4>
+          <ul className="flex flex-col gap-3">
+            {result.obligations.map((item, i) => (
+              <li key={i} className="flex gap-3 text-sm text-white/85 md:text-base">
+                <span className="mt-2 size-1.5 shrink-0 bg-white/50" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-white/50">Kary</h4>
+          <ul className="flex flex-col gap-3">
+            {result.penalties.map((item, i) => (
+              <li key={i} className="flex gap-3 text-sm text-white/85 md:text-base">
+                <span className="mt-2 size-1.5 shrink-0 bg-white/50" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <Button variant="secondary-alt" className={`${darkSurfaceButtonClassName} !rounded-none`}>
+          Pobierz raport PDF
+        </Button>
+        <CalendarCtaButton
+          variant="secondary-alt"
+          className="!rounded-none !border-white/40 !bg-transparent !text-white hover:!bg-white/10"
+        >
+          Umów konsultację
+        </CalendarCtaButton>
+        <button
+          type="button"
+          onClick={onRestart}
+          className="text-sm text-white/45 underline-offset-4 hover:text-white/80 hover:underline sm:ml-auto"
+        >
+          Wypełnij ponownie
+        </button>
+      </div>
+    </div>
   );
 }
