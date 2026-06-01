@@ -275,7 +275,7 @@ export function SurveySection({ final }) {
                 </div>
               )}
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center">
                 <div className="flex flex-wrap items-center gap-3">
                   {step > 0 && (
                     <Button
@@ -308,9 +308,10 @@ export function SurveySection({ final }) {
                 </div>
                 {final.ctaSecondary && (
                   <CalendarCtaButton
-                    variant="secondary"
-                    className="shrink-0"
+                    variant="link-alt"
+                    size="link"
                     title={final.ctaSecondary}
+                    className="ml-auto shrink-0 px-0 text-sm font-normal normal-case tracking-normal text-white/45 underline-offset-4 hover:text-white/80 hover:underline"
                   >
                     {final.ctaSecondary}
                   </CalendarCtaButton>

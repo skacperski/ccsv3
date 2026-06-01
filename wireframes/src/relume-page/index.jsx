@@ -10,6 +10,7 @@ import { Pricing20 } from "./components/Pricing20";
 import { Comparison5 } from "./components/Comparison5";
 import { Faq1 } from "./components/Faq1";
 import { SurveySection } from "./components/SurveySection";
+import { SurveyContactsSection } from "./components/SurveyContactsSection";
 import { Footer } from "./components/Footer";
 
 export default function Page({ content }) {
@@ -26,6 +27,7 @@ export default function Page({ content }) {
       {!content.hideCompare && <Comparison5 compare={content.compare} />}
       <Faq1 faq={content.faq} />
       <SurveySection final={content.final} />
+      <SurveyContactsSection />
       <Footer footer={content.footer} />
     </div>
   );
