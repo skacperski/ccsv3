@@ -14,7 +14,6 @@ import type {
 /* SHARED — constant across every variant                              */
 /* ------------------------------------------------------------------ */
 
-/** Secondary CTA next to primary (hero + final) on every variant */
 const CTA_SECONDARY_CALENDAR = "Wolisz rozmowę? Pokaż kalendarz";
 
 const PILLARS: Pillar[] = [
@@ -22,26 +21,35 @@ const PILLARS: Pillar[] = [
     num: "01",
     label: "Regulacja",
     h2: "Regulacja i dokumentacja",
-    body: "Audyt luk, polityki, procedury obsługi incydentów, plany ciągłości i szkolenia dla zarządu oraz zespołu.",
+    body: "Audyt luk, polityki, procedury incydentów, plany ciągłości, szkolenia dla zarządu i zespołu.",
   },
   {
     num: "02",
     label: "Technologia",
     h2: "Technologia i testy",
-    body: "Pentesty, skan podatności, utwardzenie środowiska i remediacja pod art. 21 KSC.",
+    body: "Pentesty, skan podatności, utwardzenie środowiska, remediacja pod art. 21 NIS2.",
   },
   {
     num: "03",
     label: "Ciągłość",
     h2: "Ciągłość i monitoring",
-    body: "SOC całą dobę, zgłoszenia do organów w 24h i 72h, przeglądy zgodności oraz kontrola dostawców IT.",
+    body: "SOC 24/7, zgłoszenia do organów w 24h/72h, przeglądy zgodności, kontrola dostawców IT.",
   },
 ];
 
 const STEPS: Step[] = [
-  { title: "Krok 1. Ankieta", body: "Dwie minuty pytań. Dowiecie się, czy wchodzicie w NIS2 i gdzie są luki." },
-  { title: "Krok 2. Audyt i plan", body: "Od 9 900 zł. Raport dla zarządu, plan na 90 dni, konkretne działania." },
-  { title: "Krok 3. Wdrożenie lub usługa", body: "Wdrożenie od 24 900 zł albo usługa miesięczna od 15 900 zł/mc." },
+  {
+    title: "Ankieta w 2 minuty",
+    body: "Wiecie, czy wchodzicie w NIS2 i gdzie macie największe luki.",
+  },
+  {
+    title: "Audyt i plan dla zarządu",
+    body: "Od 9 900 zł, raport po polsku.",
+  },
+  {
+    title: "Wdrożenie albo NIS2 jako usługa",
+    body: "Projekt na raz albo stała opłata od 15 900 zł/mc.",
+  },
 ];
 
 const COMPARE_ROWS: CompareRow[] = [
@@ -54,40 +62,34 @@ const COMPARE_ROWS: CompareRow[] = [
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    q: "Co zmienia KSC od 19 lutego 2026?",
+    q: "Co dokładnie zmienia KSC od lutego 2026?",
     a: "Nowelizacja Krajowego Systemu Cyberbezpieczeństwa wchodzi w życie 19 lutego 2026. Obowiązkowe audyty, polityki bezpieczeństwa, zgłaszanie incydentów w 24h i 72h oraz osobista odpowiedzialność zarządu. Firmy od 50 osób lub 10 mln EUR obrotu muszą przygotować się już teraz.",
   },
   {
-    q: "ISO 27001 wystarczy do NIS2?",
+    q: "Mamy już ISO 27001 / SZBI — co z tego nam zostaje pod NIS2?",
     a: "ISO 27001 to dobra podstawa, ale NIS2 wymaga więcej. Dochodzą procedury zgłaszania incydentów, plany ciągłości, szkolenia zarządu i nadzór nad dostawcami IT. Sama certyfikacja nie wystarczy.",
   },
   {
-    q: "Próg 50 osób liczy etaty czy współpracowników?",
+    q: "Czy 50 osób to ma być etat, czy razem ze współpracownikami?",
     a: "Liczą się pracownicy na umowę o pracę. Współpracownicy, kontrahenci i freelancerzy nie wchodzą w próg. Jeśli macie 50 etatów, obowiązek dotyczy was niezależnie od obrotu.",
   },
   {
-    q: "Czy zarząd odpowiada osobiście za kary?",
+    q: "Jakie kary realnie grożą zarządowi, nie tylko firmie?",
     a: "Tak. Prezes i członkowie zarządu mogą odpowiadać osobiście za brak wdrożenia NIS2. Kary sięgają 10 mln EUR lub 2% obrotu. To nie jest tylko problem działu IT.",
   },
   {
-    q: "Ile trwa wdrożenie NIS2?",
+    q: "Ile naprawdę trwa wdrożenie (i kiedy 6 miesięcy starczy)?",
     a: "Audyt trwa 4 do 8 tygodni. Wdrożenie polityk i procedur to 2 do 3 miesięcy. Utwardzenie środowiska i pentesty mogą zająć 6 do 18 miesięcy w zależności od skali. Usługa miesięczna skraca start do kilku tygodni.",
   },
   {
-    q: "Lista 18 sektorów objętych NIS2",
+    q: "▸ Lista 18 sektorów objętych NIS2",
     a: "Sektory kluczowe: energetyka, transport, bankowość, infrastruktura rynków finansowych, ochrona zdrowia, woda pitna, ścieki, infrastruktura cyfrowa, zarządzanie usługami ICT (B2B), administracja publiczna, przestrzeń kosmiczna. Sektory ważne: usługi pocztowe i kurierskie, gospodarka odpadami, produkcja (chemikalia, żywność i napoje, wyroby medyczne), dostawcy usług cyfrowych, organizacje badawcze.",
   },
   {
-    q: "Co mówi art. 21 NIS2: 10 wymogów po polsku",
+    q: "▸ Co mówi art. 21 NIS2: 10 wymogów po polsku",
     a: "1. Polityki bezpieczeństwa i zarządzania ryzykiem. 2. Obsługa incydentów (wykrywanie, klasyfikacja, raportowanie 24h i 72h). 3. Ciągłość działania i zarządzanie kryzysowe (BCP/DRP). 4. Bezpieczeństwo łańcucha dostaw. 5. Bezpieczeństwo sieci i systemów. 6. Polityki oceny skuteczności środków. 7. Podstawowe praktyki cyberhigieny i szkolenia. 8. Kryptografia i szyfrowanie tam, gdzie uzasadnione. 9. Bezpieczeństwo zasobów ludzkich i kontrola dostępu. 10. Uwierzytelnianie wieloskładnikowe i szyfrowane kanały komunikacji.",
   },
 ];
-
-const FAQ_TAIL = {
-  h: "Macie więcej pytań?",
-  sub: "Skontaktujcie się po ankiecie albo zadzwońcie do nas.",
-  cta: "Kontakt",
-};
 
 const FOOTER = {
   brand: "CyCommSec",
@@ -95,17 +97,16 @@ const FOOTER = {
   copyright: "© 2026 CyCommSec",
 };
 
-// Pricing card base data (price/features SHARED; the CTA label is per-variant).
 function pricingCards(ctas: { audit: string; impl: string; aas: string }): PricingCard[] {
   return [
     {
       id: "card-audit",
-      name: "Ocena gotowości",
+      name: "Ocena gotowości NIS2",
       desc: "Analiza luk, raport dla zarządu, plan na 90 dni",
       price: "9 900 zł",
       period: "jednorazowo",
       cta: ctas.audit,
-      features: ["Analiza stanu obecnego", "Raport dla zarządu", "Plan działań na 90 dni"],
+      features: ["Analiza luk", "Raport dla zarządu", "Plan działań na 90 dni"],
     },
     {
       id: "card-impl",
@@ -114,16 +115,16 @@ function pricingCards(ctas: { audit: string; impl: string; aas: string }): Prici
       price: "24 900 zł",
       period: "projekt",
       cta: ctas.impl,
-      features: ["Polityki i procedury", "Szkolenia zespołu", "Utwardzenie systemów", "Raport końcowy"],
+      features: ["Polityki i procedury", "Środki techniczne", "Szkolenia zarządu"],
     },
     {
       id: "card-aas",
-      name: "NIS2 jako usługa",
+      name: "NIS2 jako usługa ★",
       desc: "SOC 24/7, pentesty, utrzymanie zgodności, raportowanie",
       price: "15 900 zł",
       period: "miesięcznie",
       cta: ctas.aas,
-      features: ["SOC 24/7", "Pentesty w cenie", "Raportowanie 24h/72h", "Przeglądy i aktualizacje", "Nadzór dostawców"],
+      features: ["SOC 24/7, incydenty", "Pentesty w cenie", "Utrzymanie zgodności"],
     },
   ];
 }
@@ -145,7 +146,7 @@ interface VariantSpec {
     h1: string;
     sub: string;
     stats: [string, string, string];
-    // micro usunięty
+    micro: string;
   };
   risk: { h2: string; lead: string; cards: string[] };
   service: { h2: string; sub: string };
@@ -170,6 +171,7 @@ function build(spec: VariantSpec): Content {
       stats: spec.hero.stats,
       ctaPrimary: spec.ctaUnified,
       ctaSecondary: CTA_SECONDARY_CALENDAR,
+      micro: spec.hero.micro,
     },
     scope: {
       kicker: "Zakres",
@@ -211,14 +213,13 @@ function build(spec: VariantSpec): Content {
       teamCol: "Własny zespół",
       aasCol: "NIS2 jako usługa",
       rows: COMPARE_ROWS,
-      footnote: "Wg materiałów CyCommSec około 61,4% taniej niż typowy model własny. Metodologia TCO na życzenie.",
+      footnote: "Wg materiałów CyCommSec: ok. 61,4% taniej niż typowy model własny. Metodologia (założenia TCO) dostępna na życzenie.",
     },
     faq: {
       kicker: "FAQ",
       h2: "Pytania",
       sub: "Odpowiedzi na najczęstsze wątpliwości wokół NIS2 i KSC.",
       items: FAQ_ITEMS,
-      tail: FAQ_TAIL,
     },
     final: {
       h2: spec.final.h2,
@@ -231,7 +232,7 @@ function build(spec: VariantSpec): Content {
 }
 
 /* ------------------------------------------------------------------ */
-/* The 9 variants                                                      */
+/* The 9 variants — synced from copy/<variant>.md (June 2026)         */
 /* ------------------------------------------------------------------ */
 
 const SPECS: VariantSpec[] = [
@@ -243,37 +244,38 @@ const SPECS: VariantSpec[] = [
     scopeMode: "full",
     hideCompare: false,
     featuredCard: "card-audit",
-    ctaUnified: "Sprawdź w 2 minuty, czy NIS2 was dotyczy",
+    ctaUnified: "Sprawdź w 2 minuty, czy NIS2 dotyczy Twojej firmy",
     hero: {
-      h1: "NIS2 i KSC 2026: sprawdźcie, co dotyczy waszej firmy",
-      sub: "Audyt, wdrożenie i utrzymanie zgodności u jednego dostawcy. Zaczynacie od krótkiej ankiety, a wynik mówi, czy w ogóle wchodzicie w NIS2 i od czego macie zacząć.",
+      h1: "NIS2 i KSC 2026. Sprawdź, jakie obowiązki dotyczą Twojej firmy",
+      sub: "Audyt, wdrożenie i utrzymanie zgodności w jednym miejscu. Zacznij od krótkiej ankiety, aby sprawdzić, czy Twoja organizacja podlega pod NIS2 i jakie działania warto zaplanować w pierwszej kolejności.",
       stats: ["KSC od 19 lutego 2026", "18 sektorów objętych", "kary do 10 mln EUR"],
+      micro: "Pierwszy krok jest bezpłatny i nie zobowiązuje do dalszej współpracy. Wynik otrzymasz e-mailem.",
     },
     risk: {
-      h2: "Co się zmienia po nowelizacji KSC",
-      lead: "Od 19 lutego 2026 obowiązki z NIS2 wchodzą do polskiego prawa. Część firm dowie się o tym dopiero przy pierwszej kontroli albo pierwszym incydencie.",
+      h2: "Co zmienia nowelizacja KSC?",
+      lead: "Od 19 lutego 2026 roku wymagania wynikające z NIS2 obowiązują również w polskim porządku prawnym. Wiele firm nadal nie ma pewności, czy nowe przepisy ich dotyczą i jakie działania należy podjąć, aby spełnić wymagania.",
       cards: [
-        "Obowiązki obejmują 18 sektorów oraz firmy od 50 osób albo 10 mln EUR obrotu rocznie.",
-        "Incydenty trzeba zgłaszać organom w 24h i 72h, więc procedura musi być gotowa wcześniej.",
-        "Kary sięgają 10 mln EUR lub 2% obrotu (podmiot kluczowy) i 7 mln EUR lub 1,4% (podmiot ważny).",
-        "Pierwszy krok to ankieta. W 2 minuty wiecie, czy temat was dotyczy i gdzie macie luki.",
+        "Obowiązki obejmują 18 sektorów oraz organizacje zatrudniające co najmniej 50 osób lub osiągające 10 mln EUR obrotu rocznie.",
+        "Incydenty należy zgłaszać w terminach 24h i 72h, dlatego odpowiednie procedury powinny być przygotowane wcześniej.",
+        "Kary mogą sięgać 10 mln EUR lub 2% obrotu dla podmiotów kluczowych oraz 7 mln EUR lub 1,4% obrotu dla podmiotów ważnych.",
+        "Krótka ankieta pozwoli sprawdzić, czy NIS2 dotyczy Twojej firmy i które obszary wymagają uwagi w pierwszej kolejności.",
       ],
     },
     service: {
-      h2: "Audyt, polityki, pentesty i SOC u jednego dostawcy",
-      sub: "Jedna umowa zamiast czterech. Zgodność, która działa w firmie, a nie tylko leży w PDF.",
+      h2: "Audyt, polityki, pentesty i SOC w jednym miejscu",
+      sub: "Jeden partner odpowiedzialny za zgodność, bezpieczeństwo i utrzymanie. Rozwiązania, które działają w organizacji, a nie tylko w dokumentacji.",
     },
     proof: {
       quote: "[ Cytat klienta — do uzupełnienia w produkcji ]",
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Zaczynamy od ankiety. Pokaże, czy starczy audyt, czy potrzebujecie wdrożenia albo usługi miesięcznej.",
-      ctas: { audit: "Zacznij od audytu", impl: "Zobacz zakres wdrożenia", aas: "Sprawdź usługę miesięczną" },
+      lead: "Zacznij od krótkiej ankiety. Na jej podstawie sprawdzisz, czy potrzebujesz audytu, wdrożenia czy modelu usługi miesięcznej.",
+      ctas: { audit: "Zacznij od audytu", impl: "Zobacz zakres wdrożenia", aas: "Sprawdź, czy aaS pasuje" },
     },
     final: {
-      h2: "Sprawdźcie, gdzie jesteście wobec NIS2",
-      sub: "2 minuty ankiety wystarczą, żeby wiedzieć, czy obowiązki was dotyczą i od czego zacząć. Bez zobowiązań.",
+      h2: "Sprawdź, jak NIS2 wpływa na Twoją firmę",
+      sub: "Wypełnienie ankiety zajmuje około 2 minut. Otrzymasz informację, czy nowe obowiązki dotyczą Twojej organizacji i od czego warto zacząć przygotowania.",
     },
   },
   {
@@ -284,37 +286,38 @@ const SPECS: VariantSpec[] = [
     scopeMode: "full",
     hideCompare: true,
     featuredCard: "card-audit",
-    ctaUnified: "Sprawdź ryzyko w 2 min",
+    ctaUnified: "Sprawdź ryzyko w 2 minuty",
     hero: {
-      h1: "Kara za NIS2 sięga 10 mln EUR. Podlegacie?",
-      sub: "Nowelizacja KSC obowiązuje od 19 lutego 2026. Firmy objęte NIS2 muszą mieć zabezpieczenia i zgłaszać incydenty w 24h/72h. Za brak grozi do 10 mln EUR albo 2% obrotu, a kara może objąć też zarząd.",
-      stats: ["do 10 mln EUR kary", "24h/72h na zgłoszenie", "obowiązek od 19.02.2026"],
+      h1: "Kary za NIS2 mogą sięgnąć 10 mln EUR. Czy Twoja firma podlega pod nowe przepisy?",
+      sub: "Nowelizacja KSC obowiązuje od 19 lutego 2026 roku. Jeśli Twoja firma podlega pod NIS2, musi wdrożyć odpowiednie zabezpieczenia i zgłaszać incydenty w terminie 24h lub 72h. Za brak zgodności grozi kara do 10 mln EUR albo 2% rocznego obrotu. Odpowiedzialność może dotyczyć również członków zarządu.",
+      stats: ["do 10 mln EUR (kara)", "24h/72h (na zgłoszenie incydentu)", "obowiązek od 19.02.2026"],
+      micro: "Bez zobowiązań, otrzymasz raport dla zarządu napisany prostym językiem, bez technicznego żargonu.",
     },
     risk: {
-      h2: "Kara idzie na firmę. Często też na członków zarządu.",
-      lead: "NIS2 wprowadza w UE naprawdę dotkliwe kary. Tłumaczenie „zajmiemy się tym później” przy kontroli już nie zadziała.",
+      h2: "Konsekwencje mogą dotyczyć nie tylko firmy",
+      lead: "NIS2 i nowelizacja KSC wprowadzają jedne z najwyższych kar regulacyjnych związanych z cyberbezpieczeństwem. Odkładanie tematu na później może okazać się kosztowne podczas kontroli lub po wystąpieniu incydentu.",
       cards: [
-        "Do 10 mln EUR albo 2% obrotu (podmiot kluczowy).",
-        "Do 7 mln EUR albo 1,4% obrotu (podmiot ważny).",
-        "Osobista odpowiedzialność prezesa, CTO i CISO.",
-        "Kontrole organów już ruszają.",
+        "Do 10 mln EUR albo 2% obrotu dla podmiotu kluczowego.",
+        "Do 7 mln EUR albo 1,4% obrotu dla podmiotu ważnego.",
+        "Odpowiedzialność może objąć prezesa, CTO oraz CISO.",
+        "Kontrole organów nadzorczych już się rozpoczynają.",
       ],
     },
     service: {
-      h2: "Audyt, który da wam dowody na kontrolę",
-      sub: "Sprawdzamy luki, procedury incydentów i zabezpieczenia IT. Każdy krok dokumentujemy pod KSC, więc na kontroli pokażecie logi i raporty, nie same polityki.",
+      h2: "Audyt, który pokazuje fakty, a nie przypuszczenia",
+      sub: "Sprawdzamy luki, procedury obsługi incydentów oraz zabezpieczenia IT. Każdy element dokumentujemy zgodnie z wymaganiami KSC, dzięki czemu podczas kontroli możesz przedstawić konkretne raporty, logi i dowody działań.",
     },
     proof: {
-      quote: "Po ankiecie wiedzieliśmy, gdzie stoimy wobec KSC. Zarząd dostał jedną stronę po polsku, bez tłumaczenia z języka IT.",
+      quote: "Po wypełnieniu ankiety wiedzieliśmy, jakie obowiązki wynikają z KSC i od czego zacząć. Zarząd dostał jasne podsumowanie, które nie wymagało tłumaczenia z języka IT.",
       attribution: "[stanowisko], [firma], [sektor]",
     },
     pricing: {
-      lead: "Zaczynamy od ankiety. Pokaże, czy w ogóle podlegacie pod NIS2 i czy starczy audyt, czy potrzeba pełnego wdrożenia.",
+      lead: "Zacznij od krótkiej ankiety. Sprawdzisz, czy Twoja firma podlega pod NIS2 i jakie działania warto podjąć w pierwszej kolejności. Na tej podstawie określimy, czy wystarczy audyt, czy potrzebne będzie pełne wdrożenie.",
       ctas: { audit: "Zacznij od audytu", impl: "Sprawdź w 2 min", aas: "Sprawdź w 2 min" },
     },
     final: {
-      h2: "Lepiej wiedzieć przed kontrolą niż po niej",
-      sub: "W 2 minuty dowiecie się, czy wchodzicie w NIS2 i co załatwić w pierwszej kolejności, zanim przyjdzie organ.",
+      h2: "Sprawdź ryzyko, zanim pojawi się kontrola",
+      sub: "W ciągu 2 minut dowiesz się, czy Twoja firma podlega pod NIS2 oraz jakie obowiązki wymagają uwagi w pierwszej kolejności. Lepiej mieć plan działania przed kontrolą niż szukać go pod presją czasu.",
     },
   },
   {
@@ -325,37 +328,38 @@ const SPECS: VariantSpec[] = [
     scopeMode: "compact",
     hideCompare: true,
     featuredCard: "card-audit",
-    ctaUnified: "Sprawdźcie w 2 minuty",
+    ctaUnified: "Sprawdź w 2 minuty",
     hero: {
-      h1: "Czy wasza firma podlega pod NIS2? Sprawdźcie w 2 minuty",
-      sub: "Kilka pytań o sektor, wielkość zespołu i to, co już macie. Odpowiedź dostajecie od razu, bez wciskania usługi.",
-      stats: ["2 minuty", "18 sektorów", "50 osób / 10 mln EUR"],
+      h1: "Czy Twoja firma podlega pod NIS2? Sprawdź w 2 minuty",
+      sub: "Odpowiedz na kilka pytań dotyczących branży, wielkości firmy i obecnych zabezpieczeń. Wynik otrzymasz od razu, bez zobowiązań i bez rozmowy sprzedażowej.",
+      stats: ["2 min", "18 sektorów", "50 osób / 10 mln EUR"],
+      micro: "Wynik otrzymasz od razu w formie, którą możesz pokazać zarządowi lub działowi IT.",
     },
     risk: {
-      h2: "Najgroźniejsze założenie: „nas to chyba nie dotyczy”",
-      lead: "Większość firm w 18 sektorach mieści się w progach NIS2 i nie wie tego. Między podmiotem kluczowym a ważnym jest 3 mln EUR różnicy w karze.",
+      h2: "Najwięcej kosztuje błędne założenie, że NIS2 Cię nie dotyczy",
+      lead: "Wiele firm z 18 sektorów objętych NIS2 nie zdaje sobie sprawy, że nowe obowiązki dotyczą również ich. Różnica między podmiotem kluczowym a ważnym to nawet 3 mln EUR potencjalnej kary.",
       cards: [
-        "Sektor z listy NIS2.",
-        "50 osób albo 10 mln EUR obrotu.",
-        "Brak procedur 24h/72h to już naruszenie.",
-        "KSC obowiązuje od 19 lutego 2026.",
+        "Działasz w jednym z sektorów objętych NIS2.",
+        "Zatrudniasz co najmniej 50 osób lub osiągasz 10 mln EUR obrotu.",
+        "Brak procedur zgłaszania incydentów w terminach 24h i 72h może oznaczać naruszenie obowiązków.",
+        "KSC obowiązuje od 19 lutego 2026 roku.",
       ],
     },
     service: {
-      h2: "Wchodzicie w NIS2? Pokażemy, co dalej.",
-      sub: "Po ankiecie podpowiemy, czy starczy audyt, czy potrzebujecie wdrożenia albo wariantu z usługą miesięczną.",
+      h2: "Jeśli podlegasz pod NIS2, pokażemy Ci kolejne kroki",
+      sub: "Po wypełnieniu ankiety dowiesz się, czy warto zacząć od audytu, przejść do wdrożenia czy rozważyć model usługi miesięcznej.",
     },
     proof: {
-      quote: "W dwie minuty wiedzieliśmy, czy w ogóle nas to dotyczy. Bez tygodnia rozmów z kancelarią.",
+      quote: "W ciągu dwóch minut otrzymaliśmy jasną odpowiedź, czy NIS2 dotyczy naszej organizacji. Bez długich konsultacji i analiz na starcie.",
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Zaczynacie od ankiety. Pokaże, czy wystarczy audyt, czy w grę wchodzi wdrożenie albo usługa miesięczna.",
+      lead: "Zacznij od krótkiej ankiety. Na podstawie odpowiedzi podpowiemy, czy wystarczy audyt, czy potrzebne będzie wdrożenie lub usługa miesięczna.",
       ctas: { audit: "Sprawdźcie w 2 minuty", impl: "Sprawdźcie w 2 minuty", aas: "Sprawdźcie, czy pasuje" },
     },
     final: {
-      h2: "Najpierw odpowiedź. Potem decyzja.",
-      sub: "Tak albo nie. A jeśli tak, podpowiemy, od czego zacząć.",
+      h2: "Najpierw sprawdź, czy NIS2 dotyczy Twojej firmy",
+      sub: "Otrzymasz jasną odpowiedź. Jeśli Twoja firma podlega pod nowe przepisy, pokażemy Ci, od czego zacząć i jakie działania warto zaplanować w pierwszej kolejności.",
     },
   },
   {
@@ -366,36 +370,37 @@ const SPECS: VariantSpec[] = [
     scopeMode: "full",
     hideCompare: false,
     featuredCard: "card-audit",
-    ctaUnified: "Sprawdź gotowość w 2 min",
+    ctaUnified: "Sprawdź gotowość w 2 minuty",
     hero: {
-      h1: "Ocena gotowości NIS2 z raportem dla zarządu. Od 9 900 zł.",
-      sub: "Sprawdzamy luki prawne i techniczne pod KSC. Wychodzicie z planem na 90 dni: polityki, pentesty, utwardzenie środowiska. Dostajecie raport po polsku, gotowy dla zarządu.",
-      stats: ["od 9 900 zł ocena", "od 24 900 zł wdrożenie", "6–18 mies. realizacja"],
+      h1: "Sprawdź gotowość firmy do NIS2. Audyt od 9 900 zł.",
+      sub: "Analizujemy wymagania prawne i techniczne związane z KSC. Otrzymujesz raport oraz plan działań na najbliższe 90 dni: polityki, pentesty, zabezpieczenia środowiska i kolejne kroki. Bez ogólnych checklist i dokumentów, które później trafiają do szuflady.",
+      stats: ["od 9 900 zł (ocena gotowości)", "od 24 900 zł (wdrożenie)", "6–18 mies. (realizacja)"],
+      micro: "Po ankiecie możesz od razu zobaczyć wynik online lub umówić rozmowę w ciągu 48h.",
     },
     risk: {
-      h2: "Wdrożenie bez audytu to wydawanie po omacku",
-      lead: "Kontrola pyta o dowody na konkretne luki. Bez mapy wdrożenie zamyka nie te ryzyka.",
+      h2: "Bez audytu łatwo wydać budżet na niewłaściwe działania",
+      lead: "Kontrola nie pyta o liczbę wdrożonych narzędzi. Pyta o konkretne ryzyka, procedury i dowody. Audyt pokazuje, które obszary wymagają uwagi w pierwszej kolejności.",
       cards: [
-        "Luki wobec art. 21 KSC, prawne i techniczne.",
-        "Raport, który zarząd czyta bez tłumacza z IT.",
-        "Plan: polityki, BCP/DRP, pentesty, szkolenia, SOC.",
+        "Identyfikacja luk względem art. 21 KSC, zarówno prawnych, jak i technicznych.",
+        "Raport przygotowany w sposób zrozumiały dla zarządu.",
+        "Plan działań obejmujący polityki, BCP/DRP, pentesty, szkolenia i SOC.",
       ],
     },
     service: {
-      h2: "Audyt z testami, nie tylko ze skoroszytem",
-      sub: "Raport po polsku dla zarządu, pentesty pod art. 21 KSC, plan działań na 90 dni.",
+      h2: "Audyt, który kończy się planem działania",
+      sub: "Otrzymujesz raport dla zarządu, wyniki testów oraz konkretną listę działań do wykonania w ciągu najbliższych 90 dni.",
     },
     proof: {
-      quote: "Jeden raport trafił do zarządu i rady nadzorczej. Wcześniej mieliśmy pięć plików od pięciu firm i nikt nie wiedział, który jest aktualny.",
+      quote: "Jeden raport trafił do zarządu i rady nadzorczej. Wcześniej mieliśmy kilka dokumentów od różnych dostawców i trudno było ocenić, które informacje są aktualne.",
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Start od oceny gotowości (9 900 zł). Ankieta dopasuje zakres do wielkości firmy i sektora, potem widzicie wycenę.",
-      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Sprawdź zakres w 2 min", aas: "Sprawdź usługę miesięczną" },
+      lead: "Ocena gotowości zaczyna się od 9 900 zł. Krótka ankieta pozwoli określić zakres prac dla Twojej firmy i przygotować odpowiednią wycenę.",
+      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Sprawdź zakres w 2 min", aas: "Sprawdź, czy aaS pasuje" },
     },
     final: {
-      h2: "Jeden raport zamiast pięciu arkuszy",
-      sub: "Ocena gotowości z dowodami, gotowa do pokazania zarządowi i kontroli. Po ankiecie wybieracie: wynik online albo rozmowa w 48h.",
+      h2: "Zobacz, od czego naprawdę zacząć",
+      sub: "Otrzymujesz ocenę gotowości, listę najważniejszych luk i plan działań, który możesz przedstawić zarządowi lub wykorzystać podczas kontroli. Po ankiecie wybierasz wynik online albo rozmowę w ciągu 48h.",
     },
   },
   {
@@ -408,34 +413,35 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-impl",
     ctaUnified: "Sprawdź, czy wdrożenie pasuje",
     hero: {
-      h1: "Wdrożenie NIS2 w firmie, od 24 900 zł",
-      sub: "Polityki, procedury, środki techniczne, szkolenia zarządu i raport końcowy. Pod KSC, z dowodami, które wytrzymają kontrolę.",
-      stats: ["od 24 900 zł", "6–18 miesięcy", "przyspieszona w ok. 6 mies."],
+      h1: "Wdrożenie NIS2 w firmie od 24 900 zł",
+      sub: "Przygotowujemy polityki, procedury, zabezpieczenia techniczne, szkolenia dla zarządu oraz dokumentację wymaganą przez KSC. Wszystko w oparciu o konkretne dowody i wymagania, które mogą zostać zweryfikowane podczas kontroli.",
+      stats: ["od 24 900 zł", "6–18 miesięcy", "wersja przyspieszona w ok. 6 mies."],
+      micro: "Wypełnij krótką ankietę, a pomożemy określić zakres wdrożenia. Wycena powstaje na podstawie wyników audytu, a nie gotowego cennika.",
     },
     risk: {
-      h2: "Wdrożenie bez mapy luk przepala budżet",
-      lead: "Wdrożenie pod regulację bez wcześniejszego audytu często zamyka nie te ryzyka, które kontrola sprawdza pierwsze.",
+      h2: "Wdrożenie bez audytu często oznacza niepotrzebne wydatki",
+      lead: "Bez wcześniejszej analizy trudno określić, które obszary wymagają największej uwagi. W efekcie firmy inwestują czas i budżet w działania, które nie rozwiązują najważniejszych problemów z punktu widzenia kontroli.",
       cards: [
-        "Polityki, BCP/DRP, procedury incydentów.",
-        "Utwardzenie środowiska i testy pod art. 21 KSC.",
-        "Szkolenia zarządu i materiały na kontrolę.",
+        "Polityki, BCP/DRP i procedury obsługi incydentów.",
+        "Zabezpieczenia techniczne oraz testy zgodne z art. 21 KSC.",
+        "Szkolenia dla zarządu i komplet materiałów potrzebnych podczas kontroli.",
       ],
     },
     service: {
-      h2: "Wdrożenie, które działa w firmie",
-      sub: "Polityki, środowisko IT i szkolenia wchodzą w systemy i w pracę zespołu. Zostaje to, co kontrola może sprawdzić, nie plik na dysku.",
+      h2: "Wdrożenie, które działa także po zakończeniu projektu",
+      sub: "Tworzymy rozwiązania, które stają się częścią codziennego funkcjonowania firmy. Procedury, zabezpieczenia i obowiązki nie trafiają do folderu na dysku, ale działają w praktyce i mogą zostać zweryfikowane podczas kontroli.",
     },
     proof: {
-      quote: "Luki z audytu zamykaliśmy po kolei, a operacje szły dalej. Bez przestojów, bez paniki w zarządzie.",
+      quote: "Realizowaliśmy kolejne działania zgodnie z planem z audytu, bez zatrzymywania bieżącej pracy firmy. Zarząd miał pełną kontrolę nad postępem i wiedział, jakie ryzyka zostały już zamknięte.",
       attribution: "[stanowisko], [firma], [sektor]",
     },
     pricing: {
-      lead: "Po ankiecie dostajecie pakiet wdrożenia od 24 900 zł, z zakresem skrojonym pod wasz audyt i harmonogram na 6 do 18 miesięcy.",
+      lead: "Po wypełnieniu ankiety przygotujemy propozycję wdrożenia od 24 900 zł. Zakres prac jest dopasowany do wyników audytu, a harmonogram obejmuje okres od 6 do 18 miesięcy.",
       ctas: { audit: "Nie macie audytu? Zacznij tu", impl: "Sprawdź zakres wdrożenia", aas: "Porównaj z usługą miesięczną" },
     },
     final: {
-      h2: "Dowody zebrane, zarząd wie, co podpisuje",
-      sub: "Wdrożenie kończy się działającymi procedurami i dokumentacją na kontrolę. Harmonogram na 6 do 18 miesięcy, wersja przyspieszona w ok. 6 mies.",
+      h2: "Wiesz, co trzeba zrobić i masz plan działania",
+      sub: "Wdrożenie kończy się działającymi procedurami, dokumentacją oraz materiałami przygotowanymi na potrzeby kontroli. Harmonogram obejmuje od 6 do 18 miesięcy, a w wybranych przypadkach możliwa jest realizacja przyspieszona w około 6 miesięcy.",
     },
   },
   {
@@ -448,34 +454,35 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-aas",
     ctaUnified: "Sprawdź usługę miesięczną",
     hero: {
-      h1: "NIS2 jako usługa od 15 900 zł/mc. Stała cena, wszystko w środku.",
-      sub: "Płacicie jedną stawkę co miesiąc. W cenie wdrożenie, monitoring całą dobę, obsługa incydentów, pentesty i polityki. Bez rekrutacji, bez budowy zespołu od zera.",
+      h1: "NIS2 w abonamencie od 15 900 zł miesięcznie",
+      sub: "Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. W cenie są wdrożenie wymagań NIS2, monitoring 24/7, obsługa incydentów, pentesty i dokumentacja. Bez rekrutacji i dodatkowych narzędzi.",
       stats: ["od 15 900 zł/mc", "61,4%* taniej", "SOC 24/7"],
+      micro: "Pentesty w cenie. *Metodologia TCO na życzenie.",
     },
     risk: {
-      h2: "Własny zespół buduje się 9 miesięcy. KSC obowiązuje teraz.",
-      lead: "Rekrutacja specjalistów cyber w Polsce to dziś miesiące szukania i około 38 644 zł/mc po stronie pracodawcy. Do tego dochodzą narzędzia i rotacja, bo dobry analityk po roku dostaje lepszą ofertę.",
+      h2: "Własny zespół cyber buduje się miesiącami, a nowelizacja KSC obowiązuje już dziś.",
+      lead: "Znalezienie i zatrudnienie specjalistów ds. cyberbezpieczeństwa zajmuje dziś wiele miesięcy. Koszt własnego zespołu to około 38 644 zł/mc po stronie pracodawcy. Do tego dochodzą narzędzia, szkolenia i ryzyko rotacji pracowników.",
       cards: [
-        "Jedna umowa zamiast czterech: audyt, wdrożenie, utrzymanie, raporty.",
-        "Pentesty i skany podatności w abonamencie, bez dopłat.",
-        "Zgłoszenia incydentów w terminach 24h i 72h, my pilnujemy zegara.",
+        "Jedna umowa zamiast osobnych projektów na audyt, wdrożenie i utrzymanie.",
+        "Pentesty oraz skany podatności są wliczone w miesięczną opłatę.",
+        "Terminy zgłoszeń incydentów 24h i 72h pozostają pod kontrolą naszego zespołu.",
       ],
     },
     service: {
-      h2: "Zgodność bierzemy my, IT zostaje wasze",
-      sub: "Wasz dział IT dalej zna swoje systemy i nimi zarządza. My odpowiadamy za regulację, monitoring i incydenty. Jedna faktura, jeden numer po godzinach.",
+      h2: "My odpowiadamy za NIS2, a wasz dział IT robi swoje",
+      sub: "Twój zespół nadal zarządza systemami i infrastrukturą. My zajmujemy się wymaganiami regulacyjnymi, monitoringiem oraz obsługą incydentów. Masz jeden punkt kontaktu i jedną miesięczną fakturę.",
     },
     proof: {
-      quote: "Policzyłem trzy etaty w cyber i odpuściłem. Płacimy stałą stawkę co miesiąc, SOC działa całą dobę, a ja nie układam grafiku urlopów dla analityków.",
+      quote: "Policzyłem koszt stworzenia własnego zespołu cyberbezpieczeństwa i szybko okazało się, że to nie ma uzasadnienia biznesowego. Dziś płacimy stałą miesięczną kwotę, SOC działa 24/7, a my nie zajmujemy się rekrutacją ani utrzymaniem specjalistów.",
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "NIS2 jako usługa kosztuje od 15 900 zł/mc, stała stawka. Niżej porównujemy to z kosztem własnego zespołu. Ankieta podpowie, czy ten model pasuje do waszej skali.",
+      lead: "NIS2 jako usługa kosztuje od 15 900 zł/mc w modelu abonamentowym. Poniżej możesz porównać ten wariant z kosztem budowy własnego zespołu. Krótka ankieta pomoże ocenić, które rozwiązanie lepiej pasuje do Twojej organizacji.",
       ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
-      h2: "Stała stawka miesięczna, zero rekrutacji",
-      sub: "Wy robicie swoje IT. My bierzemy regulację, monitoring i incydenty, za jedną opłatę. Ankieta w 2 minuty pokaże, czy usługa miesięczna wam się liczy.",
+      h2: "Stały miesięczny koszt zamiast rekrutacji specjalistów",
+      sub: "Nie musisz budować własnego zespołu cyberbezpieczeństwa. My przejmujemy wymagania regulacyjne, monitoring i obsługę incydentów w ramach jednej usługi. Wypełnij krótką ankietę i sprawdź, czy ten model będzie opłacalny dla Twojej firmy.",
     },
   },
   {
@@ -488,34 +495,35 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-audit",
     ctaUnified: "Zobacz raport dla zarządu",
     hero: {
-      h1: "Pod KSC odpowiada zarząd. Także wy osobiście.",
-      sub: "Od 19 lutego 2026 obowiązki spadają na zarząd, nie na IT. Zobaczcie, gdzie firma stoi wobec KSC, zanim zrobi to organ albo incydent.",
+      h1: "Za zgodność z KSC odpowiada zarząd, nie tylko dział IT.",
+      sub: "Od 19 lutego 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.",
       stats: ["osobista odpowiedzialność zarządu", "obowiązuje od 19 lutego 2026", "wynik na 1 stronie"],
+      micro: "Wynik na jednej stronie, przygotowany z myślą o zarządzie.",
     },
     risk: {
-      h2: "Zarząd podpisuje odpowiedzialność, której nie zna",
-      lead: "KSC z lutego 2026 nie zostawia wyjścia: jeśli firma nie ma zabezpieczeń, odpowiedzialność spada wprost na prezesa i osobę odpowiedzialną za cyber. To nie sprawa IT.",
+      h2: "Odpowiedzialności nie można delegować",
+      lead: "KSC nakłada konkretne obowiązki związane z cyberbezpieczeństwem. Brak odpowiednich zabezpieczeń, procedur i nadzoru może oznaczać konsekwencje nie tylko dla firmy, ale również dla osób odpowiedzialnych za jej zarządzanie.",
       cards: [
-        "Szkolenia cyber wymagane dla zarządu, nie tylko dla IT.",
-        "Osobista odpowiedzialność, gdy brakuje środków bezpieczeństwa.",
-        "U podmiotów kluczowych możliwe zawieszenie certyfikatów.",
+        "Szkolenia z cyberbezpieczeństwa obejmują również członków zarządu.",
+        "Odpowiedzialność może dotyczyć osób nadzorujących obszar bezpieczeństwa.",
+        "W przypadku podmiotów kluczowych możliwe są dodatkowe środki nadzorcze, w tym ograniczenia dotyczące certyfikatów.",
       ],
     },
     service: {
-      h2: "Materiał dla zarządu, nie raport dla działu IT",
-      sub: "Audyt, ryzyka i propozycja budżetu w formie gotowej pod uchwałę zarządu.",
+      h2: "Raport, który pomaga podjąć decyzję",
+      sub: "Otrzymujesz podsumowanie ryzyk, rekomendacje działań oraz orientacyjny budżet potrzebny do osiągnięcia zgodności z wymaganiami KSC. Wszystko w formie przygotowanej dla zarządu, a nie dla działu IT.",
     },
     proof: {
-      quote: "Prezes dostał jedną stronę z ryzykami i kwotą do decyzji. Bez technicznych skrótów, do przeczytania w pięć minut.",
+      quote: "Zamiast kilkudziesięciu stron technicznej dokumentacji otrzymaliśmy krótkie podsumowanie najważniejszych ryzyk, kosztów i decyzji do podjęcia. Zarząd wiedział, od czego zacząć.",
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Zaczynacie od kwalifikacji, potem audyt z raportem dla zarządu od 9 900 zł.",
+      lead: "Pierwszym krokiem jest kwalifikacja i ocena sytuacji firmy. Następnie możesz skorzystać z audytu zakończonego raportem dla zarządu od 9 900 zł.",
       ctas: { audit: "Zobacz raport dla zarządu", impl: "Sprawdź zakres", aas: "Sprawdź zakres" },
     },
     final: {
-      h2: "Najpierw kwalifikacja ryzyka, potem plan dla zarządu",
-      sub: "Kilka minut wystarczy, żeby wiedzieć, gdzie stoicie wobec KSC i co trafia na zarząd.",
+      h2: "Zacznij od oceny ryzyka i poznaj możliwe scenariusze",
+      sub: "W kilka minut sprawdzisz, jak wymagania KSC wpływają na Twoją organizację. Na tej podstawie łatwiej podjąć decyzję o kolejnych działaniach i budżecie.",
     },
   },
   {
@@ -528,35 +536,36 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-aas",
     ctaUnified: "Sprawdź luki techniczne i prawne",
     hero: {
-      h1: "NIS2 bez polityk do szuflady: audyt, pentesty, SOC",
-      sub: "KSC, art. 21, pentesty, monitoring 24/7 u jednego dostawcy. Jedna umowa zamiast czterech faktur od kancelarii, konsultingu, agencji testowej i SOC.",
+      h1: "NIS2 bez zbędnej dokumentacji. Audyt, pentesty i SOC w jednym miejscu",
+      sub: "Audyt luk, pentesty, monitoring 24/7 oraz wsparcie w raportowaniu incydentów w terminach 24h i 72h. Zamiast koordynować kilku dostawców, współpracujesz z jednym zespołem. Jeśli Twoja organizacja korzysta już z ISO 27001, uwzględniamy istniejące procesy i zabezpieczenia.",
       stats: ["pentesty w cenie", "art. 21 KSC", "jeden dostawca, jedno SLA"],
+      micro: "Dla CISO, dyrektora IT i osób odpowiedzialnych za bezpieczeństwo.",
     },
     risk: {
-      h2: "Regulator chce dowodów. Sam folder polityk to za mało.",
-      lead: "Kontrola pyta o logi, raporty z pentestów i czas reakcji na incydent. Polityki bez dowodów wdrożenia liczą się jak ich brak.",
+      h2: "Podczas kontroli liczą się dowody, nie deklaracje",
+      lead: "Sam zestaw polityk i procedur nie wystarczy. Kontrola może wymagać raportów z testów, logów, dokumentacji incydentów oraz potwierdzenia, że przyjęte procedury działają w praktyce.",
       cards: [
-        "Analiza luk w środowiskach IT i OT pod art. 21 KSC.",
-        "Raportowanie incydentów jako zautomatyzowany proces, nie walka z zegarem.",
-        "Pentesty i naprawa podatności w cyklu.",
-        "Dostawcy ICT w audycie ryzyka łańcucha dostaw.",
+        "Analiza luk w środowiskach IT i OT pod kątem art. 21 KSC, a w sektorze produkcyjnym również IEC 62443.",
+        "Raportowanie incydentów jako uporządkowany proces wspierający terminy 24h i 72h.",
+        "Regularne pentesty i zarządzanie podatnościami zamiast jednorazowych działań przed audytem.",
+        "Ocena dostawców ICT w ramach analizy ryzyka łańcucha dostaw.",
       ],
     },
     service: {
-      h2: "Dla CISO: zgodność, pentesty i SOC w jednym SLA",
-      sub: "Bez żonglowania pięcioma dostawcami i pięcioma kontraktami.",
+      h2: "Zgodność, pentesty i SOC w ramach jednej współpracy",
+      sub: "Jeden zespół odpowiada za audyt, monitoring i wsparcie w obszarze zgodności. Wykorzystujemy istniejące procesy, procedury i certyfikacje, zamiast budować wszystko od początku.",
     },
     proof: {
-      quote: "Jeden SLA na zgodność i testy. Skończyło się poleganie na pięciu firmach, kiedy coś się dzieje.",
+      quote: "Zamiast koordynować kilka firm i kilka zakresów odpowiedzialności, mieliśmy jeden punkt kontaktu. Znacznie łatwiej było zarządzać zarówno zgodnością, jak i bieżącymi działaniami bezpieczeństwa.",
       attribution: "CISO, [sektor]",
     },
     pricing: {
-      lead: "Ankieta wskaże, czy potrzebujecie audytu, wdrożenia, czy usługi z SOC.",
+      lead: "Krótka ankieta pomoże określić poziom gotowości organizacji i wskazać, czy wystarczy audyt techniczny, czy potrzebne będzie wdrożenie lub model z monitoringiem SOC.",
       ctas: { audit: "Audyt techniczny", impl: "Wdrożenie", aas: "Sprawdź NIS2 jako usługę" },
     },
     final: {
-      h2: "Jeden dostawca zamiast pięciu",
-      sub: "Zgodność, pentesty, monitoring w jednym kontrakcie. Jeden numer do dzwonienia, jedna faktura.",
+      h2: "Jeden partner do zgodności i cyberbezpieczeństwa",
+      sub: "Audyt, pentesty i monitoring 24/7 realizowane w ramach jednej współpracy. Jeden punkt kontaktu, jeden SLA i pełniejszy obraz bezpieczeństwa organizacji.",
     },
   },
   {
@@ -569,35 +578,36 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-aas",
     ctaUnified: "Sprawdź gotowość operacyjną",
     hero: {
-      h1: "Incydent zatrzyma produkcję na 24h. Macie kogo wezwać?",
-      sub: "Plany ciągłości, audyt dostawców IT i zgłoszenie do organów na czas. Ankieta pokaże, gdzie operacje pękną najszybciej.",
-      stats: ["24h/72h na zgłoszenie", "SOC całą dobę", "audyt dostawców IT"],
+      h1: "Czy Twoja firma jest gotowa na incydent, który zatrzyma operacje?",
+      sub: "NIS2 to nie tylko kwestia cyberbezpieczeństwa. To również ciągłość działania, współpraca z dostawcami IT i zdolność do zgłoszenia incydentu w wymaganym terminie. Sprawdź, jak przygotowana jest Twoja organizacja.",
+      stats: ["24h/72h na zgłoszenie incydentu", "SOC całą dobę", "audyt dostawców IT"],
+      micro: "Otrzymasz raport przygotowany z myślą o zarządzie i osobach odpowiedzialnych za operacje.",
     },
     risk: {
-      h2: "Awaria bez zgłoszenia to dwa problemy naraz",
-      lead: "Pierwszy: incydent, którego nikt nie obsłużył. Drugi: minął termin 24h, więc dochodzi sprawa regulacyjna. Ten drugi zwykle kosztuje więcej.",
+      h2: "Incydent to problem. Brak przygotowania zwykle tworzy kolejne.",
+      lead: "Sama awaria lub atak to dopiero początek. Jeśli organizacja nie ma gotowych procedur, planów ciągłości działania i procesu raportowania, szybko pojawiają się dodatkowe konsekwencje operacyjne oraz regulacyjne.",
       cards: [
-        "Plany ciągłości działania i testy scenariuszy, bez angażowania całego IT.",
-        "Audyt dostawców IT jako wymóg regulacyjny. Art. 21 i art. 8 KSC nie dają wyboru.",
-        "Zgłoszenie incydentu w 24h, kiedy nie macie gotowego wzoru raportu.",
-        "SOC i reakcja przez całą dobę, także o 3 w nocy.",
+        "Plany ciągłości działania oraz testy scenariuszy awaryjnych bez angażowania całej organizacji.",
+        "Audyt dostawców IT zgodny z wymaganiami art. 21 i art. 8 KSC.",
+        "Gotowe procedury zgłaszania incydentów w terminach 24h i 72h.",
+        "Monitoring i wsparcie operacyjne dostępne przez całą dobę.",
       ],
     },
     service: {
-      h2: "Ciągłość, dostawcy i SOC w jednym miejscu",
-      sub: "Plany BCP/DRP, które przećwiczyliście, audyt dostawców IT i monitoring całą dobę. Procedury działające o 3 w nocy, nie tylko w prezentacji.",
+      h2: "Ciągłość działania, dostawcy i monitoring w jednym planie",
+      sub: "Pomagamy przygotować i przetestować plany BCP/DRP, ocenić ryzyko związane z dostawcami IT oraz zbudować procesy, które działają również poza standardowymi godzinami pracy.",
     },
     proof: {
-      quote: "Przećwiczyliśmy incydent i wysłaliśmy raport w 24h, z jednej platformy. Zarząd wiedział, co się dzieje, zanim zdążył zapytać.",
+      quote: "Przećwiczenie scenariusza incydentu pozwoliło nam uporządkować role, procedury i sposób raportowania. Kiedy pojawiła się realna sytuacja, wiedzieliśmy dokładnie, co robić.",
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Ankieta wskaże, czy zaczynacie od audytu ciągłości i dostawców, czy od usługi miesięcznej z SOC.",
-      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Wdróż procedury", aas: "Sprawdź usługę miesięczną" },
+      lead: "Krótka ankieta pomoże określić, czy warto zacząć od audytu ciągłości działania i dostawców, czy od modelu usługi miesięcznej z monitoringiem SOC.",
+      ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Wdróż procedury", aas: "Sprawdź, czy aaS pasuje" },
     },
     final: {
-      h2: "Najpierw diagnoza, potem procedury",
-      sub: "2 minuty ankiety i wiecie, gdzie operacje pękają wobec NIS2 oraz od czego zacząć.",
+      h2: "Sprawdź, gdzie operacje są najbardziej narażone",
+      sub: "W kilka minut ocenisz gotowość organizacji do spełnienia wymagań NIS2 i zobaczysz, które obszary wymagają uwagi w pierwszej kolejności.",
     },
   },
 ];

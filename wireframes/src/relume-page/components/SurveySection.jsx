@@ -275,37 +275,43 @@ export function SurveySection({ final }) {
                 </div>
               )}
 
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                {step > 0 && (
-                  <Button
-                    variant="secondary-alt"
-                    className={darkSurfaceButtonClassName}
-                    onClick={() => setStep((s) => s - 1)}
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-3">
+                  {step > 0 && (
+                    <Button
+                      variant="secondary-alt"
+                      className={darkSurfaceButtonClassName}
+                      onClick={() => setStep((s) => s - 1)}
+                    >
+                      Wstecz
+                    </Button>
+                  )}
+                  {step < STEP_COUNT - 1 ? (
+                    <Button
+                      variant="secondary-alt"
+                      className={darkSurfaceButtonClassName}
+                      disabled={!canNext}
+                      onClick={() => setStep((s) => s + 1)}
+                    >
+                      Dalej
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="secondary-alt"
+                      className={darkSurfaceButtonClassName}
+                      disabled={!canNext}
+                      onClick={handleSubmit}
+                    >
+                      {final.ctaPrimary}
+                    </Button>
+                  )}
+                </div>
+                {final.ctaSecondary && (
+                  <CalendarCtaButton
+                    variant="secondary"
+                    className="shrink-0"
+                    title={final.ctaSecondary}
                   >
-                    Wstecz
-                  </Button>
-                )}
-                {step < STEP_COUNT - 1 ? (
-                  <Button
-                    variant="secondary-alt"
-                    className={darkSurfaceButtonClassName}
-                    disabled={!canNext}
-                    onClick={() => setStep((s) => s + 1)}
-                  >
-                    Dalej
-                  </Button>
-                ) : (
-                  <Button
-                    variant="secondary-alt"
-                    className={darkSurfaceButtonClassName}
-                    disabled={!canNext}
-                    onClick={handleSubmit}
-                  >
-                    {final.ctaPrimary}
-                  </Button>
-                )}
-                {step === 0 && final.ctaSecondary && (
-                  <CalendarCtaButton variant="secondary" title={final.ctaSecondary}>
                     {final.ctaSecondary}
                   </CalendarCtaButton>
                 )}

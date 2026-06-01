@@ -64,7 +64,7 @@ export interface Content {
     stats: string[]; // 3 — wyświetlane jako chipy w Header76
     ctaPrimary: string;
     ctaSecondary: string | null;
-    // micro usunięty
+    micro?: string;
   };
   scope: {
     kicker: string;
@@ -99,7 +99,6 @@ export interface Content {
     h2: string;
     sub: string;
     items: FaqItem[];
-    tail: { h: string; sub: string; cta: string };
   };
   final: {
     h2: string;
