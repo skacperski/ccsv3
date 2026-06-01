@@ -8,10 +8,10 @@ function ClientLogoPlaceholder() {
   const Icon = LOGO_PLACEHOLDER_ICON;
   return (
     <div
-      className="flex items-center justify-center border border-border-primary p-6 md:p-8 lg:p-6"
+      className="flex items-center justify-center bg-black p-6 md:p-8 lg:p-6"
       aria-hidden
     >
-      <Icon className="size-10 text-neutral-300" strokeWidth={1.25} />
+      <Icon className="size-10 text-white" strokeWidth={1.25} />
     </div>
   );
 }

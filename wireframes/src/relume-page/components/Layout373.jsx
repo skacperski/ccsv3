@@ -2,8 +2,6 @@
 
 import React from "react";
 import { SurveyCtaButton } from "./SurveyCtaButton";
-import { SectionIcon } from "./SectionIcon";
-import { HOW_ICONS } from "../icons/sectionIcons";
 
 export function Layout373({ how, surveyCta }) {
   return (
@@ -23,7 +21,7 @@ export function Layout373({ how, surveyCta }) {
             <div className="grid grid-cols-1 border-2 border-black bg-black sm:col-span-2 sm:row-span-1">
               <div className="flex flex-1 flex-col justify-center p-6 md:p-8 lg:p-12">
                 <div>
-                  <SectionIcon icon={HOW_ICONS[0]} inverted />
+                  <p className="mb-2 text-7xl font-bold leading-none text-white/20">1</p>
                   <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-white/50">
                     Zacznij tutaj
                   </p>
@@ -45,7 +43,7 @@ export function Layout373({ how, surveyCta }) {
                 className="flex h-full flex-col border border-border-primary"
               >
                 <div className="flex flex-1 flex-col p-6 md:p-8 lg:p-6">
-                  <SectionIcon icon={HOW_ICONS[i + 1]} />
+                  <p className="mb-3 text-5xl font-bold leading-none text-black/10">{i + 2}</p>
                   <h3 className="mb-2 text-xl font-bold md:text-2xl">
                     {item.title}
                   </h3>

@@ -10,8 +10,8 @@ function HeroDecorTile({ index }) {
   const Icon = pickIcon(HERO_DECOR_ICONS, index);
   return (
     <div className="relative w-full pt-[120%]">
-      <div className="absolute inset-0 flex items-center justify-center border border-border-primary bg-neutral-100">
-        <Icon className="size-10 text-neutral-400 md:size-12" strokeWidth={1.25} />
+      <div className="absolute inset-0 flex items-center justify-center bg-black">
+        <Icon className="size-10 text-white md:size-12" strokeWidth={1.25} />
       </div>
     </div>
   );

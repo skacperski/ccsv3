@@ -148,9 +148,9 @@ export function Cta38({ scope }) {
                 {(() => {
                   const Icon = pickIcon(SCOPE_HOVER_ICONS, i);
                   return (
-                    <div className="flex size-full max-w-md items-center justify-center border border-border-primary bg-neutral-50 p-16">
+                    <div className="flex size-full max-w-md items-center justify-center bg-black p-16">
                       <Icon
-                        className="size-32 text-black md:size-40"
+                        className="size-32 text-white md:size-40"
                         strokeWidth={1}
                       />
                     </div>
