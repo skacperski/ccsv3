@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@relume_io/relume-ui";
 import React from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { SurveyCtaButton } from "./SurveyCtaButton";
@@ -30,12 +31,13 @@ export function Header76({ hero }) {
         {hero.stats && hero.stats.length > 0 && (
           <div className="mt-5 flex flex-wrap gap-2 md:mt-6">
             {hero.stats.map((stat, i) => (
-              <span
+              <Badge
                 key={i}
-                className="rounded-full border border-black px-3 py-1 text-sm font-semibold"
+                variant="secondary"
+                className="px-3 py-1 text-sm font-semibold"
               >
                 {stat}
-              </span>
+              </Badge>
             ))}
           </div>
         )}
