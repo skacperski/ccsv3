@@ -42,9 +42,9 @@ export function Header76({ hero }) {
           </div>
         )}
         <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-          <SurveyCtaButton title={hero.ctaPrimary}>{hero.ctaPrimary}</SurveyCtaButton>
+          <SurveyCtaButton title={hero.ctaPrimary} location="hero">{hero.ctaPrimary}</SurveyCtaButton>
           {hero.ctaSecondary && (
-            <CalendarCtaButton variant="secondary" title={hero.ctaSecondary}>
+            <CalendarCtaButton variant="secondary" title={hero.ctaSecondary} location="hero">
               {hero.ctaSecondary}
             </CalendarCtaButton>
           )}

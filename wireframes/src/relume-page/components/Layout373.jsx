@@ -31,7 +31,7 @@ export function Layout373({ how, surveyCta }) {
                   <p className="text-white/80">{how.steps[0].body}</p>
                 </div>
                 <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                  <SurveyCtaButton title={surveyCta} variant="secondary-alt">
+                  <SurveyCtaButton title={surveyCta} variant="secondary-alt" location="proces">
                     {surveyCta}
                   </SurveyCtaButton>
                 </div>

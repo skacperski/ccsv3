@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm ci --prefix relume",
-  "buildCommand": "npm run build --prefix relume",
-  "outputDirectory": "relume/dist",
+  "installCommand": "npm ci --prefix wireframes",
+  "buildCommand": "npm run build --prefix wireframes",
+  "outputDirectory": "wireframes/dist",
   "framework": "vite",
   "cleanUrls": true,
   "trailingSlash": false

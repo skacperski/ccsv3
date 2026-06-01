@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **content + build lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). [copy/](copy/) and [personas/](personas/) are the source of truth. [wireframes/](wireframes/) and [designs/](designs/) are self-contained HTML prototypes (reference only, no build step). The production page is built as a **React app in [relume/](relume/)** (Vite + Tailwind v3 + Relume components) and deployed **directly to Vercel. No Webflow.**
+A **content + build lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). [copy/](copy/) and [personas/](personas/) are the source of truth for all copy. The production page is built as a **React app in [wireframes/](wireframes/)** (Vite + React 18 + TypeScript + Tailwind v3 + Relume components) and deployed **directly to Vercel. No Webflow.**
 
 The repo is split by **artifact type**, not by feature:
 
@@ -12,22 +12,19 @@ The repo is split by **artifact type**, not by feature:
 copy/        — markdown content, one file per ad campaign variant + _shared.md
 personas/    — decision-maker profiles, one per campaign (input for content writer)
 prompts/     — workflow prompts the team gives the agent
-wireframes/  — B&W canonical skeleton
-designs/     — full visual re-skins, all sharing the same JS contract
-references/  — getdesign.md design system specs imported as bases for designs/
+wireframes/  — production React app (Vite + TypeScript + Tailwind v3 + Relume)
+docs/        — relume.md (stack notes) and other internal docs
+assets/      — shared static assets
 .cursor/     — rules + skills (humanizer is mandatory for user-facing text)
-index.html   — Vercel hub page linking to wireframe + each design (deploy preview)
-vercel.json  — minimal Vercel config (cleanUrls, no trailing slash)
+vercel.json  — Vercel config (cleanUrls, wireframes/ as root)
 ```
-
-When adding a new design under [designs/](designs/), also add a link to it in [index.html](index.html) so it shows up in the deployed preview hub.
 
 ## Team workflow
 
 Two people work on this repo:
 
 - **Julia (content writer, GitHub: xxtszzxx)** — owns [personas/](personas/) and [copy/](copy/). Uses [prompts/01-generate-copy-from-persona.md](prompts/01-generate-copy-from-persona.md) and [prompts/02-humanize-copy.md](prompts/02-humanize-copy.md).
-- **Sebastian (dev)** — owns [wireframes/](wireframes/) and [designs/](designs/). Uses [prompts/03-sync-copy-to-wireframes.md](prompts/03-sync-copy-to-wireframes.md) and [prompts/04-build-new-design.md](prompts/04-build-new-design.md).
+- **Sebastian (dev)** — owns [wireframes/](wireframes/). Uses [prompts/03-sync-copy-to-wireframes.md](prompts/03-sync-copy-to-wireframes.md).
 
 Flow:
 
@@ -38,10 +35,8 @@ personas/<id>.md  →  prompts/01  →  copy/<id>.md  →  prompts/02 (humanize)
                                     prompts/03 (sync)
                                          │
                                          ↓
-                            wireframes/wireframe.html + designs/*.html
+                            wireframes/src/content/variants.ts
 ```
-
-When Julia says "use `prompts/01-generate-copy-from-persona.md` to generate copy for `personas/li-ciso.md`, save to `copy/li-ciso.md`" — read the prompt template, follow it.
 
 ## The 9 ad variants
 
@@ -61,23 +56,62 @@ The product runs **9 paid landing variants** (Google Ads × 5, LinkedIn × 3, de
 
 Static sections shared across all variants: [copy/_shared.md](copy/_shared.md).
 
-## The shared JS contract
+## Content contract (TypeScript)
 
-Every HTML in [wireframes/](wireframes/) and [designs/](designs/) implements the same simulator behavior:
+The React app in [wireframes/](wireframes/) uses a typed content contract:
 
-**Globals:** `VARIANTS` (object, 9 keys), `UTM_CAMPAIGN_MAP`
-**Functions:** `applyVariant(key)`, `renderStats`, `renderBullets`, `setFeaturedCard`, `updateCardCtas`, `applyScopeMode`, `resolveVariantFromUrl`, `buildPreviewUrl`
+- **Source of truth:** `copy/<variant>.md` + `copy/_shared.md`
+- **Target:** `wireframes/src/content/variants.ts` (the `SPECS` array, one entry per variant)
+- **Types:** `wireframes/src/content/types.ts`
 
-**Required DOM IDs:**
-`hero-h1, hero-sub, hero-stats, hero-cta-primary, hero-cta-secondary, hero-micro, hero-badge, hero-tag, scope-list, scope-compact, scope-h2, risk-h2, risk-lead, risk-bullets, service-h2, service-sub, proof-quote, pricing-lead, pricing-cta-hint, final-h2, final-sub, final-cta, sec-compare, sim-meta, toggle-dev-meta, copy-preview-link, card-audit, card-impl, card-aas`
+Per-variant dynamic fields in `VariantSpec`:
 
-**Required classes:** `.sim-btn[data-variant]`, `.wf-card`, `.wf-card--featured`, `.card-cta[data-card]`, `.is-collapsed`, `.is-hidden`, `.dev-meta-hidden`, `.wf-dev-only`
+```ts
+{
+  id, label, channel, campaign,
+  scopeMode: "full" | "compact",
+  hideCompare: boolean,
+  featuredCard: "card-audit" | "card-impl" | "card-aas",
+  ctaUnified: string,        // hero CTA, nav CTA, final CTA
+  hero: { h1, sub, stats: [string,string,string], micro },
+  risk: { h2, lead, cards: string[] },
+  service: { h2, sub },
+  proof: { quote, attribution },
+  pricing: { lead, ctas: { audit, impl, aas } },
+  final: { h2, sub }
+}
+```
 
-**URL params:** `?variant=<id>` (explicit) and `?utm_campaign=<campaign>` (production) both resolve via `resolveVariantFromUrl()`.
+Shared (constant across variants): pillars, steps, compare rows, FAQ items, footer.
 
-Each design can add new mechanics on top (split-text H1, custom cursor, GSAP scroll, horizontal sticky scroll) — but the above contract must keep the variant simulator working across every skin.
+## Copy sync process
 
-Full sync spec: [prompts/03-sync-copy-to-wireframes.md](prompts/03-sync-copy-to-wireframes.md).
+When Julia updates `copy/`, sync to the wireframe (`prompts/03-sync-copy-to-wireframes.md`):
+
+1. Read all 9 `copy/<variant>.md` files + `copy/_shared.md`
+2. Map each field **verbatim** to the matching field in the `SPECS` array in `wireframes/src/content/variants.ts`:
+
+| copy.md section | SPECS field |
+|---|---|
+| `## Hero → H1` | `hero.h1` |
+| `## Hero → Sub` | `hero.sub` |
+| `## Hero → Stats` (parse `X · Y · Z`) | `hero.stats` (3-element array) |
+| `## Hero → CTA primary` | `ctaUnified` (also nav + final) |
+| `## Hero → Micro` | `hero.micro` |
+| `## Risk → H2 / Lead / Bullets` | `risk.h2 / risk.lead / risk.cards` |
+| `## Service override → H2 / Sub` | `service.h2 / service.sub` |
+| `## Proof` (quote) | `proof.quote` |
+| `## Proof` (attribution line) | `proof.attribution` |
+| `## Pricing → Lead` | `pricing.lead` |
+| `## Pricing → Card CTAs` | `pricing.ctas.{ audit, impl, aas }` |
+| `## Final → H2 / Sub` | `final.h2 / final.sub` |
+| frontmatter `scopeMode` | `scopeMode` |
+| frontmatter `hideCompare` | `hideCompare` |
+| frontmatter `featuredCard` | `featuredCard` |
+
+3. **Do not shorten or edit Julia's copy.** If a field has no matching component, add it to `types.ts` and the relevant JSX component.
+4. Update shared data from `_shared.md` if changed: pillar bodies, step titles/bodies, FAQ question titles (keep existing answers), pricing card names/features.
+5. Run `cd wireframes && npm run dev` and walk all 9 variants via `?variant=<id>` to verify.
 
 ## Facts that cannot change without legal review
 
@@ -87,50 +121,41 @@ Full list: [copy/_shared.md](copy/_shared.md) → Facts & constraints.
 
 ## Skills + rules
 
-- **`/humanize`** ([.claude/commands/humanize.md](.claude/commands/humanize.md)) — mandatory pass on every user-facing string (HTML, copy). Strip em dashes, AI vocabulary ("kompleksowy", "kluczowy", "umożliwia"), forced rule-of-three, anglicisms ("OneStopShop", "as a Service", "fast track", "board", "security lead"). Also available for Cursor: [.cursor/skills/humanizer/SKILL.md](.cursor/skills/humanizer/SKILL.md).
-- **`/landing-pages`** ([.claude/commands/landing-pages.md](.claude/commands/landing-pages.md)) — Unbounce/Copyhackers/CXL playbook for new LP planning. Also available for Cursor: [.cursor/skills/landing-pages/SKILL.md](.cursor/skills/landing-pages/SKILL.md).
+- **`/humanize`** ([.claude/commands/humanize.md](.claude/commands/humanize.md)) — mandatory pass on every user-facing string. Strip em dashes, AI vocabulary ("kompleksowy", "kluczowy", "umożliwia"), forced rule-of-three, anglicisms. Also available for Cursor: [.cursor/skills/humanizer/SKILL.md](.cursor/skills/humanizer/SKILL.md).
+- **`/landing-pages`** ([.claude/commands/landing-pages.md](.claude/commands/landing-pages.md)) — Unbounce/Copyhackers/CXL playbook for new LP planning.
 
 ## Vercel deployment
 
-- **Current hub URL:** https://ccsv3.vercel.app — static files from repo root (`index.html` + reference HTML). Framework preset **Other** / static, Root Directory `.`.
-- **Production landing page (target):** built from [relume/](relume/) (Vite → `dist/`) and deployed **directly to Vercel** — no Webflow. When that goes live, point a Vercel project at Root Directory `relume/` (framework **Vite**, build `npm run build`, output `dist`).
-- **Config:** `vercel.json` — `cleanUrls: true`, no trailing slash.
+- **Production URL:** https://ccsv3.vercel.app
+- **Stack:** [wireframes/](wireframes/) → Vite build → `dist/` → Vercel
+- **Config:** `vercel.json` — `installCommand: npm ci --prefix wireframes`, `buildCommand: npm run build --prefix wireframes`, `outputDirectory: wireframes/dist`
 
-## Relume (production stack)
+## Wireframes stack
 
-The production page lives in [relume/](relume/) — a **Vite + React 18 + TypeScript + Tailwind v3** app using **Relume components** (`@relume_io/relume-ui` + `@relume_io/relume-tailwind` preset). Section components are copy-pasted from relume.io (the npm package ships only primitives, not sections) into `relume/src/`. It deploys **directly to Vercel. No Webflow, no Next.js.**
+[wireframes/](wireframes/) is a **Vite + React 18 + TypeScript + Tailwind v3** app. Section components (Hero, Pricing, FAQ…) are copy-pasted from relume.io into `wireframes/src/relume-page/components/` — the npm package (`@relume_io/relume-ui`) ships only primitives, not full sections. Deploy goes directly to Vercel.
 
-Keep [copy/](copy/) and [personas/](personas/) as source of truth for content; wireframes/designs are disposable reference HTML. See [relume/README.md](relume/README.md) for the dev/build workflow.
-
-## How to "run" / validate
-
-No dev server, no `npm install`. Validation is manual:
+## How to run / validate
 
 ```bash
-# Open in browser
-open wireframes/wireframe.html
-open designs/design-cohere.html
+cd wireframes
+npm install       # first time only
+npm run dev       # http://localhost:5173
 
 # Force a variant via URL
-open "designs/design-cohere.html?variant=li-ceo"
-open "designs/design-cohere.html?utm_campaign=nis2-managed"
+open "http://localhost:5173?variant=li-ceo"
+open "http://localhost:5173?utm_campaign=nis2-managed"
 
-# Syntax-check the inline JS
-python3 -c "import re; print(re.search(r'<script>(.*?)</script>', open('designs/design-cohere.html').read(), re.DOTALL).group(1))" > /tmp/x.js
-node --check /tmp/x.js
-
-# DOM contract spot-check
-grep -oE 'id="(hero-h1|risk-bullets|card-aas|sim-meta)"' designs/design-cohere.html
+# Type-check + build
+npm run build
 ```
 
-Walk all 9 variants in the sim panel + toggle "Pokaż metadane" + test `?utm_campaign=` resolve. Dynamic sections (hero, risk, service, proof, pricing lead, card CTAs, final) must update; static sections (how, faq, footer) must not.
+Walk all 9 variants via the VariantSwitcher panel. Dynamic sections (hero, risk, service, proof, pricing lead, card CTAs, final) must update; static sections (how, faq, footer) must not.
 
 ## Production placeholders (hard-block before deploy)
 
-`[stanowisko]`, `[firma]`, `[sektor]`, `[LOGO]`, `[ Cytat klienta — do uzupełnienia ]`, `[ tel. opcjonalnie ]` — must not ship. Listed in [copy/_shared.md](copy/_shared.md) → Production placeholders.
+`[stanowisko]`, `[firma]`, `[sektor]`, `[LOGO]`, `[ Cytat klienta — do uzupełnienia ]` — must not ship. Listed in [copy/_shared.md](copy/_shared.md) → Production placeholders.
 
 ## Adding artifacts
 
-- **New variant** — requires `UTM_CAMPAIGN_MAP` update + `VARIANTS` object update in every HTML + sim-panel button + new `personas/<id>.md` + new `copy/<id>.md`. Get explicit approval (variants tied to live ad campaigns).
-- **New design (re-skin)** — [prompts/04-build-new-design.md](prompts/04-build-new-design.md). Self-contained HTML, keep the JS contract.
-- **New reference** — drop into [references/](references/) (see its README for the getdesign.md import flow).
+- **New variant** — new `personas/<id>.md` + `copy/<id>.md` + entry in `SPECS` in `wireframes/src/content/variants.ts` + new `VariantId` in `types.ts`. Requires approval (tied to live ad campaigns).
+- **New section / field** — add to `types.ts`, update `build()` in `variants.ts`, add component in `wireframes/src/relume-page/components/`, wire into `wireframes/src/relume-page/index.jsx`.

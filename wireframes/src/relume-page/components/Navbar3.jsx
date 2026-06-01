@@ -15,6 +15,7 @@ export function Navbar3({ nav }) {
         </a>
         <SurveyCtaButton
           title={nav.cta}
+          location="nav"
           size="sm"
           className="ml-auto mr-4 shrink-0 px-4 py-1 md:mr-6 md:px-6 md:py-2 lg:mr-8"
         >

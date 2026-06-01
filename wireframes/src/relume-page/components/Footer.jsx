@@ -1,5 +1,6 @@
 import React from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
+import { track } from "../../tracking/tracking";
 
 const CONTACTS = [
   {
@@ -39,16 +40,29 @@ function ContactMini({ person }) {
         <p className="text-sm font-semibold leading-tight">{person.name}</p>
         <p className="mt-0.5 text-xs uppercase tracking-wide text-neutral-500">{person.role}</p>
         <div className="mt-1 flex flex-col gap-0.5 text-xs">
-          <a href={person.phoneHref} className="text-neutral-600 hover:text-black">
+          <a
+            href={person.phoneHref}
+            data-track="contact_phone"
+            data-track-location="stopka"
+            className="text-neutral-600 hover:text-black"
+            onClick={() => track("contact_phone", { person: person.name })}
+          >
             {person.phone}
           </a>
-          <a href={`mailto:${person.email}`} className="truncate text-neutral-600 hover:text-black">
+          <a
+            href={`mailto:${person.email}`}
+            data-track="contact_email"
+            data-track-location="stopka"
+            className="truncate text-neutral-600 hover:text-black"
+            onClick={() => track("contact_email", { person: person.name })}
+          >
             {person.email}
           </a>
         </div>
         <CalendarCtaButton
           variant="link"
           size="link"
+          location="stopka"
           title={`Umów spotkanie z ${person.name}`}
           className="mt-2 font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-700"
         >

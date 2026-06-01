@@ -67,6 +67,7 @@ export function Pricing20({ pricing }) {
                   <div className="mt-6 md:mt-8">
                     <SurveyCtaButton
                       title={card.cta}
+                      location={`cennik_${card.id}`}
                       className="w-full"
                       variant={featured ? "secondary-alt" : "primary"}
                     >
