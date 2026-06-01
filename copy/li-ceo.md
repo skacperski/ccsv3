@@ -17,38 +17,38 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** Pod KSC odpowiada zarząd. Także wy osobiście.
-- **Sub:** Od 19 lutego 2026 obowiązki spadają na zarząd, nie na IT. Zobaczcie, gdzie firma stoi wobec KSC, zanim zrobi to organ albo incydent.
+- **H1:** Za zgodność z KSC odpowiada zarząd, nie tylko dział IT.
+- **Sub:** Od 19 lutego 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.
 - **Stats:** osobista odpowiedzialność zarządu · obowiązuje od 19 lutego 2026 · wynik na 1 stronie
 - **CTA primary:** Zobacz raport dla zarządu
-- **Micro:** Wynik na 1 stronie, bez żargonu.
+- **Micro:** Wynik na jednej stronie, przygotowany z myślą o zarządzie.
 
 ## Risk
 
-- **H2:** Zarząd podpisuje odpowiedzialność, której nie zna
-- **Lead:** KSC z lutego 2026 nie zostawia wyjścia: jeśli firma nie ma zabezpieczeń, odpowiedzialność spada wprost na prezesa i osobę odpowiedzialną za cyber. To nie sprawa IT.
+- **H2:** Odpowiedzialności nie można delegować
+- **Lead:** KSC nakłada konkretne obowiązki związane z cyberbezpieczeństwem. Brak odpowiednich zabezpieczeń, procedur i nadzoru może oznaczać konsekwencje nie tylko dla firmy, ale również dla osób odpowiedzialnych za jej zarządzanie.
 - **Bullets:**
-  - Szkolenia cyber wymagane dla zarządu, nie tylko dla IT.
-  - Osobista odpowiedzialność, gdy brakuje środków bezpieczeństwa.
-  - U podmiotów kluczowych możliwe zawieszenie certyfikatów.
+  - Szkolenia z cyberbezpieczeństwa obejmują również członków zarządu.
+  - Odpowiedzialność może dotyczyć osób nadzorujących obszar bezpieczeństwa.
+  - W przypadku podmiotów kluczowych możliwe są dodatkowe środki nadzorcze, w tym ograniczenia dotyczące certyfikatów.
 
 ## Service override
 
-- **H2:** Materiał dla zarządu, nie raport dla działu IT
-- **Sub:** Audyt, ryzyka i propozycja budżetu w formie gotowej pod uchwałę zarządu.
+- **H2:** Raport, który pomaga podjąć decyzję
+- **Sub:** Otrzymujesz podsumowanie ryzyk, rekomendacje działań oraz orientacyjny budżet potrzebny do osiągnięcia zgodności z wymaganiami KSC. Wszystko w formie przygotowanej dla zarządu, a nie dla działu IT.
 
 ## Proof
 
-> „Prezes dostał jedną stronę z ryzykami i kwotą do decyzji. Bez technicznych skrótów, do przeczytania w pięć minut.”
+> „Zamiast kilkudziesięciu stron technicznej dokumentacji otrzymaliśmy krótkie podsumowanie najważniejszych ryzyk, kosztów i decyzji do podjęcia. Zarząd wiedział, od czego zacząć.”
 > — [stanowisko], [firma] ([sektor])
 
 ## Pricing
 
-- **Lead:** Zaczynacie od kwalifikacji, potem audyt z raportem dla zarządu od 9 900 zł.
+- **Lead:** Pierwszym krokiem jest kwalifikacja i ocena sytuacji firmy. Następnie możesz skorzystać z audytu zakończonego raportem dla zarządu od 9 900 zł.
 - **Card CTAs:** audit: `Zobacz raport dla zarządu` · impl: `Sprawdź zakres` · aas: `Sprawdź zakres`
 
 ## Final
 
-- **H2:** Najpierw kwalifikacja ryzyka, potem plan dla zarządu
-- **Sub:** Kilka minut wystarczy, żeby wiedzieć, gdzie stoicie wobec KSC i co trafia na zarząd.
+- **H2:** Zacznij od oceny ryzyka i poznaj możliwe scenariusze
+- **Sub:** W kilka minut sprawdzisz, jak wymagania KSC wpływają na Twoją organizację. Na tej podstawie łatwiej podjąć decyzję o kolejnych działaniach i budżecie.
 - **CTA:** Zobacz raport dla zarządu
