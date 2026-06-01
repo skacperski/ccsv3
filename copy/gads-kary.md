@@ -17,39 +17,39 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** Kara za NIS2 sięga 10 mln EUR. Podlegacie?
-- **Sub:** Nowelizacja KSC obowiązuje od 19 lutego 2026. Firmy objęte NIS2 muszą mieć zabezpieczenia i zgłaszać incydenty w 24h/72h. Za brak grozi do 10 mln EUR albo 2% obrotu, a kara może objąć też zarząd.
+- **H1:** Kary za NIS2 mogą sięgnąć 10 mln EUR. Czy Twoja firma podlega pod nowe przepisy?
+- **Sub:** Nowelizacja KSC obowiązuje od 19 lutego 2026 roku. Jeśli Twoja firma podlega pod NIS2, musi wdrożyć odpowiednie zabezpieczenia i zgłaszać incydenty w terminie 24h lub 72h. Za brak zgodności grozi kara do 10 mln EUR albo 2% rocznego obrotu. Odpowiedzialność może dotyczyć również członków zarządu.
 - **Stats:** do 10 mln EUR (kara) · 24h/72h (na zgłoszenie incydentu) · obowiązek od 19.02.2026
-- **CTA primary:** Sprawdź ryzyko w 2 min
-- **Micro:** Bez zobowiązań. Dostajecie raport dla zarządu po polsku, bez żargonu IT.
+- **CTA primary:** Sprawdź ryzyko w 2 minuty
+- **Micro:** Bez zobowiązań, otrzymasz raport dla zarządu napisany prostym językiem, bez technicznego żargonu.
 
 ## Risk
 
-- **H2:** Kara idzie na firmę. Często też na członków zarządu.
-- **Lead:** NIS2 wprowadza w UE naprawdę dotkliwe kary. Tłumaczenie „zajmiemy się tym później" przy kontroli już nie zadziała.
+- **H2:** Konsekwencje mogą dotyczyć nie tylko firmy
+- **Lead:** NIS2 i nowelizacja KSC wprowadzają jedne z najwyższych kar regulacyjnych związanych z cyberbezpieczeństwem. Odkładanie tematu na później może okazać się kosztowne podczas kontroli lub po wystąpieniu incydentu.
 - **Bullets:**
-  - Do 10 mln EUR albo 2% obrotu (podmiot kluczowy).
-  - Do 7 mln EUR albo 1,4% obrotu (podmiot ważny).
-  - Osobista odpowiedzialność prezesa, CTO i CISO.
-  - Kontrole organów już ruszają.
+  -Do 10 mln EUR albo 2% obrotu dla podmiotu kluczowego.
+  - Do 7 mln EUR albo 1,4% obrotu dla podmiotu ważnego.
+  - Odpowiedzialność może objąć prezesa, CTO oraz CISO.
+  - Kontrole organów nadzorczych już się rozpoczynają.
 
 ## Service override
 
-- **H2:** Audyt, który da wam dowody na kontrolę
-- **Sub:** Sprawdzamy luki, procedury incydentów i zabezpieczenia IT. Każdy krok dokumentujemy pod KSC, więc na kontroli pokażecie logi i raporty, nie same polityki.
+- **H2:** Audyt, który pokazuje fakty, a nie przypuszczenia
+- **Sub:** Sprawdzamy luki, procedury obsługi incydentów oraz zabezpieczenia IT. Każdy element dokumentujemy zgodnie z wymaganiami KSC, dzięki czemu podczas kontroli możesz przedstawić konkretne raporty, logi i dowody działań.
 
 ## Proof
 
-> „Po ankiecie wiedzieliśmy, gdzie stoimy wobec KSC. Zarząd dostał jedną stronę po polsku, bez tłumaczenia z języka IT."
+> „Po wypełnieniu ankiety wiedzieliśmy, jakie obowiązki wynikają z KSC i od czego zacząć. Zarząd dostał jasne podsumowanie, które nie wymagało tłumaczenia z języka IT."
 > — [stanowisko], [firma], [sektor]
 
 ## Pricing
 
-- **Lead:** Zaczynamy od ankiety. Pokaże, czy w ogóle podlegacie pod NIS2 i czy starczy audyt, czy potrzeba pełnego wdrożenia.
+- **Lead:** Zacznij od krótkiej ankiety. Sprawdzisz, czy Twoja firma podlega pod NIS2 i jakie działania warto podjąć w pierwszej kolejności. Na tej podstawie określimy, czy wystarczy audyt, czy potrzebne będzie pełne wdrożenie.
 - **Card CTAs:** audit: `Zacznij od audytu` · impl: `Sprawdź w 2 min` · aas: `Sprawdź w 2 min`
 
 ## Final
 
-- **H2:** Lepiej wiedzieć przed kontrolą niż po niej
-- **Sub:** W 2 minuty dowiecie się, czy wchodzicie w NIS2 i co załatwić w pierwszej kolejności, zanim przyjdzie organ.
-- **CTA:** Sprawdź ryzyko w 2 min
+- **H2:** Sprawdź ryzyko, zanim pojawi się kontrola
+- **Sub:** W ciągu 2 minut dowiesz się, czy Twoja firma podlega pod NIS2 oraz jakie obowiązki wymagają uwagi w pierwszej kolejności. Lepiej mieć plan działania przed kontrolą niż szukać go pod presją czasu.
+- **CTA:** Sprawdź ryzyko w 2 minuty
