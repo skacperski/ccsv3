@@ -29,7 +29,7 @@ function ContactCard({ person }) {
         <img
           src={person.image}
           alt=""
-          className="aspect-[4/5] w-full max-w-[17.5rem] object-cover object-top"
+          className="aspect-[4/5] w-full max-w-[17.5rem] rounded-none object-cover object-top"
           loading="lazy"
         />
         <CalendarCtaButton
