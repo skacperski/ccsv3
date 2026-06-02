@@ -25,7 +25,7 @@ export default function Page({ content }) {
       <Pricing20 pricing={content.pricing} />
       {!content.hideCompare && <Comparison5 compare={content.compare} />}
       <Faq1 faq={content.faq} />
-      <SurveySection final={content.final} />
+      <SurveySection final={content.final} surveyCtaLabel={content.hero.ctaPrimary} />
       <Footer footer={content.footer} />
     </div>
   );

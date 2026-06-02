@@ -6,7 +6,7 @@ utm: null
 scopeMode: full
 hideCompare: false
 featuredCard: card-audit
-ctaUnified: Sprawdź w 2 minuty, czy NIS2 was dotyczy
+ctaUnified: Sprawdź w 2 minuty
 secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/default.md
 ---
@@ -20,7 +20,7 @@ Statyczne sekcje: [_shared.md](_shared.md). Fallback gdy brak dopasowania `utm_c
 - **H1:** NIS2 i KSC 2026. Sprawdź, jakie obowiązki dotyczą Twojej firmy
 - **Sub:** Audyt, wdrożenie i utrzymanie zgodności w jednym miejscu. Zacznij od krótkiej ankiety, aby sprawdzić, czy Twoja organizacja podlega pod NIS2 i jakie działania warto zaplanować w pierwszej kolejności.
 - **Stats:** KSC od 19 lutego 2026 · 18 sektorów objętych · kary do 10 mln EUR
-- **CTA primary:** Sprawdź w 2 minuty, czy NIS2 dotyczy Twojej firmy
+- **CTA primary:** Sprawdź w 2 minuty
 - **Micro:** Pierwszy krok jest bezpłatny i nie zobowiązuje do dalszej współpracy. Wynik otrzymasz e-mailem.
 
 ## Risk
@@ -53,4 +53,4 @@ Statyczne sekcje: [_shared.md](_shared.md). Fallback gdy brak dopasowania `utm_c
 
 - **H2:** Sprawdź, jak NIS2 wpływa na Twoją firmę
 - **Sub:** Wypełnienie ankiety zajmuje około 2 minut. Otrzymasz informację, czy nowe obowiązki dotyczą Twojej organizacji i od czego warto zacząć przygotowania.
-- **CTA:** Sprawdź w 2 minuty, czy NIS2 dotyczy Twojej firmy
+- **CTA:** Sprawdź w 2 minuty
