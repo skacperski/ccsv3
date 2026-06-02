@@ -1,6 +1,24 @@
 "use client";
 
-import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+
+function useRiskScroll() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Cards slide in (translateX 100% → 0%), staggered. All settled by ~0.58 so the
+  // assembled state stays pinned for the rest of the scroll. Inputs are monotonic [0,1].
+  const cardX0 = useTransform(scrollYProgress, [0, 0.08, 0.22, 1], ["100%", "100%", "0%", "0%"]);
+  const cardX1 = useTransform(scrollYProgress, [0, 0.16, 0.34, 1], ["100%", "100%", "0%", "0%"]);
+  const cardX2 = useTransform(scrollYProgress, [0, 0.24, 0.46, 1], ["100%", "100%", "0%", "0%"]);
+  const cardX3 = useTransform(scrollYProgress, [0, 0.32, 0.58, 1], ["100%", "100%", "0%", "0%"]);
+
+  return { containerRef, cardPositions: [cardX0, cardX1, cardX2, cardX3] };
+}
 
 function NumberedCard({ index, text }) {
   return (
@@ -14,23 +32,51 @@ function NumberedCard({ index, text }) {
 }
 
 export function Layout518({ risk }) {
+  const scroll = useRiskScroll();
   const cards = risk.cards ?? [];
 
   return (
-    <section id="risk" className="relative bg-white px-[5%] py-16 md:px-0 md:py-24 lg:py-0">
-      <div className="flex flex-col lg:flex-row lg:items-stretch">
-        <div className="relative mb-6 flex items-center justify-center overflow-hidden bg-black px-6 py-16 md:mb-8 md:px-8 md:py-24 lg:mb-0 lg:w-[55vw] lg:shrink-0 lg:px-12 lg:py-28">
+    <section
+      id="risk"
+      ref={scroll.containerRef}
+      className="relative bg-white px-[5%] py-16 md:px-0 md:py-24 lg:h-[340vh] lg:py-0"
+    >
+      {/* Mobile / tablet — static, no scroll animation */}
+      <div className="lg:hidden">
+        <div className="relative mb-6 flex items-center justify-center overflow-hidden bg-black px-6 py-16 md:px-8 md:py-24">
           <div className="max-w-md text-center text-white">
             <p className="mb-3 font-semibold md:mb-4">{risk.kicker}</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              {risk.h2}
-            </h2>
+            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl">{risk.h2}</h2>
             <p className="text-white/80 md:text-md">{risk.lead}</p>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-y-6 md:gap-y-8 lg:w-[45vw] lg:flex-1 lg:content-center lg:gap-4 lg:px-10 lg:py-16">
+        <div className="grid grid-cols-1 gap-y-6 md:gap-y-8">
           {cards.map((card, i) => (
             <NumberedCard key={i} index={i} text={card} />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop — sticky reveal. Left panel constant (full black, fixed width),
+          right cards slide in at a constant width. Sticky element is a DIRECT child
+          of the 340vh section so its containing block is tall enough to scroll. */}
+      <div className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-full lg:items-stretch lg:overflow-hidden">
+        <div className="flex w-[55vw] items-center justify-center bg-black px-12">
+          <div className="max-w-md text-center text-white">
+            <p className="mb-3 font-semibold">{risk.kicker}</p>
+            <h2 className="mb-5 text-7xl font-bold lg:text-8xl">{risk.h2}</h2>
+            <p className="text-white/80 md:text-md">{risk.lead}</p>
+          </div>
+        </div>
+        <div className="flex w-[45vw] flex-col justify-center gap-4 px-10">
+          {cards.map((card, i) => (
+            <motion.div
+              key={i}
+              style={{ x: scroll.cardPositions[Math.min(i, scroll.cardPositions.length - 1)] }}
+              className="w-full"
+            >
+              <NumberedCard index={i} text={card} />
+            </motion.div>
           ))}
         </div>
       </div>
