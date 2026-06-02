@@ -3,12 +3,9 @@
 import clsx from "clsx";
 import React from "react";
 import { BiCheck } from "react-icons/bi";
-import { CalendarCtaButton } from "./CalendarCtaButton";
 import { SurveyCtaButton } from "./SurveyCtaButton";
 
 const MAX_FEATURES = 5;
-const FEATURED_PRICING_CTA = "Oceń swoją gotowość";
-const PRICING_CALENDAR_CTA = "Umów rozmowę";
 
 export function Pricing20({ pricing }) {
   return (
@@ -68,25 +65,14 @@ export function Pricing20({ pricing }) {
                     </p>
                   </div>
                   <div className="mt-6 md:mt-8">
-                    {featured ? (
-                      <SurveyCtaButton
-                        title={FEATURED_PRICING_CTA}
-                        location={`cennik_${card.id}`}
-                        className="w-full"
-                        variant="secondary-alt"
-                      >
-                        {FEATURED_PRICING_CTA}
-                      </SurveyCtaButton>
-                    ) : (
-                      <CalendarCtaButton
-                        title={PRICING_CALENDAR_CTA}
-                        location={`cennik_${card.id}`}
-                        className="w-full"
-                        variant="primary"
-                      >
-                        {PRICING_CALENDAR_CTA}
-                      </CalendarCtaButton>
-                    )}
+                    <SurveyCtaButton
+                      title={card.cta}
+                      location={`cennik_${card.id}`}
+                      className="w-full"
+                      variant={featured ? "secondary-alt" : "primary"}
+                    >
+                      {card.cta}
+                    </SurveyCtaButton>
                   </div>
                   <div
                     className={clsx(

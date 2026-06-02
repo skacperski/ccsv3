@@ -247,7 +247,7 @@ const SPECS: VariantSpec[] = [
     scopeMode: "full",
     hideCompare: false,
     featuredCard: "card-audit",
-    ctaUnified: "Sprawdź w 2 minuty",
+    ctaUnified: "Sprawdź w 2 minuty, czy NIS2 dotyczy Twojej firmy",
     hero: {
       h1: "NIS2 i KSC 2026. Sprawdź, jakie obowiązki dotyczą Twojej firmy",
       sub: "Audyt, wdrożenie i utrzymanie zgodności w jednym miejscu. Zacznij od krótkiej ankiety, aby sprawdzić, czy Twoja organizacja podlega pod NIS2 i jakie działania warto zaplanować w pierwszej kolejności.",
@@ -526,7 +526,7 @@ const SPECS: VariantSpec[] = [
     scopeMode: "full",
     hideCompare: true,
     featuredCard: "card-audit",
-    ctaUnified: "Pobierz raport dla zarządu",
+    ctaUnified: "Zobacz raport dla zarządu",
     hero: {
       h1: "Za zgodność z KSC odpowiada zarząd, nie tylko dział IT.",
       sub: "Od 19 lutego 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.",
@@ -552,7 +552,7 @@ const SPECS: VariantSpec[] = [
     },
     pricing: {
       lead: "Pierwszym krokiem jest kwalifikacja i ocena sytuacji firmy. Następnie możesz skorzystać z audytu zakończonego raportem dla zarządu od 9 900 zł.",
-      ctas: { audit: "Pobierz raport dla zarządu", impl: "Sprawdź zakres", aas: "Sprawdź zakres" },
+      ctas: { audit: "Zobacz raport dla zarządu", impl: "Sprawdź zakres", aas: "Sprawdź zakres" },
     },
     final: {
       h2: "Zacznij od oceny ryzyka i poznaj możliwe scenariusze",

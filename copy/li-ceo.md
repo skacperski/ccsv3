@@ -6,7 +6,7 @@ utm: "?utm_source=linkedin&utm_medium=paid&utm_campaign=nis2-li-ceo&utm_content=
 scopeMode: full
 hideCompare: true
 featuredCard: card-audit
-ctaUnified: Pobierz raport dla zarządu
+ctaUnified: Zobacz raport dla zarządu
 secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/li-ceo.md
 ---
@@ -20,7 +20,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 - **H1:** Za zgodność z KSC odpowiada zarząd, nie tylko dział IT.
 - **Sub:** Od 19 lutego 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.
 - **Stats:** osobista odpowiedzialność zarządu · obowiązuje od 19 lutego 2026 · wynik na 1 stronie
-- **CTA primary:** Pobierz raport dla zarządu
+- **CTA primary:** Zobacz raport dla zarządu
 - **Micro:** Wynik na jednej stronie, przygotowany z myślą o zarządzie.
 
 ## Risk
@@ -45,10 +45,10 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Pricing
 
 - **Lead:** Pierwszym krokiem jest kwalifikacja i ocena sytuacji firmy. Następnie możesz skorzystać z audytu zakończonego raportem dla zarządu od 9 900 zł.
-- **Card CTAs:** audit: `Pobierz raport dla zarządu` · impl: `Sprawdź zakres` · aas: `Sprawdź zakres`
+- **Card CTAs:** audit: `Zobacz raport dla zarządu` · impl: `Sprawdź zakres` · aas: `Sprawdź zakres`
 
 ## Final
 
 - **H2:** Zacznij od oceny ryzyka i poznaj możliwe scenariusze
 - **Sub:** W kilka minut sprawdzisz, jak wymagania KSC wpływają na Twoją organizację. Na tej podstawie łatwiej podjąć decyzję o kolejnych działaniach i budżecie.
-- **CTA:** Pobierz raport dla zarządu
+- **CTA:** Zobacz raport dla zarządu

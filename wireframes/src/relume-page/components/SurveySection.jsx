@@ -50,7 +50,7 @@ function OptionButton({ label, selected, onClick }) {
   );
 }
 
-export function SurveySection({ final, surveyCtaLabel }) {
+export function SurveySection({ final }) {
   const [phase, setPhase] = useState("survey"); // survey | contact | result
   const [currentId, setCurrentId] = useState(START_ID);
   const [history, setHistory] = useState([]);
@@ -138,7 +138,7 @@ export function SurveySection({ final, surveyCtaLabel }) {
     >
       <div className="container">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="mb-2 font-semibold text-white">{surveyCtaLabel}</p>
+          <p className="mb-2 font-semibold text-white/50">Ankieta NIS2</p>
           <h2 className="text-4xl font-bold leading-tight md:text-5xl">{final.h2}</h2>
         </div>
 
