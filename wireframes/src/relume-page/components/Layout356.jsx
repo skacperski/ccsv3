@@ -5,14 +5,58 @@ import { scrollToSurvey } from "../utils/cta";
 import { SectionIcon } from "./SectionIcon";
 import { PILLAR_ICONS } from "../icons/sectionIcons";
 
-const PANEL_CLASSES = [
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 top-0 lg:mb-40",
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-12 lg:-mt-12 lg:mb-28",
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-24 lg:-mt-24 lg:mb-16",
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-36 lg:mb-0",
-];
+/** h-16 tab row = 4rem — sticky stack offsets must use the same step (top-16, top-32, …). */
+const HEADER_STEP = 16;
+
+const STICKY_TOP = {
+  0: "top-0",
+  1: "lg:top-16",
+  2: "lg:top-32",
+  3: "lg:top-48",
+  4: "lg:top-64",
+};
+
+const NEG_MARGIN = {
+  1: "lg:-mt-16",
+  2: "lg:-mt-32",
+  3: "lg:-mt-48",
+  4: "lg:-mt-64",
+};
+
+const SCROLL_MARGIN = {
+  16: "lg:mb-16",
+  32: "lg:mb-32",
+  48: "lg:mb-48",
+  64: "lg:mb-64",
+};
+
+/** Enough scroll runway per panel on desktop (viewport minus stacked tab headers). */
+const CONTENT_MIN_H = {
+  2: "lg:min-h-[calc(100vh-8rem)]",
+  3: "lg:min-h-[calc(100vh-12rem)]",
+  4: "lg:min-h-[calc(100vh-16rem)]",
+  5: "lg:min-h-[calc(100vh-20rem)]",
+};
+
+function getPanelClasses(index, total) {
+  const base =
+    "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0";
+  const top = STICKY_TOP[index] ?? STICKY_TOP[Math.min(index, 4)];
+  // Relume pattern: negative margin on middle panels only (not first, not last).
+  const overlap =
+    index > 0 && index < total - 1 ? NEG_MARGIN[index] ?? "" : "";
+  const panelsBelow = total - index - 1;
+  const marginBottom =
+    panelsBelow > 0
+      ? SCROLL_MARGIN[panelsBelow * HEADER_STEP] ?? "lg:mb-16"
+      : "lg:mb-16";
+
+  return [base, top, overlap, marginBottom].filter(Boolean).join(" ");
+}
 
 export function Layout356({ service }) {
+  const pillars = service.pillars ?? [];
+
   return (
     <section id="relume">
       <div className="px-[5%] pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-28">
@@ -26,24 +70,31 @@ export function Layout356({ service }) {
           </div>
         </div>
       </div>
-      <div className="sticky top-0">
-        {service.pillars.map((pillar, i) => (
-          <Fragment key={i}>
-            <div className="relative -top-32 h-0" />
-            <div className={PANEL_CLASSES[i] ?? PANEL_CLASSES[2]}>
+      <div>
+        {pillars.map((pillar, i) => (
+          <Fragment key={pillar.num ?? i}>
+            <div className="relative -top-32 hidden h-0 lg:block" aria-hidden />
+            <div className={getPanelClasses(i, pillars.length)}>
               <div className="px-[5%]">
                 <div className="container">
                   <button
                     type="button"
                     onClick={scrollToSurvey}
-                    className="flex h-16 w-full cursor-pointer items-center text-left"
+                    className="flex h-16 w-full shrink-0 cursor-pointer items-center text-left"
                   >
                     <span className="mr-5 font-semibold md:mr-6 md:text-md">
                       {pillar.num}
                     </span>
                     <h3 className="font-semibold md:text-md">{pillar.label}</h3>
                   </button>
-                  <div className="py-8 md:py-10 lg:py-12">
+                  <div
+                    className={[
+                      "py-8 md:py-10 lg:py-12",
+                      CONTENT_MIN_H[pillars.length] ?? "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
                     <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                       <div>
                         <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
