@@ -10,27 +10,24 @@ export default {
   ],
   theme: {
     extend: {
-      // Design tokens ported from getfuseai.com/pentest (:root variables).
+      // Ventriloc design tokens — "analytics console on parchment".
+      // Mist canvas, white cards, carbon actions, signal orange data accents.
       colors: {
-        fuse: {
-          blue: "#005AED",
-          "blue-deep": "#0047BE",
-          ink: "#0A0A0F",
-          "ink-soft": "#15151B",
-          paper: "#F5F7FB",
-          text: "#1A1A1A",
-          muted: "#6B6B73",
-          line: "#E5E7EE",
-          lime: "#E1FE00",
-          "lime-deep": "#CFE800",
-          red: "#FD4957",
-          cyan: "#00D4FF",
+        vent: {
+          orange: "#FF682C",
+          bronze: "#816729",
+          carbon: "#202020",
+          graphite: "#4D4D4D",
+          slate: "#828282",
+          fog: "#F5F5F5",
+          mist: "#EFEFEF",
+          chalk: "#E8E8E8",
+          paper: "#FFFFFF",
         },
       },
       fontFamily: {
-        display: ['"Roboto Flex"', '"Helvetica Neue"', "sans-serif"],
+        display: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
         body: ["Inter", "system-ui", "sans-serif"],
-        mono: ['"Roboto Mono"', "ui-monospace", "monospace"],
       },
     },
   },

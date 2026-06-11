@@ -6,41 +6,34 @@ import { BiCheck } from "react-icons/bi";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { SurveyCtaButton } from "./SurveyCtaButton";
 import { FuseKicker } from "./FuseKicker";
-import { limeButtonClassName, ghostLightButtonClassName } from "../utils/fuse";
+import { pillOutlineButtonClassName, pillPaperButtonClassName } from "../utils/vent";
 
 const FEATURED_PRICING_CTA = "Oceń swoją gotowość";
 const PRICING_CALENDAR_CTA = "Umów rozmowę";
 
 export function Pricing20({ pricing }) {
   return (
-    <section id="cennik" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="cennik" className="bg-vent-mist px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-18 lg:mb-20">
-          <FuseKicker num="08" className="mb-3 text-fuse-blue md:mb-4">
-            {pricing.kicker}
-          </FuseKicker>
-          <h1 className="mb-5 text-5xl font-medium md:mb-6 md:text-7xl lg:text-8xl">
+          <FuseKicker className="mb-3 justify-center md:mb-4">{pricing.kicker}</FuseKicker>
+          <h1 className="mb-5 text-5xl text-vent-carbon md:mb-6 md:text-7xl lg:text-8xl">
             {pricing.h2}
           </h1>
-          <p className="md:text-md">{pricing.lead}</p>
+          <p className="text-vent-graphite md:text-md">{pricing.lead}</p>
           {pricing.processNote && (
-            <p className="mt-4 text-sm text-fuse-muted">{pricing.processNote}</p>
+            <p className="mt-4 text-sm text-vent-slate">{pricing.processNote}</p>
           )}
         </div>
 
         <div className="relative grid grid-cols-1 gap-8 pt-4 lg:grid-cols-3 lg:items-stretch">
-          <div
-            className="pointer-events-none absolute top-[4.5rem] hidden h-px bg-fuse-line lg:block"
-            style={{ left: "16.67%", right: "16.67%" }}
-            aria-hidden
-          />
           {pricing.cards.map((card, index) => {
             const featured = card.id === pricing.featuredCard;
             return (
               <div key={card.id} className="relative flex h-full flex-col">
                 {index < pricing.cards.length - 1 && (
                   <span
-                    className="absolute -right-4 top-1/2 z-10 hidden -translate-y-1/2 font-mono text-2xl text-fuse-muted/50 lg:block"
+                    className="absolute -right-5 top-1/2 z-10 hidden -translate-y-1/2 text-2xl text-vent-slate lg:block"
                     aria-hidden
                   >
                     →
@@ -48,34 +41,41 @@ export function Pricing20({ pricing }) {
                 )}
                 <div
                   className={clsx(
-                    "relative flex h-full flex-col",
+                    "relative flex h-full flex-col rounded-lg",
                     featured
-                      ? "border border-fuse-ink bg-fuse-ink text-white"
-                      : "border border-fuse-line bg-white text-fuse-text",
+                      ? "bg-vent-carbon text-white"
+                      : "bg-vent-paper text-vent-carbon",
                   )}
                 >
                   {featured && (
-                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap bg-fuse-lime px-4 py-1 font-mono text-xs font-medium uppercase tracking-[0.04em] text-fuse-ink">
+                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-[20px] bg-vent-orange px-4 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                       {pricing.featuredBadge}
                     </span>
                   )}
                   <div className="flex flex-1 flex-col px-6 py-8 md:p-8">
                     <p
                       className={clsx(
-                        "mb-2 font-mono text-xs font-medium uppercase tracking-[0.08em]",
-                        featured ? "text-fuse-lime" : "text-fuse-blue",
+                        "mb-2 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide",
+                        featured ? "text-white/60" : "text-vent-graphite",
                       )}
                     >
-                      {"//"} Krok {card.step}
+                      <span
+                        className={clsx(
+                          "size-1.5 rounded-full",
+                          featured ? "bg-vent-orange" : "bg-vent-orange",
+                        )}
+                        aria-hidden
+                      />
+                      Krok {card.step}
                     </p>
                     <div className="min-h-[5.5rem]">
-                      <h2 className="mb-1 text-md font-bold leading-[1.4] md:text-xl">
+                      <h2 className="mb-1 text-md font-medium leading-[1.4] md:text-xl">
                         {card.name}
                       </h2>
                       <p
                         className={clsx(
                           "min-h-[2.75rem] text-sm leading-snug",
-                          featured ? "text-white/80" : "text-fuse-muted",
+                          featured ? "text-white/75" : "text-vent-graphite",
                         )}
                       >
                         {card.desc}
@@ -84,17 +84,17 @@ export function Pricing20({ pricing }) {
                     <div
                       className={clsx(
                         "my-8 h-px w-full",
-                        featured ? "bg-white/20" : "bg-fuse-line",
+                        featured ? "bg-white/15" : "bg-vent-chalk",
                       )}
                     />
                     <div className="min-h-[7.5rem]">
-                      <h3 className="my-2 text-6xl font-medium md:text-9xl lg:text-10xl">
+                      <h3 className="my-2 font-display text-6xl tracking-[-0.02em] md:text-9xl lg:text-10xl">
                         {card.price}
                       </h3>
                       <p
                         className={clsx(
-                          "font-mono text-sm",
-                          featured ? "text-white/70" : "text-fuse-muted",
+                          "text-sm",
+                          featured ? "text-white/65" : "text-vent-slate",
                         )}
                       >
                         {card.period}
@@ -105,7 +105,7 @@ export function Pricing20({ pricing }) {
                         <SurveyCtaButton
                           title={FEATURED_PRICING_CTA}
                           location={`cennik_${card.id}`}
-                          className={`${limeButtonClassName} w-full`}
+                          className={`${pillPaperButtonClassName} w-full`}
                           variant="secondary-alt"
                         >
                           {FEATURED_PRICING_CTA}
@@ -114,7 +114,7 @@ export function Pricing20({ pricing }) {
                         <CalendarCtaButton
                           title={PRICING_CALENDAR_CTA}
                           location={`cennik_${card.id}`}
-                          className={`${ghostLightButtonClassName} w-full`}
+                          className={`${pillOutlineButtonClassName} w-full`}
                           variant="primary"
                         >
                           {PRICING_CALENDAR_CTA}
@@ -124,7 +124,7 @@ export function Pricing20({ pricing }) {
                     <div
                       className={clsx(
                         "my-8 h-px w-full",
-                        featured ? "bg-white/20" : "bg-fuse-line",
+                        featured ? "bg-white/15" : "bg-vent-chalk",
                       )}
                     />
                     <ul className="flex flex-1 flex-col gap-y-3 py-2">
@@ -134,11 +134,11 @@ export function Pricing20({ pricing }) {
                             <BiCheck
                               className={clsx(
                                 "size-6",
-                                featured ? "text-fuse-lime" : "text-fuse-blue",
+                                featured ? "text-vent-orange" : "text-vent-carbon",
                               )}
                             />
                           </div>
-                          <p>{feature}</p>
+                          <p className={featured ? "text-white/85" : undefined}>{feature}</p>
                         </li>
                       ))}
                     </ul>

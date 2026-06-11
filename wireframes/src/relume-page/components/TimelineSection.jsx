@@ -4,7 +4,7 @@ import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 import { openCalendly } from "../utils/calendly";
 import { scrollToSurvey } from "../utils/cta";
-import { limeButtonClassName } from "../utils/fuse";
+import { pillPrimaryButtonClassName } from "../utils/vent";
 import { track } from "../../tracking/tracking";
 import { Timeline17 } from "./Timeline17";
 
@@ -22,7 +22,7 @@ export function TimelineSection({ timeline, ctaPrimary, ctaSecondary }) {
     {
       title: ctaPrimary,
       variant: "primary",
-      className: limeButtonClassName,
+      className: pillPrimaryButtonClassName,
       onClick: () => {
         track("cta_survey", { location: "harmonogram" });
         scrollToSurvey();

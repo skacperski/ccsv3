@@ -56,10 +56,11 @@ export function Timeline17(props) {
       <div className="container">
         <div className="mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto w-full max-w-lg text-center">
-            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.08em] text-fuse-blue md:mb-4">
-              {"//"} 04 — {tagline}
+            <p className="mb-3 inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-wide text-vent-graphite md:mb-4">
+              <span className="size-1.5 rounded-full bg-vent-orange" aria-hidden />
+              {tagline}
             </p>
-            <h2 className="mb-5 text-5xl font-medium md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
+            <h2 className="mb-5 text-5xl text-vent-carbon md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
             <p className="md:text-md">{description}</p>
             {buttons?.length > 0 && (
               <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:mt-8">
@@ -92,16 +93,16 @@ function TimelineItem({ date, description, isLastItem }) {
   return (
     <div className="relative flex gap-4 md:flex-col md:gap-0 md:flex-1">
       <div className="flex flex-col items-center md:mb-4 md:w-full md:flex-row">
-        <div className="h-2 w-[3px] bg-fuse-blue md:h-[3px] md:w-full" />
-        <div className="z-20 size-[0.9375rem] flex-none rounded-full bg-fuse-blue shadow-[0_0_0_8px_white]" />
+        <div className="h-2 w-[2px] bg-vent-carbon md:h-[2px] md:w-full" />
+        <div className="z-20 size-[0.9375rem] flex-none rounded-full bg-vent-orange shadow-[0_0_0_8px_#EFEFEF]" />
         <div
-          className={clsx("h-full w-[3px] bg-fuse-blue md:h-[3px] md:w-full", {
+          className={clsx("h-full w-[2px] bg-vent-carbon md:h-[2px] md:w-full", {
             "hidden md:block": isLastItem,
           })}
         />
       </div>
       <div className="mb-6 px-3 md:mb-0 md:text-center">
-        <h3 className="mb-2 font-mono text-lg font-medium text-fuse-blue md:text-xl">{date}</h3>
+        <h3 className="mb-2 font-display text-lg text-vent-carbon md:text-xl">{date}</h3>
         <p className="text-sm leading-relaxed md:text-base">{description}</p>
       </div>
     </div>

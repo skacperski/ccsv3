@@ -3,23 +3,26 @@
 import { Button, Input } from "@relume_io/relume-ui";
 import React, { useMemo, useState } from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
-import { limeButtonClassName, ghostDarkButtonClassName } from "../utils/fuse";
+import {
+  pillPrimaryButtonClassName,
+  pillOutlineButtonClassName,
+} from "../utils/vent";
 import { QUESTIONS, RESULTS, START_ID } from "../survey/nis2Survey";
 import { track } from "../../tracking/tracking";
 
 const secondaryLinkClassName =
-  "px-0 text-base font-normal normal-case tracking-normal text-white/60 underline-offset-4 hover:text-white hover:underline";
+  "px-0 text-base font-normal normal-case tracking-normal text-vent-slate underline-offset-4 hover:text-vent-carbon hover:underline";
 
 function ProgressBar({ percent, label }) {
   return (
     <div className="mb-8">
-      <div className="mb-2 flex items-center justify-between text-sm font-semibold text-white/50">
+      <div className="mb-2 flex items-center justify-between text-sm font-medium text-vent-slate">
         <span>{label}</span>
         <span>{percent}%</span>
       </div>
-      <div className="h-1.5 w-full overflow-hidden bg-white/15">
+      <div className="h-1.5 w-full overflow-hidden rounded-full bg-vent-chalk">
         <div
-          className="h-full bg-fuse-lime transition-all duration-300 ease-out"
+          className="h-full rounded-full bg-vent-orange transition-all duration-300 ease-out"
           style={{ width: `${percent}%` }}
         />
       </div>
@@ -32,18 +35,18 @@ function OptionButton({ label, selected, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex w-full cursor-pointer items-center gap-3 border p-4 text-left transition-colors duration-150 ${
+      className={`flex w-full cursor-pointer items-center gap-3 rounded-lg border p-4 text-left transition-colors duration-150 ${
         selected
-          ? "border-fuse-lime bg-fuse-lime text-fuse-ink"
-          : "border-white/25 bg-transparent text-white hover:border-fuse-lime/60"
+          ? "border-vent-carbon bg-vent-carbon text-white"
+          : "border-vent-chalk bg-white text-vent-carbon hover:border-vent-slate"
       }`}
     >
       <span
-        className={`flex size-5 shrink-0 items-center justify-center border ${
-          selected ? "border-fuse-ink bg-fuse-ink" : "border-white/40"
+        className={`flex size-5 shrink-0 items-center justify-center rounded-full border ${
+          selected ? "border-white bg-white" : "border-vent-slate"
         }`}
       >
-        {selected && <span className="size-2 bg-fuse-lime" />}
+        {selected && <span className="size-2 rounded-full bg-vent-orange" />}
       </span>
       <span className="text-sm font-medium md:text-base">{label}</span>
     </button>
@@ -134,17 +137,18 @@ export function SurveySection({ final, surveyCtaLabel }) {
   return (
     <section
       id="ankieta"
-      className="scroll-mt-20 bg-fuse-ink px-[5%] py-16 text-white md:py-24 lg:py-28"
+      className="scroll-mt-20 bg-vent-mist px-[5%] py-16 md:py-24 lg:py-28"
     >
       <div className="container">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.08em] text-fuse-lime">
-            {"//"} {surveyCtaLabel}
+          <p className="mb-2 inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-wide text-vent-graphite">
+            <span className="size-1.5 rounded-full bg-vent-orange" aria-hidden />
+            {surveyCtaLabel}
           </p>
-          <h2 className="text-4xl font-medium leading-tight md:text-5xl">{final.h2}</h2>
+          <h2 className="text-4xl text-vent-carbon md:text-5xl">{final.h2}</h2>
         </div>
 
-        <div className="mx-auto max-w-xl">
+        <div className="mx-auto max-w-xl rounded-lg bg-vent-paper p-6 md:p-10">
           {phase !== "result" && (
             <ProgressBar
               percent={percent}
@@ -155,9 +159,11 @@ export function SurveySection({ final, surveyCtaLabel }) {
           {/* ---- SURVEY ---- */}
           {phase === "survey" && (
             <div className="mx-auto max-w-lg text-center">
-              <h3 className="mb-3 text-2xl font-bold leading-snug md:text-3xl">{q.question}</h3>
+              <h3 className="mb-3 text-2xl font-medium leading-snug text-vent-carbon md:text-3xl">
+                {q.question}
+              </h3>
               {q.help && (
-                <p className="mb-8 text-base leading-relaxed text-white/60">{q.help}</p>
+                <p className="mb-8 text-base leading-relaxed text-vent-slate">{q.help}</p>
               )}
               {!q.help && <div className="mb-8" />}
 
@@ -185,44 +191,44 @@ export function SurveySection({ final, surveyCtaLabel }) {
           {/* ---- CONTACT ---- */}
           {phase === "contact" && (
             <div className="mx-auto max-w-lg text-center">
-              <h3 className="mb-3 text-2xl font-bold leading-snug md:text-3xl">
+              <h3 className="mb-3 text-2xl font-medium leading-snug text-vent-carbon md:text-3xl">
                 Gdzie wysłać Twój wynik?
               </h3>
-              <p className="mb-8 text-base leading-relaxed text-white/60">
+              <p className="mb-8 text-base leading-relaxed text-vent-slate">
                 Przygotujemy klasyfikację i raport z obowiązkami dla Twojej organizacji.
               </p>
               <div className="mx-auto grid max-w-md grid-cols-1 gap-4 text-left sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-white">Imię</label>
+                  <label className="mb-1.5 block text-sm font-medium text-vent-carbon">Imię</label>
                   <Input
-                    className="rounded-none border-white/30 bg-white text-black"
+                    className="rounded-lg border-vent-chalk bg-white text-vent-carbon"
                     placeholder="Jan"
                     value={contact.name}
                     onChange={setContactField("name")}
                   />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-white">Nazwisko</label>
+                  <label className="mb-1.5 block text-sm font-medium text-vent-carbon">Nazwisko</label>
                   <Input
-                    className="rounded-none border-white/30 bg-white text-black"
+                    className="rounded-lg border-vent-chalk bg-white text-vent-carbon"
                     placeholder="Kowalski"
                     value={contact.surname}
                     onChange={setContactField("surname")}
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-1.5 block text-sm font-medium text-white">Firma</label>
+                  <label className="mb-1.5 block text-sm font-medium text-vent-carbon">Firma</label>
                   <Input
-                    className="rounded-none border-white/30 bg-white text-black"
+                    className="rounded-lg border-vent-chalk bg-white text-vent-carbon"
                     placeholder="Nazwa organizacji"
                     value={contact.company}
                     onChange={setContactField("company")}
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="mb-1.5 block text-sm font-medium text-white">Adres email</label>
+                  <label className="mb-1.5 block text-sm font-medium text-vent-carbon">Adres email</label>
                   <Input
-                    className="rounded-none border-white/30 bg-white text-black"
+                    className="rounded-lg border-vent-chalk bg-white text-vent-carbon"
                     type="email"
                     placeholder="nazwa@firma.pl"
                     value={contact.email}
@@ -234,7 +240,7 @@ export function SurveySection({ final, surveyCtaLabel }) {
               <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
                 <Button
                   variant="secondary-alt"
-                  className={limeButtonClassName}
+                  className={pillPrimaryButtonClassName}
                   disabled={!canSubmitContact}
                   onClick={submitContact}
                 >
@@ -243,7 +249,7 @@ export function SurveySection({ final, surveyCtaLabel }) {
                 <button
                   type="button"
                   onClick={backToQuestions}
-                  className="text-sm text-white/45 underline-offset-4 hover:text-white/80 hover:underline"
+                  className="text-sm text-vent-slate underline-offset-4 hover:text-vent-carbon hover:underline"
                 >
                   ← Wróć do pytań
                 </button>
@@ -261,9 +267,9 @@ export function SurveySection({ final, surveyCtaLabel }) {
           )}
 
           {phase !== "result" && (
-            <div className="mt-12 border-t border-white/15 pt-6 text-center">
+            <div className="mt-12 border-t border-vent-chalk pt-6 text-center">
               <CalendarCtaButton
-                variant="link-alt"
+                variant="link"
                 size="link"
                 trackId="talk_link"
                 location="ankieta"
@@ -282,20 +288,24 @@ export function SurveySection({ final, surveyCtaLabel }) {
 function ResultCard({ result, calendarLabel, onRestart }) {
   return (
     <div className="mx-auto max-w-lg text-center">
-      <div className={`mx-auto mb-6 h-1 w-full max-w-md ${result.accentBar}`} />
-      <p className="mb-3 font-semibold text-white/50">Wynik oceny</p>
+      <div className={`mx-auto mb-6 h-1 w-full max-w-md rounded-full ${result.accentBar}`} />
+      <p className="mb-3 text-[13px] font-medium uppercase tracking-wide text-vent-slate">
+        Wynik oceny
+      </p>
       <span
-        className={`mb-6 inline-block px-4 py-1.5 text-sm font-bold ${result.badgeClass}`}
+        className={`mb-6 inline-block rounded-[20px] px-4 py-1.5 text-sm font-bold ${result.badgeClass}`}
       >
         {result.badge}
       </span>
-      <h3 className="mb-8 text-2xl font-bold leading-snug md:text-3xl">{result.heading}</h3>
+      <h3 className="mb-8 text-2xl font-medium leading-snug text-vent-carbon md:text-3xl">
+        {result.heading}
+      </h3>
 
       <div className="mb-10 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
         <Button
           variant="secondary-alt"
           data-track="result_pdf"
-          className={limeButtonClassName}
+          className={pillPrimaryButtonClassName}
           onClick={() => track("result_pdf", { result: result.badge })}
         >
           Pobierz raport PDF
@@ -303,7 +313,7 @@ function ResultCard({ result, calendarLabel, onRestart }) {
         <CalendarCtaButton
           variant="secondary-alt"
           location="wynik"
-          className={ghostDarkButtonClassName}
+          className={pillOutlineButtonClassName}
         >
           Umów konsultację
         </CalendarCtaButton>
@@ -311,24 +321,26 @@ function ResultCard({ result, calendarLabel, onRestart }) {
 
       <div className="mx-auto grid max-w-md grid-cols-1 gap-10 text-left md:max-w-none md:grid-cols-2">
         <div>
-          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-white/50">
+          <h4 className="mb-4 text-sm font-medium uppercase tracking-widest text-vent-slate">
             Obowiązki
           </h4>
           <ul className="flex flex-col gap-3">
             {result.obligations.map((item, i) => (
-              <li key={i} className="flex gap-3 text-sm text-white/85 md:text-base">
-                <span className="mt-2 size-1.5 shrink-0 bg-white/50" />
+              <li key={i} className="flex gap-3 text-sm text-vent-graphite md:text-base">
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-vent-orange" />
                 {item}
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-white/50">Kary</h4>
+          <h4 className="mb-4 text-sm font-medium uppercase tracking-widest text-vent-slate">
+            Kary
+          </h4>
           <ul className="flex flex-col gap-3">
             {result.penalties.map((item, i) => (
-              <li key={i} className="flex gap-3 text-sm text-white/85 md:text-base">
-                <span className="mt-2 size-1.5 shrink-0 bg-white/50" />
+              <li key={i} className="flex gap-3 text-sm text-vent-graphite md:text-base">
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-vent-orange" />
                 {item}
               </li>
             ))}
@@ -336,9 +348,9 @@ function ResultCard({ result, calendarLabel, onRestart }) {
         </div>
       </div>
 
-      <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/15 pt-6">
+      <div className="mt-12 flex flex-col items-center gap-3 border-t border-vent-chalk pt-6">
         <CalendarCtaButton
-          variant="link-alt"
+          variant="link"
           size="link"
           trackId="talk_link"
           location="wynik"

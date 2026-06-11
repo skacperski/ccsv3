@@ -10,12 +10,12 @@ export function SectionIcon({ icon: Icon, size = "sm", className }) {
     return (
       <div
         className={clsx(
-          "flex h-[25rem] w-full items-center justify-center bg-fuse-blue sm:h-[30rem] lg:h-[60vh]",
+          "flex h-[25rem] w-full items-center justify-center rounded-lg bg-vent-fog sm:h-[30rem] lg:h-[60vh]",
           className,
         )}
         aria-hidden
       >
-        <Icon className="size-20 text-white md:size-28" strokeWidth={1.25} />
+        <Icon className="size-20 text-vent-graphite md:size-28" strokeWidth={1.25} />
       </div>
     );
   }
@@ -23,12 +23,12 @@ export function SectionIcon({ icon: Icon, size = "sm", className }) {
   return (
     <div
       className={clsx(
-        "mb-3 flex size-12 items-center justify-center bg-fuse-blue md:mb-4",
+        "mb-3 flex size-12 items-center justify-center rounded-lg bg-vent-fog md:mb-4",
         className,
       )}
       aria-hidden
     >
-      <Icon className="size-6 text-white" strokeWidth={1.75} />
+      <Icon className="size-6 text-vent-carbon" strokeWidth={1.75} />
     </div>
   );
 }

@@ -4,27 +4,25 @@ import { BiCheck } from "react-icons/bi";
 import React from "react";
 import { SurveyCtaButton } from "./SurveyCtaButton";
 import { FuseKicker } from "./FuseKicker";
-import { ghostLightButtonClassName } from "../utils/fuse";
+import { pillOutlineButtonClassName } from "../utils/vent";
 
 export function ScopeSection({ scope }) {
   return (
-    <section className="bg-fuse-paper px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="bg-vent-mist px-[5%] py-16 md:py-20">
       <div className="container">
-        <div className="mx-auto max-w-2xl">
-          <FuseKicker num="02" className="mb-3 text-fuse-blue md:mb-4">
-            {scope.kicker}
-          </FuseKicker>
-          <h2 className="mb-8 text-4xl font-medium md:text-5xl lg:text-6xl">
+        <div className="mx-auto max-w-2xl rounded-lg bg-vent-paper p-8 md:p-10">
+          <FuseKicker className="mb-3 md:mb-4">{scope.kicker}</FuseKicker>
+          <h2 className="mb-8 text-4xl text-vent-carbon md:text-5xl lg:text-6xl">
             {scope.h2}
           </h2>
 
           {scope.mode === "compact" ? (
-            <p className="text-lg text-fuse-muted">{scope.compactText}</p>
+            <p className="text-lg text-vent-graphite">{scope.compactText}</p>
           ) : (
             <ul className="flex flex-col gap-5">
               {scope.bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="mt-0.5 flex size-6 flex-shrink-0 items-center justify-center bg-fuse-blue">
+                  <span className="mt-0.5 flex size-6 flex-shrink-0 items-center justify-center rounded-full bg-vent-carbon">
                     <BiCheck className="size-4 text-white" />
                   </span>
                   <p
@@ -45,7 +43,7 @@ export function ScopeSection({ scope }) {
             <SurveyCtaButton
               variant="secondary"
               title={scope.cta}
-              className={ghostLightButtonClassName}
+              className={pillOutlineButtonClassName}
             >
               {scope.cta}
             </SurveyCtaButton>

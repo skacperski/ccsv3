@@ -74,11 +74,11 @@ const SECTORS = [
 
 function LogoTile({ src, alt }) {
   return (
-    <div className="flex h-20 items-center justify-center bg-[#E9EAEC] px-6">
+    <div className="flex h-20 items-center justify-center rounded-lg bg-vent-paper px-6">
       <img
         src={src}
         alt={alt}
-        className="max-h-12 w-auto max-w-[78%] object-contain"
+        className="max-h-12 w-auto max-w-[78%] object-contain opacity-75 grayscale"
         loading="lazy"
       />
     </div>
@@ -87,19 +87,17 @@ function LogoTile({ src, alt }) {
 
 export function LogoWall({ h2 }) {
   return (
-    <section id="zaufali" className="bg-fuse-ink px-[5%] py-16 text-white md:py-24">
+    <section id="zaufali" className="bg-vent-mist px-[5%] py-16 md:py-24">
       <div className="container">
         <div className="mb-10 md:mb-14">
-          <FuseKicker num="01" className="mb-3 text-fuse-lime">
-            Klienci
-          </FuseKicker>
-          <h2 className="text-4xl font-medium md:text-6xl">{h2}</h2>
+          <FuseKicker className="mb-3">Klienci</FuseKicker>
+          <h2 className="text-4xl text-vent-carbon md:text-6xl">{h2}</h2>
         </div>
         <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-4">
           {SECTORS.map((sector) => (
-            <div key={sector.title} className="flex flex-col gap-1">
-              <div className="mb-1 flex min-h-[3.25rem] items-center justify-center border border-white/15 px-3 py-2">
-                <p className="text-center font-mono text-xs font-medium uppercase tracking-[0.06em] text-white/70">
+            <div key={sector.title} className="flex flex-col gap-1.5">
+              <div className="mb-1 flex min-h-[3.25rem] items-center justify-center rounded-[20px] border border-vent-slate/40 px-3 py-2">
+                <p className="text-center text-xs font-medium uppercase tracking-wide text-vent-graphite">
                   {sector.title}
                 </p>
               </div>

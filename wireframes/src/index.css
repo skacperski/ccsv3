@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 @layer base {
-  img {
-    border-radius: 0;
-  }
-
-  /* Fuse typography (getfuseai.com/pentest): Inter body, Roboto Flex display. */
+  /* Ventriloc typography: Inter body on Mist canvas, Space Grotesk display
+     (PolySans substitute) with tight architectural line-height. */
   body {
     font-family: "Inter", system-ui, sans-serif;
-    color: #1a1a1a;
+    background-color: #efefef;
+    color: #202020;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: "Roboto Flex", "Helvetica Neue", sans-serif;
-    line-height: 1.12;
+    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
 }

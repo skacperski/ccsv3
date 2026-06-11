@@ -4,18 +4,20 @@ import clsx from "clsx";
 import React from "react";
 
 /**
- * Fuse-style section label: `// 03 — PROCES`. The kicker text comes from
- * content; `num` is the fixed section index on the page.
+ * Ventriloc section label: small Signal Orange dot + Inter caption in
+ * Graphite. The kicker text comes from content. `num` is accepted for
+ * call-site compatibility but not rendered — Ventriloc doesn't number
+ * sections.
  */
-export function FuseKicker({ num, children, className }) {
+export function FuseKicker({ num: _num, children, className }) {
   return (
     <p
       className={clsx(
-        "font-mono text-xs font-medium uppercase tracking-[0.08em]",
+        "inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-wide text-vent-graphite",
         className,
       )}
     >
-      {"//"} {num ? `${num} — ` : ""}
+      <span className="size-1.5 rounded-full bg-vent-orange" aria-hidden />
       {children}
     </p>
   );
