@@ -277,7 +277,7 @@ function build(spec: VariantSpec): Content {
     compare: {
       kicker: "Porównanie",
       h2: "Własny zespół vs NIS2 jako usługa",
-      sub: "Koszt własnego zespołu to nie jedna liczba — to etaty, narzędzia i czas rekrutacji. Poniżej składowe typowego modelu in-house.",
+      sub: "Koszt własnego zespołu to nie jedna liczba — to etaty, narzędzia i czas rekrutacji. Najedź na ikonę przy „Własny zespół”, żeby zobaczyć składowe TCO.",
       teamCol: "Własny zespół",
       aasCol: "NIS2 jako usługa",
       teamTotal: "ok. 38 644 zł / mc",
