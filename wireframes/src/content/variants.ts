@@ -82,7 +82,7 @@ const STEPS: Step[] = [
   },
   {
     title: "Ocena i analiza",
-    body: "Analiza luki i ocena dojrzałości — projekt od 29 000 zł (kalkulator Medium).",
+    body: "Analiza luki i ocena dojrzałości — projekt od 29 000 zł.",
   },
   {
     title: "Wdrożenie i utrzymanie",
@@ -150,7 +150,7 @@ function pricingCards(ctas: { audit: string; impl: string; aas: string }): Prici
       id: "card-audit",
       step: "01",
       name: "Ocena i analiza",
-      desc: "Analiza luki + ocena dojrzałości (arkusz Analiza Luki, 9 MD)",
+      desc: "Analiza luki i ocena dojrzałości organizacji",
       price: "29 000 zł",
       period: "projekt jednorazowy",
       cta: ctas.audit,
@@ -164,7 +164,7 @@ function pricingCards(ctas: { audit: string; impl: string; aas: string }): Prici
       id: "card-impl",
       step: "02",
       name: "Wdrożenie polityk i procedur",
-      desc: "Wdrożenie regulacji NIS2/DORA/ISO (arkusz Wdrożenie Regulacji, 24 MD)",
+      desc: "Wdrożenie regulacji NIS2/DORA/ISO w organizacji",
       price: "74 000 zł",
       period: "projekt wdrożeniowy",
       cta: ctas.impl,
@@ -284,7 +284,7 @@ function build(spec: VariantSpec): Content {
       teamBreakdown: TEAM_COST_BREAKDOWN,
       rows: COMPARE_ROWS,
       footnote:
-        "Kalkulacja TCO własnego zespołu wg arkuszy CISOaaS, SOC, VMaaS i Awareness (Benchmark v6, segment Medium). Pakiet Basic od 23 256 zł/mc. Metodologia na życzenie.",
+        "Kalkulacja TCO własnego zespołu dla segmentu Medium. Pakiet Basic od 23 256 zł/mc. Metodologia na życzenie.",
     },
     faq: {
       kicker: "FAQ",
@@ -481,7 +481,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Analiza luki i ocena dojrzałości to projekt od 29 000 zł (kalkulator Benchmark v6). Ankieta pomoże określić, czy zaczynacie od tego etapu.",
+      lead: "Analiza luki i ocena dojrzałości to projekt od 29 000 zł. Ankieta pomoże określić, czy zaczynacie od tego etapu.",
       ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Sprawdź zakres w 2 min", aas: "Sprawdź, czy aaS pasuje" },
     },
     final: {
@@ -505,7 +505,7 @@ const SPECS: VariantSpec[] = [
     ctaUnified: "Sprawdź, czy wdrożenie pasuje",
     hero: {
       h1: "Wdrożenie NIS2 w firmie od 74 000 zł",
-      sub: "Przygotowujemy polityki, procedury, zabezpieczenia techniczne, szkolenia dla zarządu oraz dokumentację wymaganą przez KSC. Projekt wg kalkulatora Wdrożenie Regulacji (24 MD).",
+      sub: "Przygotowujemy polityki, procedury, zabezpieczenia techniczne, szkolenia dla zarządu oraz dokumentację wymaganą przez KSC.",
       stats: ["od 74 000 zł (projekt)", "BCP + ryzyko ICT + incydenty", "potem abonament od 23 256 zł/mc"],
       micro: "Wypełnij krótką ankietę, a pomożemy określić zakres wdrożenia. Wycena powstaje na podstawie wyników audytu, a nie gotowego cennika.",
     },
@@ -527,7 +527,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma], [sektor]",
     },
     pricing: {
-      lead: "Wdrożenie regulacji to projekt od 74 000 zł (Benchmark v6). Zakres dopasowujemy do wyników analizy luki.",
+      lead: "Wdrożenie regulacji to projekt od 74 000 zł. Zakres dopasowujemy do wyników analizy luki.",
       ctas: { audit: "Nie macie audytu? Zacznij tu", impl: "Sprawdź zakres wdrożenia", aas: "Porównaj z usługą miesięczną" },
     },
     final: {
@@ -573,7 +573,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Abonament NIS2 zaczyna się od 23 256 zł/mc (pakiet Basic, Benchmark v6). Poniżej porównanie z kosztem własnego zespołu (~38 644 zł/mc).",
+      lead: "Abonament NIS2 zaczyna się od 23 256 zł/mc (pakiet Basic). Poniżej porównanie z kosztem własnego zespołu (~38 644 zł/mc).",
       ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
