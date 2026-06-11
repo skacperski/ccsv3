@@ -20,43 +20,88 @@ const CTA_SECONDARY_CALENDAR = "Wolisz rozmowę? Pokaż kalendarz";
 const PILLARS: Pillar[] = [
   {
     num: "01",
-    label: "Regulacja",
-    h2: "Regulacja i dokumentacja",
-    body: "Audyt luk, polityki, procedury incydentów, plany ciągłości, szkolenia dla zarządu i zespołu.",
+    label: "Dokumentacja",
+    h2: "Odpowiednia dokumentacja",
+    body:
+      "Ocena dokumentacji zgodności, polityki i procedury bezpieczeństwa, plany ciągłości (BCP/DRP), szkolenie wprowadzające dla zarządu oraz coroczny przegląd i aktualizacja dokumentacji.",
   },
   {
     num: "02",
-    label: "Technologia",
-    h2: "Technologia i testy",
-    body: "Pentesty, skan podatności, utwardzenie środowiska, remediacja pod art. 21 NIS2.",
+    label: "Testy IT",
+    h2: "Testowanie i sprawdzanie architektury IT",
+    body:
+      "Pentesty aplikacji i infrastruktury, skanowanie podatności, utwardzenie środowiska, remediacja luk oraz weryfikacja konfiguracji wg benchmarków CIS i wymogów art. 21 NIS2.",
   },
   {
     num: "03",
-    label: "Ciągłość",
-    h2: "Ciągłość i monitoring",
-    body: "SOC 24/7, zgłoszenia do organów w 24h/72h, przeglądy zgodności, kontrola dostawców IT.",
+    label: "Świadomość",
+    h2: "Budowanie świadomości w Twojej firmie",
+    body:
+      "Kampanie cyberhigieny, szkolenia dla zarządu i pracowników, symulacje phishingowe oraz adaptacyjne ścieżki szkoleniowe wspierające kulturę bezpieczeństwa w organizacji.",
+  },
+  {
+    num: "04",
+    label: "Incydenty",
+    h2: "Zarządzanie incydentami bezpieczeństwa",
+    body:
+      "SOC 24/7, detekcja i reakcja na incydenty, zgłoszenia do organów w terminach 24h i 72h, playbooki, ćwiczenia gotowości oraz analiza incydentów pod kątem ciągłości działania.",
   },
 ];
+
+const TIMELINE = {
+  kicker: "Zgodność regulacyjna",
+  h2: "NIS2 — harmonogram",
+  lead:
+    "Nowelizacja ustawy o KSC wprowadza konkretne terminy. Regulator oczekuje ciągłego podejścia procesowego — nie jednorazowej checklisty.",
+  milestones: [
+    {
+      date: "3 marca 2026",
+      title: "Wejście w życie nowelizacji ustawy o KSC",
+      body: "Wymagania wynikające z NIS2 obowiązują w polskim porządku prawnym. Kary mogą sięgać 10 mln EUR lub 2% obrotu (podmiot kluczowy) oraz 7 mln EUR lub 1,4% (podmiot ważny).",
+    },
+    {
+      date: "3 października 2026",
+      title: "Rejestracja w systemie S46 Cyber Hub",
+      body: "Podmioty objęte obowiązkiem muszą zarejestrować się w krajowym systemie raportowania. Rejestracji dokonuje klient — nie jest częścią naszej usługi.",
+      note: "Rejestracji S46 dokonujecie sami. Wspieramy przygotowanie organizacji pod wymogi NIS2.",
+    },
+    {
+      date: "3 kwietnia 2027",
+      title: "Wdrożenie wymaganych środków bezpieczeństwa",
+      body: "Termin na wdrożenie środków organizacyjnych i technicznych. Brak cyklicznych działań po wdrożeniu może zostać uznany za niezgodność z NIS2/UKSC.",
+    },
+  ],
+  footnote:
+    "Rocznie: przegląd ryzyka ICT, aktualizacja dokumentacji, szkolenia zarządu, testy gotowości na incydent (BCP), ocena dostawców ICT oraz raporty poziomu ryzyka.",
+};
 
 const STEPS: Step[] = [
   {
-    title: "Ankieta w 2 minuty",
-    body: "Wiecie, czy wchodzicie w NIS2 i gdzie macie największe luki.",
+    title: "Ankieta kwalifikacyjna",
+    body: "2 minuty — sprawdzacie, czy NIS2 dotyczy waszej organizacji.",
   },
   {
-    title: "Audyt i plan dla zarządu",
-    body: "Od 9 900 zł, raport po polsku.",
+    title: "Ocena i analiza",
+    body: "Analiza luki i ocena dojrzałości — raport dla zarządu od 9 900 zł.",
   },
   {
-    title: "Wdrożenie albo NIS2 jako usługa",
-    body: "Projekt na raz albo stała opłata od 15 900 zł/mc.",
+    title: "Wdrożenie i utrzymanie",
+    body: "Polityki i procedury, potem comiesięczna usługa od 23 500 zł/mc.",
   },
 ];
 
+const TEAM_COST_BREAKDOWN = [
+  { label: "CISO / pełnomocnik ds. bezpieczeństwa (1 MD/mc)", amount: "12 400 zł" },
+  { label: "Analityk SOC — detekcja i reakcja (1 etat)", amount: "11 200 zł" },
+  { label: "Specjalista GRC i podatności (0,5 etatu)", amount: "7 800 zł" },
+  { label: "Licencje SIEM, skanery, narzędzia VM", amount: "4 200 zł" },
+  { label: "Rekrutacja, szkolenia, rotacja (overhead)", amount: "3 044 zł" },
+];
+
 const COMPARE_ROWS: CompareRow[] = [
-  { label: "Koszt miesięczny", team: "ok. 38 644 zł", aas: "od 15 900 zł" },
+  { label: "Koszt miesięczny", team: "ok. 38 644 zł", aas: "od 23 500 zł" },
   { label: "Gotowość zespołu", team: "rekrutacja ok. 9 mies.", aas: "od pierwszego miesiąca" },
-  { label: "Pentesty i narzędzia", team: "osobno, z dopłatami", aas: "w cenie" },
+  { label: "Pentesty i narzędzia", team: "osobno, z dopłatami", aas: "w cenie abonamentu" },
   { label: "Rotacja i szkolenia", team: "po waszej stronie", aas: "po naszej stronie" },
   { label: "Zgłoszenia 24h/72h", team: "pilnujecie sami", aas: "pilnujemy my" },
 ];
@@ -102,30 +147,45 @@ function pricingCards(ctas: { audit: string; impl: string; aas: string }): Prici
   return [
     {
       id: "card-audit",
-      name: "Ocena gotowości NIS2",
-      desc: "Analiza luk, raport dla zarządu, plan na 90 dni",
+      step: "01",
+      name: "Ocena i analiza",
+      desc: "Analiza luki i ocena dojrzałości względem NIS2/KSC",
       price: "9 900 zł",
-      period: "jednorazowo",
+      period: "projekt startowy",
       cta: ctas.audit,
-      features: ["Analiza luk", "Raport dla zarządu", "Plan działań na 90 dni"],
+      features: [
+        "8 obszarów: zarząd, ryzyko, IT, incydenty, BCP, dostawcy",
+        "Raport luk i ocena dojrzałości dla zarządu",
+        "Harmonogram działań krótko- i długoterminowych",
+      ],
     },
     {
       id: "card-impl",
-      name: "Wdrożenie NIS2",
-      desc: "Polityki, procedury, szkolenia, środki techniczne",
+      step: "02",
+      name: "Wdrożenie polityk i procedur",
+      desc: "Pełne wdrożenie zgodności regulacyjnej NIS2",
       price: "24 900 zł",
-      period: "projekt",
+      period: "projekt wdrożeniowy (6–9 mies.)",
       cta: ctas.impl,
-      features: ["Polityki i procedury", "Środki techniczne", "Szkolenia zarządu"],
+      features: [
+        "Polityki, procedury incydentów, BCP/DRP",
+        "Zabezpieczenia organizacyjne i techniczne",
+        "Szkolenie wprowadzające dla zarządu",
+      ],
     },
     {
       id: "card-aas",
-      name: "NIS2 jako usługa ★",
-      desc: "SOC 24/7, pentesty, utrzymanie zgodności, raportowanie",
-      price: "15 900 zł",
-      period: "miesięcznie",
+      step: "03",
+      name: "Utrzymanie zgodności NIS2",
+      desc: "Przejście na comiesięczną usługę abonamentową",
+      price: "23 500 zł",
+      period: "od / mc (pakiet Minimalny)",
       cta: ctas.aas,
-      features: ["SOC 24/7, incydenty", "Pentesty w cenie", "Utrzymanie zgodności"],
+      features: [
+        "SOC, VM, utrzymanie dokumentacji i zgodności",
+        "Pentesty, awareness i raportowanie w cenie",
+        "Rekomendowany od 26 900 zł/mc · Pełny od 33 500 zł/mc",
+      ],
     },
   ];
 }
@@ -189,6 +249,7 @@ function build(spec: VariantSpec): Content {
       cta: spec.ctaUnified,
     },
     risk: { kicker: "Zagrożenie", h2: spec.risk.h2, lead: spec.risk.lead, cards: spec.risk.cards },
+    timeline: TIMELINE,
     service: { kicker: "Rozwiązanie", h2: spec.service.h2, sub: spec.service.sub, pillars: PILLARS },
     how: {
       kicker: "Proces",
@@ -203,20 +264,26 @@ function build(spec: VariantSpec): Content {
       attribution: spec.proof.attribution,
     },
     pricing: {
-      kicker: "Cennik",
-      h2: "Od czego zacząć",
-      lead: spec.pricing.lead,
-      featuredCard: spec.featuredCard,
+      kicker: "Ścieżka współpracy",
+      h2: "Od oceny do utrzymania zgodności",
+      lead:
+        "To nie są trzy opcjonalne pakiety do wyboru — to kolejne etapy współpracy. Zaczynacie od oceny, przechodzicie przez wdrożenie, a potem utrzymujecie zgodność w modelu miesięcznym.",
+      processNote: spec.pricing.lead,
+      featuredBadge: "Prosty pierwszy krok",
+      featuredCard: "card-audit",
       cards: pricingCards(spec.pricing.ctas),
     },
     compare: {
       kicker: "Porównanie",
       h2: "Własny zespół vs NIS2 jako usługa",
-      sub: "Własny zespół kosztuje więcej i dłużej się buduje. Usługa daje gotowy zespół od pierwszego miesiąca.",
+      sub: "Koszt własnego zespołu to nie jedna liczba — to etaty, narzędzia i czas rekrutacji. Poniżej składowe typowego modelu in-house.",
       teamCol: "Własny zespół",
       aasCol: "NIS2 jako usługa",
+      teamTotal: "ok. 38 644 zł / mc",
+      teamBreakdown: TEAM_COST_BREAKDOWN,
       rows: COMPARE_ROWS,
-      footnote: "Wg materiałów CyCommSec: ok. 61,4% taniej niż typowy model własny. Metodologia (założenia TCO) dostępna na życzenie.",
+      footnote:
+        "Kalkulacja TCO własnego zespołu (2–3 etaty + narzędzia + overhead). Pakiet Minimalny NIS2 aaS od 23 500 zł/mc. Metodologia dostępna na życzenie.",
     },
     faq: {
       kicker: "FAQ",
@@ -482,9 +549,9 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-aas",
     ctaUnified: "Sprawdź usługę miesięczną",
     hero: {
-      h1: "NIS2 w abonamencie od 15 900 zł miesięcznie",
+      h1: "NIS2 w abonamencie od 23 500 zł miesięcznie",
       sub: "Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. W cenie są wdrożenie wymagań NIS2, monitoring 24/7, obsługa incydentów, pentesty i dokumentacja. Bez rekrutacji i dodatkowych narzędzi.",
-      stats: ["od 15 900 zł/mc", "61,4%* taniej", "SOC 24/7"],
+      stats: ["od 23 500 zł/mc", "pakiet Minimalny", "SOC 24/7"],
       micro: "Pentesty w cenie. *Metodologia TCO na życzenie.",
     },
     risk: {
@@ -505,7 +572,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "NIS2 jako usługa kosztuje od 15 900 zł/mc w modelu abonamentowym. Poniżej możesz porównać ten wariant z kosztem budowy własnego zespołu. Krótka ankieta pomoże ocenić, które rozwiązanie lepiej pasuje do Twojej organizacji.",
+      lead: "NIS2 jako usługa kosztuje od 23 500 zł/mc (pakiet Minimalny). Poniżej możesz porównać ścieżkę współpracy z kosztem budowy własnego zespołu.",
       ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
@@ -513,7 +580,7 @@ const SPECS: VariantSpec[] = [
       sub: "Nie musisz budować własnego zespołu cyberbezpieczeństwa. My przejmujemy wymagania regulacyjne, monitoring i obsługę incydentów w ramach jednej usługi. Wypełnij krótką ankietę i sprawdź, czy ten model będzie opłacalny dla Twojej firmy.",
     },
     seo: {
-      title: "CyCommSec | NIS2 w abonamencie od 15 900 zł/mc",
+      title: "CyCommSec | NIS2 w abonamencie od 23 500 zł/mc",
       description:
         "Wdrożenie NIS2, monitoring 24/7, pentesty i dokumentacja w jednej miesięcznej opłacie. Bez rekrutacji własnego zespołu cyber.",
     },

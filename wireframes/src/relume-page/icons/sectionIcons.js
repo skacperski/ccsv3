@@ -20,8 +20,8 @@ export const RISK_ICONS = [LuScale, LuClock, LuShieldAlert];
 /** Jak to wygląda: ankieta → audyt → wdrożenie / usługa */
 export const HOW_ICONS = [LuClipboardList, LuFileSearch, LuBriefcase];
 
-/** Filary usługi: regulacja → technologia → ciągłość */
-export const PILLAR_ICONS = [LuFileText, LuBug, LuActivity];
+/** Filary usługi: dokumentacja → testy → świadomość → incydenty */
+export const PILLAR_ICONS = [LuFileText, LuNetwork, LuUsers, LuShieldAlert];
 
 /** Hero: kolumna dekoracyjna (zamiast stockowych zdjęć) */
 export const HERO_DECOR_ICONS = [

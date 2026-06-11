@@ -29,12 +29,25 @@ export interface Step {
 
 export interface PricingCard {
   id: CardId;
+  step: string;
   name: string;
   desc: string;
   price: string;
   period: string;
   cta: string;
   features: string[];
+}
+
+export interface TimelineMilestone {
+  date: string;
+  title: string;
+  body: string;
+  note?: string;
+}
+
+export interface TeamCostLine {
+  label: string;
+  amount: string;
 }
 
 export interface CompareRow {
@@ -81,6 +94,13 @@ export interface Content {
     cta: string;
   };
   risk: { kicker: string; h2: string; lead: string; cards: string[] };
+  timeline: {
+    kicker: string;
+    h2: string;
+    lead: string;
+    milestones: TimelineMilestone[];
+    footnote: string;
+  };
   service: { kicker: string; h2: string; sub: string; pillars: Pillar[] };
   how: { kicker: string; h2: string; sub: string; steps: Step[] };
   proof: { h2: string; sub: string; quote: string; attribution: string };
@@ -88,6 +108,8 @@ export interface Content {
     kicker: string;
     h2: string;
     lead: string;
+    processNote: string;
+    featuredBadge: string;
     featuredCard: CardId;
     cards: PricingCard[];
   };
@@ -97,6 +119,8 @@ export interface Content {
     sub: string;
     teamCol: string;
     aasCol: string;
+    teamTotal: string;
+    teamBreakdown: TeamCostLine[];
     rows: CompareRow[];
     footnote: string;
   };

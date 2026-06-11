@@ -6,9 +6,10 @@ import { SectionIcon } from "./SectionIcon";
 import { PILLAR_ICONS } from "../icons/sectionIcons";
 
 const PANEL_CLASSES = [
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 top-0 lg:mb-32",
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-16 lg:-mt-16 lg:mb-16",
-  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-32 lg:mb-16",
+  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 top-0 lg:mb-40",
+  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-12 lg:-mt-12 lg:mb-28",
+  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-24 lg:-mt-24 lg:mb-16",
+  "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0 lg:top-36 lg:mb-0",
 ];
 
 export function Layout356({ service }) {

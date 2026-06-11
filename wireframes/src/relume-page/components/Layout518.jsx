@@ -10,12 +10,13 @@ function useRiskScroll() {
     offset: ["start start", "end end"],
   });
 
-  // Cards slide in (translateX 100% → 0%), staggered. All settled by ~0.58 so the
-  // assembled state stays pinned for the rest of the scroll. Inputs are monotonic [0,1].
-  const cardX0 = useTransform(scrollYProgress, [0, 0.08, 0.22, 1], ["100%", "100%", "0%", "0%"]);
-  const cardX1 = useTransform(scrollYProgress, [0, 0.16, 0.34, 1], ["100%", "100%", "0%", "0%"]);
-  const cardX2 = useTransform(scrollYProgress, [0, 0.24, 0.46, 1], ["100%", "100%", "0%", "0%"]);
-  const cardX3 = useTransform(scrollYProgress, [0, 0.32, 0.58, 1], ["100%", "100%", "0%", "0%"]);
+  // Cards slide in (translateX 100% → 0%), staggered. Spread across the full scroll so
+  // the last card settles at ~0.95 — the section releases right after, no dead scroll.
+  // Inputs are monotonic [0,1].
+  const cardX0 = useTransform(scrollYProgress, [0, 0.13, 0.36, 1], ["100%", "100%", "0%", "0%"]);
+  const cardX1 = useTransform(scrollYProgress, [0, 0.26, 0.56, 1], ["100%", "100%", "0%", "0%"]);
+  const cardX2 = useTransform(scrollYProgress, [0, 0.39, 0.75, 1], ["100%", "100%", "0%", "0%"]);
+  const cardX3 = useTransform(scrollYProgress, [0, 0.52, 0.95, 1], ["100%", "100%", "0%", "0%"]);
 
   return { containerRef, cardPositions: [cardX0, cardX1, cardX2, cardX3] };
 }
@@ -39,7 +40,7 @@ export function Layout518({ risk }) {
     <section
       id="risk"
       ref={scroll.containerRef}
-      className="relative bg-white px-[5%] py-16 md:px-0 md:py-24 lg:h-[340vh] lg:py-0"
+      className="relative bg-white px-[5%] py-16 md:px-0 md:py-24 lg:h-[240vh] lg:py-0"
     >
       {/* Mobile / tablet — static, no scroll animation */}
       <div className="lg:hidden">

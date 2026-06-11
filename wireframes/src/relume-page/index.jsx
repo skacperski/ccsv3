@@ -3,6 +3,7 @@ import { Navbar3 } from "./components/Navbar3";
 import { Header76 } from "./components/Header76";
 import { ScopeSection } from "./components/ScopeSection";
 import { Layout518 } from "./components/Layout518";
+import { TimelineKsc } from "./components/TimelineKsc";
 import { Layout356 } from "./components/Layout356";
 import { Layout373 } from "./components/Layout373";
 import { Testimonial37 } from "./components/Testimonial37";
@@ -19,6 +20,7 @@ export default function Page({ content }) {
       <Header76 hero={content.hero} />
       <ScopeSection scope={content.scope} />
       <Layout518 risk={content.risk} />
+      <TimelineKsc timeline={content.timeline} />
       <Layout356 service={content.service} />
       <Layout373 how={content.how} surveyCta={content.hero.ctaPrimary} />
       <Testimonial37 proof={content.proof} />
