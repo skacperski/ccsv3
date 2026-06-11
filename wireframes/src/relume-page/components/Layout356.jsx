@@ -40,7 +40,7 @@ const CONTENT_MIN_H = {
 
 function getPanelClasses(index, total) {
   const base =
-    "relative border-t border-border-primary bg-neutral-white pb-8 md:pb-14 lg:sticky lg:pb-0";
+    "relative border-t border-fuse-line bg-white pb-8 md:pb-14 lg:sticky lg:pb-0";
   const top = STICKY_TOP[index] ?? STICKY_TOP[Math.min(index, 4)];
   // Relume pattern: negative margin on middle panels only (not first, not last).
   const overlap =
@@ -62,8 +62,10 @@ export function Layout356({ service }) {
       <div className="px-[5%] pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-28">
         <div className="container">
           <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">{service.kicker}</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+            <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.08em] text-fuse-blue md:mb-4">
+              {"//"} 05 — {service.kicker}
+            </p>
+            <h2 className="mb-5 text-5xl font-medium md:mb-6 md:text-7xl lg:text-8xl">
               {service.h2}
             </h2>
             <p className="md:text-md">{service.sub}</p>
@@ -82,8 +84,8 @@ export function Layout356({ service }) {
                     onClick={scrollToSurvey}
                     className="flex h-16 w-full shrink-0 cursor-pointer items-center text-left"
                   >
-                    <span className="mr-5 font-semibold md:mr-6 md:text-md">
-                      {pillar.num}
+                    <span className="mr-5 font-mono text-sm font-medium text-fuse-blue md:mr-6">
+                      0{pillar.num.replace(/^0/, "")} /
                     </span>
                     <h3 className="font-semibold md:text-md">{pillar.label}</h3>
                   </button>
@@ -97,7 +99,7 @@ export function Layout356({ service }) {
                   >
                     <div className="grid grid-cols-1 gap-y-12 md:items-center md:gap-x-12 lg:grid-cols-2 lg:gap-x-20">
                       <div>
-                        <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+                        <h2 className="mb-5 text-5xl font-medium md:mb-6 md:text-7xl lg:text-8xl">
                           {pillar.h2}
                         </h2>
                         <p className="md:text-md">{pillar.body}</p>

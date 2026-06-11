@@ -37,14 +37,14 @@ function ContactMini({ person }) {
         loading="lazy"
       />
       <div className="min-w-0">
-        <p className="text-sm font-semibold leading-tight">{person.name}</p>
-        <p className="mt-0.5 text-xs uppercase tracking-wide text-neutral-500">{person.role}</p>
+        <p className="text-sm font-semibold leading-tight text-white">{person.name}</p>
+        <p className="mt-0.5 font-mono text-xs uppercase tracking-wide text-white/50">{person.role}</p>
         <div className="mt-1 flex flex-col gap-0.5 text-xs">
           <a
             href={person.phoneHref}
             data-track="contact_phone"
             data-track-location="stopka"
-            className="text-neutral-600 hover:text-black"
+            className="text-white/60 hover:text-white"
             onClick={() => track("contact_phone", { person: person.name })}
           >
             {person.phone}
@@ -53,7 +53,7 @@ function ContactMini({ person }) {
             href={`mailto:${person.email}`}
             data-track="contact_email"
             data-track-location="stopka"
-            className="truncate text-neutral-600 hover:text-black"
+            className="truncate text-white/60 hover:text-white"
             onClick={() => track("contact_email", { person: person.name })}
           >
             {person.email}
@@ -64,7 +64,7 @@ function ContactMini({ person }) {
           size="link"
           location="stopka"
           title={`Umów spotkanie z ${person.name}`}
-          className="mt-2 font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-700"
+          className="mt-2 font-mono text-xs uppercase tracking-widest !text-fuse-lime hover:!text-fuse-lime-deep"
         >
           ↗ Umów spotkanie
         </CalendarCtaButton>
@@ -75,7 +75,7 @@ function ContactMini({ person }) {
 
 export function Footer({ footer }) {
   return (
-    <footer id="kontakt" className="border-t border-border-primary">
+    <footer id="kontakt" className="border-t border-white/10 bg-fuse-ink text-white">
       <div className="px-[5%] py-12 md:py-16">
         <div className="container grid grid-cols-1 gap-12 md:grid-cols-2 lg:gap-20">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
@@ -83,18 +83,18 @@ export function Footer({ footer }) {
               <ContactMini key={p.email} person={p} />
             ))}
           </div>
-          <div className="flex flex-col gap-4 text-xs leading-relaxed text-neutral-500">
+          <div className="flex flex-col gap-4 text-xs leading-relaxed text-white/45">
             {LEGAL.map((text, i) => (
               <p key={i}>{text}</p>
             ))}
           </div>
         </div>
       </div>
-      <div className="border-t border-border-primary px-[5%] py-6">
+      <div className="border-t border-white/10 px-[5%] py-6">
         <div className="container flex flex-col items-center justify-between gap-4 text-sm sm:flex-row">
-          <p className="font-semibold">{footer.brand}</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="underline">
+          <p className="font-display font-medium text-white">{footer.brand}</p>
+          <div className="flex items-center gap-6 font-mono text-xs text-white/60">
+            <a href="#" className="underline hover:text-white">
               {footer.privacy}
             </a>
             <p>{footer.copyright}</p>

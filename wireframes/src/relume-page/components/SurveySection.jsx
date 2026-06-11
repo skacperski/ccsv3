@@ -3,7 +3,7 @@
 import { Button, Input } from "@relume_io/relume-ui";
 import React, { useMemo, useState } from "react";
 import { CalendarCtaButton } from "./CalendarCtaButton";
-import { darkSurfaceButtonClassName } from "../utils/darkSurfaceButton";
+import { limeButtonClassName, ghostDarkButtonClassName } from "../utils/fuse";
 import { QUESTIONS, RESULTS, START_ID } from "../survey/nis2Survey";
 import { track } from "../../tracking/tracking";
 
@@ -19,7 +19,7 @@ function ProgressBar({ percent, label }) {
       </div>
       <div className="h-1.5 w-full overflow-hidden bg-white/15">
         <div
-          className="h-full bg-white transition-all duration-300 ease-out"
+          className="h-full bg-fuse-lime transition-all duration-300 ease-out"
           style={{ width: `${percent}%` }}
         />
       </div>
@@ -34,16 +34,16 @@ function OptionButton({ label, selected, onClick }) {
       onClick={onClick}
       className={`flex w-full cursor-pointer items-center gap-3 border p-4 text-left transition-colors duration-150 ${
         selected
-          ? "border-white bg-white text-black"
-          : "border-white/25 bg-transparent text-white hover:border-white/50"
+          ? "border-fuse-lime bg-fuse-lime text-fuse-ink"
+          : "border-white/25 bg-transparent text-white hover:border-fuse-lime/60"
       }`}
     >
       <span
         className={`flex size-5 shrink-0 items-center justify-center border ${
-          selected ? "border-black bg-black" : "border-white/40"
+          selected ? "border-fuse-ink bg-fuse-ink" : "border-white/40"
         }`}
       >
-        {selected && <span className="size-2 bg-white" />}
+        {selected && <span className="size-2 bg-fuse-lime" />}
       </span>
       <span className="text-sm font-medium md:text-base">{label}</span>
     </button>
@@ -134,12 +134,14 @@ export function SurveySection({ final, surveyCtaLabel }) {
   return (
     <section
       id="ankieta"
-      className="scroll-mt-20 bg-black px-[5%] py-16 text-white md:py-24 lg:py-28"
+      className="scroll-mt-20 bg-fuse-ink px-[5%] py-16 text-white md:py-24 lg:py-28"
     >
       <div className="container">
         <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="mb-2 font-semibold text-white">{surveyCtaLabel}</p>
-          <h2 className="text-4xl font-bold leading-tight md:text-5xl">{final.h2}</h2>
+          <p className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.08em] text-fuse-lime">
+            {"//"} {surveyCtaLabel}
+          </p>
+          <h2 className="text-4xl font-medium leading-tight md:text-5xl">{final.h2}</h2>
         </div>
 
         <div className="mx-auto max-w-xl">
@@ -232,7 +234,7 @@ export function SurveySection({ final, surveyCtaLabel }) {
               <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
                 <Button
                   variant="secondary-alt"
-                  className={`${darkSurfaceButtonClassName} !rounded-none`}
+                  className={limeButtonClassName}
                   disabled={!canSubmitContact}
                   onClick={submitContact}
                 >
@@ -293,7 +295,7 @@ function ResultCard({ result, calendarLabel, onRestart }) {
         <Button
           variant="secondary-alt"
           data-track="result_pdf"
-          className={`${darkSurfaceButtonClassName} !rounded-none`}
+          className={limeButtonClassName}
           onClick={() => track("result_pdf", { result: result.badge })}
         >
           Pobierz raport PDF
@@ -301,7 +303,7 @@ function ResultCard({ result, calendarLabel, onRestart }) {
         <CalendarCtaButton
           variant="secondary-alt"
           location="wynik"
-          className="!rounded-none !border-white/40 !bg-transparent !text-white hover:!bg-white/10"
+          className={ghostDarkButtonClassName}
         >
           Umów konsultację
         </CalendarCtaButton>

@@ -7,13 +7,17 @@ import {
   AccordionTrigger,
 } from "@relume_io/relume-ui";
 import React from "react";
+import { FuseKicker } from "./FuseKicker";
 
-export function Faq1({ faq }) {
+export function Faq1({ faq, num = "10" }) {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container max-w-lg">
         <div className="mb-12 text-center md:mb-18 lg:mb-20">
-          <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+          <FuseKicker num={num} className="mb-3 text-fuse-blue md:mb-4">
+            {faq.kicker}
+          </FuseKicker>
+          <h2 className="mb-5 text-5xl font-medium md:mb-6 md:text-7xl lg:text-8xl">
             {faq.h2}
           </h2>
           <p className="md:text-md">{faq.sub}</p>

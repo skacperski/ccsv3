@@ -22,7 +22,7 @@ export function CalendarCtaButton({
       data-track={trackId}
       data-track-location={location}
       className={clsx(
-        variant === "secondary-alt" && darkSurfaceButtonClassName,
+        variant === "secondary-alt" && !className && darkSurfaceButtonClassName,
         className,
       )}
       {...props}

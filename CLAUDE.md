@@ -82,7 +82,9 @@ Per-variant dynamic fields in `VariantSpec`:
 }
 ```
 
-Shared (constant across variants): pillars, steps, compare rows, FAQ items, footer.
+Shared (constant across variants): pillars, steps, timeline milestones, compare rows, FAQ items, footer.
+
+`SurveySection` receives `surveyCtaLabel={content.hero.ctaPrimary}` — the survey section header is dynamic and white, matching the hero CTA of each variant.
 
 ## Copy sync process
 
@@ -103,13 +105,15 @@ When Julia updates `copy/`, sync to the wireframe (`prompts/03-sync-copy-to-wire
 | `## Proof` (quote) | `proof.quote` |
 | `## Proof` (attribution line) | `proof.attribution` |
 | `## Pricing → Lead` | `pricing.lead` |
-| `## Pricing → Card CTAs` | `pricing.ctas.{ audit, impl, aas }` |
+| `## Pricing → Card CTAs` | `pricing.ctas.{ audit, impl, aas }` — **vestigial, not rendered** (see below) |
 | `## Final → H2 / Sub` | `final.h2 / final.sub` |
 | frontmatter `scopeMode` | `scopeMode` |
 | frontmatter `hideCompare` | `hideCompare` |
 | frontmatter `featuredCard` | `featuredCard` |
 
 3. **Do not shorten or edit Julia's copy.** If a field has no matching component, add it to `types.ts` and the relevant JSX component.
+
+> **Pricing card CTAs are hardcoded** in `Pricing20.jsx` — the featured card always shows "Oceń swoją gotowość" (→ survey scroll) and the other two show "Umów rozmowę" (→ Calendly popup). The `ctas` fields in `VariantSpec`/copy files are no longer rendered; keep them for copy-file completeness but don't wire them to UI.
 4. Update shared data from `_shared.md` if changed: pillar bodies, step titles/bodies, FAQ question titles (keep existing answers), pricing card names/features.
 5. Run `cd wireframes && npm run dev` and walk all 9 variants via `?variant=<id>` to verify.
 
@@ -159,3 +163,10 @@ Walk all 9 variants via the VariantSwitcher panel. Dynamic sections (hero, risk,
 
 - **New variant** — new `personas/<id>.md` + `copy/<id>.md` + entry in `SPECS` in `wireframes/src/content/variants.ts` + new `VariantId` in `types.ts`. Requires approval (tied to live ad campaigns).
 - **New section / field** — add to `types.ts`, update `build()` in `variants.ts`, add component in `wireframes/src/relume-page/components/`, wire into `wireframes/src/relume-page/index.jsx`.
+
+## Key component notes
+
+- **`Layout518`** (risk section) — desktop: sticky 240vh scroll-pin with framer-motion cards sliding in from right; mobile: static. Last card settles at ~0.95 scroll progress so section releases immediately after.
+- **`Pricing20`** — featured card CTA hardcoded to `"Oceń swoją gotowość"` (survey); others to `"Umów rozmowę"` (Calendly popup via `CalendarCtaButton`). CTAs from content are ignored.
+- **`SurveySection`** — kicker text sourced from `hero.ctaPrimary` (dynamic, white). Survey engine in `wireframes/src/relume-page/survey/nis2Survey.js`; Calendly util in `wireframes/src/relume-page/utils/calendly.js`.
+- **`TimelineSection`** — sits between risk and service sections; shared across all variants (data in `TIMELINE` constant in `variants.ts`).

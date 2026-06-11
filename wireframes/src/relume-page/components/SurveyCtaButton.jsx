@@ -14,7 +14,7 @@ export function SurveyCtaButton({ className, variant, onClick, location = "niezn
       data-track="cta_survey"
       data-track-location={location}
       className={clsx(
-        variant === "secondary-alt" && darkSurfaceButtonClassName,
+        variant === "secondary-alt" && !className && darkSurfaceButtonClassName,
         className,
       )}
       {...props}

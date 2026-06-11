@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
+import { FuseKicker } from "./FuseKicker";
 
 function useRiskScroll() {
   const containerRef = useRef(null);
@@ -23,9 +24,9 @@ function useRiskScroll() {
 
 function NumberedCard({ index, text }) {
   return (
-    <div className="flex w-full items-start gap-3 border border-border-primary bg-white p-5">
-      <span className="text-3xl font-bold leading-none text-black/15">
-        {String(index + 1).padStart(2, "0")}
+    <div className="flex w-full items-start gap-3 border border-fuse-line bg-white p-5">
+      <span className="font-mono text-sm font-medium leading-6 text-fuse-blue">
+        {String(index + 1).padStart(3, "0")} /
       </span>
       <h3 className="text-base font-bold leading-snug xl:text-lg">{text}</h3>
     </div>
@@ -44,10 +45,12 @@ export function Layout518({ risk }) {
     >
       {/* Mobile / tablet — static, no scroll animation */}
       <div className="lg:hidden">
-        <div className="relative mb-6 flex items-center justify-center overflow-hidden bg-black px-6 py-16 md:px-8 md:py-24">
+        <div className="relative mb-6 flex items-center justify-center overflow-hidden bg-fuse-ink px-6 py-16 md:px-8 md:py-24">
           <div className="max-w-md text-center text-white">
-            <p className="mb-3 font-semibold md:mb-4">{risk.kicker}</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl">{risk.h2}</h2>
+            <FuseKicker num="03" className="mb-3 text-fuse-lime md:mb-4">
+              {risk.kicker}
+            </FuseKicker>
+            <h2 className="mb-5 text-5xl font-medium md:mb-6 md:text-7xl">{risk.h2}</h2>
             <p className="text-white/80 md:text-md">{risk.lead}</p>
           </div>
         </div>
@@ -58,18 +61,20 @@ export function Layout518({ risk }) {
         </div>
       </div>
 
-      {/* Desktop — sticky reveal. Left panel constant (full black, fixed width),
+      {/* Desktop — sticky reveal. Left panel constant (full ink, fixed width),
           right cards slide in at a constant width. Sticky element is a DIRECT child
-          of the 340vh section so its containing block is tall enough to scroll. */}
+          of the 240vh section so its containing block is tall enough to scroll. */}
       <div className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-full lg:items-stretch lg:overflow-hidden">
-        <div className="flex w-[55vw] items-center justify-center bg-black px-12">
+        <div className="flex w-[55vw] items-center justify-center bg-fuse-ink px-12">
           <div className="max-w-md text-center text-white">
-            <p className="mb-3 font-semibold">{risk.kicker}</p>
-            <h2 className="mb-5 text-7xl font-bold lg:text-8xl">{risk.h2}</h2>
+            <FuseKicker num="03" className="mb-3 text-fuse-lime">
+              {risk.kicker}
+            </FuseKicker>
+            <h2 className="mb-5 text-7xl font-medium lg:text-8xl">{risk.h2}</h2>
             <p className="text-white/80 md:text-md">{risk.lead}</p>
           </div>
         </div>
-        <div className="flex w-[45vw] flex-col justify-center gap-4 px-10">
+        <div className="flex w-[45vw] flex-col justify-center gap-4 bg-fuse-paper px-10">
           {cards.map((card, i) => (
             <motion.div
               key={i}

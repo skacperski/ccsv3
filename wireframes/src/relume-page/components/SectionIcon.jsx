@@ -10,7 +10,7 @@ export function SectionIcon({ icon: Icon, size = "sm", className }) {
     return (
       <div
         className={clsx(
-          "flex h-[25rem] w-full items-center justify-center bg-black sm:h-[30rem] lg:h-[60vh]",
+          "flex h-[25rem] w-full items-center justify-center bg-fuse-blue sm:h-[30rem] lg:h-[60vh]",
           className,
         )}
         aria-hidden
@@ -23,7 +23,7 @@ export function SectionIcon({ icon: Icon, size = "sm", className }) {
   return (
     <div
       className={clsx(
-        "mb-3 flex size-12 items-center justify-center bg-black md:mb-4",
+        "mb-3 flex size-12 items-center justify-center bg-fuse-blue md:mb-4",
         className,
       )}
       aria-hidden

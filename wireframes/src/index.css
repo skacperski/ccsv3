@@ -6,4 +6,18 @@
   img {
     border-radius: 0;
   }
+
+  /* Fuse typography (getfuseai.com/pentest): Inter body, Roboto Flex display. */
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: #1a1a1a;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Roboto Flex", "Helvetica Neue", sans-serif;
+    line-height: 1.12;
+  }
 }
