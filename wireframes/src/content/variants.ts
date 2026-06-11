@@ -82,24 +82,25 @@ const STEPS: Step[] = [
   },
   {
     title: "Ocena i analiza",
-    body: "Analiza luki i ocena dojrzałości — raport dla zarządu od 9 900 zł.",
+    body: "Analiza luki i ocena dojrzałości — projekt od 29 000 zł (kalkulator Medium).",
   },
   {
     title: "Wdrożenie i utrzymanie",
-    body: "Polityki i procedury, potem comiesięczna usługa od 23 500 zł/mc.",
+    body: "Wdrożenie regulacji, potem abonament od 23 256 zł/mc (pakiet Basic).",
   },
 ];
 
+// Źródło: CyCki_Benchmark_v6 — arkusze CISOaaS, SOC, VMaaS, Awareness (segment Medium)
 const TEAM_COST_BREAKDOWN = [
-  { label: "CISO / pełnomocnik ds. bezpieczeństwa (1 MD/mc)", amount: "12 400 zł" },
-  { label: "Analityk SOC — detekcja i reakcja (1 etat)", amount: "11 200 zł" },
-  { label: "Specjalista GRC i podatności (0,5 etatu)", amount: "7 800 zł" },
-  { label: "Licencje SIEM, skanery, narzędzia VM", amount: "4 200 zł" },
-  { label: "Rekrutacja, szkolenia, rotacja (overhead)", amount: "3 044 zł" },
+  { label: "CISO Rozszerzony (3 MD/mc)", amount: "14 000 zł" },
+  { label: "SOC GCaaS Basic (L0 + narzędzia SIEM)", amount: "10 000 zł" },
+  { label: "VMaaS Basic (≤250 IP)", amount: "7 200 zł" },
+  { label: "Awareness — pakiet podstawowy", amount: "4 000 zł" },
+  { label: "Licencje SIEM, skanery, GRC (reszta TCO)", amount: "3 444 zł" },
 ];
 
 const COMPARE_ROWS: CompareRow[] = [
-  { label: "Koszt miesięczny", team: "ok. 38 644 zł", aas: "od 23 500 zł" },
+  { label: "Koszt miesięczny", team: "ok. 38 644 zł", aas: "od 23 256 zł" },
   { label: "Gotowość zespołu", team: "rekrutacja ok. 9 mies.", aas: "od pierwszego miesiąca" },
   { label: "Pentesty i narzędzia", team: "osobno, z dopłatami", aas: "w cenie abonamentu" },
   { label: "Rotacja i szkolenia", team: "po waszej stronie", aas: "po naszej stronie" },
@@ -149,42 +150,42 @@ function pricingCards(ctas: { audit: string; impl: string; aas: string }): Prici
       id: "card-audit",
       step: "01",
       name: "Ocena i analiza",
-      desc: "Analiza luki i ocena dojrzałości względem NIS2/KSC",
-      price: "9 900 zł",
-      period: "projekt startowy",
+      desc: "Analiza luki + ocena dojrzałości (arkusz Analiza Luki, 9 MD)",
+      price: "29 000 zł",
+      period: "projekt jednorazowy",
       cta: ctas.audit,
       features: [
-        "8 obszarów: zarząd, ryzyko, IT, incydenty, BCP, dostawcy",
-        "Raport luk i ocena dojrzałości dla zarządu",
-        "Harmonogram działań krótko- i długoterminowych",
+        "Analiza dokumentacji i warsztaty NIS2/KSC",
+        "Raport z luk, ocena dojrzałości, priorytety",
+        "Omówienie wyników z zarządem i plan kolejnych kroków",
       ],
     },
     {
       id: "card-impl",
       step: "02",
       name: "Wdrożenie polityk i procedur",
-      desc: "Pełne wdrożenie zgodności regulacyjnej NIS2",
-      price: "24 900 zł",
-      period: "projekt wdrożeniowy (6–9 mies.)",
+      desc: "Wdrożenie regulacji NIS2/DORA/ISO (arkusz Wdrożenie Regulacji, 24 MD)",
+      price: "74 000 zł",
+      period: "projekt wdrożeniowy",
       cta: ctas.impl,
       features: [
-        "Polityki, procedury incydentów, BCP/DRP",
-        "Zabezpieczenia organizacyjne i techniczne",
-        "Szkolenie wprowadzające dla zarządu",
+        "BCP, zarządzanie ryzykiem ICT, incydenty, TPRM",
+        "Podatności, zabezpieczenia org. i techniczne",
+        "Szkolenie wdrożeniowe i audyt przedcertyfikacyjny",
       ],
     },
     {
       id: "card-aas",
       step: "03",
       name: "Utrzymanie zgodności NIS2",
-      desc: "Przejście na comiesięczną usługę abonamentową",
-      price: "23 500 zł",
-      period: "od / mc (pakiet Minimalny)",
+      desc: "Abonament — Pakiety_Medium (50–500 pracowników)",
+      price: "23 256 zł",
+      period: "od / mc · pakiet Basic",
       cta: ctas.aas,
       features: [
-        "SOC, VM, utrzymanie dokumentacji i zgodności",
-        "Pentesty, awareness i raportowanie w cenie",
-        "Rekomendowany od 26 900 zł/mc · Pełny od 33 500 zł/mc",
+        "SOC Basic, VMaaS Basic, awareness podstawowy",
+        "CISO 1 h/mc, asysta przy kontroli",
+        "Rekomendowany 26 900 zł/mc · Pełny 33 264 zł/mc",
       ],
     },
   ];
@@ -283,7 +284,7 @@ function build(spec: VariantSpec): Content {
       teamBreakdown: TEAM_COST_BREAKDOWN,
       rows: COMPARE_ROWS,
       footnote:
-        "Kalkulacja TCO własnego zespołu (2–3 etaty + narzędzia + overhead). Pakiet Minimalny NIS2 aaS od 23 500 zł/mc. Metodologia dostępna na życzenie.",
+        "Kalkulacja TCO własnego zespołu wg arkuszy CISOaaS, SOC, VMaaS i Awareness (Benchmark v6, segment Medium). Pakiet Basic od 23 256 zł/mc. Metodologia na życzenie.",
     },
     faq: {
       kicker: "FAQ",
@@ -449,7 +450,7 @@ const SPECS: VariantSpec[] = [
   },
   {
     id: "gads-audyt",
-    label: "Audyt 9 900 zł",
+    label: "Analiza luki",
     channel: "Google Ads · nis2-audyt",
     campaign: "nis2-audyt",
     scopeMode: "full",
@@ -457,9 +458,9 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-audit",
     ctaUnified: "Sprawdź gotowość w 2 minuty",
     hero: {
-      h1: "Sprawdź gotowość firmy do NIS2. Audyt od 9 900 zł.",
-      sub: "Analizujemy wymagania prawne i techniczne związane z KSC. Otrzymujesz raport oraz plan działań na najbliższe 90 dni: polityki, pentesty, zabezpieczenia środowiska i kolejne kroki. Bez ogólnych checklist i dokumentów, które później trafiają do szuflady.",
-      stats: ["od 9 900 zł (ocena gotowości)", "od 24 900 zł (wdrożenie)", "6–18 mies. (realizacja)"],
+      h1: "Sprawdź gotowość firmy do NIS2. Analiza luki od 29 000 zł.",
+      sub: "Analizujemy wymagania prawne i techniczne związane z KSC. Otrzymujesz raport z luk, ocenę dojrzałości i plan działań: polityki, pentesty, zabezpieczenia środowiska i kolejne kroki.",
+      stats: ["od 29 000 zł (analiza luki)", "od 74 000 zł (wdrożenie)", "od 23 256 zł/mc (abonament)"],
       micro: "Po ankiecie możesz od razu zobaczyć wynik online lub umówić rozmowę w ciągu 48h.",
     },
     risk: {
@@ -480,7 +481,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Ocena gotowości zaczyna się od 9 900 zł. Krótka ankieta pozwoli określić zakres prac dla Twojej firmy i przygotować odpowiednią wycenę.",
+      lead: "Analiza luki i ocena dojrzałości to projekt od 29 000 zł (kalkulator Benchmark v6). Ankieta pomoże określić, czy zaczynacie od tego etapu.",
       ctas: { audit: "Sprawdź gotowość w 2 min", impl: "Sprawdź zakres w 2 min", aas: "Sprawdź, czy aaS pasuje" },
     },
     final: {
@@ -488,14 +489,14 @@ const SPECS: VariantSpec[] = [
       sub: "Otrzymujesz ocenę gotowości, listę najważniejszych luk i plan działań, który możesz przedstawić zarządowi lub wykorzystać podczas kontroli. Po ankiecie wybierasz wynik online albo rozmowę w ciągu 48h.",
     },
     seo: {
-      title: "CyCommSec | Audyt NIS2 od 9 900 zł — ocena gotowości",
+      title: "CyCommSec | Analiza luki NIS2 od 29 000 zł",
       description:
         "Analiza luk względem KSC, raport dla zarządu i plan na 90 dni. Pentesty, polityki i zabezpieczenia — bez ogólnych checklist.",
     },
   },
   {
     id: "gads-wdrozenie",
-    label: "Wdrożenie 24 900 zł",
+    label: "Wdrożenie regulacji",
     channel: "Google Ads · nis2-wdrozenie",
     campaign: "nis2-wdrozenie",
     scopeMode: "full",
@@ -503,9 +504,9 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-impl",
     ctaUnified: "Sprawdź, czy wdrożenie pasuje",
     hero: {
-      h1: "Wdrożenie NIS2 w firmie od 24 900 zł",
-      sub: "Przygotowujemy polityki, procedury, zabezpieczenia techniczne, szkolenia dla zarządu oraz dokumentację wymaganą przez KSC. Wszystko w oparciu o konkretne dowody i wymagania, które mogą zostać zweryfikowane podczas kontroli.",
-      stats: ["od 24 900 zł", "6–18 miesięcy", "wersja przyspieszona w ok. 6 mies."],
+      h1: "Wdrożenie NIS2 w firmie od 74 000 zł",
+      sub: "Przygotowujemy polityki, procedury, zabezpieczenia techniczne, szkolenia dla zarządu oraz dokumentację wymaganą przez KSC. Projekt wg kalkulatora Wdrożenie Regulacji (24 MD).",
+      stats: ["od 74 000 zł (projekt)", "BCP + ryzyko ICT + incydenty", "potem abonament od 23 256 zł/mc"],
       micro: "Wypełnij krótką ankietę, a pomożemy określić zakres wdrożenia. Wycena powstaje na podstawie wyników audytu, a nie gotowego cennika.",
     },
     risk: {
@@ -526,7 +527,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma], [sektor]",
     },
     pricing: {
-      lead: "Po wypełnieniu ankiety przygotujemy propozycję wdrożenia od 24 900 zł. Zakres prac jest dopasowany do wyników audytu, a harmonogram obejmuje okres od 6 do 18 miesięcy.",
+      lead: "Wdrożenie regulacji to projekt od 74 000 zł (Benchmark v6). Zakres dopasowujemy do wyników analizy luki.",
       ctas: { audit: "Nie macie audytu? Zacznij tu", impl: "Sprawdź zakres wdrożenia", aas: "Porównaj z usługą miesięczną" },
     },
     final: {
@@ -534,7 +535,7 @@ const SPECS: VariantSpec[] = [
       sub: "Wdrożenie kończy się działającymi procedurami, dokumentacją oraz materiałami przygotowanymi na potrzeby kontroli. Harmonogram obejmuje od 6 do 18 miesięcy, a w wybranych przypadkach możliwa jest realizacja przyspieszona w około 6 miesięcy.",
     },
     seo: {
-      title: "CyCommSec | Wdrożenie NIS2 od 24 900 zł",
+      title: "CyCommSec | Wdrożenie NIS2 od 74 000 zł",
       description:
         "Polityki, procedury, zabezpieczenia techniczne i szkolenia zarządu zgodnie z KSC. Plan oparty o audyt, nie gotowy cennik.",
     },
@@ -549,9 +550,9 @@ const SPECS: VariantSpec[] = [
     featuredCard: "card-aas",
     ctaUnified: "Sprawdź usługę miesięczną",
     hero: {
-      h1: "NIS2 w abonamencie od 23 500 zł miesięcznie",
-      sub: "Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. W cenie są wdrożenie wymagań NIS2, monitoring 24/7, obsługa incydentów, pentesty i dokumentacja. Bez rekrutacji i dodatkowych narzędzi.",
-      stats: ["od 23 500 zł/mc", "pakiet Minimalny", "SOC 24/7"],
+      h1: "NIS2 w abonamencie od 23 256 zł miesięcznie",
+      sub: "Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. Pakiet Basic (segment Medium): SOC, VM, awareness, CISO 1 h/mc. Rekomendowany od 26 900 zł/mc.",
+      stats: ["od 23 256 zł/mc", "pakiet Basic", "SOC + VM + awareness"],
       micro: "Pentesty w cenie. *Metodologia TCO na życzenie.",
     },
     risk: {
@@ -572,7 +573,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "NIS2 jako usługa kosztuje od 23 500 zł/mc (pakiet Minimalny). Poniżej możesz porównać ścieżkę współpracy z kosztem budowy własnego zespołu.",
+      lead: "Abonament NIS2 zaczyna się od 23 256 zł/mc (pakiet Basic, Benchmark v6). Poniżej porównanie z kosztem własnego zespołu (~38 644 zł/mc).",
       ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź usługę miesięczną" },
     },
     final: {
@@ -580,7 +581,7 @@ const SPECS: VariantSpec[] = [
       sub: "Nie musisz budować własnego zespołu cyberbezpieczeństwa. My przejmujemy wymagania regulacyjne, monitoring i obsługę incydentów w ramach jednej usługi. Wypełnij krótką ankietę i sprawdź, czy ten model będzie opłacalny dla Twojej firmy.",
     },
     seo: {
-      title: "CyCommSec | NIS2 w abonamencie od 23 500 zł/mc",
+      title: "CyCommSec | NIS2 w abonamencie od 23 256 zł/mc",
       description:
         "Wdrożenie NIS2, monitoring 24/7, pentesty i dokumentacja w jednej miesięcznej opłacie. Bez rekrutacji własnego zespołu cyber.",
     },
@@ -618,7 +619,7 @@ const SPECS: VariantSpec[] = [
       attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
-      lead: "Pierwszym krokiem jest kwalifikacja i ocena sytuacji firmy. Następnie możesz skorzystać z audytu zakończonego raportem dla zarządu od 9 900 zł.",
+      lead: "Pierwszym krokiem jest kwalifikacja i analiza luki (projekt od 29 000 zł). Raport dla zarządu to efekt etapu 01 ścieżki współpracy.",
       ctas: { audit: "Pobierz raport dla zarządu", impl: "Sprawdź zakres", aas: "Sprawdź zakres" },
     },
     final: {
