@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import Page from "./relume-page/index.jsx";
+import Page from "./steep-page/index.jsx";
 import { VariantSwitcher } from "./components/VariantSwitcher";
 import { TrackingOverlay } from "./components/TrackingOverlay";
 import { VARIANTS, resolveVariantId } from "./content/variants";

@@ -10,24 +10,34 @@ export default {
   ],
   theme: {
     extend: {
-      // Ventriloc design tokens — "analytics console on parchment".
-      // Mist canvas, white cards, carbon actions, signal orange data accents.
+      // Steep design tokens (steep.app :root variables).
       colors: {
-        vent: {
-          orange: "#FF682C",
-          bronze: "#816729",
-          carbon: "#202020",
-          graphite: "#4D4D4D",
-          slate: "#828282",
-          fog: "#F5F5F5",
-          mist: "#EFEFEF",
-          chalk: "#E8E8E8",
-          paper: "#FFFFFF",
+        steep: {
+          green: "#00C67F",
+          text: "#17191C",
+          blue: "#2F6FE5",
+          red: "#E53B79",
+          "green-deep": "#17975E",
+          purple: "#7A2BEC",
+          gray: "#777B86",
+          muted: "#A3A6AF",
+          bg2: "#FAFAFB",
+          "light-gray": "#F7F7F8",
+          "light-blue": "#ECF2FE",
+          "light-red": "#FEF1F1",
+          "light-green": "#E9F6EF",
+          "light-purple": "#F4EDFD",
+        },
+        trans: {
+          5: "#04172B0D",
+          10: "#0A172B1A",
+          15: "#0E172B26",
+          20: "#0E172B33",
         },
       },
       fontFamily: {
-        display: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        serif: ['"Newsreader"', "ui-serif", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
     },
   },

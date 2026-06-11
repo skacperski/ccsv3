@@ -3,21 +3,26 @@
 @tailwind utilities;
 
 @layer base {
-  /* Ventriloc typography: Inter body on Mist canvas, Space Grotesk display
-     (PolySans substitute) with tight architectural line-height. */
+  /* Steep typography: Inter UI on white, Newsreader serif for display headings. */
   body {
     font-family: "Inter", system-ui, sans-serif;
-    background-color: #efefef;
-    color: #202020;
+    background-color: #fff;
+    color: #17191c;
+    -webkit-font-smoothing: antialiased;
   }
+}
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+/* Infinite logo marquee (steep.app customer carousel). Two copies of the
+   track inside a flex row; each scrolls -100% of its own width. */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
   }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x 60s linear infinite;
 }
