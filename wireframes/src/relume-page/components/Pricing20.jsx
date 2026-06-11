@@ -6,7 +6,6 @@ import { BiCheck } from "react-icons/bi";
 import { CalendarCtaButton } from "./CalendarCtaButton";
 import { SurveyCtaButton } from "./SurveyCtaButton";
 
-const MAX_FEATURES = 5;
 const FEATURED_PRICING_CTA = "Oceń swoją gotowość";
 const PRICING_CALENDAR_CTA = "Umów rozmowę";
 
@@ -117,35 +116,21 @@ export function Pricing20({ pricing }) {
                         featured ? "bg-white/20" : "bg-border-primary",
                       )}
                     />
-                    <div className="grid flex-1 grid-cols-1 gap-y-4 py-2">
-                      {Array.from({ length: MAX_FEATURES }).map((_, i) => {
-                        const feature = card.features[i];
-                        return (
-                          <div
-                            key={i}
-                            className={clsx(
-                              "flex min-h-[2.75rem] self-start",
-                              !feature && "invisible",
-                            )}
-                            aria-hidden={!feature}
-                          >
-                            {feature && (
-                              <>
-                                <div className="mr-4 flex-none self-start">
-                                  <BiCheck
-                                    className={clsx(
-                                      "size-6",
-                                      featured ? "text-white" : "text-black",
-                                    )}
-                                  />
-                                </div>
-                                <p>{feature}</p>
-                              </>
-                            )}
+                    <ul className="flex flex-1 flex-col gap-y-3 py-2">
+                      {card.features.map((feature, i) => (
+                        <li key={i} className="flex self-start">
+                          <div className="mr-4 flex-none self-start">
+                            <BiCheck
+                              className={clsx(
+                                "size-6",
+                                featured ? "text-white" : "text-black",
+                              )}
+                            />
                           </div>
-                        );
-                      })}
-                    </div>
+                          <p>{feature}</p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
