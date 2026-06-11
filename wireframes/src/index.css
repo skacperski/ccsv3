@@ -3,32 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  /* Steep typography: Inter UI on white, Newsreader serif for display headings. */
+  /* Awesomic typography: Manrope everywhere (Cosmica substitute). */
   body {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Manrope", Arial, sans-serif;
     background-color: #fff;
-    color: #17191c;
+    color: #09090b;
     -webkit-font-smoothing: antialiased;
   }
-}
-
-/* steep.app hero backdrop — soft pastel aurora made of blurred radial blobs
-   (peach / pink / lavender) fading to white at the bottom. */
-.hero-aurora {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background:
-    radial-gradient(42rem 30rem at 18% 78%, rgba(255, 196, 160, 0.55), transparent 62%),
-    radial-gradient(46rem 32rem at 78% 70%, rgba(255, 170, 150, 0.42), transparent 64%),
-    radial-gradient(40rem 30rem at 55% 30%, rgba(226, 213, 248, 0.55), transparent 60%),
-    radial-gradient(36rem 26rem at 30% 18%, rgba(250, 222, 233, 0.6), transparent 60%),
-    linear-gradient(#fbfafc, #fff);
-}
-.hero-aurora::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 55%, #fff 96%);
 }

@@ -10,34 +10,27 @@ export default {
   ],
   theme: {
     extend: {
-      // Steep design tokens (steep.app :root variables).
+      // Awesomic design tokens (awesomic.com :root) — zinc gray scale +
+      // a single orange accent.
       colors: {
-        steep: {
-          green: "#00C67F",
-          text: "#17191C",
-          blue: "#2F6FE5",
-          red: "#E53B79",
-          "green-deep": "#17975E",
-          purple: "#7A2BEC",
-          gray: "#777B86",
-          muted: "#A3A6AF",
-          bg2: "#FAFAFB",
-          "light-gray": "#F7F7F8",
-          "light-blue": "#ECF2FE",
-          "light-red": "#FEF1F1",
-          "light-green": "#E9F6EF",
-          "light-purple": "#F4EDFD",
-        },
-        trans: {
-          5: "#04172B0D",
-          10: "#0A172B1A",
-          15: "#0E172B26",
-          20: "#0E172B33",
+        awe: {
+          orange: "#FF5A00",
+          950: "#09090B",
+          900: "#18181B",
+          800: "#27272A",
+          700: "#3F3F46",
+          600: "#52525B",
+          500: "#71717A",
+          400: "#A1A1AA",
+          300: "#D4D4D8",
+          200: "#E4E4E7",
+          150: "#ECECEE",
+          100: "#F4F4F5",
+          50: "#FAFAFA",
         },
       },
       fontFamily: {
-        serif: ['"Newsreader"', "ui-serif", "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Manrope", "Arial", "sans-serif"],
       },
     },
   },

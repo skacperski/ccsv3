@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import Site from './site/Site.jsx'
+import Awesomic from './awesomic/Awesomic.jsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Site />
+    <Awesomic />
   </StrictMode>,
 )
