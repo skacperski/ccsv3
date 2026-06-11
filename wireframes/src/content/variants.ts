@@ -10,6 +10,7 @@ import type {
   CardId,
   SeoMeta,
 } from "./types";
+import { CLIENT_TESTIMONIALS } from "./testimonials";
 
 /* ------------------------------------------------------------------ */
 /* SHARED — constant across every variant                              */
@@ -224,7 +225,6 @@ interface VariantSpec {
   };
   risk: { h2: string; lead: string; cards: string[] };
   service: { h2: string; sub: string };
-  proof: { quote: string; attribution: string };
   pricing: { lead: string; ctas: { audit: string; impl: string; aas: string } };
   final: { h2: string; sub: string };
   seo: SeoMeta;
@@ -272,9 +272,8 @@ function build(spec: VariantSpec): Content {
     },
     proof: {
       h2: "Zaufali nam",
-      sub: "Firmy z różnych sektorów już wdrażają NIS2.",
-      quote: spec.proof.quote,
-      attribution: spec.proof.attribution,
+      sub: "Organizacje ufające CyCommSec w zakresie cyberbezpieczeństwa.",
+      items: CLIENT_TESTIMONIALS,
     },
     pricing: {
       kicker: "Ścieżka współpracy",
@@ -348,10 +347,6 @@ const SPECS: VariantSpec[] = [
       h2: "Audyt, polityki, pentesty i SOC w jednym miejscu",
       sub: "Jeden partner odpowiedzialny za zgodność, bezpieczeństwo i utrzymanie. Rozwiązania, które działają w organizacji, a nie tylko w dokumentacji.",
     },
-    proof: {
-      quote: "[ Cytat klienta — do uzupełnienia w produkcji ]",
-      attribution: "[stanowisko], [firma] ([sektor])",
-    },
     pricing: {
       lead: "Zacznij od krótkiej ankiety. Na jej podstawie sprawdzisz, czy potrzebujesz audytu, wdrożenia czy modelu usługi miesięcznej.",
       ctas: { audit: "Zacznij od audytu", impl: "Zobacz zakres wdrożenia", aas: "Sprawdź, czy aaS pasuje" },
@@ -394,10 +389,6 @@ const SPECS: VariantSpec[] = [
     service: {
       h2: "Audyt, który pokazuje fakty, a nie przypuszczenia",
       sub: "Sprawdzamy luki, procedury obsługi incydentów oraz zabezpieczenia IT. Każdy element dokumentujemy zgodnie z wymaganiami KSC, dzięki czemu podczas kontroli możesz przedstawić konkretne raporty, logi i dowody działań.",
-    },
-    proof: {
-      quote: "Po wypełnieniu ankiety wiedzieliśmy, jakie obowiązki wynikają z KSC i od czego zacząć. Zarząd dostał jasne podsumowanie, które nie wymagało tłumaczenia z języka IT.",
-      attribution: "[stanowisko], [firma], [sektor]",
     },
     pricing: {
       lead: "Zacznij od krótkiej ankiety. Sprawdzisz, czy Twoja firma podlega pod NIS2 i jakie działania warto podjąć w pierwszej kolejności. Na tej podstawie określimy, czy wystarczy audyt, czy potrzebne będzie pełne wdrożenie.",
@@ -442,10 +433,6 @@ const SPECS: VariantSpec[] = [
       h2: "Jeśli podlegasz pod NIS2, pokażemy Ci kolejne kroki",
       sub: "Po wypełnieniu ankiety dowiesz się, czy warto zacząć od audytu, przejść do wdrożenia czy rozważyć model usługi miesięcznej.",
     },
-    proof: {
-      quote: "W ciągu dwóch minut otrzymaliśmy jasną odpowiedź, czy NIS2 dotyczy naszej organizacji. Bez długich konsultacji i analiz na starcie.",
-      attribution: "[stanowisko], [firma] ([sektor])",
-    },
     pricing: {
       lead: "Zacznij od krótkiej ankiety. Na podstawie odpowiedzi podpowiemy, czy wystarczy audyt, czy potrzebne będzie wdrożenie lub usługa miesięczna.",
       ctas: { audit: "Sprawdźcie w 2 minuty", impl: "Sprawdźcie w 2 minuty", aas: "Sprawdźcie, czy pasuje" },
@@ -487,10 +474,6 @@ const SPECS: VariantSpec[] = [
     service: {
       h2: "Audyt, który kończy się planem działania",
       sub: "Otrzymujesz raport dla zarządu, wyniki testów oraz konkretną listę działań do wykonania w ciągu najbliższych 90 dni.",
-    },
-    proof: {
-      quote: "Jeden raport trafił do zarządu i rady nadzorczej. Wcześniej mieliśmy kilka dokumentów od różnych dostawców i trudno było ocenić, które informacje są aktualne.",
-      attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
       lead: "Analiza luki i ocena dojrzałości to projekt od 29 000 zł. Ankieta pomoże określić, czy zaczynacie od tego etapu.",
@@ -534,10 +517,6 @@ const SPECS: VariantSpec[] = [
       h2: "Wdrożenie, które działa także po zakończeniu projektu",
       sub: "Tworzymy rozwiązania, które stają się częścią codziennego funkcjonowania firmy. Procedury, zabezpieczenia i obowiązki nie trafiają do folderu na dysku, ale działają w praktyce i mogą zostać zweryfikowane podczas kontroli.",
     },
-    proof: {
-      quote: "Realizowaliśmy kolejne działania zgodnie z planem z audytu, bez zatrzymywania bieżącej pracy firmy. Zarząd miał pełną kontrolę nad postępem i wiedział, jakie ryzyka zostały już zamknięte.",
-      attribution: "[stanowisko], [firma], [sektor]",
-    },
     pricing: {
       lead: "Wdrożenie regulacji to projekt od 74 000 zł. Zakres dopasowujemy do wyników analizy luki.",
       ctas: { audit: "Nie macie audytu? Zacznij tu", impl: "Sprawdź zakres wdrożenia", aas: "Porównaj z usługą miesięczną" },
@@ -580,10 +559,6 @@ const SPECS: VariantSpec[] = [
       h2: "My odpowiadamy za NIS2, a wasz dział IT robi swoje",
       sub: "Twój zespół nadal zarządza systemami i infrastrukturą. My zajmujemy się wymaganiami regulacyjnymi, monitoringiem oraz obsługą incydentów. Masz jeden punkt kontaktu i jedną miesięczną fakturę.",
     },
-    proof: {
-      quote: "Policzyłem koszt stworzenia własnego zespołu cyberbezpieczeństwa i szybko okazało się, że to nie ma uzasadnienia biznesowego. Dziś płacimy stałą miesięczną kwotę, SOC działa 24/7, a my nie zajmujemy się rekrutacją ani utrzymaniem specjalistów.",
-      attribution: "[stanowisko], [firma] ([sektor])",
-    },
     pricing: {
       lead: "Abonament NIS2 zaczyna się od 23 256 zł/mc (pakiet Basic). Poniżej porównanie z kosztem własnego zespołu (~38 644 zł/mc).",
       ctas: { audit: "Porównaj w ankiecie", impl: "Porównaj w ankiecie", aas: "Sprawdź usługę miesięczną" },
@@ -625,10 +600,6 @@ const SPECS: VariantSpec[] = [
     service: {
       h2: "Raport, który pomaga podjąć decyzję",
       sub: "Otrzymujesz podsumowanie ryzyk, rekomendacje działań oraz orientacyjny budżet potrzebny do osiągnięcia zgodności z wymaganiami KSC. Wszystko w formie przygotowanej dla zarządu, a nie dla działu IT.",
-    },
-    proof: {
-      quote: "Zamiast kilkudziesięciu stron technicznej dokumentacji otrzymaliśmy krótkie podsumowanie najważniejszych ryzyk, kosztów i decyzji do podjęcia. Zarząd wiedział, od czego zacząć.",
-      attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
       lead: "Pierwszym krokiem jest kwalifikacja i analiza luki (projekt od 29 000 zł). Raport dla zarządu to efekt etapu 01 ścieżki współpracy.",
@@ -673,10 +644,6 @@ const SPECS: VariantSpec[] = [
       h2: "Zgodność, pentesty i SOC w ramach jednej współpracy",
       sub: "Jeden zespół odpowiada za audyt, monitoring i wsparcie w obszarze zgodności. Wykorzystujemy istniejące procesy, procedury i certyfikacje, zamiast budować wszystko od początku.",
     },
-    proof: {
-      quote: "Zamiast koordynować kilka firm i kilka zakresów odpowiedzialności, mieliśmy jeden punkt kontaktu. Znacznie łatwiej było zarządzać zarówno zgodnością, jak i bieżącymi działaniami bezpieczeństwa.",
-      attribution: "CISO, [sektor]",
-    },
     pricing: {
       lead: "Krótka ankieta pomoże określić poziom gotowości organizacji i wskazać, czy wystarczy audyt techniczny, czy potrzebne będzie wdrożenie lub model z monitoringiem SOC.",
       ctas: { audit: "Audyt techniczny", impl: "Wdrożenie", aas: "Sprawdź NIS2 jako usługę" },
@@ -719,10 +686,6 @@ const SPECS: VariantSpec[] = [
     service: {
       h2: "Ciągłość działania, dostawcy i monitoring w jednym planie",
       sub: "Pomagamy przygotować i przetestować plany BCP/DRP, ocenić ryzyko związane z dostawcami IT oraz zbudować procesy, które działają również poza standardowymi godzinami pracy.",
-    },
-    proof: {
-      quote: "Przećwiczenie scenariusza incydentu pozwoliło nam uporządkować role, procedury i sposób raportowania. Kiedy pojawiła się realna sytuacja, wiedzieliśmy dokładnie, co robić.",
-      attribution: "[stanowisko], [firma] ([sektor])",
     },
     pricing: {
       lead: "Krótka ankieta pomoże określić, czy warto zacząć od audytu ciągłości działania i dostawców, czy od modelu usługi miesięcznej z monitoringiem SOC.",

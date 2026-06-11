@@ -1,3 +1,5 @@
+import type { ClientTestimonial } from "./testimonials";
+
 // Content contract for the variant-driven NIS2 landing page.
 // SHARED parts (scope, service pillars, how-steps, pricing cards, compare, faq,
 // footer) are constant across variants; the rest is swapped per ad variant.
@@ -103,7 +105,11 @@ export interface Content {
   };
   service: { kicker: string; h2: string; sub: string; pillars: Pillar[] };
   how: { kicker: string; h2: string; sub: string; steps: Step[] };
-  proof: { h2: string; sub: string; quote: string; attribution: string };
+  proof: {
+    h2: string;
+    sub: string;
+    items: ClientTestimonial[];
+  };
   pricing: {
     kicker: string;
     h2: string;
