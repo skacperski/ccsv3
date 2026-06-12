@@ -17,9 +17,9 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** NIS2 w abonamencie od 15 900 zł miesięcznie
-- **Sub:** Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. W cenie są wdrożenie wymagań NIS2, monitoring 24/7, obsługa incydentów, pentesty i dokumentacja. Bez rekrutacji i dodatkowych narzędzi.
-- **Stats:** od 15 900 zł/mc · 61,4%* taniej · SOC 24/7
+- **H1:** NIS2 w abonamencie od 23 256 zł miesięcznie
+- **Sub:** Zamiast budować własny zespół cyberbezpieczeństwa, korzystacie z gotowej usługi. Pakiet Basic (segment Medium): SOC, VM, awareness, CISO 1 h/mc. Rekomendowany od 26 900 zł/mc.
+- **Stats:** od 23 256 zł/mc · pakiet Basic · SOC + VM + awareness
 - **CTA primary:** Sprawdź usługę miesięczną
 - **Micro:** Pentesty w cenie. *Metodologia TCO na życzenie.
 
@@ -44,7 +44,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Pricing
 
-- **Lead:** NIS2 jako usługa kosztuje od 15 900 zł/mc w modelu abonamentowym. Poniżej możesz porównać ten wariant z kosztem budowy własnego zespołu. Krótka ankieta pomoże ocenić, które rozwiązanie lepiej pasuje do Twojej organizacji.
+- **Lead:** Abonament NIS2 zaczyna się od 23 256 zł/mc (pakiet Basic). Poniżej porównanie z kosztem własnego zespołu (~38 644 zł/mc).
 - **Card CTAs:** audit: `Porównaj w ankiecie` · impl: `Porównaj w ankiecie` · aas: `Sprawdź usługę miesięczną`
 
 ## Final

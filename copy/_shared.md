@@ -53,8 +53,8 @@ Sektor z listy NIS2, 50 osób albo 10 mln EUR obrotu? Po lutowej nowelizacji KSC
 
 - **H2:** Jak to wygląda krok po kroku
 - **Step 1:** Ankieta w 2 minuty — Wiecie, czy wchodzicie w NIS2 i gdzie macie największe luki.
-- **Step 2:** Audyt i plan dla zarządu — Od 9 900 zł, raport po polsku.
-- **Step 3:** Wdrożenie albo NIS2 jako usługa — Projekt na raz albo stała opłata od 15 900 zł/mc.
+- **Step 2:** Audyt i plan dla zarządu — Od 29 000 zł, raport po polsku.
+- **Step 3:** Wdrożenie albo NIS2 jako usługa — Projekt na raz albo stała opłata od 23 256 zł/mc.
 
 ## Proof — static shell
 
@@ -70,15 +70,15 @@ Sektor z listy NIS2, 50 osób albo 10 mln EUR obrotu? Po lutowej nowelizacji KSC
 
 | Package id | Name | Price | Bullets | Default card CTA label |
 |------------|------|-------|---------|-------------------------|
-| `card-audit` | Ocena gotowości NIS2 | od 9 900 zł | Analiza luk; Raport dla zarządu; Plan działań na 90 dni | Sprawdź w 2 minuty |
-| `card-impl` | Wdrożenie NIS2 | od 24 900 zł | Polityki i procedury; Środki techniczne; Szkolenia zarządu | Sprawdź w 2 minuty |
-| `card-aas` | NIS2 jako usługa ★ | od 15 900 zł / mc | SOC 24/7, incydenty; Pentesty w cenie; Utrzymanie zgodności | Sprawdź, czy aaS pasuje |
+| `card-audit` | Ocena gotowości NIS2 | od 29 000 zł | Analiza luk; Raport dla zarządu; Plan działań na 90 dni | Sprawdź w 2 minuty |
+| `card-impl` | Wdrożenie NIS2 | od 74 000 zł | Polityki i procedury; Środki techniczne; Szkolenia zarządu | Sprawdź w 2 minuty |
+| `card-aas` | NIS2 jako usługa ★ | od 23 256 zł/mc | SOC 24/7, incydenty; Pentesty w cenie; Utrzymanie zgodności | Sprawdź, czy aaS pasuje |
 
 ## Compare — in-house vs aaS
 
 - **H2:** Własny zespół vs NIS2 jako usługa
 - **In-house:** ok. 38 644 zł/mc — 2–3 etaty, rekrutacja po 6 miesięcy, rotacja, licencje i narzędzia osobno
-- **aaS:** od 15 900 zł/mc — Zgodność, pentesty i SOC w jednej fakturze
+- **aaS:** od 23 256 zł/mc — Zgodność, pentesty i SOC w jednej fakturze
 - **Footnote:** Wg materiałów CyCommSec: ok. **61,4%** taniej niż typowy model własny. Metodologia (założenia TCO) dostępna na życzenie.
 
 ## FAQ (titles only — body expand in CMS)
@@ -142,9 +142,9 @@ Override do podglądu lokalnego: `?variant=<id>` (np. `?variant=gads-audyt`).
 | Incident reporting | 24h / 72h |
 | Size thresholds | 50+ employees or 10 mln EUR turnover |
 | Sectors | 18 (lista w FAQ) |
-| Audit from | 9 900 zł |
-| Implementation from | 24 900 zł |
-| NIS2 aaS from | 15 900 zł / month |
+| Audit from | 29 000 zł |
+| Implementation from | 74 000 zł |
+| NIS2 aaS from | 23 256 zł/mc (Basic); Rekomendowany 26 900, Pełny 33 264 |
 | In-house benchmark | ~38 644 zł / month |
 | Cost reduction claim | 61,4% vs in-house (materiały CyCommSec) |
 | Typical implementation | 6–18 months; wersja przyspieszona ~6 months |

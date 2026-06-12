@@ -16,19 +16,15 @@ Content writer (Julia)
    ↓
 Sebastian
    │
-   ├── 03-sync-copy-to-wireframes.md  →  wireframes/wireframe.html + designs/*.html
-   │   (sync VARIANTS z copy/ do JS)
-   │
-   ├── 04-build-new-design.md  →  designs/design-<name>.html
-   │   (re-skin w nowym języku wizualnym, ten sam JS contract)
+   └── 03-sync-copy-to-wireframes.md  →  landing/src/content/variants.ts
+       (sync SPECS z copy/ do aplikacji)
 ```
 
 ## Pliki
 
 - **[01-generate-copy-from-persona.md](01-generate-copy-from-persona.md)** — Julia używa: bierze personę z [personas/](../personas/), generuje treść do [copy/](../copy/).
 - **[02-humanize-copy.md](02-humanize-copy.md)** — Julia używa: drugi pass humanizera (em-dashy, anglicyzmy, AI vocabulary out).
-- **[03-sync-copy-to-wireframes.md](03-sync-copy-to-wireframes.md)** — Sebastian używa: synchronizuje markdown copy do obiektu `VARIANTS` w plikach HTML.
-- **[04-build-new-design.md](04-build-new-design.md)** — Sebastian używa: tworzy nowy `designs/design-<name>.html` w nowym stylu (zachowuje JS contract).
+- **[03-sync-copy-to-wireframes.md](03-sync-copy-to-wireframes.md)** — Sebastian używa: synchronizuje markdown copy do `SPECS` w `landing/src/content/variants.ts`.
 
 ## Jak wywołać prompt
 
@@ -46,5 +42,5 @@ Użyj `prompts/02-humanize-copy.md` na wszystkich plikach w `copy/`.
 ## Reguły dla wszystkich promptów
 
 - **Fakty są nietykalne** — kwoty, daty, progi, terminy. Lista w [copy/_shared.md](../copy/_shared.md) → Facts & constraints.
-- **Humanizer obowiązkowy** dla wszystkiego user-facing — [.cursor/skills/humanizer/SKILL.md](../.cursor/skills/humanizer/SKILL.md) + [.cursor/rules/humanizer.mdc](../.cursor/rules/humanizer.mdc) (auto-enforce dla `*.html`).
-- **Kontrakt JS** zachowany w plikach HTML — lista wymaganych ID/funkcji w [prompts/03-sync-copy-to-wireframes.md](03-sync-copy-to-wireframes.md).
+- **Humanizer obowiązkowy** dla wszystkiego user-facing — [.cursor/skills/humanizer/SKILL.md](../.cursor/skills/humanizer/SKILL.md) + [.cursor/rules/humanizer.mdc](../.cursor/rules/humanizer.mdc).
+- **Copy trafia do aplikacji wyłącznie przez** `landing/src/content/variants.ts` — żadnych tekstów na sztywno w komponentach.

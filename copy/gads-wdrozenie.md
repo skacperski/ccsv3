@@ -11,15 +11,15 @@ secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/gads-wdrozenie.md
 ---
 
-# Copy — `gads-wdrozenie` (Google Ads · intencja: pełne wdrożenie od 24 900 zł)
+# Copy — `gads-wdrozenie` (Google Ads · intencja: pełne wdrożenie od 74 000 zł)
 
 Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** Wdrożenie NIS2 w firmie od 24 900 zł
+- **H1:** Wdrożenie NIS2 w firmie od 74 000 zł
 - **Sub:** Przygotowujemy polityki, procedury, zabezpieczenia techniczne, szkolenia dla zarządu oraz dokumentację wymaganą przez KSC. Wszystko w oparciu o konkretne dowody i wymagania, które mogą zostać zweryfikowane podczas kontroli.
-- **Stats:** od 24 900 zł · 6–18 miesięcy · wersja przyspieszona w ok. 6 mies.
+- **Stats:** od 74 000 zł (projekt) · BCP + ryzyko ICT + incydenty · potem abonament od 23 256 zł/mc
 - **CTA primary:** Sprawdź, czy wdrożenie pasuje
 - **Micro:** Wypełnij krótką ankietę, a pomożemy określić zakres wdrożenia. Wycena powstaje na podstawie wyników audytu, a nie gotowego cennika.
 
@@ -44,7 +44,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Pricing
 
-- **Lead:** Po wypełnieniu ankiety przygotujemy propozycję wdrożenia od 24 900 zł. Zakres prac jest dopasowany do wyników audytu, a harmonogram obejmuje okres od 6 do 18 miesięcy.
+- **Lead:** Wdrożenie regulacji to projekt od 74 000 zł. Zakres dopasowujemy do wyników analizy luki.
 - **Card CTAs:** audit: `Nie macie audytu? Zacznij tu` · impl: `Sprawdź zakres wdrożenia` · aas: `Porównaj z usługą miesięczną`
 
 ## Final

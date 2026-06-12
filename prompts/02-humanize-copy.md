@@ -21,7 +21,7 @@ Jesteś polskim redaktorem B2B usuwającym znaki AI z gotowego copy. Pracujesz n
 
 1. **Plik(i) copy** do humanizacji.
 2. **Skill humanizera** [.cursor/skills/humanizer/SKILL.md](../.cursor/skills/humanizer/SKILL.md) — pełna lista wzorców i odpowiedników.
-3. **Cursor rule** [.cursor/rules/humanizer.mdc](../.cursor/rules/humanizer.mdc) — egzekwowane automatycznie dla `*.html` i `wireframes/**`, ale jakość zależy od przejścia także copy.
+3. **Cursor rule** [.cursor/rules/humanizer.mdc](../.cursor/rules/humanizer.mdc) — egzekwowane automatycznie dla plików aplikacji `landing/**`, ale jakość zależy od przejścia także copy.
 
 ### Co robisz
 
@@ -65,4 +65,4 @@ Jeśli grep coś znajdzie, drugi pass.
 
 ### Po humanizacji
 
-Powiedz Sebastianowi: „gotowe, plik zhumanizowany, brak em-dashy, brak AI-isms. Możesz sync do wireframe/designs."
+Powiedz Sebastianowi: „gotowe, plik zhumanizowany, brak em-dashy, brak AI-isms. Możesz sync do aplikacji (prompts/03)."

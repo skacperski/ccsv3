@@ -8,8 +8,8 @@ Treść strony landing page NIS2/KSC — **jeden plik na wariant kampanii reklam
 - **9 plików per-persona** — dynamiczne sekcje (hero, risk, service H2+sub, proof, pricing lead, card CTAs, final) per kampania:
   - [gads-kary.md](gads-kary.md) — Google Ads · kary KSC
   - [gads-podlegam.md](gads-podlegam.md) — Google Ads · czy podlegam pod NIS2
-  - [gads-audyt.md](gads-audyt.md) — Google Ads · audyt od 9 900 zł
-  - [gads-wdrozenie.md](gads-wdrozenie.md) — Google Ads · wdrożenie od 24 900 zł
+  - [gads-audyt.md](gads-audyt.md) — Google Ads · analiza luki od 29 000 zł
+  - [gads-wdrozenie.md](gads-wdrozenie.md) — Google Ads · wdrożenie od 74 000 zł
   - [gads-aas.md](gads-aas.md) — Google Ads · NIS2 jako usługa
   - [li-ceo.md](li-ceo.md) — LinkedIn · zarząd
   - [li-ciso.md](li-ciso.md) — LinkedIn · CISO / IT
@@ -20,8 +20,8 @@ Treść strony landing page NIS2/KSC — **jeden plik na wariant kampanii reklam
 
 1. **Generowanie:** [prompts/01-generate-copy-from-persona.md](../prompts/01-generate-copy-from-persona.md)
 2. **Humanizacja:** [prompts/02-humanize-copy.md](../prompts/02-humanize-copy.md)
-3. **Sync do HTML:** [prompts/03-sync-copy-to-wireframes.md](../prompts/03-sync-copy-to-wireframes.md)
+3. **Sync do aplikacji:** [prompts/03-sync-copy-to-wireframes.md](../prompts/03-sync-copy-to-wireframes.md)
 
 ## Mapowanie
 
-Każdy plik copy ma odpowiadającą personę w [personas/](../personas/) i jest wczytywany jako variant w [wireframes/wireframe.html](../wireframes/wireframe.html) + każdym [designs/design-*.html](../designs/).
+Każdy plik copy ma odpowiadającą personę w [personas/](../personas/) i jest wczytywany jako wariant w `landing/src/content/variants.ts` (rozwiązanie przez `?variant=<id>` / `?utm_campaign=<campaign>`).

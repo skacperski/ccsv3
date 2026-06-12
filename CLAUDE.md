@@ -4,19 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A **content + build lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). [copy/](copy/) and [personas/](personas/) are the source of truth for all copy. The production page is built as a **React app in [wireframes/](wireframes/)** (Vite + React 18 + TypeScript + Tailwind v3 + Relume components) and deployed **directly to Vercel. No Webflow.**
+A **content + build lab** for the CyCommSec **NIS2 / KSC 2026 paid landing page** (Polish B2B cybersecurity compliance). [copy/](copy/) and [personas/](personas/) are the source of truth for all copy. The production page is built as a **React app in [landing/](landing/)** (Vite 8 + React 19 + Tailwind CSS v4 + GSAP) and deployed **directly to Vercel. No Webflow.**
+
+The design + components were integrated from the handoff repo `heyfeelings-official/CCS-Claude-code-test` (commit `1c48bf6`); copy is wired to this repo's variant system.
 
 The repo is split by **artifact type**, not by feature:
 
 ```
 copy/        — markdown content, one file per ad campaign variant + _shared.md
 personas/    — decision-maker profiles, one per campaign (input for content writer)
-prompts/     — workflow prompts the team gives the agent
-wireframes/  — production React app (Vite + TypeScript + Tailwind v3 + Relume)
-docs/        — relume.md (stack notes) and other internal docs
-assets/      — shared static assets
+prompts/     — workflow prompts the team gives the agent (01 copy, 02 humanize, 03 sync)
+landing/     — production React app (Vite 8 + React 19 + Tailwind v4 + GSAP)
 .cursor/     — rules + skills (humanizer is mandatory for user-facing text)
-vercel.json  — Vercel config (cleanUrls, wireframes/ as root)
+vercel.json  — Vercel config (cleanUrls, landing/ as root)
 ```
 
 ## Team workflow
@@ -24,7 +24,7 @@ vercel.json  — Vercel config (cleanUrls, wireframes/ as root)
 Two people work on this repo:
 
 - **Julia (content writer, GitHub: xxtszzxx)** — owns [personas/](personas/) and [copy/](copy/). Uses [prompts/01-generate-copy-from-persona.md](prompts/01-generate-copy-from-persona.md) and [prompts/02-humanize-copy.md](prompts/02-humanize-copy.md).
-- **Sebastian (dev)** — owns [wireframes/](wireframes/). Uses [prompts/03-sync-copy-to-wireframes.md](prompts/03-sync-copy-to-wireframes.md).
+- **Sebastian (dev)** — owns [landing/](landing/). Uses [prompts/03-sync-copy-to-wireframes.md](prompts/03-sync-copy-to-wireframes.md).
 
 Flow:
 
@@ -35,7 +35,7 @@ personas/<id>.md  →  prompts/01  →  copy/<id>.md  →  prompts/02 (humanize)
                                     prompts/03 (sync)
                                          │
                                          ↓
-                            wireframes/src/content/variants.ts
+                            landing/src/content/variants.ts
 ```
 
 ## The 9 ad variants
@@ -58,90 +58,88 @@ Static sections shared across all variants: [copy/_shared.md](copy/_shared.md).
 
 ## Content contract (TypeScript)
 
-The React app in [wireframes/](wireframes/) uses a typed content contract:
+The React app in [landing/](landing/) uses a typed content contract:
 
 - **Source of truth:** `copy/<variant>.md` + `copy/_shared.md`
-- **Target:** `wireframes/src/content/variants.ts` (the `SPECS` array, one entry per variant)
-- **Types:** `wireframes/src/content/types.ts`
+- **Target:** `landing/src/content/variants.ts` (the `SPECS` array, one entry per variant)
+- **Types:** `landing/src/content/types.ts`
 
 Per-variant dynamic fields in `VariantSpec`:
 
 ```ts
 {
   id, label, channel, campaign,
-  scopeMode: "full" | "compact",
   hideCompare: boolean,
   featuredCard: "card-audit" | "card-impl" | "card-aas",
-  ctaUnified: string,        // hero CTA, nav CTA, final CTA
+  ctaUnified: string,        // hero CTA, nav CTA, risk CTA tile, final CTA
   hero: { h1, sub, stats: [string,string,string], micro },
-  risk: { h2, lead, cards: string[] },
+  // risk cards: plain strings (body-only tiles) or { title, body };
+  // optional cta overrides the shared "Ankieta" tile body
+  risk: { h2, lead, cards: (string | { title, body })[], cta?: { title, body } },
   service: { h2, sub },
-  proof: { quote, attribution },
-  pricing: { lead, ctas: { audit, impl, aas } },
-  final: { h2, sub }
+  pricing: { lead, ctas: { audit, impl, aas } },  // per-card CTA labels — rendered
+  final: { h2, sub },
+  seo: { title, description }
 }
 ```
 
-Shared (constant across variants): pillars, steps, timeline milestones, compare rows, FAQ items, footer.
+Shared (constant across variants, edited in `variants.ts`): nav links, logo wall, timeline milestones, pillars, steps, proof stats + testimonials, pricing card structure (names/prices/features + per-card `action`: `card-audit` → survey, `card-impl`/`card-aas` → Calendly), compare table + TCO breakdown, FAQ items, experts, legal notes, footer.
 
-`SurveySection` receives `surveyCtaLabel={content.hero.ctaPrimary}` — the survey section header is dynamic and white, matching the hero CTA of each variant.
+`Survey` receives `surveyCtaLabel={content.hero.ctaPrimary}` — the survey section kicker matches the hero CTA of each variant. The `scope` section from the old design no longer exists.
 
 ## Copy sync process
 
-When Julia updates `copy/`, sync to the wireframe (`prompts/03-sync-copy-to-wireframes.md`):
+When Julia updates `copy/`, sync to the app (`prompts/03-sync-copy-to-wireframes.md`):
 
 1. Read all 9 `copy/<variant>.md` files + `copy/_shared.md`
-2. Map each field **verbatim** to the matching field in the `SPECS` array in `wireframes/src/content/variants.ts`:
+2. Map each field **verbatim** to the matching field in the `SPECS` array in `landing/src/content/variants.ts`:
 
 | copy.md section | SPECS field |
 |---|---|
 | `## Hero → H1` | `hero.h1` |
 | `## Hero → Sub` | `hero.sub` |
 | `## Hero → Stats` (parse `X · Y · Z`) | `hero.stats` (3-element array) |
-| `## Hero → CTA primary` | `ctaUnified` (also nav + final) |
+| `## Hero → CTA primary` | `ctaUnified` (also nav + risk CTA tile + final) |
 | `## Hero → Micro` | `hero.micro` |
 | `## Risk → H2 / Lead / Bullets` | `risk.h2 / risk.lead / risk.cards` |
 | `## Service override → H2 / Sub` | `service.h2 / service.sub` |
-| `## Proof` (quote) | `proof.quote` |
-| `## Proof` (attribution line) | `proof.attribution` |
-| `## Pricing → Lead` | `pricing.lead` |
-| `## Pricing → Card CTAs` | `pricing.ctas.{ audit, impl, aas }` — **vestigial, not rendered** (see below) |
+| `## Pricing → Lead` | `pricing.lead` (rendered as `processNote`) |
+| `## Pricing → Card CTAs` | `pricing.ctas.{ audit, impl, aas }` — **rendered on cards** |
 | `## Final → H2 / Sub` | `final.h2 / final.sub` |
-| frontmatter `scopeMode` | `scopeMode` |
 | frontmatter `hideCompare` | `hideCompare` |
 | frontmatter `featuredCard` | `featuredCard` |
 
 3. **Do not shorten or edit Julia's copy.** If a field has no matching component, add it to `types.ts` and the relevant JSX component.
-
-> **Pricing card CTAs are hardcoded** in `Pricing20.jsx` — the featured card always shows "Oceń swoją gotowość" (→ survey scroll) and the other two show "Umów rozmowę" (→ Calendly popup). The `ctas` fields in `VariantSpec`/copy files are no longer rendered; keep them for copy-file completeness but don't wire them to UI.
-4. Update shared data from `_shared.md` if changed: pillar bodies, step titles/bodies, FAQ question titles (keep existing answers), pricing card names/features.
-5. Run `cd wireframes && npm run dev` and walk all 9 variants via `?variant=<id>` to verify.
+4. Update shared data from `_shared.md` if changed: pillar bodies, step titles/bodies, FAQ question titles (keep existing answers), pricing card names/prices/features.
+5. Run `cd landing && npm run dev` and walk all 9 variants via `?variant=<id>` to verify.
 
 ## Facts that cannot change without legal review
 
-KSC signature 19 February 2026 · fines up to 10 mln EUR / 2% turnover (essential) and 7 mln EUR / 1.4% (important) · thresholds 50+ FTE or 10 mln EUR turnover · 24h/72h incident reporting · 18 sectors · audit from 9 900 zł · implementation from 24 900 zł · aaS from 15 900 zł/mc · in-house benchmark ~38 644 zł/mc · 61.4% reduction claim.
+KSC signature 19 February 2026 · fines up to 10 mln EUR / 2% turnover (essential) and 7 mln EUR / 1.4% (important) · thresholds 50+ FTE or 10 mln EUR turnover · 24h/72h incident reporting · 18 sectors · gap analysis from 29 000 zł · implementation from 74 000 zł · compliance subscription from 23 256 zł/mc (Basic; Rekomendowany 26 900, Pełny 33 264) · in-house benchmark ~38 644 zł/mc.
 
 Full list: [copy/_shared.md](copy/_shared.md) → Facts & constraints.
 
 ## Skills + rules
 
 - **`/humanize`** ([.claude/commands/humanize.md](.claude/commands/humanize.md)) — mandatory pass on every user-facing string. Strip em dashes, AI vocabulary ("kompleksowy", "kluczowy", "umożliwia"), forced rule-of-three, anglicisms. Also available for Cursor: [.cursor/skills/humanizer/SKILL.md](.cursor/skills/humanizer/SKILL.md).
-- **`/landing-pages`** ([.claude/commands/landing-pages.md](.claude/commands/landing-pages.md)) — Unbounce/Copyhackers/CXL playbook for new LP planning.
+- **`/generate-copy`** ([.claude/commands/generate-copy.md](.claude/commands/generate-copy.md)) — write `copy/<variant>.md` from a persona file (Julia's workflow).
+- **`/sync-copy`** ([.claude/commands/sync-copy.md](.claude/commands/sync-copy.md)) — sync copy files to `landing/src/content/variants.ts` (Sebastian's workflow).
+- **`/add-tracking`** ([.claude/commands/add-tracking.md](.claude/commands/add-tracking.md)) — add GTM + dataLayer events to the landing app.
 
 ## Vercel deployment
 
 - **Production URL:** https://ccsv3.vercel.app
-- **Stack:** [wireframes/](wireframes/) → Vite build → `dist/` → Vercel
-- **Config:** `vercel.json` — `installCommand: npm ci --prefix wireframes`, `buildCommand: npm run build --prefix wireframes`, `outputDirectory: wireframes/dist`
+- **Stack:** [landing/](landing/) → Vite build → `dist/` → Vercel
+- **Config:** `vercel.json` — `installCommand: npm ci --prefix landing`, `buildCommand: npm run build --prefix landing`, `outputDirectory: landing/dist`
 
-## Wireframes stack
+## Landing stack
 
-[wireframes/](wireframes/) is a **Vite + React 18 + TypeScript + Tailwind v3** app. Section components (Hero, Pricing, FAQ…) are copy-pasted from relume.io into `wireframes/src/relume-page/components/` — the npm package (`@relume_io/relume-ui`) ships only primitives, not full sections. Deploy goes directly to Vercel.
+[landing/](landing/) is a **Vite 8 + React 19 + Tailwind CSS v4 + GSAP** app (no Relume, no tailwind.config — Tailwind v4 theme lives in `src/index.css` under `@theme`). Animations: `@gsap/react` + ScrollTrigger via `src/hooks/useReveal.js` (`[data-reveal]` / `[data-reveal-group]` attributes) and `src/lib/gsap.js`. Calendly popup util in `src/lib/calendly.js` (widget script loaded in `index.html`). Survey decision-tree engine in `src/survey.js`. Fonts: IBM Plex Sans + IBM Plex Mono (Google Fonts).
 
 ## How to run / validate
 
 ```bash
-cd wireframes
+cd landing
 npm install       # first time only
 npm run dev       # http://localhost:5173
 
@@ -149,11 +147,10 @@ npm run dev       # http://localhost:5173
 open "http://localhost:5173?variant=li-ceo"
 open "http://localhost:5173?utm_campaign=nis2-managed"
 
-# Type-check + build
-npm run build
+npm run build     # production build (no type-check step)
 ```
 
-Walk all 9 variants via the VariantSwitcher panel. Dynamic sections (hero, risk, service, proof, pricing lead, card CTAs, final) must update; static sections (how, faq, footer) must not.
+Walk all 9 variants via the **VariantBar** (fixed bar at the bottom of the page, `src/components/VariantBar.jsx`) or `?variant=<id>` URLs. Dynamic sections (hero, risk, service header, pricing processNote + card CTAs, final, SEO title) must update; static sections (logos, timeline, how, quotes, faq, footer) must not. `hideCompare: true` variants (gads-kary, gads-podlegam, li-ceo) must not render the compare table.
 
 ## Production placeholders (hard-block before deploy)
 
@@ -161,12 +158,18 @@ Walk all 9 variants via the VariantSwitcher panel. Dynamic sections (hero, risk,
 
 ## Adding artifacts
 
-- **New variant** — new `personas/<id>.md` + `copy/<id>.md` + entry in `SPECS` in `wireframes/src/content/variants.ts` + new `VariantId` in `types.ts`. Requires approval (tied to live ad campaigns).
-- **New section / field** — add to `types.ts`, update `build()` in `variants.ts`, add component in `wireframes/src/relume-page/components/`, wire into `wireframes/src/relume-page/index.jsx`.
+- **New variant** — new `personas/<id>.md` + `copy/<id>.md` + entry in `SPECS` in `landing/src/content/variants.ts` + new `VariantId` in `types.ts`. Requires approval (tied to live ad campaigns).
+- **New section / field** — add to `types.ts`, update `build()` in `variants.ts`, add component in `landing/src/components/`, wire into `landing/src/App.jsx`.
 
 ## Key component notes
 
-- **`Layout518`** (risk section) — desktop: sticky 240vh scroll-pin with framer-motion cards sliding in from right; mobile: static. Last card settles at ~0.95 scroll progress so section releases immediately after.
-- **`Pricing20`** — featured card CTA hardcoded to `"Oceń swoją gotowość"` (survey); others to `"Umów rozmowę"` (Calendly popup via `CalendarCtaButton`). CTAs from content are ignored.
-- **`SurveySection`** — kicker text sourced from `hero.ctaPrimary` (dynamic, white). Survey engine in `wireframes/src/relume-page/survey/nis2Survey.js`; Calendly util in `wireframes/src/relume-page/utils/calendly.js`.
-- **`TimelineSection`** — sits between risk and service sections; shared across all variants (data in `TIMELINE` constant in `variants.ts`).
+- **`Hero`** — full-viewport, background image `/bg/main-bg.png`, GSAP fade-in; renders nav brand logo (`/ccs-logo-white.svg`).
+- **`Risk`** — kicker-left/heading-right grid; cards accept optional `title` (variant copy may be body-only); last tile is the purple CTA card (`risk.cta`, label = `ctaUnified`).
+- **`Pricing`** — per-card CTA labels from content; `card.action` decides behavior: `"survey"` scrolls to `#ankieta`, `"calendly"` opens the popup. Featured card (`pricing.featuredCard` per variant) gets the badge + purple highlight.
+- **`Survey`** — kicker from `hero.ctaPrimary`; engine in `src/survey.js` (`QUESTIONS`, `RESULTS`, `computeFinalResult`); renders experts (`final.experts`, photos in `public/experts/`), legal notes and the `Footer`.
+- **`Quotes`** — 3 testimonial cards + stats tile (`proof.stats`); 4th testimonial currently unused by layout.
+
+## Known gaps (after the design integration)
+
+- **No GTM/dataLayer tracking** — the old wireframes app emitted `cta_survey`, `calendar_open`, `survey_*` events; the integrated components don't. Port `tracking` if campaigns need it (old spec in git history: `docs/tracking.md`).
+- **`copy/_shared.md` still lists the old prices** (9 900 / 24 900 / 15 900 zł) while the app ships the approved new ones (29 000 / 74 000 / 23 256 zł) — copy files need Julia's re-sync before being treated as source of truth for pricing.

@@ -44,7 +44,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Pricing
 
-- **Lead:** Pierwszym krokiem jest kwalifikacja i ocena sytuacji firmy. Następnie możesz skorzystać z audytu zakończonego raportem dla zarządu od 9 900 zł.
+- **Lead:** Pierwszym krokiem jest kwalifikacja i analiza luki (projekt od 29 000 zł). Raport dla zarządu to efekt etapu 01 ścieżki współpracy.
 - **Card CTAs:** audit: `Pobierz raport dla zarządu` · impl: `Sprawdź zakres` · aas: `Sprawdź zakres`
 
 ## Final

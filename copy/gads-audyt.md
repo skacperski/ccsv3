@@ -11,15 +11,15 @@ secondaryCta: "Wolisz rozmowę? Pokaż kalendarz"
 persona: personas/gads-audyt.md
 ---
 
-# Copy — `gads-audyt` (Google Ads · intencja: ocena gotowości od 9 900 zł)
+# Copy — `gads-audyt` (Google Ads · intencja: analiza luki od 29 000 zł)
 
 Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Hero
 
-- **H1:** Sprawdź gotowość firmy do NIS2. Audyt od 9 900 zł.
+- **H1:** Sprawdź gotowość firmy do NIS2. Analiza luki od 29 000 zł.
 - **Sub:** Analizujemy wymagania prawne i techniczne związane z KSC. Otrzymujesz raport oraz plan działań na najbliższe 90 dni: polityki, pentesty, zabezpieczenia środowiska i kolejne kroki. Bez ogólnych checklist i dokumentów, które później trafiają do szuflady.
-- **Stats:** od 9 900 zł (ocena gotowości) · od 24 900 zł (wdrożenie) · 6–18 mies. (realizacja)
+- **Stats:** od 29 000 zł (analiza luki) · od 74 000 zł (wdrożenie) · od 23 256 zł/mc (abonament)
 - **CTA primary:** Sprawdź gotowość w 2 minuty
 - **Micro:** Po ankiecie możesz od razu zobaczyć wynik online lub umówić rozmowę w ciągu 48h.
 
@@ -44,7 +44,7 @@ Statyczne sekcje: [_shared.md](_shared.md).
 
 ## Pricing
 
-- **Lead:** Ocena gotowości zaczyna się od 9 900 zł. Krótka ankieta pozwoli określić zakres prac dla Twojej firmy i przygotować odpowiednią wycenę.
+- **Lead:** Analiza luki i ocena dojrzałości to projekt od 29 000 zł. Ankieta pomoże określić, czy zaczynacie od tego etapu.
 - **Card CTAs:** audit: `Sprawdź gotowość w 2 min` · impl: `Sprawdź zakres w 2 min` · aas: `Sprawdź, czy aaS pasuje`
 
 ## Final

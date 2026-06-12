@@ -81,4 +81,4 @@ Patrz istniejące pliki: [copy/gads-kary.md](../copy/gads-kary.md), [copy/li-cis
 
 ### Następny krok (Sebastian)
 
-Po wygenerowaniu copy Sebastian poprosi agenta o sync do `wireframes/wireframe.html` i `designs/design-*.html` (osobny prompt: `prompts/03-sync-copy-to-wireframes.md`).
+Po wygenerowaniu copy Sebastian poprosi agenta o sync do `landing/src/content/variants.ts` (osobny prompt: `prompts/03-sync-copy-to-wireframes.md`).

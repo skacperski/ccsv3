@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm ci --prefix wireframes",
-  "buildCommand": "npm run build --prefix wireframes",
-  "outputDirectory": "wireframes/dist",
+  "installCommand": "npm ci --prefix landing",
+  "buildCommand": "npm run build --prefix landing",
+  "outputDirectory": "landing/dist",
   "framework": "vite",
   "cleanUrls": true,
   "trailingSlash": false

@@ -2,8 +2,7 @@
 description: Zawsze humanizuj copy marketingowe i treści LP przed publikacją
 globs:
   - "**/*.html"
-  - "**/wireframes/**"
-  - "**/landing-pages/**"
+  - "**/landing/**"
 alwaysApply: true
 ---
 
