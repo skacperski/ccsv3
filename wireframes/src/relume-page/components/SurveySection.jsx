@@ -107,7 +107,9 @@ export function SurveySection({ final, surveyCtaLabel }) {
 
   const submitContact = () => {
     if (!canSubmitContact) return;
-    track("survey_submit", { result: resultId });
+    // Email znormalizowany dla Enhanced Conversions w GTM (tag czyta {{DLV - email}}).
+    const email = contact.email.trim().toLowerCase();
+    track("survey_submit", { result: resultId, email });
     track("survey_result", { result: resultId });
     console.log("Survey submit:", { answers, contact, result: resultId });
     setPhase("result");
