@@ -1541,27 +1541,8 @@
         ]
       }
     ],
-    "builtInVariable": [
-      {
-        "accountId": "0000000000",
-        "containerId": "00000000",
-        "type": "EVENT_NAME",
-        "name": "Event"
-      },
-      {
-        "accountId": "0000000000",
-        "containerId": "00000000",
-        "type": "PAGE_URL",
-        "name": "Page URL"
-      },
-      {
-        "accountId": "0000000000",
-        "containerId": "00000000",
-        "type": "PAGE_PATH",
-        "name": "Page Path"
-      }
-    ],
     "fingerprint": "0",
-    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/0000000000/containers/00000000/versions/0?apiLink=version"
+    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/0000000000/containers/00000000/versions/0?apiLink=version",
+    "folder": []
   }
 }
