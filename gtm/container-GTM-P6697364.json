@@ -871,32 +871,6 @@
             "type": "BOOLEAN",
             "key": "enableConversionLinker",
             "value": "true"
-          },
-          {
-            "type": "BOOLEAN",
-            "key": "enableEnhancedConversion",
-            "value": "true"
-          },
-          {
-            "type": "LIST",
-            "key": "enhancedConversionUserData",
-            "list": [
-              {
-                "type": "MAP",
-                "map": [
-                  {
-                    "type": "TEMPLATE",
-                    "key": "userDataField",
-                    "value": "email"
-                  },
-                  {
-                    "type": "TEMPLATE",
-                    "key": "userDataValue",
-                    "value": "{{DLV - email}}"
-                  }
-                ]
-              }
-            ]
           }
         ],
         "fingerprint": "0",
