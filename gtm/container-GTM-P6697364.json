@@ -74,9 +74,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -134,9 +134,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -179,9 +179,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -254,9 +254,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -314,9 +314,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -374,9 +374,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -434,9 +434,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -479,9 +479,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -539,9 +539,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -599,9 +599,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -659,9 +659,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -719,9 +719,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
@@ -779,9 +779,9 @@
         "type": "gaawe",
         "parameter": [
           {
-            "type": "TAG_REFERENCE",
-            "key": "measurementId",
-            "value": "1"
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{Const - GA4 Measurement ID}}"
           },
           {
             "type": "TEMPLATE",
