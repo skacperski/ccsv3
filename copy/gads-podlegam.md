@@ -31,7 +31,7 @@ Statyczne sekcje: [_shared.md](_shared.md). Uwaga: `scopeMode: compact` — sekc
   -Działasz w jednym z sektorów objętych NIS2.
   - Zatrudniasz co najmniej 50 osób lub osiągasz 10 mln EUR obrotu.
   - Brak procedur zgłaszania incydentów w terminach 24h i 72h może oznaczać naruszenie obowiązków.
-  - KSC obowiązuje od 19 lutego 2026 roku.
+  - KSC obowiązuje od 3 kwietnia 2026 roku.
 
 ## Service override
 

@@ -18,8 +18,8 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Hero
 
 - **H1:** Kary za NIS2 mogą sięgnąć 10 mln EUR. Czy Twoja firma podlega pod nowe przepisy?
-- **Sub:** Nowelizacja KSC obowiązuje od 19 lutego 2026 roku. Jeśli Twoja firma podlega pod NIS2, musi wdrożyć odpowiednie zabezpieczenia i zgłaszać incydenty w terminie 24h lub 72h. Za brak zgodności grozi kara do 10 mln EUR albo 2% rocznego obrotu. Odpowiedzialność może dotyczyć również członków zarządu.
-- **Stats:** do 10 mln EUR (kara) · 24h/72h (na zgłoszenie incydentu) · obowiązek od 19.02.2026
+- **Sub:** Nowelizacja KSC obowiązuje od 3 kwietnia 2026 roku. Jeśli Twoja firma podlega pod NIS2, musi wdrożyć odpowiednie zabezpieczenia i zgłaszać incydenty w terminie 24h lub 72h. Za brak zgodności grozi kara do 10 mln EUR albo 2% rocznego obrotu. Odpowiedzialność może dotyczyć również członków zarządu.
+- **Stats:** do 10 mln EUR (kara) · 24h/72h (na zgłoszenie incydentu) · obowiązek od 03.04.2026
 - **CTA primary:** Sprawdź ryzyko w 2 minuty
 - **Micro:** Bez zobowiązań, otrzymasz raport dla zarządu napisany prostym językiem, bez technicznego żargonu.
 

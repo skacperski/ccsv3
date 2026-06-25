@@ -18,8 +18,8 @@ Statyczne sekcje: [_shared.md](_shared.md).
 ## Hero
 
 - **H1:** Za zgodność z KSC odpowiada zarząd, nie tylko dział IT.
-- **Sub:** Od 19 lutego 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.
-- **Stats:** osobista odpowiedzialność zarządu · obowiązuje od 19 lutego 2026 · wynik na 1 stronie
+- **Sub:** Od 3 kwietnia 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.
+- **Stats:** osobista odpowiedzialność zarządu · obowiązuje od 3 kwietnia 2026 · wynik na 1 stronie
 - **CTA primary:** Pobierz raport dla zarządu
 - **Micro:** Wynik na jednej stronie, przygotowany z myślą o zarządzie.
 

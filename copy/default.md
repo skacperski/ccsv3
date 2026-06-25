@@ -19,14 +19,14 @@ Statyczne sekcje: [_shared.md](_shared.md). Fallback gdy brak dopasowania `utm_c
 
 - **H1:** NIS2 i KSC 2026. Sprawdź, jakie obowiązki dotyczą Twojej firmy
 - **Sub:** Audyt, wdrożenie i utrzymanie zgodności w jednym miejscu. Zacznij od krótkiej ankiety, aby sprawdzić, czy Twoja organizacja podlega pod NIS2 i jakie działania warto zaplanować w pierwszej kolejności.
-- **Stats:** KSC od 19 lutego 2026 · 18 sektorów objętych · kary do 10 mln EUR
+- **Stats:** KSC od 3 kwietnia 2026 · 18 sektorów objętych · kary do 10 mln EUR
 - **CTA primary:** Sprawdź w 2 minuty
 - **Micro:** Pierwszy krok jest bezpłatny i nie zobowiązuje do dalszej współpracy. Wynik otrzymasz e-mailem.
 
 ## Risk
 
 - **H2:** Co zmienia nowelizacja KSC?
-- **Lead:** Od 19 lutego 2026 roku wymagania wynikające z NIS2 obowiązują również w polskim porządku prawnym. Wiele firm nadal nie ma pewności, czy nowe przepisy ich dotyczą i jakie działania należy podjąć, aby spełnić wymagania.
+- **Lead:** Od 3 kwietnia 2026 roku wymagania wynikające z NIS2 obowiązują również w polskim porządku prawnym. Wiele firm nadal nie ma pewności, czy nowe przepisy ich dotyczą i jakie działania należy podjąć, aby spełnić wymagania.
 - **Bullets:**
   - Obowiązki obejmują 18 sektorów oraz organizacje zatrudniające co najmniej 50 osób lub osiągające 10 mln EUR obrotu rocznie.
   - Incydenty należy zgłaszać w terminach 24h i 72h, dlatego odpowiednie procedury powinny być przygotowane wcześniej.

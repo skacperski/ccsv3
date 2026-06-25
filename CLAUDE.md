@@ -115,7 +115,7 @@ When Julia updates `copy/`, sync to the app (`prompts/03-sync-copy-to-wireframes
 
 ## Facts that cannot change without legal review
 
-KSC signature 19 February 2026 · fines up to 10 mln EUR / 2% turnover (essential) and 7 mln EUR / 1.4% (important) · thresholds 50+ FTE or 10 mln EUR turnover · 24h/72h incident reporting · 18 sectors · gap analysis from 29 000 zł · implementation from 74 000 zł · compliance subscription from 23 256 zł/mc (Basic; Rekomendowany 26 900, Pełny 33 264) · in-house benchmark ~38 644 zł/mc.
+KSC signature 3 April 2026 · fines up to 10 mln EUR / 2% turnover (essential) and 7 mln EUR / 1.4% (important) · thresholds 50+ FTE or 10 mln EUR turnover · 24h/72h incident reporting · 18 sectors · gap analysis from 29 000 zł · implementation from 74 000 zł · compliance subscription from 23 256 zł/mc (Basic; Rekomendowany 26 900, Pełny 33 264) · in-house benchmark ~38 644 zł/mc.
 
 Full list: [copy/_shared.md](copy/_shared.md) → Facts & constraints.
 

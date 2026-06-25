@@ -32,7 +32,7 @@ Mapowanie wariantów: [personas/](../personas/) (jeden plik na kampanię).
 - **Bullets:**
   - Działacie w jednym z **18 sektorów** objętych NIS2 i KSC.
   - Macie **50 osób** albo **10 mln EUR obrotu** rocznie (albo jesteście podmiotem specjalnym, np. DNS, rejestr domen).
-  - Po nowelizacji KSC z lutego 2026 nikt wam jeszcze nie powiedział wprost, co i do kiedy.
+  - Po nowelizacji KSC z kwietnia 2026 nikt wam jeszcze nie powiedział wprost, co i do kiedy.
 
 ## Scope — compact mode (tylko `gads-podlegam`)
 
@@ -83,7 +83,7 @@ Sektor z listy NIS2, 50 osób albo 10 mln EUR obrotu? Po lutowej nowelizacji KSC
 
 ## FAQ (titles only — body expand in CMS)
 
-1. Co dokładnie zmienia KSC od lutego 2026?
+1. Co dokładnie zmienia KSC od kwietnia 2026?
 2. Mamy już ISO 27001 / SZBI — co z tego nam zostaje pod NIS2?
 3. Czy 50 osób to ma być etat, czy razem ze współpracownikami?
 4. Jakie kary realnie grożą zarządowi, nie tylko firmie?
@@ -136,7 +136,7 @@ Override do podglądu lokalnego: `?variant=<id>` (np. `?variant=gads-audyt`).
 
 | Fact | Value |
 |------|--------|
-| KSC signature date | 19 February 2026 |
+| KSC signature date | 3 April 2026 |
 | Max fine (essential entity) | up to 10 mln EUR or 2% turnover |
 | Max fine (important entity) | up to 7 mln EUR or 1.4% turnover |
 | Incident reporting | 24h / 72h |
