@@ -4,6 +4,7 @@ import { QUESTIONS, RESULTS, START_ID } from "../survey";
 import { Btn, CalendarCta } from "./ui";
 import { Footer } from "./Footer";
 import { openCalendly } from "../lib/calendly";
+import { track } from "../tracking";
 import { useReveal } from "../hooks/useReveal";
 
 const NAME_TITLES = new Set(["dr", "inż.", "inz.", "mgr", "prof.", "mgr."]);
@@ -42,11 +43,26 @@ function ExpertCard({ expert, ctaLabel, mirrored }) {
       <div className={`min-w-0 ${mirrored ? "flex flex-col items-end text-right" : ""}`}>
         <p className="font-medium text-white">{expert.name}</p>
         <p className="font-mono text-[12px] uppercase tracking-wide text-white/50">{expert.role}</p>
-        <p className="mt-2 text-sm text-white/70">{expert.phone}</p>
-        <p className="text-sm text-white/70">{expert.email}</p>
+        <a
+          href={`tel:${expert.phone.replace(/\s+/g, "")}`}
+          onClick={() => track("contact_phone", { person: expert.name })}
+          className="mt-2 block text-sm text-white/70 transition-colors hover:text-white"
+        >
+          {expert.phone}
+        </a>
+        <a
+          href={`mailto:${expert.email}`}
+          onClick={() => track("contact_email", { person: expert.name })}
+          className="block text-sm text-white/70 transition-colors hover:text-white"
+        >
+          {expert.email}
+        </a>
         <button
           type="button"
-          onClick={() => openCalendly()}
+          onClick={() => {
+            track("calendar_open", { location: "wynik" });
+            openCalendly();
+          }}
           className="mt-3 flex cursor-pointer items-center gap-1.5 font-mono text-[12px] uppercase tracking-wide text-white/60 transition-colors hover:text-white"
         >
           <span aria-hidden>↗</span>
@@ -134,6 +150,8 @@ export function Survey({ final, surveyCtaLabel, footer }) {
     if (advancing) return;
     setSelected(value);
     setAdvancing(true);
+    if (history.length === 0) track("survey_start");
+    track("survey_answer", { step: currentId, value });
     window.setTimeout(() => {
       const nextAnswers = { ...answers, [currentId]: value };
       setAnswers(nextAnswers);
@@ -142,6 +160,7 @@ export function Survey({ final, surveyCtaLabel, footer }) {
       if (nx && typeof nx === "object" && nx.result) {
         setResultId(nx.result);
         setPhase("contact");
+        track("survey_contact_view", { result: nx.result });
       } else {
         setCurrentId(nx);
         setSelected(nextAnswers[nx] ?? "");
@@ -169,11 +188,16 @@ export function Survey({ final, surveyCtaLabel, footer }) {
 
   const submitContact = () => {
     if (!canSubmitContact) return;
+    // GŁÓWNA KONWERSJA. Email znormalizowany pod Enhanced Conversions w GTM.
+    const email = contact.email.trim().toLowerCase();
+    track("survey_submit", { result: resultId, email });
+    track("survey_result", { result: resultId });
     setPhase("result");
     requestAnimationFrame(animateStep);
   };
 
   const restart = () => {
+    track("survey_restart");
     setPhase("survey");
     setCurrentId(START_ID);
     setHistory([]);
@@ -313,6 +337,7 @@ export function Survey({ final, surveyCtaLabel, footer }) {
           {phase === "result" && resultId && (
             <ResultCard
               result={RESULTS[resultId]}
+              resultId={resultId}
               calendarLabel={final.ctaSecondary}
               onRestart={restart}
             />
@@ -320,7 +345,7 @@ export function Survey({ final, surveyCtaLabel, footer }) {
 
           {phase !== "result" && (
             <div className="mt-12 pt-2 text-center">
-              <CalendarCta variant="link" className="text-[16px]">
+              <CalendarCta variant="link" location="ankieta" className="text-[16px]">
                 {final.ctaSecondary}
               </CalendarCta>
             </div>
@@ -346,7 +371,7 @@ export function Survey({ final, surveyCtaLabel, footer }) {
   );
 }
 
-function ResultCard({ result, calendarLabel, onRestart }) {
+function ResultCard({ result, resultId, calendarLabel, onRestart }) {
   const tone = TONES[result.tone];
   return (
     <div data-step className="mx-auto max-w-lg text-center">
@@ -360,8 +385,8 @@ function ResultCard({ result, calendarLabel, onRestart }) {
       <h3 className="tech-display mb-8 text-2xl leading-snug md:text-3xl">{result.heading}</h3>
 
       <div className="mb-10 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row">
-        <Btn>Pobierz raport PDF</Btn>
-        <CalendarCta variant="ghost">Umów konsultację</CalendarCta>
+        <Btn onClick={() => track("result_pdf", { result: resultId })}>Pobierz raport PDF</Btn>
+        <CalendarCta variant="ghost" location="wynik">Umów konsultację</CalendarCta>
       </div>
 
       <div className="mx-auto grid max-w-md grid-cols-1 gap-10 text-left md:max-w-none md:grid-cols-2">
@@ -394,7 +419,7 @@ function ResultCard({ result, calendarLabel, onRestart }) {
       </div>
 
       <div className="mt-12 flex flex-col items-center gap-3 pt-2">
-        <CalendarCta variant="link" className="text-[16px]">
+        <CalendarCta variant="link" location="wynik" className="text-[16px]">
           {calendarLabel}
         </CalendarCta>
         <button

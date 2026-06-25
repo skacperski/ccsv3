@@ -201,8 +201,8 @@ const COMPARE_ROWS: CompareRow[] = [
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    q: "Co dokładnie zmienia KSC od lutego 2026?",
-    a: "Nowelizacja Krajowego Systemu Cyberbezpieczeństwa wchodzi w życie 19 lutego 2026. Obowiązkowe audyty, polityki bezpieczeństwa, zgłaszanie incydentów w 24h i 72h oraz osobista odpowiedzialność zarządu. Firmy od 50 osób lub 10 mln EUR obrotu muszą przygotować się już teraz.",
+    q: "Co dokładnie zmienia KSC od kwietnia 2026?",
+    a: "Nowelizacja Krajowego Systemu Cyberbezpieczeństwa wchodzi w życie 3 kwietnia 2026. Obowiązkowe audyty, polityki bezpieczeństwa, zgłaszanie incydentów w 24h i 72h oraz osobista odpowiedzialność zarządu. Firmy od 50 osób lub 10 mln EUR obrotu muszą przygotować się już teraz.",
   },
   {
     q: "Mamy już ISO 27001 / SZBI — co z tego nam zostaje pod NIS2?",
@@ -459,12 +459,12 @@ const SPECS: VariantSpec[] = [
     hero: {
       h1: "NIS2 i KSC 2026. Sprawdź, jakie obowiązki dotyczą Twojej firmy",
       sub: "Audyt, wdrożenie i utrzymanie zgodności w jednym miejscu. Zacznij od krótkiej ankiety, aby sprawdzić, czy Twoja organizacja podlega pod NIS2 i jakie działania warto zaplanować w pierwszej kolejności.",
-      stats: ["KSC od 19 lutego 2026", "18 sektorów objętych", "kary do 10 mln EUR"],
+      stats: ["KSC od 3 kwietnia 2026", "18 sektorów objętych", "kary do 10 mln EUR"],
       micro: "Pierwszy krok jest bezpłatny i nie zobowiązuje do dalszej współpracy. Wynik otrzymasz e-mailem.",
     },
     risk: {
       h2: "Co zmienia nowelizacja KSC?",
-      lead: "Od 19 lutego 2026 roku wymagania wynikające z NIS2 obowiązują również w polskim porządku prawnym. Wiele firm nadal nie ma pewności, czy nowe przepisy ich dotyczą i jakie działania należy podjąć, aby spełnić wymagania.",
+      lead: "Od 3 kwietnia 2026 roku wymagania wynikające z NIS2 obowiązują również w polskim porządku prawnym. Wiele firm nadal nie ma pewności, czy nowe przepisy ich dotyczą i jakie działania należy podjąć, aby spełnić wymagania.",
       cards: [
         { title: "18 sektorów", body: "Obowiązki obejmują 18 sektorów oraz organizacje zatrudniające co najmniej 50 osób lub osiągające 10 mln EUR obrotu rocznie." },
         { title: "24h na zgłoszenie", body: "Incydenty należy zgłaszać w terminach 24h i 72h, dlatego odpowiednie procedury powinny być przygotowane wcześniej." },
@@ -503,7 +503,7 @@ const SPECS: VariantSpec[] = [
     ctaUnified: "Sprawdź ryzyko w 2 minuty",
     hero: {
       h1: "Kary za NIS2 mogą sięgnąć 10 mln EUR. Czy Twoja firma podlega pod nowe przepisy?",
-      sub: "Nowelizacja KSC obowiązuje od 19 lutego 2026 roku. Jeśli Twoja firma podlega pod NIS2, musi wdrożyć odpowiednie zabezpieczenia i zgłaszać incydenty w terminie 24h lub 72h. Za brak zgodności grozi kara do 10 mln EUR albo 2% rocznego obrotu. Odpowiedzialność może dotyczyć również członków zarządu.",
+      sub: "Nowelizacja KSC obowiązuje od 3 kwietnia 2026 roku. Jeśli Twoja firma podlega pod NIS2, musi wdrożyć odpowiednie zabezpieczenia i zgłaszać incydenty w terminie 24h lub 72h. Za brak zgodności grozi kara do 10 mln EUR albo 2% rocznego obrotu. Odpowiedzialność może dotyczyć również członków zarządu.",
       stats: ["do 10 mln EUR (kara)", "24h/72h (na zgłoszenie incydentu)", "obowiązek od 19.02.2026"],
       micro: "Bez zobowiązań, otrzymasz raport dla zarządu napisany prostym językiem, bez technicznego żargonu.",
     },
@@ -531,7 +531,7 @@ const SPECS: VariantSpec[] = [
     seo: {
       title: "CyCommSec | Kary NIS2 do 10 mln EUR — sprawdź ryzyko",
       description:
-        "KSC obowiązuje od 19 lutego 2026. Sprawdź w 2 minuty, czy Twoja firma podlega pod NIS2 i jakie kary grożą za brak zgodności.",
+        "KSC obowiązuje od 3 kwietnia 2026. Sprawdź w 2 minuty, czy Twoja firma podlega pod NIS2 i jakie kary grożą za brak zgodności.",
     },
   },
   {
@@ -554,7 +554,7 @@ const SPECS: VariantSpec[] = [
       cards: [
         "Działasz w jednym z 18 sektorów NIS2 i zatrudniasz co najmniej 50 osób lub osiągasz 10 mln EUR obrotu.",
         "Brak procedur zgłaszania incydentów w terminach 24h i 72h może oznaczać naruszenie obowiązków.",
-        "KSC obowiązuje od 19 lutego 2026 roku.",
+        "KSC obowiązuje od 3 kwietnia 2026 roku.",
       ],
     },
     service: {
@@ -708,8 +708,8 @@ const SPECS: VariantSpec[] = [
     ctaUnified: "Pobierz raport dla zarządu",
     hero: {
       h1: "Za zgodność z KSC odpowiada zarząd, nie tylko dział IT.",
-      sub: "Od 19 lutego 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.",
-      stats: ["osobista odpowiedzialność zarządu", "obowiązuje od 19 lutego 2026", "wynik na 1 stronie"],
+      sub: "Od 3 kwietnia 2026 roku obowiązki wynikające z KSC dotyczą całej organizacji, ale odpowiedzialność za ich realizację spoczywa również na zarządzie. Sprawdź, jak wygląda sytuacja w Twojej firmie, zanim zweryfikuje ją kontrola lub incydent bezpieczeństwa.",
+      stats: ["osobista odpowiedzialność zarządu", "obowiązuje od 3 kwietnia 2026", "wynik na 1 stronie"],
       micro: "Wynik na jednej stronie, przygotowany z myślą o zarządzie.",
     },
     risk: {
@@ -736,7 +736,7 @@ const SPECS: VariantSpec[] = [
     seo: {
       title: "CyCommSec | KSC 2026 — odpowiedzialność zarządu",
       description:
-        "Od 19 lutego 2026 obowiązki KSC dotyczą całej organizacji, a odpowiedzialność spoczywa też na zarządzie. Raport na jednej stronie.",
+        "Od 3 kwietnia 2026 obowiązki KSC dotyczą całej organizacji, a odpowiedzialność spoczywa też na zarządzie. Raport na jednej stronie.",
     },
   },
   {

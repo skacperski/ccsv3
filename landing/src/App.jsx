@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { VARIANTS, resolveVariantId } from "./content/variants";
+import { setTrackingVariant, track } from "./tracking";
 import { VariantBar } from "./components/VariantBar";
 import { Hero } from "./components/Hero";
 import { LogoMarquee } from "./components/LogoMarquee";
@@ -27,6 +28,22 @@ export default function App() {
       .querySelector('meta[name="description"]')
       ?.setAttribute("content", c.seo.description);
   }, [c]);
+
+  // Każdy event niesie aktywny wariant (atrybucja reklam) — ustaw go po rozwiązaniu.
+  useEffect(() => {
+    setTrackingVariant(variantId);
+  }, [variantId]);
+
+  // Rezerwacja w Calendly: popup wysyła postMessage `calendly.event_scheduled`.
+  useEffect(() => {
+    const onMessage = (e) => {
+      if (e.data?.event === "calendly.event_scheduled") {
+        track("calendar_request", { source: "calendly" });
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
 
   const handleVariantChange = (id) => {
     setVariantId(id);

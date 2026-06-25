@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { openCalendly } from "../lib/calendly";
+import { track } from "../tracking";
 
 export function LogoImg({ src, alt, className = "", loading = "lazy" }) {
   const [visible, setVisible] = useState(true);
@@ -38,24 +39,29 @@ export function Btn({ variant = "red", className = "", children, ...props }) {
   );
 }
 
-export function SurveyCta({ variant = "red", className = "", children }) {
+export function SurveyCta({ variant = "red", className = "", location = "hero", children }) {
+  const onClick = () => {
+    track("cta_survey", { location });
+    document.getElementById("ankieta")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <Btn
-      variant={variant}
-      className={className}
-      onClick={() => document.getElementById("ankieta")?.scrollIntoView({ behavior: "smooth" })}
-    >
+    <Btn variant={variant} className={className} onClick={onClick}>
       {children}
     </Btn>
   );
 }
 
-export function CalendarCta({ variant = "ghost", className = "", children }) {
+export function CalendarCta({ variant = "ghost", className = "", location = "hero", children }) {
+  // Link "wolisz porozmawiać?" liczymy jako talk_link; pozostałe jako calendar_open.
+  const open = () => {
+    track(variant === "link" ? "talk_link" : "calendar_open", { location });
+    openCalendly();
+  };
   if (variant === "link") {
     return (
       <button
         type="button"
-        onClick={() => openCalendly()}
+        onClick={open}
         className={`cursor-pointer text-gray underline decoration-trans-20 underline-offset-4 transition-colors hover:text-ink ${className}`}
       >
         {children}
@@ -63,7 +69,7 @@ export function CalendarCta({ variant = "ghost", className = "", children }) {
     );
   }
   return (
-    <Btn variant={variant} className={className} onClick={() => openCalendly()}>
+    <Btn variant={variant} className={className} onClick={open}>
       {children}
     </Btn>
   );

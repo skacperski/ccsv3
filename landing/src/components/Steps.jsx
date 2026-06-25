@@ -93,8 +93,8 @@ export function Steps({ how, ctaPrimary, ctaSecondary }) {
                   </p>
                   {onViolet && (
                     <div className="mt-auto flex flex-col items-start gap-3 pt-12">
-                      <SurveyCta>{ctaPrimary}</SurveyCta>
-                      <CalendarCta variant="ghost-light">{ctaSecondary}</CalendarCta>
+                      <SurveyCta location="steps">{ctaPrimary}</SurveyCta>
+                      <CalendarCta variant="ghost-light" location="steps">{ctaSecondary}</CalendarCta>
                     </div>
                   )}
                 </div>

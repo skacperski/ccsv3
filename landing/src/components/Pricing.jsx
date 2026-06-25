@@ -38,7 +38,7 @@ function Card({ card, featured, badge }) {
         ))}
       </ul>
       <div className="mt-8 flex grow items-end">
-        <Cta variant="red" className="w-full">
+        <Cta variant="red" location="pricing" className="w-full">
           {card.cta}
         </Cta>
       </div>
